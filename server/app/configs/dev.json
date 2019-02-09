@@ -1,0 +1,12 @@
+{
+	"GENERAL": {
+		"SERVER_HTTP_PORT": 7070,
+		"SERVER_HTTP_IP": "0.0.0.0"
+	},
+	"ENDPOINTS": {
+		"PRODUCT": "/product"
+	},
+	"WINSTON": {
+		"LOGFILE": "./logs/dev.log"
+	}
+}
