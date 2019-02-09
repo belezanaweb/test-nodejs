@@ -1,10 +1,11 @@
-const logger = absoluteRequire('modules/winston');
 const http = require('http');
 const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+
+const logger = absoluteRequire('modules/winston');
 const constants = absoluteRequire('modules/constants');
 const expressRoutes = absoluteRequire('routes');
 
