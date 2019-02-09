@@ -1,18 +1,11 @@
 const express = require('express');
-
+const productController = absoluteRequire('controllers/product');
 const {
 	Router
 } = express;
 
-
 const route = Router();
 
-route.get('/', (req, res) => {
-	res.status(200)
-		.json({
-			success: true,
-			message: 'asdasdasdsadasd'
-		});
-});
+route.get('/product', productController.getProducts);
 
 module.exports = route;
