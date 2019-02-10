@@ -4,7 +4,11 @@ const logger = absoluteRequire('modules/winston');
 
 const {
 	addProduct,
-	findProducts
+	findProducts,
+	getProductBySku,
+	setProductFlags,
+	deleteProductBySku,
+	editProduct
 } = absoluteRequire('repositories/product');
 
 module.exports.getProducts = async (req, res) => {
@@ -14,7 +18,7 @@ module.exports.getProducts = async (req, res) => {
 		res.status(200)
 			.json({
 				success: true,
-				result
+				result: setProductFlags(result)
 			});
 	} catch (error) {
 		logger.error('Requesting API: Error trying to find products', {
@@ -34,7 +38,7 @@ module.exports.postProduct = async (req, res) => {
 	const model = req.body;
 
 	if (errors.length > 0) {
-		res.status(500)
+		res.status(400)
 			.json({
 				success: false,
 				result: [],
@@ -59,5 +63,89 @@ module.exports.postProduct = async (req, res) => {
 					result: []
 				});
 		}
+	}
+};
+
+module.exports.putProduct = async (req, res) => {
+	const errors = validationResult(req).array();
+	const model = req.body;
+
+	if (errors.length > 0) {
+		res.status(400)
+			.json({
+				success: false,
+				result: [],
+				errors
+			});
+	} else {
+		try {
+			const result = await editProduct(model);
+			res.status(200)
+				.json({
+					success: true,
+					result
+				});
+		} catch (error) {
+			logger.error('Requesting API: Error trying to edit a product', {
+				error
+			});
+
+			res.status(500)
+				.json({
+					success: false,
+					result: []
+				});
+		}
+	}
+};
+
+module.exports.getProductBySku = async (req, res) => {
+	const {
+		sku
+	} = req.params;
+
+	try {
+		const result = await getProductBySku(sku);
+
+		res.status(200)
+			.json({
+				success: true,
+				result: result ? setProductFlags([result])[0] : {}
+			});
+	} catch (error) {
+		logger.error('Requesting API: Error trying to get product by sku', {
+			error
+		});
+
+		res.status(500)
+			.json({
+				success: false,
+				result: []
+			});
+	}
+};
+
+module.exports.deleteProductBySku = async (req, res) => {
+	const {
+		sku
+	} = req.params;
+
+	try {
+		await deleteProductBySku(sku);
+
+		res.status(200)
+			.json({
+				success: true
+			});
+	} catch (error) {
+		logger.error('Requesting API: Error trying to delete product by sku', {
+			error
+		});
+
+		res.status(500)
+			.json({
+				success: false,
+				result: []
+			});
 	}
 };

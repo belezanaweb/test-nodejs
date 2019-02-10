@@ -1,10 +1,14 @@
 const express = require('express');
 const {
 	getProducts,
-	postProduct
+	postProduct,
+	getProductBySku,
+	deleteProductBySku,
+	putProduct
 } = absoluteRequire('controllers/product');
 const {
-	addContactValidator
+	postContactValidator,
+	putContactValidator
 } = absoluteRequire('validators/product');
 const {
 	Router
@@ -12,7 +16,10 @@ const {
 
 const route = Router();
 
+route.post('/product', postContactValidator(), postProduct);
+route.put('/product', putContactValidator(), putProduct);
 route.get('/product', getProducts);
-route.post('/product', addContactValidator(), postProduct);
+route.get('/product/:sku', getProductBySku);
+route.delete('/product/:sku', deleteProductBySku);
 
 module.exports = route;
