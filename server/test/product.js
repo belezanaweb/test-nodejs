@@ -1,8 +1,9 @@
 global.absoluteRequire = name => require(`${__dirname}/../app/${name}`);
-const uuidv1 = require('uuid/v1');
 
+const uuidv1 = require('uuid/v1');
 const constants = absoluteRequire('modules/constants');
 const logger = absoluteRequire('modules/winston');
+
 const product = {
 	sku: uuidv1(),
 	name: 'L\'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g',

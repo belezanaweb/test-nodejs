@@ -15,7 +15,7 @@ module.exports.setProductFlags = products => products.map((item) => {
 	const product = item;
 
 	product.inventory.quantity = item.inventory.warehouses.reduce(
-		(accumulator, current) => accumulator + current.quantity, 0
+		(accumulator, current) => accumulator + (current.quantity || 0), 0
 	);
 	product.marketable = item.inventory.quantity > 0;
 

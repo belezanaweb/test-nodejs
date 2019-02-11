@@ -4,7 +4,6 @@ const compression = require('compression');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-
 const logger = absoluteRequire('modules/winston');
 const constants = absoluteRequire('modules/constants');
 const expressRoutes = absoluteRequire('routes');
@@ -22,7 +21,6 @@ module.exports = (app) => {
 
 	expressRoutes(app);
 
-	// HTTP SERVER
 	server.listen(port, constants.GENERAL.SERVER_HTTP_IP, () => {
 		logger.info(`HTTP Server: Listering on ${constants.GENERAL.SERVER_HTTP_IP}:${port}`);
 	});

@@ -1,7 +1,5 @@
 const { validationResult } = require('express-validator/check');
-
 const logger = absoluteRequire('modules/winston');
-
 const {
 	addProduct,
 	findProducts,
@@ -46,11 +44,10 @@ module.exports.postProduct = async (req, res) => {
 			});
 	} else {
 		try {
-			const result = await addProduct(model);
+			await addProduct(model);
 			res.status(200)
 				.json({
-					success: true,
-					result
+					success: true
 				});
 		} catch (error) {
 			logger.error('Requesting API: Error trying to add a product', {
@@ -79,11 +76,10 @@ module.exports.putProduct = async (req, res) => {
 			});
 	} else {
 		try {
-			const result = await editProduct(model);
+			await editProduct(model);
 			res.status(200)
 				.json({
-					success: true,
-					result
+					success: true
 				});
 		} catch (error) {
 			logger.error('Requesting API: Error trying to edit a product', {

@@ -1,3 +1,20 @@
 {
-	
+	"GENERAL": {
+		"SERVER_HTTP_PORT": 8080,
+		"SERVER_HTTP_IP": "0.0.0.0"
+	},
+	"ENDPOINTS": {
+		"PRODUCT": "/product"
+	},
+	"WINSTON": {
+		"LOGFILE": "./logs/prod.log"
+	},
+	"EXPRESS_VALIDATOR_MESSAGES": {
+		"PRODUCT": {
+			"PRODUCT_SKU_ALREADY_ADDED": "Desculpe, já existe um produto cadastrado com esse SKU.",
+			"SKU_IS_REQUIRED": "O SKU do produto é obrigatório.",
+			"NAME_IS_REQUIRED": "O nome do produto é obrigatório.",
+			"INVENTORY_WAREHOUSES_IS_REQUIRED": "inventory.warehouses[] é obrigatório"
+		}
+	}
 }

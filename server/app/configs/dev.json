@@ -13,7 +13,8 @@
 		"PRODUCT": {
 			"PRODUCT_SKU_ALREADY_ADDED": "Desculpe, já existe um produto cadastrado com esse SKU.",
 			"SKU_IS_REQUIRED": "O SKU do produto é obrigatório.",
-			"NAME_IS_REQUIRED": "O nome do produto é obrigatório."
+			"NAME_IS_REQUIRED": "O nome do produto é obrigatório.",
+			"INVENTORY_WAREHOUSES_IS_REQUIRED": "inventory.warehouses[] é obrigatório"
 		}
 	}
 }
