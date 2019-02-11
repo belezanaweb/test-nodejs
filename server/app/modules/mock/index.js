@@ -1,10 +1,9 @@
 let products = [];
-const _ = require('lodash');
 
 module.exports.getProducts = () => new Promise(resolve => resolve(products));
 
 module.exports.deleteProductBySku = sku => new Promise((resolve) => {
-	products = _.filter(products, product => String(product.sku) !== String(sku));
+	products = products.filter(product => String(product.sku) !== String(sku));
 	resolve();
 });
 
@@ -26,5 +25,5 @@ module.exports.editProduct = model => new Promise((resolve) => {
 });
 
 module.exports.getProductBySku = sku => new Promise(resolve => resolve(
-	_.find(products, item => String(item.sku) === String(sku))
+	products.find(item => String(item.sku) === String(sku))
 ));
