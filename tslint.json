@@ -1,0 +1,15 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "linterOptions": {
+      "exclude": ["src/__test?*__/"]
+    },
+    "jsRules": {},
+    "rules": {
+      "quotemark":false,
+      "variable-name": false
+    },
+    "rulesDirectory": []
+}

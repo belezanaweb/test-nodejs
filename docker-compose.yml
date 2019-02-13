@@ -1,0 +1,23 @@
+version: '3.5'
+services:
+  belezanaweb-api:
+    container_name: server
+    build: ./
+    command: yarn restart
+    image: server
+    environment:
+      NODE_ENV: docker-compose
+    ports:
+      - '6060:6060'
+    tty: true
+    depends_on:
+      - mongodb
+    volumes:
+      - ./:/app/server/
+
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - '27017:27017'

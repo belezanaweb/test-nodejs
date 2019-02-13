@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["es6", "es2015", "esnext"],
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "outDir": "build",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "sourceMap": true,
+    "sourceRoot": "src",
+    "strictNullChecks": true,
+    "target": "es5",
+    "types": ["dotenv", "express", "jest", "lodash.merge", "mongoose", "node", "supertest"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
