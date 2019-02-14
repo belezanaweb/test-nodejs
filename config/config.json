@@ -1,0 +1,10 @@
+{
+  "test": {
+    "PORT": 3000,
+    "MONGO_URI": "mongodb://localhost:27017/BelezaNaWebTest"
+  },
+  "development": {
+    "PORT": 3000,
+    "MONGO_URI": "mongodb://localhost:27017/BelezaNaWeb"
+  }
+}
