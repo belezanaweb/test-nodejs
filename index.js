@@ -8,8 +8,7 @@ app.use(bodyParser.json());
 
 const port = process.env.port || 3000;
 
-app.use('/api', require());
+app.use('/api', require('./routes/route'));
 
 // Starting server
 app.listen(port);
-console.log('The App runs on port ' + port);
