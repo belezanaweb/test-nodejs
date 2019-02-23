@@ -1,0 +1,37 @@
+[{
+  "sku": 1,
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+  "inventory": {
+    "warehouses": [
+        {
+          "locality": "SP",
+          "quantity": 12,
+          "type": "ECOMMERCE"
+        },
+        {
+          "locality": "MOEMA",
+          "quantity": 3,
+          "type": "PHYSICAL_STORE"
+        }
+    ]
+  }
+},
+{
+  "sku": 2,
+  "name": "Sabonete",
+  "inventory": {
+    "warehouses": [
+        {
+          "locality": "PA",
+          "quantity": 0,
+          "type": "ECOMMERCE"
+        },
+        {
+          "locality": "BA",
+          "quantity": 3,
+          "type": "PHYSICAL_STORE"
+        }
+    ]
+  }
+}
+]
