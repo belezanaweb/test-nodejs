@@ -1,0 +1,9 @@
+version: '3'
+services:
+    belezanaweb:
+        image: node:8.10
+        ports:
+            - 3000:3000
+        volumes:
+            - .:/var/www/app
+        command: npm start --prefix /var/www/app

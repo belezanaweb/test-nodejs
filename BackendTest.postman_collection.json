@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "344f2a74-3332-4223-969e-6898a8c8208d",
+		"name": "BackendTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product | Criação de produto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"type": "text",
+						"value": "no-cahe"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sku\": 43264,\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n\t            \"quantity\": 12,\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": 3,\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product | Edição de produto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cahe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 1kg\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n\t            \"quantity\": 2,\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": 2,\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/43264",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43264"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product | Recuperação de produto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cahe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/43264",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43264"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product | Deleção de produto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cahe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/43264",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43264"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

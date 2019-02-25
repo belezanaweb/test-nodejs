@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "start": "node index.js",
+    "pretest": "npm install",
+    "test": "./node_modules/mocha/bin/mocha ./test/business"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "body-parser": "1.18.*",
+    "express": "4.16.*",
+    "mocha": "6.0.*",
+    "sqlite3": "4.0.*"
+  }
 }
