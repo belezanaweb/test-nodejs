@@ -6,4 +6,7 @@ services:
             - 3000:3000
         volumes:
             - .:/var/www/app
-        command: npm start --prefix /var/www/app
+        environment:
+            NODE_ENV: development
+        working_dir: /var/www/app
+        command: 'npm start'
