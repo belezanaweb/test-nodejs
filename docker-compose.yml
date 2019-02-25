@@ -1,6 +1,6 @@
 version: '3'
 services:
-    belezanaweb:
+    test_node:
         image: node:8.10
         ports:
             - 3000:3000

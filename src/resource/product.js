@@ -7,6 +7,19 @@ const PutProduct = require(path.resolve('./src/controller/PutProduct'));
 const PostProduct = require(path.resolve('./src/controller/PostProduct'));
 const DeleteProduct = require(path.resolve('./src/controller/DeleteProduct'));
 
+router.options('/*', function (req, res) {
+  try {
+    const options = new Array('GET', 'POST', 'PUT', 'DELETE', 'OPTIONS');
+    res.header("Access-Control-Allow-Methods", options.join(','));
+    res.statusCode = 200;
+    res.send(options);
+  } catch (err) {
+    res.statusCode = 500;
+    res.end();
+    console.error(err);
+  }
+});
+
 router.post('/', function (req, res) {
   try {
     if ((new Entity()).validate(req.body)) {

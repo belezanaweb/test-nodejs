@@ -6,23 +6,34 @@
 	},
 	"item": [
 		{
-			"name": "Home",
+			"name": "Product",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/",
+					"raw": "http://localhost:3000/product",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						""
+						"product"
 					]
 				}
 			},
