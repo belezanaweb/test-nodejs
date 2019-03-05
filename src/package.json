@@ -1,0 +1,31 @@
+{
+  "name": "test-nodejs",
+  "version": "0.0.1",
+  "description": "Avaliação de código",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha app/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belezanaweb/test-nodejs.git"
+  },
+  "keywords": [],
+  "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belezanaweb/test-nodejs/issues"
+  },
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-load": "^1.1.16",
+    "helmet": "^3.15.1",
+    "mocha": "^6.0.2",
+    "supertest": "^3.4.2"
+  }
+}
