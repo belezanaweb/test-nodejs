@@ -71,3 +71,33 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+---
+
+## Executando a API implementada
+
+Mudar para o diretório `src`.
+```bash
+cd src
+```
+
+Instalar as dependências do projeto.
+```bash
+npm install
+```
+
+Iniciar o servidor com API de produtos.
+```bash
+npm start
+```
+
+Após iniciado o servidor, executar os testes com o seguinte comando.
+```bash
+npm test
+```
+
+---
+
+## Ferramentas utilizadas
+Ambiente de desenvolvimento: VSCode.
+Ferramentas: NodeJS, ExpressJS, Express-load, Mocha, Supertest.
