@@ -1,5 +1,11 @@
 export default class Warehouse {
-    private locality : string;
-    private quantity : number;
-    private type: string;
+    private _locality : string;
+    private _quantity : number;
+    private _type: string;
+
+    constructor(locality : string,  quantity : number, type: string){
+        this._locality = locality;
+        this._quantity = quantity;
+        this._type = type;
+    }
 }

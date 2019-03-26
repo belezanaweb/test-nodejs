@@ -8,9 +8,10 @@ export default class Redis {
      * https://www.npmjs.com/package/redis#rediscreateclient configurações que podem ser passadas para a função que inicializa a conexão com redis; 
      * Caso queira utilizar alguma porta diferente, caso não, pode invocar o metodo que o construtor vai usar os valores default do redis;
      */
-    public async initialize(options?: any) {
+    public initialize(options?: any) {
         try {
             this.redisClient = createHandyClient(options);
+            console.log('Redis conectado');
         } catch (error) {
             throw error;
         }

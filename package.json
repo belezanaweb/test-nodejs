@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest --no-cache",
+    "dev": "nodemon src/index.ts",
+    "dev:debug": "nodemon --inspect src/index.ts",
+    "prod": "npm run build && node dist/entry.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +32,28 @@
     "nodemon": "^1.18.10",
     "ts-node": "^8.0.3",
     "typescript": "^3.3.4000"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": { 
+      "^.+\\.ts$": "ts-jest" 
+    },
+    "testRegex": "\\.test\\.ts",
+    "moduleFileExtensions": [ 
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node" 
+    ],
+    "roots": [
+      "./spec"
+    ]
   }
 }
