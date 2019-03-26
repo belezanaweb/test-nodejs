@@ -2,33 +2,60 @@
 
 describe("[*] PRODUTOS", () => {
 
-    test('Criação', async () =>{
-        expect(true);
-    });
 
-    test('Edição', async () =>{
-        expect(true);
-    });
+    describe("CRIAÇÃO", () => {
 
-    test('Exclusão', async () =>{
-        expect(true);
-    });
+        test('Criação - não deve retornar exceção', async () =>{
+            expect(true);
+        });
 
-    test('Recuperação', async () =>{
-        expect(true);
-    });
+        test('Criação - deve retornar exceção ao criar produto com sku já existente', async () =>{
+            expect(true);
+        });
 
+    })
 
-    test('Calcula inventory.quantity', async () => {
-        expect(true);
-    });
+   describe("EDIÇÃO", () => {
 
-    test('Calcula isMarketable', async () => {
-        expect(true);
-    });
+        test('Edição - não deve retornar exceção', async () =>{
+            expect(true);
+        });
+   });
 
 
-    test('Verifica produtos iguals sku', async () => {
-        expect(true);
-    });
-})
+   describe("EXCLUSÃO", ()=> {
+
+        test('Exclusão - não deve retornar exceção', async () =>{
+            expect(true);
+        });
+   });
+
+   describe("RECUPERAÇÃO", ()=> {
+       
+        test('Recuperação - não deve retornar exceção', async () =>{
+            expect(true);
+        });
+   });
+
+    
+
+    
+
+
+
+    // test('Calcula inventory.quantity - não deve retornar exceção', async () => {
+    //     expect(true);
+    // });
+
+    // test('Calcula isMarketable - não deve retornar exceção', async () => {
+    //     expect(true);
+    // });
+
+
+    // test('Verifica produtos iguals sku - não deve retornar exceção', async () => {
+    //     expect(true);
+    // });
+
+
+
+});
