@@ -19,7 +19,7 @@ describe("[*] PRODUTOS", () => {
     });
 
 
-    test('Calcula inventory.quanttesty', async () => {
+    test('Calcula inventory.quantity', async () => {
         expect(true);
     });
 
