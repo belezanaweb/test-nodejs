@@ -24,6 +24,7 @@
   "dependencies": {
     "@types/cors": "^2.8.4",
     "@types/express": "^4.16.1",
+    "@types/joi": "^14.3.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -40,17 +41,17 @@
   },
   "jest": {
     "verbose": true,
-    "transform": { 
-      "^.+\\.ts$": "ts-jest" 
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
     },
     "testRegex": "\\.test\\.ts",
-    "moduleFileExtensions": [ 
+    "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
       "jsx",
       "json",
-      "node" 
+      "node"
     ],
     "roots": [
       "./spec"
