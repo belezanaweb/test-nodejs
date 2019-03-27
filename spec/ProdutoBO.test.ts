@@ -1,61 +1,62 @@
 //Teste das regras de negocio da aplicação
+import ProductBO from '../src/bo/ProductBO';
+import ProductException from '../src/exceptions/ProductException';
+import { 
+    productCheckFlagMarketableTrue , 
+    productCheckFlagMarketableFalse , 
+    calculateInventoryQuantity , 
+    calculateInventoryQuantityEmpty,
+    productUndefined 
+} from './ProdutoMock';
 
 describe("[*] PRODUTOS", () => {
-
-
-    describe("CRIAÇÃO", () => {
-
-        test('Criação - não deve retornar exceção', async () =>{
-            expect(true);
-        });
-
-        test('Criação - deve retornar exceção ao criar produto com sku já existente', async () =>{
-            expect(true);
-        });
-
+    let productBO : ProductBO;
+    beforeEach(() =>{
+        productBO = new ProductBO();
     })
 
-   describe("EDIÇÃO", () => {
+    describe("validateIsMarketableFlag", () => {
 
-        test('Edição - não deve retornar exceção', async () =>{
-            expect(true);
+        test('Flag deve retornar true', async () =>{
+            expect( productBO.validateIsMarketableFlag(productCheckFlagMarketableTrue)).toBe(true);
         });
-   });
 
-
-   describe("EXCLUSÃO", ()=> {
-
-        test('Exclusão - não deve retornar exceção', async () =>{
-            expect(true);
+        test('Flag deve retornar false', async () =>{
+            expect( productBO.validateIsMarketableFlag(productCheckFlagMarketableFalse)).toBe(false);
         });
-   });
 
-   describe("RECUPERAÇÃO", ()=> {
-       
-        test('Recuperação - não deve retornar exceção', async () =>{
-            expect(true);
+        test('Deve retornar exception quando inventory não estiver definido', async () =>{
+            expect( () => productBO.validateIsMarketableFlag(calculateInventoryQuantityEmpty)).toThrowError(ProductException.E08);
         });
-   });
+
+    });
+
+
+    describe("calculateInventoryQuantity", () => {
+
+        test('Deve retornar 50', async () =>{
+            expect( productBO.calculateInventoryQuantity(calculateInventoryQuantity)).toBe(50);
+        });
+
+        test('Deve retornar exception quando warehouses vazio', async () =>{
+            expect( () => productBO.calculateInventoryQuantity(calculateInventoryQuantityEmpty)).toThrowError(ProductException.E05);
+        });
+
+    });
 
     
+    describe("validateSKU", () => {
+
+        test('Nao deve retornar nada', async () =>{
+            expect( productBO.validateSKU(productUndefined) ).toBeUndefined();
+        });
+
+        test('Deve retornar exception quando produto ja existir', async () =>{
+            expect( () => productBO.validateSKU(productCheckFlagMarketableTrue)).toThrowError(ProductException.E04);
+        });
+
+    });
 
     
-
-
-
-    // test('Calcula inventory.quantity - não deve retornar exceção', async () => {
-    //     expect(true);
-    // });
-
-    // test('Calcula isMarketable - não deve retornar exceção', async () => {
-    //     expect(true);
-    // });
-
-
-    // test('Verifica produtos iguals sku - não deve retornar exceção', async () => {
-    //     expect(true);
-    // });
-
-
 
 });
