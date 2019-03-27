@@ -14,7 +14,8 @@ _router
  .get(produtoController.index)
  .post(expressJoi(ProdutoSchema.POST), produtoController.create);
 
- _router.route('/produto/:sku')
+ _router
+ .route('/produto/:sku')
  .get(expressJoi(ProdutoSchema.GET),produtoController.read)
  .put(expressJoi(ProdutoSchema.PUT),produtoController.update)
  .delete(expressJoi(ProdutoSchema.DELETE), produtoController.delete);
