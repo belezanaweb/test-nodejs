@@ -10,7 +10,7 @@ export default class ProductSchema {
                 warehouses : Joi.array().items(
                     Joi.object().keys({
                     locality: Joi.string().required(),
-                    quantity: Joi.number().required(),
+                    quantity: Joi.number().required().min(0),
                     type: Joi.string().required()
                 })
                 ).required()
@@ -34,7 +34,7 @@ export default class ProductSchema {
                 warehouses : Joi.array().items(
                     Joi.object().keys({
                     locality: Joi.string().required(),
-                    quantity: Joi.number().required(),
+                    quantity: Joi.number().required().min(0),
                     type: Joi.string().required()
                 })
                 ).required()
