@@ -5,13 +5,16 @@ typescript - instalado globalmente, rode o comando npm install -g typescript
 nodemon - instalado globalmente
 
 
+
 ## Rodando aplicação
+
+Se utilizar o Windows preferivel que rode via terminal do git, powershell pode ter alguns problemas com os comandos do npm
 
 Apos baixar a aplicação rode comando npm install no terminal para instalar as dependencias.
 
-Para rodar em modo de desenvolvimento utilize o comando npm run dev no terminal.
+Para rodar em modo de desenvolvimento utilize o comando npm run dev no terminal. Server vai iniciar na Porta 3000 ou na porta que voce define na variavel de ambient PORT
 
-Para rodar em modo de produção utilize o comando npm run prod no terminal.
+Para rodar em modo de produção utilize o comando npm run prod no terminal. Server vai iniciar na Porta 3000 ou na porta que voce define na variavel de ambient PORT
 
 Para rodar os teste utilize o comando npm test no terminal.
 

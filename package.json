@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean:build": "rm -rf build",
     "build": "tsc",
     "test": "jest --no-cache",
     "dev": "nodemon src/index.ts",
     "dev:debug": "nodemon --inspect src/index.ts",
-    "prod": "npm run build && node dist/index.js"
+    "prod": "npm run clean:build && npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",
