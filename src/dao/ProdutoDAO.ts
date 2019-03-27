@@ -55,7 +55,7 @@ export default class ProdutoDAO {
      */
     public delete (sku: number){
         try {
-            return produtosCollection.findAndRemove({ 'sku' : sku});
+            return produtosCollection.chain().find({ 'sku' : sku}).remove();
         } catch (error) {
             throw new ProdutoException(ProdutoException.E03);
         }

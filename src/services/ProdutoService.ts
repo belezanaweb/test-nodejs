@@ -1,16 +1,14 @@
 import Produto from '../model/Produto';
 import Inventory from '../model/Inventory';
-import Warehouse from '../model/Warehouse';
 import ProdutoDAO from '../dao/ProdutoDAO';
 import ProdutoBO from '../bo/ProdutoBO';
 import ProdutoException from '../exceptions/ProdutoException';
+import Constants from '../constants'
 
 export default class ProdutoService {
     //TODO: dependency injection 
-
     private produto : Produto = new Produto();
     private inventory: Inventory = new Inventory();
-    // private warehouse : Warehouse = new Warehouse();
     private produtoDAO : ProdutoDAO = new ProdutoDAO();
     private produtoBO : ProdutoBO = new ProdutoBO ();
 
@@ -42,7 +40,10 @@ export default class ProdutoService {
     public delete( sku: number) {
         try {
             if(!sku) throw new ProdutoException(ProdutoException.E06);
-            return this.produtoDAO.delete(sku);
+            let produto = this.produtoDAO.find(sku);
+            if(!produto) throw new ProdutoException(ProdutoException.E07);
+            const produtoDeletado = this.produtoDAO.delete(sku);
+            return produtoDeletado.data();
         } catch (error) {
             throw error
         }
@@ -76,14 +77,13 @@ export default class ProdutoService {
 
             if(!produto) throw new ProdutoException(ProdutoException.E07);
 
-            console.log(data);
             produto.name = data.name;
             produto.inventory = data.inventory;
             produto.inventory.quantity = this.produtoBO.calculaInventoryQuantity(data.inventory.warehouses);
             produto.isMarketable = this.produtoBO.validaIsMarketable(produto);
             this.produto = produto;
-
-            return this.produtoDAO.update(sku, this.produto);
+            const produtoAtualizado = this.produtoDAO.update(sku, this.produto);
+            return produtoAtualizado.data();
 
         } catch (error) {
             throw error
