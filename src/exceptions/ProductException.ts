@@ -1,4 +1,4 @@
-export default class ProdutoException extends Error{
+export default class ProductException extends Error{
     static E00 = 'Erro ao cadastrar produto';
     static E01 = 'Erro ao buscar produto';
     static E02 = 'Erro ao atualizar produto';

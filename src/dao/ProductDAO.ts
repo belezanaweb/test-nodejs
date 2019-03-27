@@ -1,9 +1,8 @@
 import produtosCollection from '../config/database';
-import Produto from '../model/Produto';
-import ProdutoException from '../exceptions/ProdutoException';
-import Constants from '../constants';
+import Product from '../model/Product';
+import ProductException from '../exceptions/ProductException';
 
-export default class ProdutoDAO {
+export default class ProductDAO {
     
     // private db : Database = new Database();
     // private produtoCollection = this.db.addCollection(Constants.DB_COLLECTION)
@@ -12,11 +11,11 @@ export default class ProdutoDAO {
      * Salva os dados do produto em memoria
      * @param produto 
      */
-    public save(produto: Produto) {
+    public save(produto: Product) {
         try {
             return produtosCollection.insert(produto);
         } catch (error) {
-            throw new ProdutoException(ProdutoException.E00);
+            throw new ProductException(ProductException.E00);
         }
         
     }
@@ -29,7 +28,7 @@ export default class ProdutoDAO {
         try {
             return produtosCollection.findObject({ 'sku' : sku})
         } catch (error) {
-            throw new ProdutoException(ProdutoException.E01);
+            throw new ProductException(ProductException.E01);
         }
        
     }
@@ -39,12 +38,12 @@ export default class ProdutoDAO {
      * @param sku 
      * @param produto 
      */
-    public update( sku : number , produto : Produto){
+    public update( sku : number , produto : Product){
         try {
             return produtosCollection.chain().find({ 'sku' : sku}).update((produto) => produto = produto);
         } catch (error) {
             console.log(error);
-            throw new ProdutoException(ProdutoException.E02);
+            throw new ProductException(ProductException.E02);
         }
         
     }
@@ -57,7 +56,7 @@ export default class ProdutoDAO {
         try {
             return produtosCollection.chain().find({ 'sku' : sku}).remove();
         } catch (error) {
-            throw new ProdutoException(ProdutoException.E03);
+            throw new ProductException(ProductException.E03);
         }
         
     }

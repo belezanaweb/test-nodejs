@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export default class ProdutoSchema {
+export default class ProductSchema {
 
     public static POST = {
         body: {

@@ -1,6 +1,6 @@
 import Inventory from './Inventory';
 
-export default class Produto {
+export default class Product {
     sku : number|undefined;
     name: string|undefined;
     inventory: Inventory|undefined;

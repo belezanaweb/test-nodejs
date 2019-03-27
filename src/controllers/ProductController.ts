@@ -1,7 +1,7 @@
 import express from 'express';
-import ProdutoService from '../services/ProdutoService';
+import ProductService from '../services/ProductService';
 
-export default class ProdutoController {
+export default class ProductController {
     //TODO: dependency injection
 
     public index (req: express.Request, res: express.Response) {
@@ -11,7 +11,7 @@ export default class ProdutoController {
 
     public create (req: express.Request, res: express.Response) {
         try {
-            const produtoService = new ProdutoService();
+            const produtoService = new ProductService();
             const produtoSalvo = produtoService.save(req.body);
             res.status(200).json(produtoSalvo);
 
@@ -23,7 +23,7 @@ export default class ProdutoController {
 
     public read (req: express.Request, res: express.Response) {
         try {
-            const produtoService = new ProdutoService();
+            const produtoService = new ProductService();
             const sku = req.params.sku;
             const produto = produtoService.find(Number(sku));
             res.status(200).json(produto);
@@ -35,7 +35,7 @@ export default class ProdutoController {
 
     public update (req: express.Request, res: express.Response) {
         try {
-            const produtoService = new ProdutoService();
+            const produtoService = new ProductService();
             const sku = req.params.sku;
             const data = req.body;
             const produtoAtualizado = produtoService.update(Number(sku), data);
@@ -47,7 +47,7 @@ export default class ProdutoController {
 
     public delete (req: express.Request, res: express.Response) {
         try {
-            const produtoService = new ProdutoService();
+            const produtoService = new ProductService();
             const sku = req.params.sku;
             const produtoDeletado = produtoService.delete(Number(sku));
             res.status(200).json(produtoDeletado);
