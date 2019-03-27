@@ -1,5 +1,6 @@
 import ProdutoException from '../exceptions/ProdutoException';
 import Produto from '../model/Produto';
+import Warehouses from '../model/Warehouse';
 
 export default class ProdutoBO {
 
@@ -7,7 +8,7 @@ export default class ProdutoBO {
      * Valida se já existe um produto com o sku informado
      * @param produto 
      */
-    public validaSKU(produto : Produto): void {
+    public validaSKU(produto : Produto | any): void {
         if(produto) throw new ProdutoException(ProdutoException.E04);
     }
 
@@ -15,10 +16,17 @@ export default class ProdutoBO {
      * Retorna a quantity dos warehouses e soma para atribuir o valor ao inventory.quantity
      * @param produto 
      */
-    public calculaInventoryQuantity (produto: Produto): number {
+    public calculaInventoryQuantity (warehouses: Warehouses[]): number {
         
-        if(!produto._inventory) throw new ProdutoException(ProdutoException.E05);
-        const inventoryQuantity = produto._inventory._warehouses!.reduce((prevValue, currentValue) => (currentValue && currentValue._quantity ) ? prevValue + currentValue._quantity: 0 , 0);
+        if(!warehouses || warehouses.length <= 0) throw new ProdutoException(ProdutoException.E05);
+        const inventoryQuantity = warehouses.reduce((prevValue, currentValue) => {
+
+           if(currentValue.quantity){
+               return prevValue + currentValue.quantity;
+           }
+           return prevValue;
+        }  , 0);
+
         return inventoryQuantity;
         
     }
@@ -28,8 +36,8 @@ export default class ProdutoBO {
      * @param produto 
      */
     public validaIsMarketable(produto: Produto): boolean {
-        if(!produto._inventory) throw new ProdutoException(ProdutoException.E05);
-        if(produto._inventory._quantity  && produto._inventory._quantity > 0) return true;
+        if(!produto.inventory) throw new ProdutoException(ProdutoException.E08);
+        if(produto.inventory.quantity  && produto.inventory.quantity > 0) return true;
         return false
     }
 

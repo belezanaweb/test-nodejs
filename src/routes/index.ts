@@ -1,6 +1,6 @@
 /**
  * Arquivo para centralizar os imports das rotas
  */
-import produtoRouter from './produtoRouter';
+const router = require('../routes/produtoRouter');
 
-export default { produtoRouter };
+module.exports = router;

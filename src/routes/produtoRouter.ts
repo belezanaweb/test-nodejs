@@ -1,19 +1,25 @@
-import express from 'express';
+const express = require('express');
 
 import ProdutoController from '../controllers/ProdutoController';
-const SchemaValidation = require('../middlewares/SchemaValidation');
+import ProdutoSchema from '../validations/ProdutoSchema';
+const expressJoi = require('express-joi-validator')
 
-const router = express.Router();
+const _router = express.Router();
 const produtoController = new ProdutoController();
-
 /**
  * Rotas da api, chamando respectivo controller e metodo;
  */
-router.use('/produtos')
-.get('/', produtoController.index)
-.get('/:sku', produtoController.read)
-.post(SchemaValidation(true),produtoController.create)
-.put(SchemaValidation(true), produtoController.update)
-.delete('/:sku', produtoController.delete);
+_router
+ .route('/produto')
+ .get(produtoController.index)
+ .post(expressJoi(ProdutoSchema.POST), produtoController.create);
 
-export default router;
+ _router.route('/produto/:sku')
+ .get(expressJoi(ProdutoSchema.GET),produtoController.read)
+ .put(expressJoi(ProdutoSchema.PUT),produtoController.update)
+ .delete(expressJoi(ProdutoSchema.DELETE), produtoController.delete);
+
+ 
+
+
+module.exports = _router;

@@ -3,8 +3,10 @@ import Inventory from '../model/Inventory';
 import Warehouse from '../model/Warehouse';
 import ProdutoDAO from '../dao/ProdutoDAO';
 import ProdutoBO from '../bo/ProdutoBO';
+import ProdutoException from '../exceptions/ProdutoException';
 
 export default class ProdutoService {
+    //TODO: dependency injection 
 
     private produto : Produto = new Produto();
     private inventory: Inventory = new Inventory();
@@ -13,22 +15,24 @@ export default class ProdutoService {
     private produtoBO : ProdutoBO = new ProdutoBO ();
 
     public save( data : any ){
-      try {
-        const _produto = this.produtoDAO.find(data.sku);
-        this.produtoBO.validaSKU(_produto);
-        // setando os dados para salvar o produto
-        this.produto._sku = data.sku;
-        this.produto._name = data.name;
-        this.inventory._warehouses = [data.warehouse];
-        this.produto._inventory = this.inventory;
-        //validando os dados de inventory.quantity e marketable
-        this.produto._inventory._quantity = this.produtoBO.calculaInventoryQuantity(this.produto);
-        this.produto._isMarketable = this.produtoBO.validaIsMarketable(this.produto);
-
-        return this.produtoDAO.save(this.produto);
-      } catch (error) {
-          throw error
-      }
+        try {
+            const _produto = this.produtoDAO.find(data.sku);
+            this.produtoBO.validaSKU(_produto);
+            // setando os dados para salvar o produto
+            this.produto.sku = data.sku;
+            this.produto.name = data.name;
+            this.inventory.warehouses = data.inventory.warehouses;
+            this.produto.inventory = this.inventory;
+            this.produto.inventory.quantity = this.produtoBO.calculaInventoryQuantity(data.inventory.warehouses);
+            //validando os dados de inventory.quantity e marketable
+            
+            this.produto.isMarketable = this.produtoBO.validaIsMarketable(this.produto);
+            return this.produtoDAO.save(this.produto);
+        } catch (error) {
+            throw error;
+        }
+        
+      
            
     }
     /**
@@ -37,6 +41,7 @@ export default class ProdutoService {
      */
     public delete( sku: number) {
         try {
+            if(!sku) throw new ProdutoException(ProdutoException.E06);
             return this.produtoDAO.delete(sku);
         } catch (error) {
             throw error
@@ -49,7 +54,37 @@ export default class ProdutoService {
      */
     public find( sku: number) {
         try {
-            return this.produtoDAO.find(sku);
+            if(!sku) throw new ProdutoException(ProdutoException.E06);
+            let produto = this.produtoDAO.find(sku);
+
+            if(!produto) throw new ProdutoException(ProdutoException.E07);
+            return produto;
+        } catch (error) {
+            throw error
+        }
+    }
+
+    /**
+     * Atualiza o produto
+     * @param sku 
+     * @param data 
+     */
+    public update( sku: number , data: any) {
+        try {
+            if(!sku) throw new ProdutoException(ProdutoException.E06);
+            let produto = this.produtoDAO.find(sku);
+
+            if(!produto) throw new ProdutoException(ProdutoException.E07);
+
+            console.log(data);
+            produto.name = data.name;
+            produto.inventory = data.inventory;
+            produto.inventory.quantity = this.produtoBO.calculaInventoryQuantity(data.inventory.warehouses);
+            produto.isMarketable = this.produtoBO.validaIsMarketable(produto);
+            this.produto = produto;
+
+            return this.produtoDAO.update(sku, this.produto);
+
         } catch (error) {
             throw error
         }

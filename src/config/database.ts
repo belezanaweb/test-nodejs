@@ -1,14 +1,13 @@
+import Constants from '../constants'
 import Loki from 'lokijs';
-import Constants from '../constants';
 
-export default class Database {
-    private db : Loki;
+const db = new Loki(Constants.DB_NAME);
 
-    constructor(){
-        this.db = new Loki(Constants.DB_NAME);
-    }
+let produtosCollection = db.getCollection(Constants.DB_COLLECTION);
 
-    public getDb () {
-        return this.db.addCollection(Constants.DB_COLLECTION);
-    }
-} 
+if(!produtosCollection){
+    produtosCollection = db.addCollection(Constants.DB_COLLECTION);
+}
+
+
+export default produtosCollection;
