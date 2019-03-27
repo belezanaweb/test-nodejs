@@ -6,7 +6,9 @@
       "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
       "noEmit": true,                        /* Do not emit outputs. */
       "outDir": "./dist",
+      "removeComments": true,
       "lib": ["dom", "esnext"],
+      "rootDir": "./src",
       /* Strict Type-Checking Options */
       "strict": true,                           /* Enable all strict type-checking options. */
   
@@ -22,5 +24,9 @@
       /* Experimental Options */
       "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
       "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "spec"
+    ]
   }

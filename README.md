@@ -1,3 +1,27 @@
+## Ambiente de teste utilizado
+node - 10.15.3
+npm - 6.4.1
+typescript - instalado globalmente, rode o comando npm install -g typescript
+nodemon - instalado globalmente
+
+
+## Rodando aplicação
+
+Apos baixar a aplicação rode comando npm install no terminal para instalar as dependencias.
+
+Para rodar em modo de desenvolvimento utilize o comando npm run dev no terminal.
+
+Para rodar em modo de produção utilize o comando npm run prod no terminal.
+
+Para rodar os teste utilize o comando npm test no terminal.
+
+
+## Rotas
+
+Para visualizar as routas você pode ver no arquivo que se encontra src/routes/productRoutes.ts
+
+
+
 ### Backend Test
 
 Esta é uma avaliação básica de código.

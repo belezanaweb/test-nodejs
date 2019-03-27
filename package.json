@@ -8,7 +8,7 @@
     "test": "jest --no-cache",
     "dev": "nodemon src/index.ts",
     "dev:debug": "nodemon --inspect src/index.ts",
-    "prod": "npm run build && node dist/entry.js"
+    "prod": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
