@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(routes);
 
-// Example error handler
+// Tratamento de erro Joi
 app.use(  (err: any, req: any, res: any, next: any) => {
     if (err.isBoom) {
          return res.status(err.output.statusCode).json(err.output.payload);
