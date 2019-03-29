@@ -171,3 +171,8 @@ para iniciar o servidor, que estará ouvindo a porta 7000
 ## Observações
 Para facilitar o teste e consumo da API, basta utilizar o link do Postman abaixo, que já conta com os endpoints configurados para uso:
 https://www.getpostman.com/collections/54cadcf65a7be8769b44
+
+
+## Criador
+- Renato Silva
+- E-mail: renatohss@yahoo.com.br
