@@ -76,12 +76,19 @@ Crie endpoints para as seguintes ações:
 # API de Inventório
 Esta API foi criada com o objetivo de servir como um gerenciador de estoque de produtos de beleza
 
-## Como usar
+## Como instalar
 Clone o projeto e execute
-```javascript
-npm install
-```
+
+- npm install
+
 para instalar os modulos necessários
+
+## Como usar
+Basta executar o comando
+
+- node app.js
+
+para iniciar o servidor, que estará ouvindo a porta 7000
 
 ## Recursos
 ### Encontrar Produtos
