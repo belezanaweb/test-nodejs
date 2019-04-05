@@ -1,4 +1,5 @@
 ### Backend Test
+[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
 Esta é uma avaliação básica de código.
 
