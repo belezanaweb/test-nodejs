@@ -13,6 +13,16 @@
   "keywords": [],
   "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "consign": "^0.1.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-validator": "^2.20.8",
+    "mongoose": "^5.2.15",
+    "uniqid": "^5.0.3",
+    "url": "^0.11.0"
+  },
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },

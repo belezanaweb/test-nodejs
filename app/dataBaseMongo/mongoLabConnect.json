@@ -1,0 +1,5 @@
+{
+    "dbuser": "user",
+    "dbpassword": "senha123",
+    "base": "@ds159767.mlab.com:59767/beleza-na-web"
+}
