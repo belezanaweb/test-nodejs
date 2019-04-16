@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%include ../header.ejs%>
+</head>
+<body>
+  <div class="header text-center ">
+      <a href="/"><img class="text-center" src="https://res.cloudinary.com/beleza-na-web/image/upload/f_svg,fl_progressive,q_auto:eco/v1/blz/assets-store/0.0.52/images/store/1/logo.svg" alt=""></a> 
+  </div>
+  <div class="bar form-group">
+  </div>
+  <div class="container">
+    <div class="content">
+      <h4>Edição de produto</h4>
+      <form action="/produtos/editar" method="post">
+        <input type="hidden" name="token" value="" class="token">
+        <input type="text" class="form-control" disabled value="<%=dados.sku%>"><br> 
+        <input type="hidden" name="sku" value="<%=dados.sku%>">
+        <input type="text" class="form-control" required name="name" placeholder="Nome do produto" value="<%=dados.name%>"><br> 
+        <input type="text" class="form-control" disabled value="<%=dados.inventory.quantity%>"><br><br>
+        <label for="">Lojas </label><button class="btn btn-primary add-loja" type="button">+</button> <br><br>
+        <div class="lojas">
+          <% var i = 0;
+          if(lojas != ''){%>
+            <% for(var i=0;i<lojas.length;i++){ %>
+              <div class="loja"> 
+                <label for="">Loja <%= i + 1 %></label><button class="btn btn-danger btn-excluir deletar">Deletar loja</button>
+                <input type="text" name="inventory[warehouses][<%=i%>][locality]" class="form-control" required placeholder="Localidade da loja" value="<%=lojas[i].locality%>"><br>
+                <input type="text" name="inventory[warehouses][<%=i%>][quantity]" class="form-control" required placeholder="Quantidade" value="<%=lojas[i].quantity%>"><br>
+                <input type="text" name="inventory[warehouses][<%=i%>][type]" class="form-control" required placeholder="Tipo do produto" value="<%=lojas[i].type%>"><br><br>
+              </div>
+              <%}%>
+          <%}else{%>
+            <h4>Não tem lojas cadastradas</h4>
+          <%}%>
+        </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="/produtos" class="btn btn-primary">Voltar</a>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+  var inc = <%= i %>;
+$(document).on('click','.add-loja',function(){
+  html = `<div class="loja"> <label for="">Loja `+ (inc + parseInt(1)) +`</label><button class="btn btn-danger btn-excluir deletar">Deletar loja</button>
+  <input type="text" name="inventory[warehouses][`+inc+`][locality]" class="form-control" required placeholder="Localidade da loja"><br>
+  <input type="text" name="inventory[warehouses][`+inc+`][quantity]" class="form-control" required placeholder="Quantidade"><br>
+  <input type="text" name="inventory[warehouses][`+inc+`][type]" class="form-control" required placeholder="Tipo do produto"><br><br></div>`;
+  $('.lojas').append(html)
+  inc++;
+})
+
+$(document).ready(function(){
+  var token = localStorage.getItem('token')
+  $('.token').val(token)
+})
+
+$(document).on('click','.deletar',function(){
+  $(this).parent().remove()
+})
+</script>
+</html>

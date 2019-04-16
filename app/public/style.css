@@ -1,0 +1,34 @@
+.header{
+  width: 100%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.bar{
+  width: 100%;
+  background-color: #6a1b60;
+  height: 50px;
+}
+.card-header-end{
+  color: white;
+  background-color: #6a1b60;
+}
+.btn-beleza{
+  background-color: #6a1b60;
+  border: 0px;
+}
+.inicial{
+  background-color: white;
+  margin-bottom: 0px;
+}
+.excluir{
+  color: white !important;
+  cursor: pointer
+}
+
+.btn-excluir,.add-loja{
+  margin-left: 5px;
+}
+
+label{
+  margin-bottom: 1rem !important;
+}

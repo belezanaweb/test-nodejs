@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%include ../header.ejs%>
+</head>
+<body>
+    <div class="header text-center ">
+        <a href="/"><img class="text-center" src="https://res.cloudinary.com/beleza-na-web/image/upload/f_svg,fl_progressive,q_auto:eco/v1/blz/assets-store/0.0.52/images/store/1/logo.svg" alt=""></a> 
+    </div>
+    <div class="bar form-group">
+    </div>
+    <%if(msg){%>
+        <div class="alert alert-success" role="alert"><%=msg%></div>
+    <%}%>
+    <div class="botoes form-group text-center">
+        <a class="btn btn-primary btn-beleza" href="/produtos/inserir">Cadastrar novos produtos</a>
+        <a class="btn btn-primary btn-beleza" href="/">Voltar</a>
+    </div>    
+    <div class="col-md-11">
+        <% if(dados != ''){%>
+            <table class="table table-striped">
+                <tr>
+                    <td>SKU</td>
+                    <td>Nome</td>
+                    <td>Quantidade</td>
+                    <td>isMarketable</td>
+                    <td>Detalhes</td>
+                    <td>Excluir</td>
+                </tr>
+                <%for(var i=0;i<dados.length;i++){ %>
+                <tr>
+                    <td><%=dados[i].sku%></td>
+                    <td><%=dados[i].name%></td>
+                    <td><%=dados[i].inventory.quantity%></td>
+                    <td><%= (dados[i].isMarketable) ? 'Sim' : 'Não' %></td>
+                    <td><a class="btn btn-primary btn-beleza" href="/produtos/<%=dados[i].sku%>">Ver</a></td>
+                    <td><a class="btn btn-danger excluir" data-id="<%=dados[i].sku%>">X</a></td>
+                </tr>
+                <% } 
+            }else{%>
+                <div class="alert alert-warning" role="alert">
+                        Ainda não existem produtos cadsatrados
+                </div>
+            </table>
+        <%}%>
+
+    </div>   
+</body>
+<script>
+    $(document).on('click','.excluir',function(){
+        var id = $(this).data('id');
+        Swal.fire({
+            title: 'Você tem certeza?',
+            text: "Se você confirmar, terá que cadastrar o produto novamente",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, quero deletar',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+            if (result.value) {
+               $.ajax({
+                   url: '/produto/deletar/',
+                   data: {id: id},
+                   method: 'POST',
+                   success: function(result){
+                    Swal.fire({
+                        title: 'Deletado!',
+                        text: 'Seu produto foi deletado com sucesso',
+                        type: 'success'
+                    }).then((result)=>{
+                        window.location.reload()
+                        console.log(result)
+                    })
+                   },
+                   error: function(result){
+                       console.log(result)
+                   }
+               })
+            }
+        })
+    })
+</script>
+</html>

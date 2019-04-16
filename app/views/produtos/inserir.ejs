@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%include ../header.ejs%>
+</head>
+<body>
+  <div class="header text-center ">
+      <a href="/"><img class="text-center" src="https://res.cloudinary.com/beleza-na-web/image/upload/f_svg,fl_progressive,q_auto:eco/v1/blz/assets-store/0.0.52/images/store/1/logo.svg" alt=""></a> 
+  </div>
+  <div class="bar form-group">
+  </div>
+  <%if(msg){%>
+    <%if(success){%>
+      <div class="alert alert-success" role="alert"><%=msg%></div>
+      <%}else{%>
+        <div class="alert alert-danger" role="alert"><%=msg%></div>
+      <%}%>
+  <%}%>
+  <div class="container">
+    <div class="content">
+      <h4>Cadastro de produto</h4>
+      <form action="/produtos" method="post">
+        <input type="hidden" name="token" value="" class="token">
+        <input type="text" class="form-control" required name="sku" placeholder="SKU do produto"><br> 
+        <input type="text" class="form-control" required name="name" placeholder="Nome do produto"><br><br>
+        <label for="">Lojas </label><button class="btn btn-primary add-loja" type="button">+</button> <br><br>
+        <div class="lojas">
+          <label for="">Loja 1</label>
+          <input type="text" name="inventory[warehouses][0][locality]" class="form-control" required placeholder="Localidade da loja"><br>
+          <input type="text" name="inventory[warehouses][0][quantity]" class="form-control" required placeholder="Quantidade"><br>
+          <input type="text" name="inventory[warehouses][0][type]" class="form-control" required placeholder="Tipo do produto"><br><br>
+        </div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <a href="/" class="btn btn-primary">Voltar</a>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+  var inc = 0;
+$(document).on('click','.add-loja',function(){
+  inc++;
+  html = `<div class="loja"><label for="">Loja `+ (inc + parseInt(1)) +`</label><button type="button" class="btn btn-danger btn-excluir excluir">Apagar loja</button>
+      <input type="text" name="inventory[warehouses][`+inc+`][locality]" class="form-control" required placeholder="Localidade da loja"><br>
+      <input type="text" name="inventory[warehouses][`+inc+`][quantity]" class="form-control" required placeholder="Quantidade"><br>
+      <input type="text" name="inventory[warehouses][`+inc+`][type]" class="form-control" required placeholder="Tipo do produto"><br><br></div>`;
+  $('.lojas').append(html)
+})
+
+$(document).on('click','.btn-excluir',function(){
+  $(this).parent().remove()
+})
+
+$(document).ready(function(){
+  var token = localStorage.getItem('token')
+  $('.token').val(token)
+})
+</script>
+</html>

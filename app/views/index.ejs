@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%include ./header.ejs%>
+</head>
+<body>
+  <%if(msg){%>
+    <h2><%=msg%></h2>
+  <%}%>
+
+  <div class="header text-center">
+      <a href="/"><img class="text-center" src="https://res.cloudinary.com/beleza-na-web/image/upload/f_svg,fl_progressive,q_auto:eco/v1/blz/assets-store/0.0.52/images/store/1/logo.svg" alt=""></a> 
+  </div>
+  <div class="bar">
+  </div>
+  <div class="jumbotron inicial">
+      <h1 class="display-4">Olá avaliador!</h1>
+      <p class="lead">O layout deste teste tem o intuito de se apresentar bem simples, no entanto, garanto o funcionamento dos requisitos declarados na descrição do teste.<br>
+      Como a ideia do projeto era não usar banco de dados, a solução criada foi salvar os dados em um arquivo JSON na raiz do projeto
+      </p>
+      <hr class="my-4">
+      <p>*Como o teste é de caráter avaliativo, nenhum requisição necessita de token para ser acessada, no entanto, já foi instalado o módulo JWT para o caso de uso futuro</p>
+      <p>**Os teste funcionais estão no diretório Test do projeto, apenas testando os 4 endpoints solicitados</p>
+      <a class="btn btn-lg btn-primary btn-beleza" href="/produtos">Lista de produtos</a>
+      <a class="btn btn-lg btn-primary btn-beleza" href="/produtos/inserir">Cadastre novos produtos</a>
+      <!-- <a class="gerar-token" type="button">Gerar token</a> -->
+  </div>
+  <div class="card text-center">
+      <div class="card-header card-header-end">
+        Endpoints
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Criação de produto</h5>
+        <p class="card-text">(POST) /produtos</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Edição de um produto</h5>
+        <p class="card-text">(POST) /produtos/editar</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Recuperação de um produto</h5>
+        <p class="card-text">(GET) /produtos/:id?</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Deleção de produto</h5>
+        <p class="card-text">(POST) /produto/deletar</p>
+      </div>
+    </div>
+
+</body>
+<script>
+  $(document).on('click','.gerar-token',function(){
+    $.ajax({
+      url: "/token", 
+      method: "GET",
+      success: function(result){
+        console.log(result)
+        localStorage.setItem('token', result)
+        Swal.fire({
+          type: 'success',
+          title: 'Sucesso!',
+          text: 'Token gerado com sucesso! Você terá 10 minutos de acesso até que o token perca a sua validade',
+        })
+      },
+      error: function(result){
+        console.log(result)
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Aconteceu um erro ao gerar o seu token',
+        })
+      }
+    });
+  })
+</script>
+</html>
