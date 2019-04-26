@@ -2,14 +2,14 @@ import { WareHouse } from "./WareHouseModel";
 
 export class ProductModel{
 
-    public sku:String;
+    public sku:number;
     public name:String;
     public warehouses: WareHouse[];
 
-    constructor(sku, name, inventory){
+    constructor(sku: number, name: String, inventory?: { warehouses:WareHouse[]}){
         this.sku = sku;
         this.name = name;
-        this.warehouses = inventory.warehouses || [];
+        this.warehouses = inventory ? inventory['warehouses'] : [];
     }
 
 }

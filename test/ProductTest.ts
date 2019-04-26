@@ -14,7 +14,7 @@ let productBusiness = null;
 describe('CRUD de Produto', function () {
     beforeEach(function () {
         productBusiness = new ProductBusiness();
-        const sku = "43264";
+        const sku = 43264;
         const name = "Produto de teste";
         const locality1 = BrasillianStates.SP;
         const quantity1 = 10;
@@ -22,10 +22,12 @@ describe('CRUD de Produto', function () {
         const locality2 = BrasillianStates.RJ;
         const quantity2 = 5;
         const type2 = WareHouseTypes.ECOMMERCE;
-        const inventory = [
-            new WareHouse(locality1, quantity1, type1),
-            new WareHouse(locality2, quantity2, type2)
-        ];
+        const inventory = {
+            warehouses: [
+                new WareHouse(locality1, quantity1, type1),
+                new WareHouse(locality2, quantity2, type2)
+            ]
+        };
         const productModel = new ProductModel(sku, name, inventory);
         productBusiness.add(productModel);
     });
@@ -37,7 +39,7 @@ describe('CRUD de Produto', function () {
     ----------------------------------------------------------------------------- */
     describe('Criação de Produto', function () {
         it('Deveria gravar produto na base, com todos os dados', function (done) {
-            const productModel = new ProductModel("1234", "Test123",[]);
+            const productModel = new ProductModel(1234, "Test123");
             productBusiness.add( productModel );
             expect(productModel.sku).to.equal(productBusiness.get(productModel).sku);
             done();
@@ -50,7 +52,7 @@ describe('CRUD de Produto', function () {
     // ----------------------------------------------------------------------------- */
     describe('Edição de Produto', function () {
         it('Deveria editar produto da base, com todos os campos preenchidos', function (done) {
-            const productModel = new ProductModel("43264", "Test123", []);
+            const productModel = new ProductModel(43264, "Test123");
             productBusiness.edit(productModel);
             expect("Test123").to.equal(productBusiness.get(productModel).name);
             done();
@@ -63,7 +65,7 @@ describe('CRUD de Produto', function () {
     // ----------------------------------------------------------------------------- */
     describe('Deleção de Produto', function () {
         it('Deveria deletar um produto que consta na base', function (done) {
-            const productModel = new ProductModel("43264", "", []);
+            const productModel = new ProductModel(43264, "");
             productBusiness.delete(productModel);
             expect(null).to.equal(productBusiness.get(productModel));
             done();

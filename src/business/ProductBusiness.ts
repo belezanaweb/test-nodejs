@@ -28,9 +28,11 @@ export class ProductBusiness{
     }
 
     delete(product: ProductModel){
+        console.log("product", product)
         const found = this.get(product);
-        if (found) {
-            this.products = this.products.filter(_product => product.sku !== product.sku);
+        console.log("FFF",found)
+        if (found != null) {
+            this.products = this.products.filter(_product => _product.sku !== product.sku);
         }else{
             throw new Error('SKU não encontrado');
         }
@@ -38,7 +40,11 @@ export class ProductBusiness{
     }
 
     get(product: ProductModel){
+        console.log("FF PRO",product);
+        
         const filteredProduct = this.products.filter(_product => _product.sku === product.sku);
+        console.log("filteredProduct", filteredProduct);
+        
         if (filteredProduct.length == 1){
             return filteredProduct[0];
         }else{
