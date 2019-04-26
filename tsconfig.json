@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
-        "outDir": "build"
-    }
+        "outDir": "build",
+
+    },
+    "files": [
+        "app.ts"
+    ]
 }
