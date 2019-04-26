@@ -42,7 +42,12 @@ export class ProductBusiness{
         const filteredProduct = this.products.filter(_product => _product.sku === product.sku);
         
         if (filteredProduct.length == 1){
-            return filteredProduct[0];
+            let _product = filteredProduct[0];
+            const quantityTotal = _product.inventory.warehouses
+                .map(w => w.quantity)
+                .reduce((a, b) => a + b, 0);
+            _product.inventory.quantity = quantityTotal;
+            return _product;
         }else{
             return null;
         }

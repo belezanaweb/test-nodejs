@@ -54,3 +54,20 @@ export function _delete (req,res){
         return message;
     });
 };
+
+export function get(req, res) {
+    const process = new Process(req, res);
+    process.run((req) => {
+        let message = new Message();
+        try {
+            let sku = parseInt(req.params.sku);
+            let product = new ProductModel(sku, "");
+            message.payload = productBusiness.get(product);
+            message.statusCode = 200;
+        } catch (error) {
+            message.statusCode = 404;
+            message.setPayloadErrorMessage(error);
+        }
+        return message;
+    });
+};

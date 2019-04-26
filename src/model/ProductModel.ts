@@ -4,12 +4,12 @@ export class ProductModel{
 
     public sku:number;
     public name:String;
-    public warehouses: WareHouse[];
+    public inventory: { warehouses:WareHouse[], quantity?:number };
 
-    constructor(sku: number, name: String, inventory?: { warehouses:WareHouse[]}){
+    constructor(sku: number, name: String, inventory?: { warehouses: WareHouse[]; quantity?: number; }){
         this.sku = sku;
         this.name = name;
-        this.warehouses = inventory ? inventory['warehouses'] : [];
+        this.inventory = inventory ? inventory : { warehouses:[]};
     }
 
 }
