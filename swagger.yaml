@@ -1,0 +1,231 @@
+swagger: "2.0"
+schemes:
+  - http
+host: localhost:3000
+basePath: /
+info:
+  description: |
+
+    # Swagger
+    Teste a API no navegador [aqui](swagger-ui/)
+
+  version: "0.0.1"
+  title: Beleza na Web NodeJS Test
+externalDocs:
+  description: Gitlab repo
+  url: "https://github.com/belezanaweb/test-nodejs"
+produces:
+  - application/json
+consumes:
+  - application/json
+tags:
+  - name: health
+    description: Informação sobre a saúde da aplicação
+
+
+paths:
+  /health:
+    get:
+      tags:
+        - health
+      description: Retorna informações sobre a saúde da API
+      operationId: Health Check
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Informações sobre a saúde da API
+          schema:
+            type: boolean
+          examples:
+            application/json:
+              true
+        500:
+          description: "Unexpected error: api is unhealthy"
+          schema:
+            $ref: "#/definitions/Error500"
+          examples:
+            application/json:
+              code: 1
+              message: Unexpected error
+
+  /product:
+    post:
+      tags:
+        - product
+      operationId: Adiciona um novo produto
+      description: Adiciona um novo produto
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            example:
+              sku: 43264
+              name: L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g
+              inventory:
+                warehouses:
+                  - locality: SP
+                    quantity: 12
+                    type: ECOMMERCE
+                  - locality: MOEMA
+                    quantity: 3
+                    type: PHYSICAL_STORE
+      responses:
+        201:
+          description: Produto adicionado com sucesso
+        409:
+          description: Parâmetros inválidos
+          schema:
+            $ref: '#/definitions/Error409'
+        500:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error500'
+  
+  /product/:sku:
+    get:
+      tags:
+        - product
+      operationId: Retorna um produto através do SKU
+      description: Retorna um produto através do SKU
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: sku
+          type: string
+          in: path
+          required: true
+      responses:
+        200:
+          description: Informações de um produto
+          schema:
+            type: object
+          examples:
+            application/json:
+              sku: 43264
+              name: "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g"
+              inventory:
+                quantity: 15
+                warehouses:
+                  - locality: SP
+                    quantity: 12
+                    type: ECOMMERCE
+                  - locality: MOEMA
+                    quantity: 3
+                    type: PHYSICAL_STORE
+              isMarketable: true
+        404:
+          description: Produto não encontrado
+          schema:
+            $ref: '#/definitions/Error404'
+        500:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error500'
+    put:
+      tags:
+        - product
+      operationId: Altera um produto através do SKU
+      description: Altera um produto através do SKU
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            example:
+              sku: 43264
+              name: L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g
+              inventory:
+                warehouses:
+                  - locality: SP
+                    quantity: 12
+                    type: ECOMMERCE
+                  - locality: MOEMA
+                    quantity: 3
+                    type: PHYSICAL_STORE
+      responses:
+        204:
+          description: Produto alterado com sucesso
+        404:
+          description: Produto não encontrado
+          schema:
+            $ref: '#/definitions/Error404'
+        409:
+          description: Parâmetros inválidos
+          schema:
+            $ref: '#/definitions/Error409'
+        500:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error500'
+    delete:
+      tags:
+        - product
+      operationId: Remove um produto através do SKU
+      description: Remove um produto através do SKU
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: sku
+          type: string
+          in: path
+          required: true
+      responses:
+        204:
+          description: Produto removido com sucesso
+        404:
+          description: Produto não encontrado
+          schema:
+            $ref: '#/definitions/Error404'
+        500:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error500'
+    
+
+definitions:
+  Error404:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        description: código de erro sequencial (0, 1, 2...)
+      message:
+        type: string
+        description: uma simples descrição caso o recurso não seja encontrado.
+
+  Error409:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        description: código de erro sequencial (0, 1, 2...)
+      message:
+        type: string
+        description: uma simples descrição para uma requisição inválida como "Parâmetros inválidos".
+
+  Error500:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        description: código de erro sequencial (0, 1, 2...)
+      message:
+        type: string
+        description: uma simples descrição para erro interno, como "Erro ao processar a requisição", "Erro de comunicação com o banco de dados"

@@ -1,74 +1,36 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# Backend Test
 
-Esta é uma avaliação básica de código.
+### Resumo de funcionamento
+Este microsserviço em NodeJS tem como objetivo:
+- Consultar, alterar e remover um produto através do SKU
+- Cadastrar um novo produto
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
-
-Recomendamos que você não gaste mais do que 4 - 6 horas.
-
-Faça um fork deste repositório.
-
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
-
-### Tarefas
-
-Com a seguinte representação de produto:
-
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
+### Estrutura de diretórios
+```
+    .
+    ├── server          # Arquivos contendo as configurações gerais do servidor da aplicação
+    ├── src             # Aqui estão todos os arquivos fonte
+    |   ├── lib             # Arquivos contendo a parte lógica da aplicação
+    |   ├── models          # Aqui vão os arquivos responsáveis por persistir os dados
+    |   ├── services        # Arquivos que servem como intermediadores entre a camada lógica
+    |   ├── utils           # Helpers para auxiliar no tratamento de dados
+    |   └── validators      # Validações em geral
+    └── test           # Sim, temos testes unitários!
 ```
 
-Crie endpoints para as seguintes ações:
+### Swagger
+Utilizamos [swagger](swagger.yaml) para definições de contrato de todos os endpoints.
+Para visualizar: https://editor.swagger.io/
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+### Instalação
+Para executar a aplicação em ambiente local, basta executar os seguintes comandos no terminal: 
+```bash
+git clone https://github.com/adriano-matsuo/test-nodejs
+sudo npm install
+npm start # ou npm run dev
+```
 
-- [ ] Edição de produto por **sku**
+A aplicação estará rodando em http://localhost:3000.
 
-- [ ] Recuperação de produto por **sku**
-
-- [ ] Deleção de produto por **sku**
-
-### Requisitos
-
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
-
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
-
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+### Testes
+Com a aplicação instalada, para executar os testes unitários, utilize o comando `npm test` no terminal.

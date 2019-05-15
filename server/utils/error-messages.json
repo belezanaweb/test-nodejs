@@ -1,0 +1,31 @@
+{
+  "DEFAULT": {
+    "status": 500,
+    "body": {
+      "code": 1,
+      "message": "Error while processing request"
+    }
+  },
+  "PRODUCT_NOT_FOUND": {
+    "status": 404,
+    "body": {
+      "code": 2,
+      "message": "Product not found"
+    }
+  },
+  "PRODUCT_EXISTS": {
+    "status": 409,
+    "body": {
+      "code": 3,
+      "message": "Product already exists"
+    }
+  },
+  "INVALID_PARAMETERS": {
+    "status": 400,
+    "body": {
+      "code": 4,
+      "message": "Invalid parameters"
+    }
+  }
+}
+  

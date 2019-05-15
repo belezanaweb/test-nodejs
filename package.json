@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/belezanaweb/test-nodejs.git"
+    "start": "node --use_strict server/index.js",
+    "dev": "cross-env NODE_ENV=local nodemon server/index.js",
+    "test": "cross-env NODE_ENV=test mocha --require test/helpers \"@(test)/**/*@(.spec.js)\""
   },
   "keywords": [],
   "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
@@ -16,5 +14,33 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "bristol": "^0.4.0",
+    "koa": "^2.0.0",
+    "koa-body": "^2.0.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-router": "^7.0.1",
+    "koa-validate": "^1.0.7",
+    "node-persist": "^3.0.4",
+    "palin": "^2.1.0"
+  },
+  "devDependencies": {
+    "app-module-path": "^1.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^2.0.0",
+    "eslint": "^3.3.1",
+    "eslint-config-standard": "^6.0.0-beta.3",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "eslint-watch": "^2.1.14",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.18.9",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
+    "supertest": "^4.0.2"
+  }
 }
