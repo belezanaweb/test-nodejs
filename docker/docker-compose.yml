@@ -1,0 +1,17 @@
+# to run compose
+## docker-compose -f docker/docker-compose.yml up -d
+# to stop compose
+## docker-compose -f docker/docker-compose.yml down
+
+version: '3'
+services:
+  api:
+    build:
+      context: ../
+      dockerfile: docker/dockerfile
+    restart: always
+    environment:
+      LAUNCHER_NAME: 'api'
+      PORT: 8080
+    ports:
+      - 8080:8080
