@@ -12,10 +12,10 @@ require('integrations/http')(app)
 // Setup swagger
 //
 
-const swaggerModule = require('integrations/swagger')({
+require('integrations/swagger')({
     apis: [
         `./src/integrations/express/error-hander/*.js`,
         `./src/modules/product/swagger/*.js`,
     ],
-    app: app
+    app
 })

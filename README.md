@@ -1,3 +1,50 @@
+### Instalação e inicialização
+
+O desenvolvimento foi realizado no Ubuntu linux versão 18 com vscode e node 10.15.
+
+Recomendo a utilização de docker e docker-compose para subir a aplicação.
+
+Por padrão esta configurada a porta 8080, após inicializar basta acessar em seu navegador o endereço http://localhost:8080.
+
+## Docker
+ - Na pasta raiz do projeto basta executar o seguinte comando:
+```
+docker-compose -f docker/docker-compose.yml up -d
+```
+
+## Comando
+ - Na pasta raiz do projeto basta executar o seguinte comando:
+```
+npm run start
+```
+
+## Testes unitários
+ - Na pasta raiz do projeto basta executar o seguinte comando:
+```
+npm run test
+```
+
+### Arquitetura de desenvolvimento
+
+A aplicação já é compatível com o docker, dessa forma é muito simples configurar recursos como CI/CD.
+
+O design utilizado para construir a aplicação esta separado em três estruturas: integrations, launchers e modules.
+
+ - integrations = Essa camada irá abstrair os recursos de infra estrutura, por exemplo acesso ao banco de dados ou mensageria. Com isso as outras camadas nao conhecem a comunicação específica de cada componente.
+
+ - launcheres = Com o conceito de "monorepo", essa camada é responsável pelo lançamento da aplicação, conforme configuração realizada com as variáveis de ambiente, é possível iniciar a api, um worker ou qualquer outro elemento do aplicativo.
+
+ - modules = trata a regra de negócio em si da aplicação, essa camada poderá utilizar as integrações, porém não irá conhecer a camanda de infra-estrutura.
+ É importante que exista um desacoplamento entre os módulos para garantir a reutilização em qualquer outro projeto (definido no launcher).
+
+### Aplicação e desenvolvimento
+
+Basta inicializar a aplicação e acessar o link http://localhost:8080
+Você será redirecionado para o swagger onde poderá executar testes para cada api desenvolvida.
+
+Os testes unitários contemplam todas as restrições solicitadas no enunciado da tarefa.
+
+
 ### Backend Test
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
@@ -40,35 +87,43 @@ Com a seguinte representação de produto:
 
 Crie endpoints para as seguintes ações:
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+- [X] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
 
-- [ ] Edição de produto por **sku**
+- [X] Edição de produto por **sku**
 
-- [ ] Recuperação de produto por **sku**
+- [X] Recuperação de produto por **sku**
 
-- [ ] Deleção de produto por **sku**
+- [X] Deleção de produto por **sku**
 
 ### Requisitos
 
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+- [X] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
 
         A propriedade inventory.quantity é a soma da quantity dos warehouses
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+- [X] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
 
         Um produto é marketable sempre que seu inventory.quantity for maior que 0
 
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+- [X] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
 
         Dois produtos são considerados iguais se os seus skus forem iguais
 
 
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
+- [X] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
 
         A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
 
 ### Dicas
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
+
+        Utilizei uma variavel local no controller de produto para registrar.
+
 - Testes são sempre bem-vindos :smiley:
+
+        Realizei três níveis de teste: validação, controller e API. Para executar basta rodar o comando
+        ```
+        npm run test 
+        ```

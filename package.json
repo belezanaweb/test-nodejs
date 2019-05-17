@@ -26,5 +26,10 @@
     "express": "^4.16.4",
     "swagger-jsdoc": "^3.2.9",
     "swagger-ui-express": "^4.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   }
 }
