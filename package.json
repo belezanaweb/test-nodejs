@@ -1,20 +1,43 @@
 {
   "name": "test-nodejs",
+  "private": true,
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./script.sh start",
+    "dev": "./script.sh dev",
+    "test": "./script.sh test"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "!win32"
+  ],
+  "engines": {
+    "node": "~11.11.0",
+    "npm": "~6.7.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/belezanaweb/test-nodejs.git"
   },
   "keywords": [],
-  "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
+  "author": "William Bruno <wbrunom@gmail.com> (http://wbruno.com.br)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.2",
+    "nodemon": "^1.19.0",
+    "nyc": "^13.3.0",
+    "supertest": "^4.0.2"
+  }
 }
