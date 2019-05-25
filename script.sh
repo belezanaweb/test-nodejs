@@ -31,6 +31,7 @@ case "$1" in
     export DEBUG=wbruno:*
     export NODE_PATH=$(pwd)/server/
     nyc mocha test/**/**/*.js --exit
+    eslint server/**/**/*.js
   ;;
   *)
     echo "Usage: {start|dev|test}"

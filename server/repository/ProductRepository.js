@@ -12,6 +12,7 @@ const ProductRepository = {
   },
   bySku(sku, callback) {
     let result = products.findOne({ sku })
+    debug(result)
     callback(null, result ? domain.getProduct(result) : null)
   },
   create(data, callback) {

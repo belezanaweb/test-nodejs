@@ -14,6 +14,7 @@ app.use((request, response, next) => {
   err.status = 404
   next(err)
 })
+// eslint-disable-next-line
 app.use((err, request, response, next) => {
   let status = err.status || 500
 

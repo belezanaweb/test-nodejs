@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 
-router.get('/', (request, response, next) => {
+router.get('/', (request, response) => {
   response.send('OK')
 })
 

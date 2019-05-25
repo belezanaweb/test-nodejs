@@ -13,6 +13,8 @@ const collection = (collName) => {
     find(query = {}) {
       let key = Object.keys(query)[0]
 
+      debug(key, query[key])
+
       if (query[key])
         return memory[collName].filter(isEquals(key, query[key]))
 

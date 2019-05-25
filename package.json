@@ -35,6 +35,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "mocha": "^6.1.2",
     "nodemon": "^1.19.0",
     "nyc": "^13.3.0",

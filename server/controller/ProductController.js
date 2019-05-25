@@ -11,6 +11,7 @@ const handleNotFound = (result) => {
   return result
 }
 const conflict = (err) => {
+  debug('err.message', err.message)
   if (err.message === 'conflict')
     err.status = 409
 }
@@ -70,7 +71,7 @@ const ProductController = {
   delete(request, response, next) {
     let sku = request.params.sku
     repository.delete(sku)
-      .then(result => response.sendStatus(204))
+      .then(() => response.sendStatus(204))
       .catch(next)
   }
 }
