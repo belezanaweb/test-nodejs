@@ -12,11 +12,7 @@ const ProductRepository = {
   },
   bySku(sku, callback) {
     let result = products.findOne({ sku })
-
-    if (!result)
-      return callback(null, null)
-
-    callback(null, domain.getProduct(result))
+    callback(null, result ? domain.getProduct(result) : null)
   },
   create(data, callback) {
     let result = products.insert(data)
@@ -28,7 +24,7 @@ const ProductRepository = {
   },
   delete(sku, callback) {
     let result = products.remove({ sku })
-    callback(null, false)
+    callback(null, result)
   }
 }
 

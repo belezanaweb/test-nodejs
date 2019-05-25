@@ -96,15 +96,27 @@ describe('products', () => {
         assert.equal(204, result.status)
       })
   })
-})
 
-describe('products errors flow', () => {
-  it('GET /products/:id not found', () => {
-    return request.get('/products/3019')
-      .then(result => {
-        debug('result', result.body)
-        assert.equal(404, result.status)
-        assert.equal('Product not found', result.body.message)
-      })
+
+  describe('products errors flow', () => {
+    it('GET /products/:id not found', () => {
+      return request.get('/products/3019')
+        .then(result => {
+          debug('result', result.body)
+          assert.equal(404, result.status)
+          assert.equal('Product not found', result.body.message)
+        })
+    })
+
+    it('POST /products already existent', () => {
+      return request.post('/products')
+        .send(PRODUCT)
+        .then(result => {
+          debug('result', result.body)
+          assert.equal(409, result.status)
+          assert.equal('conflict', result.body.message)
+        })
+    })
   })
+
 })

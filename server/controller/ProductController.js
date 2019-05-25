@@ -28,14 +28,24 @@ const ProductController = {
     let body = request.body
     repository.create(body)
       .then(result => response.status(201).json(result))
-      .catch(next)
+      .catch(err => {
+        if (err.message === 'conflict')
+          err.status = 409
+
+        next(err)
+      })
   },
   update(request, response, next) {
     let sku = request.params.sku
     let body = request.body
     repository.update(sku, body)
       .then(result => response.json(result))
-      .catch(next)
+      .catch(err => {
+        if (err.message === 'not found')
+          err.status = 404
+
+        next(err)
+      })
   },
   delete(request, response, next) {
     let sku = request.params.sku
