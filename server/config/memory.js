@@ -10,7 +10,7 @@ const collection = (collName) => {
     memory[collName] = []
 
   const ops = {
-    find(query, callback) {
+    find(query = {}) {
       let key = Object.keys(query)[0]
 
       if (query[key])
@@ -18,7 +18,7 @@ const collection = (collName) => {
 
       return memory[collName]
     },
-    findOne(query) {
+    findOne(query = {}) {
       let key = Object.keys(query)[0]
       return memory[collName].find(isEquals(key, query[key]))
     },
@@ -29,7 +29,7 @@ const collection = (collName) => {
       memory[collName].push(data)
       return data
     },
-    update(query, data) {
+    update(query = {}, data) {
       if(!ops.findOne(query))
         throw new Error('not found')
 
@@ -40,11 +40,11 @@ const collection = (collName) => {
       ops.remove({ sku: data.sku })
       return ops.insert({ ...data })
     },
-    patch(query, data) {
+    patch(query = {}, data) {
       let found = ops.findOne(query)
       return ops.update(query, { ...found, ...data, ...query })
     },
-    remove(query) {
+    remove(query = {}) {
       let key = Object.keys(query)[0]
       memory[collName] = memory[collName].filter(isDifferent(key, query[key]))
       return null

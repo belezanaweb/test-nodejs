@@ -30,7 +30,7 @@ case "$1" in
     echo 'Testing backend...'
     export DEBUG=wbruno:*
     export NODE_PATH=$(pwd)/server/
-    nyc mocha test/**/*.js --exit
+    nyc mocha test/**/**/*.js --exit
   ;;
   *)
     echo "Usage: {start|dev|test}"
