@@ -1,0 +1,8 @@
+.DS_Store
+.git*
+.nyc*
+.travis.yml
+coverage
+node_modules
+npm-debug.log
+test
