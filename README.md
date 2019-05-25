@@ -3,8 +3,7 @@
 
 
 ```
-$ curl 'http://localhost:3000/products' -H 'content-type: application/json' -d '{"sku": "3019"}'
+curl 'http://localhost:3000/products' -H 'content-type: application/json' -d '{"sku": "3019"}'
 
-$ curl 'http://localhost:3000/products' -H 'content-type: application/json' -d '{"sku": "24410", "inventory": { "warehouses": [{"quantity": 3}, {"quantity": 15}] }}'
-$
+curl 'http://localhost:3000/products' -H 'content-type: application/json' -d '{"sku": "24410", "inventory": { "warehouses": [{"quantity": 3}, {"quantity": 15}] }}'
 ```

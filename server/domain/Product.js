@@ -1,5 +1,5 @@
 const Product = {
-  getProduct(product) {
+  getProduct(product = {}) {
     return {
       ...product,
       inventory: Product.getInventory(product.inventory),

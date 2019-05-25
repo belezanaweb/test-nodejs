@@ -1,15 +1,26 @@
 const repository = require('repository/ProductRepository')
 const debug = require('debug')('wbruno:controller')
 
+
+const handleNotFound = (result) => {
+  if(!result) {
+    let err = new Error('Product not found')
+    err.status = 404
+    throw err
+  }
+  return result
+}
+
 const ProductController = {
   list(request, response, next) {
-    repository.list({})
+    repository.list(request.query)
       .then(result => response.json({ items: result }))
       .catch(next)
   },
   bySku(request, response, next) {
     let sku = request.params.sku
     repository.bySku(sku)
+      .then(handleNotFound)
       .then(result => response.json(result))
       .catch(next)
   },

@@ -40,6 +40,20 @@ describe('products', () => {
       })
   })
 
+  it('GET /products?sku=42', () => {
+    return request.get('/products?sku=42')
+      .then(result => {
+        debug('result', result.body)
+        assert.equal(200, result.status)
+
+        let item = result.body.items[0]
+        assert.equal(PRODUCT.sku, item.sku)
+        assert.equal(PRODUCT.name, item.name)
+        assert.equal(15, item.inventory.quantity)
+        assert.ok(item.isMarketable)
+      })
+  })
+
   it('GET /products/:sku', () => {
     return request.get('/products/42')
       .then(result => {
@@ -75,12 +89,22 @@ describe('products', () => {
       })
   })
 
-
   it('DELETE /products/:sku', () => {
     return request.delete('/products/42')
       .then(result => {
         debug('result', result.body)
         assert.equal(204, result.status)
+      })
+  })
+})
+
+describe('products errors flow', () => {
+  it('GET /products/:id not found', () => {
+    return request.get('/products/3019')
+      .then(result => {
+        debug('result', result.body)
+        assert.equal(404, result.status)
+        assert.equal('Product not found', result.body.message)
       })
   })
 })

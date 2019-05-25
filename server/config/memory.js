@@ -1,3 +1,4 @@
+const debug = require('debug')('wbruno:config:memory')
 const memory = {}
 
 const collection = (collName) => {
@@ -6,10 +7,16 @@ const collection = (collName) => {
 
   return {
     find(query, callback) {
-      return memory[collName].filter(() => true)
+      let key = Object.keys(query)[0]
+
+      if (query[key])
+        return memory[collName].filter(it => it[key] == query[key])
+
+      return memory[collName]
     },
     findOne(query) {
-      return memory[collName].find(() => true)
+      let key = Object.keys(query)[0]
+      return memory[collName].find(it => it[key] == query[key])
     },
     insert(data) {
       memory[collName].push(data)

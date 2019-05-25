@@ -1,3 +1,4 @@
+const debug = require('debug')('wbruno:repository')
 const util = require('util')
 const db = require('config/memory')
 const products = db.collection('products')
@@ -11,6 +12,10 @@ const ProductRepository = {
   },
   bySku(sku, callback) {
     let result = products.findOne({ sku })
+
+    if (!result)
+      return callback(null, null)
+
     callback(null, domain.getProduct(result))
   },
   create(data, callback) {
