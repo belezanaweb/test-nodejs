@@ -36,9 +36,13 @@ const collection = (collName) => {
       ops.remove(query)
       return ops.insert({ ...data, ...query })
     },
-    upsert(query, data) {
-      ops.remove(query)
-      return ops.insert({ ...data, ...query })
+    upsert(data) {
+      ops.remove({ sku: data.sku })
+      return ops.insert({ ...data })
+    },
+    patch(query, data) {
+      let found = ops.findOne(query)
+      return ops.update(query, { ...found, ...data, ...query })
     },
     remove(query) {
       let key = Object.keys(query)[0]

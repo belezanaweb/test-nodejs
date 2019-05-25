@@ -89,6 +89,29 @@ describe('products', () => {
       })
   })
 
+  it('PUT /products should upsert', () => {
+    return request.put('/products')
+      .send(PRODUCT)
+      .then(result => {
+        debug('result', result.body)
+        assert.equal(200, result.status)
+        assert.equal(PRODUCT.sku, result.body.sku)
+        assert.equal(PRODUCT.name, result.body.name)
+      })
+  })
+
+  it('PATCH /products/:sku', () => {
+    let obj = { name: 'Shampoo Loreal 500ml' }
+    return request.patch('/products/42')
+      .send(obj)
+      .then(result => {
+        debug('result', result.body)
+        assert.equal(200, result.status)
+        assert.equal(PRODUCT.sku, result.body.sku)
+        assert.equal(obj.name, result.body.name)
+      })
+  })
+
   it('DELETE /products/:sku', () => {
     return request.delete('/products/42')
       .then(result => {
@@ -105,6 +128,24 @@ describe('products', () => {
           debug('result', result.body)
           assert.equal(404, result.status)
           assert.equal('Product not found', result.body.message)
+        })
+    })
+
+    it('PUT /products/:id not found', () => {
+      return request.put('/products/30')
+        .then(result => {
+          debug('result', result.body)
+          assert.equal(404, result.status)
+          assert.equal('not found', result.body.message)
+        })
+    })
+
+    it('PATCH /products/:id not found', () => {
+      return request.patch('/products/30')
+        .then(result => {
+          debug('result', result.body)
+          assert.equal(404, result.status)
+          assert.equal('not found', result.body.message)
         })
     })
 

@@ -10,6 +10,14 @@ const handleNotFound = (result) => {
   }
   return result
 }
+const conflict = (err) => {
+  if (err.message === 'conflict')
+    err.status = 409
+}
+const notfound = (err) => {
+  if (err.message === 'not found')
+    err.status = 404
+}
 
 const ProductController = {
   list(request, response, next) {
@@ -29,9 +37,7 @@ const ProductController = {
     repository.create(body)
       .then(result => response.status(201).json(result))
       .catch(err => {
-        if (err.message === 'conflict')
-          err.status = 409
-
+        conflict(err)
         next(err)
       })
   },
@@ -41,9 +47,23 @@ const ProductController = {
     repository.update(sku, body)
       .then(result => response.json(result))
       .catch(err => {
-        if (err.message === 'not found')
-          err.status = 404
-
+        notfound(err)
+        next(err)
+      })
+  },
+  upsert(request, response, next) {
+    let body = request.body
+    repository.upsert(body)
+      .then(result => response.json(result))
+      .catch(next)
+  },
+  patch(request, response, next) {
+    let sku = request.params.sku
+    let body = request.body
+    repository.patch(sku, body)
+      .then(result => response.json(result))
+      .catch(err => {
+        notfound(err)
         next(err)
       })
   },

@@ -22,6 +22,14 @@ const ProductRepository = {
     let result = products.update({ sku }, data)
     callback(null, domain.getProduct(result))
   },
+  upsert(data, callback) {
+    let result = products.upsert(data)
+    callback(null, domain.getProduct(result))
+  },
+  patch(sku, data, callback) {
+    let result = products.patch({ sku }, data)
+    callback(null, domain.getProduct(result))
+  },
   delete(sku, callback) {
     let result = products.remove({ sku })
     callback(null, result)
