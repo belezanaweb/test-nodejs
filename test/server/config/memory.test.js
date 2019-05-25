@@ -1,7 +1,7 @@
 const debug = require('debug')('wbruno:test:config:memory')
 const db = require('../../../server/config/memory')
 
-describe.only('db memory', () => {
+describe('db memory', () => {
   beforeEach(() => {
     db.collection('products').insert({ sku: 12 })
   })
@@ -38,10 +38,20 @@ describe.only('db memory', () => {
     assert.ok(inserted)
   })
 
+  it('#insert already existent', () => {
+    let insert = () => db.collection('products').insert({ sku: 12 })
+    assert.throws(insert, Error, 'conflict')
+  })
+
   it('#update', () => {
     let updated = db.collection('products').update({ sku: 12 }, { name: 'Shampoo' })
     debug('updated', updated)
     assert.ok(updated)
+  })
+
+  it('#update non existend', () => {
+    let update = () => db.collection('products').update({ sku: 42 }, { name: 'Shampoo' })
+    assert.throws(update, Error, 'not found')
   })
 
   it('#upsert', () => {
