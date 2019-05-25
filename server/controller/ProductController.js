@@ -1,4 +1,4 @@
-const repository = require('../repository/ProductRepository')
+const repository = require('repository/ProductRepository')
 const debug = require('debug')('wbruno:controller')
 
 const ProductController = {

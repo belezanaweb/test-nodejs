@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const controller = require('../controller/ProductController')
+const controller = require('controller/ProductController')
 
 router.get('/', controller.list)
 router.get('/:sku', controller.bySku)

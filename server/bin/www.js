@@ -1,4 +1,4 @@
-const app = require('../app')
+const app = require('app')
 const debug = require('debug')('wbruno:www')
 
 app.listen(app.get('port'), () => {

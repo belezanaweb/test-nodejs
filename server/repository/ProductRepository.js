@@ -1,28 +1,29 @@
 const util = require('util')
-const db = require('../config/memory')
+const db = require('config/memory')
 const products = db.collection('products')
+const domain = require('domain/Product')
 
 
 const ProductRepository = {
   list(query, callback) {
-    var result = products.find(query)
-    callback(null, result)
+    let result = products.find(query)
+    callback(null, result.map(item => domain.getProduct(item)))
   },
   bySku(sku, callback) {
-    var result = products.findOne({ sku })
-    callback(null, result)
+    let result = products.findOne({ sku })
+    callback(null, domain.getProduct(result))
   },
   create(data, callback) {
-    var result = products.insert(data)
-    callback(null, result)
+    let result = products.insert(data)
+    callback(null, domain.getProduct(result))
   },
   update(sku, data, callback) {
-    var result = products.update({ sku }, data)
-    callback(null, result)
+    let result = products.update({ sku }, data)
+    callback(null, domain.getProduct(result))
   },
   delete(sku, callback) {
-    var result = products.remove({ sku })
-    callback(null, result)
+    let result = products.remove({ sku })
+    callback(null, false)
   }
 }
 
