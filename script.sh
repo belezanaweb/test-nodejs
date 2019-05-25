@@ -15,11 +15,6 @@ case "$(uname -s)" in
 esac
 
 case "$1" in
-  start)
-    echo 'Starting...'
-    export NODE_PATH=$(pwd)/server/
-    node server/bin/www
-  ;;
   dev)
     echo 'Starting dev...'
     export DEBUG=wbruno:*
@@ -34,7 +29,7 @@ case "$1" in
     eslint server/**/**/*.js
   ;;
   *)
-    echo "Usage: {start|dev|test}"
+    echo "Usage: {dev|test}"
     exit 1
   ;;
 esac

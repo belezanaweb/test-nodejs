@@ -1,4 +1,4 @@
-FROM node:11
+FROM mhart/alpine-node:12
 
 WORKDIR /var/www/test
 
