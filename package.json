@@ -2,9 +2,9 @@
   "name": "test-nodejs",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/tests/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -13,6 +13,14 @@
   "keywords": [],
   "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
   "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^7.4.2",
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/joi": "^15.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
