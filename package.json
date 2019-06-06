@@ -1,20 +1,21 @@
 {
   "name": "test-nodejs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/belezanaweb/test-nodejs.git"
+    "start": "nodemon server.js",
+    "test": "jest"
   },
   "keywords": [],
-  "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/belezanaweb/test-nodejs/issues"
-  },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.13",
+    "nodemon": "^1.19.1",
+    "require-dir": "^1.2.0"
+  }
 }
