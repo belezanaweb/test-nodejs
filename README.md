@@ -80,4 +80,10 @@ Crie endpoints para as seguintes ações:
     
     * Por mais que seja um teste básico, preferi separar os módulos cada um com sua devida responsabilidade.
     
+    * Para testar a API, os endpoints são:
+      - GET: /api/product/:sku?
+      - POST: /api/product/create
+      - PUT: /api/product/update/:sku?
+      - DELETE: /api/product/delete/:sku?
+    
     * Agradeço pela oportunidade :D
