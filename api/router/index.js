@@ -6,14 +6,14 @@ module.exports = app => {
       .then(result => res.status(200).json(result))
       .catch(e => res.status(500).json(e.message));
   });
+  app.get('/products/list', (req, res) => {
+    dataHolder.list()
+      .then(list => res.status(200).json(list));
+  });
   app.get('/products/:sku', (req, res) => {
     dataHolder.read(req.params.sku)
       .then(product => res.status(200).json(product))
       .catch(e => res.status(404).json(e.message));
-  });
-  app.get('/products/:offset/:limit', (req, res) => {
-    dataHolder.paginate(req.params.offset, req.params.limit)
-      .then(product => res.status(200).json(product));
   });
   app.put('/products/:sku', (req, res) => {
     dataHolder.update(req.params.sku, req.body)
@@ -22,7 +22,8 @@ module.exports = app => {
   });
   app.delete('/products/:sku', (req, res) => {
     dataHolder.delete(req.params.sku, req.body)
-      .then(response => res.status(200).json(response));
+      .then(response => res.status(200).json(response))
+      .catch(e => res.status(404).json(e.message));
   });
   app.all('*', (req, res) => res.status(404).send('NOT FOUND'));
 }

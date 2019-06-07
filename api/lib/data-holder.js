@@ -49,14 +49,23 @@ module.exports = {
       resolve(collection[sku]);
     });
   },
-  paginate(offset, limit) {
-    return Promise.resolve(collection.filter((_, i) => ((i >= offset) && (i < offset + limit))));
+  list() {
+    return new Promise(resolve => {
+      const list = [];
+
+      for (let key in collection) {
+        list.push(collection[key]);
+      }
+
+     resolve(list);
+    });
   },
   update(sku, data) {
     return new Promise((resolve, reject) => {
       if (!collection[sku]) {
         reject(new Error(`PRODUCT ${sku} NOT FOUND`));
       }
+      delete data.sku;
 
       let product = {
         ...data,
@@ -67,9 +76,13 @@ module.exports = {
     });
   },
   delete(sku) {
-    return Promise.resolve(() => {
+    return new Promise((resolve, reject) => {
+      if (!collection[sku]) {
+        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+      }
+
       delete collection[sku];
-      return true;
+      resolve(`Deleted product ${sku}`);
     });
   },
 }
