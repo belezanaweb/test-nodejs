@@ -37,29 +37,39 @@ module.exports = {
         reject(new Error(`Duplicated entry: Product ${product.sku} alread exists`));
       }
 
-      let result = upsert(product);
-      resolve(result);
+      resolve(upsert(product));
     });
   },
-  read(sku, cb) {
-    return collection[sku];
-  },
-  paginate(offset, limit, cb) {
-    let result = collection.filter((_, i) => ((i >= offset) && (i < offset + limit)));
+  read(sku) {
+    return new Promise((resolve, reject) => {
+      if (!collection[sku]) {
+        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+      }
 
-    return cb(null, result);
+      resolve(collection[sku]);
+    });
+  },
+  paginate(offset, limit) {
+    return Promise.resolve(collection.filter((_, i) => ((i >= offset) && (i < offset + limit))));
   },
   update(sku, data) {
-    if (!collection[sku]) {
-      throw new Error(`PRODUCT ${sku} NOT FOUND`);
-    }
+    return new Promise((resolve, reject) => {
+      if (!collection[sku]) {
+        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+      }
 
-    data.sku = sku;
-    upsert(data);
-    return data;
+      let product = {
+        ...data,
+        sku
+      };
+
+      resolve(upsert(product));
+    });
   },
   delete(sku) {
-    delete collection[sku];
-    return true;
+    return Promise.resolve(() => {
+      delete collection[sku];
+      return true;
+    });
   },
 }
