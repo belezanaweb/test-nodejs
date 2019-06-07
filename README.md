@@ -31,7 +31,7 @@ Use o comando:
 ```bash
 $ npm test
 ```
-A cobertura de testes é de aproximDAMENTE 50%.
+A cobertura de testes é de aproximadamente 50%.
 
 ### Endpoints
 a aplicação possui cinco edpoints:
