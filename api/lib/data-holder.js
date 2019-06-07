@@ -34,7 +34,7 @@ module.exports = {
   create(product) {
     return new Promise((resolve, reject) => {
       if (collection[product.sku]) {
-        reject(new Error(`Duplicated entry: Product ${product.sku} alread exists`));
+        return reject(new Error(`Duplicated entry: Product ${product.sku} alread exists`));
       }
 
       resolve(upsert(product));
@@ -43,7 +43,7 @@ module.exports = {
   read(sku) {
     return new Promise((resolve, reject) => {
       if (!collection[sku]) {
-        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+        return reject(new Error(`PRODUCT ${sku} NOT FOUND`));
       }
 
       resolve(collection[sku]);
@@ -63,8 +63,9 @@ module.exports = {
   update(sku, data) {
     return new Promise((resolve, reject) => {
       if (!collection[sku]) {
-        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+        return reject(new Error(`PRODUCT ${sku} NOT FOUND`));
       }
+
       delete data.sku;
 
       let product = {
@@ -78,7 +79,7 @@ module.exports = {
   delete(sku) {
     return new Promise((resolve, reject) => {
       if (!collection[sku]) {
-        reject(new Error(`PRODUCT ${sku} NOT FOUND`));
+        return reject(new Error(`PRODUCT ${sku} NOT FOUND`));
       }
 
       delete collection[sku];

@@ -81,7 +81,7 @@ describe('Memory data storage tests', () => {
         warehouses: [
           {
             locality: 'SP',
-            quantity: 10,
+            quantity: 0,
             type: 'ECOMMERCE'
           }, {
             locality: 'RJ',
@@ -93,7 +93,8 @@ describe('Memory data storage tests', () => {
     })
       .then(product => {
         expect(product.name).not.to.equals('Batwoman rain cape');
-        expect(product.inventory.quantity).to.equals(10);
+        expect(product.inventory.quantity).to.equals(0);
+        expect(product.isMarketable).to.equals(false);
         expect(product.inventory.warehouses.length).to.equals(2);
       });
   });

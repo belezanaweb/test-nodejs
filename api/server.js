@@ -10,3 +10,4 @@ require('./router')(app);
 
 app.listen(process.env.PORT || 4000, () => console.log(`Application up and running on port ${process.env.PORT || 4000}`));
 
+module.exports = app;
