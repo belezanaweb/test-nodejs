@@ -1,4 +1,4 @@
-import joi, { Schema, ValidationError } from 'joi';
+import joi, { Schema } from 'joi';
 
 import Product from '../../interfaces/Product';
 
