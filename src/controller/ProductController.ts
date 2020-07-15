@@ -48,7 +48,19 @@ export class ProductController {
             res.status(200).send({ product })
 
         } catch (err) {
-            console.log(err)
+            res.status(err.errorCode || 400).send({ message: err.message})
+        }
+    }
+
+    public deleteProduct(req: Request, res: Response) {
+        try {
+            const sku = req.params.sku;
+
+            ProductController.ProductBusiness.deleteProduct(Number(sku))
+    
+            res.status(200).send({ message: "Deleted Product" })
+
+        } catch (err) {
             res.status(err.errorCode || 400).send({ message: err.message})
         }
     }
