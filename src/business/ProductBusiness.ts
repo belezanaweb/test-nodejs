@@ -65,4 +65,17 @@ export class ProductBusiness {
         
         this.productDataBase.editProduct(skuParams, new Product(skuParams, name, inventory))
     }
+
+    public recuperationProduct(sku: number): Product {
+        const product = this.productDataBase.findBySku(sku)
+
+        if (!product) {
+            throw new NotFoundError("Product Not Found")
+        }
+
+        product.getInventory().calculateQuantity();
+        product.setIsMarketable();
+
+        return product;
+    }
 }
