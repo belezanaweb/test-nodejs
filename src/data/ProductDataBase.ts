@@ -1,15 +1,15 @@
 import { Product } from "../model/Product";
-import { HashTableProduct } from "../interfaces/ProductInterface"
+import { HashTableProduct } from "../interfaces/HashTableProduct"
 
 export class ProductDataBase {
 
-    private productHasheTable: HashTableProduct = {}
+    private productHashTable: HashTableProduct = {}
 
     public createProduct(product: Product): void {
-        this.productHasheTable[product.getSku()] = product;
+        this.productHashTable[product.getSku()] = product;
     }
 
     public findBySku(sku: number): Product {
-        return this.productHasheTable[sku];
+        return this.productHashTable[sku];
     }
 }
