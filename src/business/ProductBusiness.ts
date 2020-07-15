@@ -5,13 +5,16 @@ import { ConflictError } from '../errors/ConflictError';
 import { InvalidParameterError } from '../errors/InvalidParameterError';
 import { NotFoundError } from '../errors/NotFoundError';
 import { GenericError } from '../errors/GenericError';
+import { Warehouse } from '../model/Warehouse';
+import { InvetoryInterface } from '../interfaces/InvetoryInterface';
+import { WarehouseInterface } from '../interfaces/WarehouseInterface';
 
 export class ProductBusiness {
     constructor(
         private productDataBase: ProductDataBase
     ) {}
 
-    public createProduct(sku: number, name: string, inventory: Inventory): void {
+    public createProduct(sku: number, name: string, inventory: InvetoryInterface): void {
 
         if (!sku || !name || !inventory) {
             throw new InvalidParameterError("Missing Input")
@@ -21,7 +24,23 @@ export class ProductBusiness {
             throw new ConflictError("The product already exists.")
         }
 
-        this.productDataBase.createProduct(new Product(sku, name, inventory))
+        this.productDataBase.createProduct(
+            new Product(
+                sku,
+                name,
+                new Inventory(this.convertWarehousesInterfaceToWarehousesModel(inventory.warehouses))
+            )
+        )
+    }
+
+    private convertWarehousesInterfaceToWarehousesModel(warehouses: WarehouseInterface[]): Warehouse[] {
+        const warehousesModel: Warehouse[] = []
+
+        warehouses.forEach((warehouse) => {
+            warehousesModel.push(new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type))
+        })
+
+        return warehousesModel;
     }
 
     private hasProductBySku(sku: number): boolean {
