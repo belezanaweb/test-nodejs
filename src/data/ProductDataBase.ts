@@ -12,4 +12,8 @@ export class ProductDataBase {
     public findBySku(sku: number): Product {
         return this.productHashTable[sku];
     }
+
+    public editProduct(sku: number, product: Product): void {
+        this.productHashTable[sku] = product;
+    }
 }
