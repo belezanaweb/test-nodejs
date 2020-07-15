@@ -1,5 +1,5 @@
 import { Product } from "../model/Product";
 
 export interface HashTableProduct {
-    [index: number]: Product
+    [index: number]: Product | undefined
 }

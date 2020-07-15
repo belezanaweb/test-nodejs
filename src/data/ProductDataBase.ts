@@ -9,11 +9,15 @@ export class ProductDataBase {
         this.productHashTable[product.getSku()] = product;
     }
 
-    public findBySku(sku: number): Product {
+    public findBySku(sku: number): Product | undefined {
         return this.productHashTable[sku];
     }
 
     public editProduct(sku: number, product: Product): void {
         this.productHashTable[sku] = product;
+    }
+
+    public deleteProduct(sku: number): void {
+        this.productHashTable[sku] = undefined
     }
 }
