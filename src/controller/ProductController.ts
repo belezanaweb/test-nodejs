@@ -38,4 +38,18 @@ export class ProductController {
             res.status(err.errorCode || 400).send({ message: err.message})
         }
     }
+
+    public recuperationProduct(req: Request, res: Response) {
+        try {
+            const sku = req.params.sku;
+    
+            const product = ProductController.ProductBusiness.recuperationProduct(Number(sku))
+
+            res.status(200).send({ product })
+
+        } catch (err) {
+            console.log(err)
+            res.status(err.errorCode || 400).send({ message: err.message})
+        }
+    }
 }

@@ -4,7 +4,8 @@ export class Product {
     constructor(
         private sku: number,
         private name: string,
-        private inventory: Inventory
+        private inventory: Inventory,
+        private isMarketable?: boolean
     ) {}
 
     public getSku(): number {
@@ -17,6 +18,10 @@ export class Product {
 
     public getInventory(): Inventory {
         return this.inventory
+    }
+
+    public setIsMarketable(): void {
+        this.isMarketable = this.inventory.getQuantity() as number > 0
     }
 }
 
