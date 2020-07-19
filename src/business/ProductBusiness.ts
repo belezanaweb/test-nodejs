@@ -13,4 +13,12 @@ export class ProductBusiness {
 
     this.productDataBase.createProduct(new Product(sku, name, inventory));
   }
+
+  public getProductBySku(sku: number): any {
+    if (!sku) {
+        throw new InvalidParameterError("Missing input");
+      }
+      const result = this.productDataBase.getProductBySku(sku)
+    return result
+  }
 }
