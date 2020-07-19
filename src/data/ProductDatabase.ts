@@ -40,4 +40,15 @@ export class ProductDatabase {
 
     fileProducts.writeFile(result);
   }
+
+  public deleteProductBySku(sku: number): void {
+    this.allProducts = this.getAllProducts();
+    const result = this.allProducts.filter((productData: any) => {
+      if (productData.sku !== sku) {
+        return productData;
+      }
+    });
+
+    fileProducts.writeFile(result);
+  }
 }

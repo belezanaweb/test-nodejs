@@ -19,7 +19,7 @@ export class ProductController {
         productData.sku,
         productData.name,
         productData.inventory
-      ); 
+      );
 
       res.status(200).send({ message: "Product created" });
     } catch (err) {
@@ -29,8 +29,9 @@ export class ProductController {
 
   async getProductBySku(req: Request, res: Response) {
     try {
-      
-      const result = ProductController.ProductBusiness.getProductBySku(Number(req.params.sku)); 
+      const result = ProductController.ProductBusiness.getProductBySku(
+        Number(req.params.sku)
+      );
 
       res.status(200).send({ product: result });
     } catch (err) {
@@ -40,15 +41,15 @@ export class ProductController {
 
   async editProductBySku(req: Request, res: Response) {
     try {
-
       const productData: EditProductInputDTO = {
         sku: Number(req.params.sku),
-        product: new Product(req.body.sku,req.body.name, req.body.inventory)
-      }
+        product: new Product(req.body.sku, req.body.name, req.body.inventory),
+      };
 
-
-
-     ProductController.ProductBusiness.editProductBySku(productData.sku, productData.product) 
+      ProductController.ProductBusiness.editProductBySku(
+        productData.sku,
+        productData.product
+      );
 
       res.status(200).send({ message: "Product edited" });
     } catch (err) {
@@ -56,4 +57,13 @@ export class ProductController {
     }
   }
 
+  async deleteProductBySku(req: Request, res: Response) {
+    try {
+      ProductController.ProductBusiness.deleteProductBySku(Number(req.params.sku));
+
+      res.status(200).send({ message: "Product deleted" });
+    } catch (err) {
+      res.status(err.errorCode || 400).send({ message: err.message });
+    }
+  }
 }

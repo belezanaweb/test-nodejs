@@ -6,3 +6,4 @@ export const productRouter = express.Router();
 productRouter.post("/", new ProductController().createProduct);
 productRouter.get("/:sku", new ProductController().getProductBySku);
 productRouter.post("/:sku", new ProductController().editProductBySku);
+productRouter.delete("/:sku", new ProductController().deleteProductBySku);

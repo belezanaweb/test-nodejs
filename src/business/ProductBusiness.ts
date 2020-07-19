@@ -29,4 +29,12 @@ export class ProductBusiness {
 
     this.productDataBase.editProductBySku(sku, product);
   }
+
+  public deleteProductBySku(sku: number): void {
+    if (!sku) {
+      throw new InvalidParameterError("Missing input");
+    }
+
+    this.productDataBase.deleteProductBySku(sku);
+  }
 }
