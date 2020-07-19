@@ -26,6 +26,18 @@ export class ProductDatabase {
       }
     });
 
-    return product
+    return product;
+  }
+
+  public editProductBySku(sku: number, product: Product): void {
+    this.allProducts = this.getAllProducts();
+    const result = this.allProducts.map((productData: any) => {
+      if (productData.sku === sku) {
+        productData = product;
+      }
+      return productData;
+    });
+
+    fileProducts.writeFile(result);
   }
 }

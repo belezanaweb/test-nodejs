@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { ProductBusiness } from "../business/ProductBusiness";
 import { ProductDatabase } from "../data/ProductDatabase";
-import { CreateProductInputDTO } from "../dto/ProductDTO";
+import { CreateProductInputDTO, EditProductInputDTO } from "../dto/ProductDTO";
+import { Product } from "../model/Product";
 
 export class ProductController {
   private static ProductBusiness = new ProductBusiness(new ProductDatabase());
@@ -36,4 +37,23 @@ export class ProductController {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
   }
+
+  async editProductBySku(req: Request, res: Response) {
+    try {
+
+      const productData: EditProductInputDTO = {
+        sku: Number(req.params.sku),
+        product: new Product(req.body.sku,req.body.name, req.body.inventory)
+      }
+
+
+
+     ProductController.ProductBusiness.editProductBySku(productData.sku, productData.product) 
+
+      res.status(200).send({ message: "Product edited" });
+    } catch (err) {
+      res.status(err.errorCode || 400).send({ message: err.message });
+    }
+  }
+
 }

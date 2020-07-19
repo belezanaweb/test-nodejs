@@ -16,9 +16,17 @@ export class ProductBusiness {
 
   public getProductBySku(sku: number): any {
     if (!sku) {
-        throw new InvalidParameterError("Missing input");
-      }
-      const result = this.productDataBase.getProductBySku(sku)
-    return result
+      throw new InvalidParameterError("Missing input");
+    }
+    const result = this.productDataBase.getProductBySku(sku);
+    return result;
+  }
+
+  public editProductBySku(sku: number, product: Product): any {
+    if (!sku || !product) {
+      throw new InvalidParameterError("Missing input");
+    }
+
+    this.productDataBase.editProductBySku(sku, product);
   }
 }
