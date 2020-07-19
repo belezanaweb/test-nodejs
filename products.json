@@ -1,0 +1,38 @@
+[
+  {
+    "sku": 43264,
+    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "SP",
+          "quantity": 12,
+          "type": "ECOMMERCE"
+        },
+        {
+          "locality": "MOEMA",
+          "quantity": 3,
+          "type": "PHYSICAL_STORE"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 3899,
+    "name": "Lola máscara de hidratação ghee - banana",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "SP",
+          "quantity": 15,
+          "type": "ECOMMERCE"
+        },
+        {
+          "locality": "MOEMA",
+          "quantity": 9,
+          "type": "PHYSICAL_STORE"
+        }
+      ]
+    }
+  }
+]
