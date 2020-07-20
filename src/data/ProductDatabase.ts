@@ -1,5 +1,7 @@
 import { FileManager } from "./FileManager";
 import { Product } from "../model/Product";
+import { Inventory } from "../model/Inventory";
+import { Warehouse } from "../model/Warehouse";
 
 const fileProducts = new FileManager("products.json");
 
@@ -18,15 +20,27 @@ export class ProductDatabase {
     fileProducts.writeFile(this.allProducts);
   }
 
-  public getProductBySku(sku: number): Product {
+  public getProductBySku(sku: number): any {
     this.allProducts = this.getAllProducts();
-    const product = this.allProducts.filter((product: any) => {
+    const result = this.allProducts.filter((product: any) => {
       if (product.sku === sku) {
         return product;
       }
     });
 
-    return product;
+    const product = result[0]
+
+    const warehouses = product.inventory.warehouses.map((warehouse: any) => {
+      return new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type)
+    })
+
+    const newInventory = new Inventory(warehouses)
+    const quantity = newInventory.setQuantity(warehouses)
+
+    const newProduct = new Product(product.sku, product.name, newInventory)
+    newProduct.setIsMarketable(quantity)
+
+    return newProduct;
   }
 
   public editProductBySku(sku: number, product: Product): void {

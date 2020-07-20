@@ -4,7 +4,8 @@ export class Product {
   constructor(
     private sku: number,
     private name: string,
-    private inventory: Inventory
+    private inventory: Inventory,
+    private isMarketable?: boolean
   ) {}
 
   public getSku(): number {
@@ -17,5 +18,13 @@ export class Product {
 
   public getInventory(): Inventory {
     return this.inventory;
+  }
+
+  public setIsMarketable(quantity: number): any {
+    if (quantity <= 0) {
+      return (this.isMarketable = false);
+    }
+
+    return (this.isMarketable = true);
   }
 }
