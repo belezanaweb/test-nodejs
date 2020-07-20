@@ -12,7 +12,7 @@ export class ProductBusiness {
       throw new InvalidParameterError("Missing input");
     }
 
-    const productFound = this.getProductBySku(sku)
+    const productFound = this.productDataBase.foundProduct(sku)
 
     if(productFound){
         throw new GenericError("This product already exists.")
@@ -25,23 +25,24 @@ export class ProductBusiness {
     if (!sku) {
       throw new InvalidParameterError("Missing input");
     }
-    const result = this.productDataBase.getProductBySku(sku);
-    return result;
+    const product = this.productDataBase.getProductBySku(sku);
+    
+    return product;
   }
 
-  public editProductBySku(sku: number, product: Product): any {
-    if (!sku || !product) {
+  public editProductBySku(sku: number, product: Product): void {
+    if (!sku || !product.getSku() || !product.getName() || !product.getInventory()) {
       throw new InvalidParameterError("Missing input");
     }
 
     this.productDataBase.editProductBySku(sku, product);
   }
 
-  public deleteProductBySku(sku: number): void {
+  public deleteProductBySku(sku: number): string {
     if (!sku) {
       throw new InvalidParameterError("Missing input");
     }
 
-    this.productDataBase.deleteProductBySku(sku);
+   return this.productDataBase.deleteProductBySku(sku);
   }
 }

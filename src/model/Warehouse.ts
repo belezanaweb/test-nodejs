@@ -1,5 +1,3 @@
-import { InvalidParameterError } from "../errors/InvalidParameterError";
-
 export class Warehouse {
   constructor(
     private locality: string,

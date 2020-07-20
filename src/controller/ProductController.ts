@@ -59,9 +59,9 @@ export class ProductController {
 
   async deleteProductBySku(req: Request, res: Response) {
     try {
-      ProductController.ProductBusiness.deleteProductBySku(Number(req.params.sku));
+      const message = ProductController.ProductBusiness.deleteProductBySku(Number(req.params.sku));
 
-      res.status(200).send({ message: "Product deleted" });
+      res.status(200).send({ message });
     } catch (err) {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
