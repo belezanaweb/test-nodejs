@@ -72,3 +72,41 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+---
+## Desenvolvido por Marina Isabel 💻
+- [Linkedin](https://www.linkedin.com/in/marinaisabel/)
+
+### Começando
+  Para executar o projeto, será necessário instalar os seguintes programas:
+  - [Node.js e Express](https://medium.com/@pedrompinto/tutorial-node-js-como-usar-o-express-js-7d3027f4f57b)
+  - [Knex](http://knexjs.org/)
+  
+### Desenvolvimento
+  Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
+  
+  ``cd "Pasta do arquivo"
+    git clone arquivo github
+    ``
+### Configuração
+  Para configurar o arquivo, é preciso instalar as depêndencias
+  - Node e Typesript
+    `npm init`
+    `npm install typscript @types/node ts-node-dev`
+  - Banco de dados 
+    `npm install knex mysql @types/knex dotenv`
+  - Express 
+    `npm install express@4.17.0 @types/express@4.17.0`
+  - UUID 
+    `npm install uuid @types/uuid`
+  - JWT 
+    `npm install jsonwebtoken @types/jsonwebtoken`
+    
+### Instruções para rodar
+As instruções são:
+- `npm install` para instalar todas as dependências;
+- `npm run start` para rodar localmente o projeto
+- `npm run build` para gerar uma versão possível de ser deployada com 
+os arquivos transpilados para Javascript    
+    
+Esse é um projeto de Backend feito utilizando NodeJS, Express e Typescript.
