@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,25 @@
   "keywords": [],
   "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
   "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/express": "^4.17.3",
+    "@types/knex": "^0.16.1",
+    "@types/node": "^13.7.7",
+    "@types/uuid": "^7.0.0",
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.11",
+    "mysql": "^2.18.1",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.8"
+  },
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
