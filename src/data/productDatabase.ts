@@ -1,8 +1,7 @@
-import { BaseDatabase } from "./baseDatabase";
 import { ProductGateway } from "../business/gateways/productGateway";
 import { Product, Inventory } from "../business/entities/product";
 
-export class ProductDatabase extends BaseDatabase implements ProductGateway {
+export class ProductDatabase implements ProductGateway {
     private productsList: Product[] = []
 
     public async createProduct(product: Product): Promise<void> {
