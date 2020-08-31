@@ -80,7 +80,7 @@ describe('getProduct', () => {
         expect(response.body).toHaveLength(1);
     });
 
-    test('the result must not be undefined', async () => {
+    test('the response must not be undefined', async () => {
         await request(app)
             .post('/product')
             .send(products[0]);
