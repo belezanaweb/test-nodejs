@@ -88,7 +88,37 @@ const getProductBySku = (request, response) => {
     };
 };
 
+const updateProduct = async (request, response) => {
+    try{     
+        const {
+            sku, name, inventory
+        } = request.body;
+
+        if(sku, name, inventory === "" || undefined){
+            response.status(400).send({ message: "Enter a valid product" });
+        }else{
+            const p = products.find((v) => v.sku == parseInt(request.params.sku));
+
+            if(p){
+                p.sku = sku;
+                p.name = name;
+                p.inventory = inventory;         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                response.status(200).send({message: "Product successfuly updated"});
+            }else{
+                response.status(400).send({ message: "Unregistered product" }); 
+            }; 
+        };             
+    }catch(err){
+        response.status(400).send({ message: err.message });        
+    };
+};
+
+
+
+
 module.exports = {
     createProduct,
-    getProductBySku
+    getProductBySku,
+    updateProduct
 };
