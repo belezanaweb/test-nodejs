@@ -114,11 +114,24 @@ const updateProduct = async (request, response) => {
     };
 };
 
-
-
+const deleteProduct =(request, response) => {
+    try{           
+        const index = products.findIndex((v) => v.sku == parseInt(request.params.sku));
+                
+        if(index == -1){
+            response.status(400).send({ message: "Unregistered product" });
+        }else{
+            products = products.filter((v) => v.sku != parseInt(request.params.sku));
+            response.status(200).send({message: "Product successfuly deleted"});
+        };
+    }catch(err){
+        response.status(400).send({ message: err.message });        
+    };
+};
 
 module.exports = {
     createProduct,
     getProductBySku,
-    updateProduct
+    updateProduct,
+    deleteProduct
 };
