@@ -54,7 +54,41 @@ const createProduct = (request, response) => {
     };
 };
 
+const getProductBySku = (request, response) => {
+    try{ 
+        let isMarketable =  false;
+        let totalQuantity = 0;
+        
+        let product = products.find((v) => v.sku == parseInt(request.params.sku));  
+        
+        if(product){
+            if(product.inventory.warehouses.quantity != 0){
+            
+                let sum = product.inventory.warehouses.reduce(function( prevVal, elem ) {
+                    return prevVal + elem.quantity;
+                }, 0 );
+    
+                totalQuantity = sum;
+                if(sum != 0){
+                    isMarketable = true; 
+                }else{
+                    isMarketable = false;
+                };            
+                
+                const result = [];            
+                result.push({product, totalQuantity, isMarketable});
+                            
+                return(response.status(200).send(result));
+            };    
+        }else{
+            response.status(400).send({ message: "Unregistered product"})
+        };              
+    }catch(err){
+        response.status(400).send({ message: err.message });        
+    };
+};
 
 module.exports = {
-    createProduct
+    createProduct,
+    getProductBySku
 };
