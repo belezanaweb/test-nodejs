@@ -35,7 +35,7 @@ beforeEach(() => {
     jest.setTimeout(50000);    
   });
 
-  describe('createProduct', () => {        
+describe('createProduct', () => {        
     it('should create product whith valid input', async () => {
         const response = await request(app)
             .post('/product')
@@ -86,4 +86,27 @@ describe('updateProduct',() => {
            .put('/product/19383478493');          
            expect(400);        
    });
+});
+
+describe('deleteProduct', () => {
+    it('it must be possible to delete a product by sku', async () => {
+        const product = await request(app)
+            .post('/product')
+            .send(products[0]);
+
+        const responsePost = await request(app)
+            .delete(`/product/${products[0].sku}`)
+            
+        const responseAll = await request(app)
+            .get('/product');
+
+        expect(200);
+        expect(responseAll.body).not.toMatchObject([{ sku: product.body.sku }]);        
+    });
+
+    it('should not be possible to delete a product that does not exist', async () => {
+        await request(app)
+            .delete('/product/8484743739829010')
+            expect(400);        
+    });
 });
