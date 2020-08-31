@@ -56,8 +56,8 @@ beforeEach(() => {
         expect(responsePost.status).toBe(400);
     });
 
-    it('', async () => {
-        const response = await request(app)
+    it('should not be possible to create a product with an empty object', async () => {
+        await request(app)
             .post('/product')
             .send({
                sku: '',
@@ -66,4 +66,24 @@ beforeEach(() => {
             });        
             expect(400);
     });
+});
+describe('updateProduct',() => {    
+    it('should be possible to edit a product by sku', async () => {        
+       const updatedProduct = {            
+           sku: products[0].sku,
+           name: 'Creme de tratamento',
+           inventory: products[0].inventory           
+       };
+       
+       const response = await request(app)
+           .put(`/product/${products[0].sku}`)
+           .send(updatedProduct);
+           expect(200);
+   });
+
+   it('should not be possible to update a product that does not exist', async () => {
+       await request(app)
+           .put('/product/19383478493');          
+           expect(400);        
+   });
 });
