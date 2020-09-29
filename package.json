@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./build/index.js"
+    "start": "tsc && node ./build/index.js",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,10 @@
     "express": "^4.17.0",
     "typescript": "^3.9.6",
     "jest": "^26.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0"
   }
 }
