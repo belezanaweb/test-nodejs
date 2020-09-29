@@ -39,7 +39,7 @@ export class ProductController {
         }
     }
 
-    public recuperationProduct(req: Request, res: Response) {
+    public recuperationProduct(req: Request, res: Response): void {
         try {
             const sku = req.params.sku;
     
@@ -52,7 +52,7 @@ export class ProductController {
         }
     }
 
-    public deleteProduct(req: Request, res: Response) {
+    public deleteProduct(req: Request, res: Response): void {
         try {
             const sku = req.params.sku;
 
