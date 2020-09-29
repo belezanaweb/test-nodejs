@@ -1,13 +1,10 @@
 import { Product } from '../model/Product'
 import { Inventory } from '../model/Invetory';
 import { ProductDataBase } from '../data/ProductDataBase';
-import { ConflictError } from '../errors/ConflictError';
-import { InvalidParameterError } from '../errors/InvalidParameterError';
-import { NotFoundError } from '../errors/NotFoundError';
-import { GenericError } from '../errors/GenericError';
 import { Warehouse } from '../model/Warehouse';
 import { InvetoryInterface } from '../interfaces/InvetoryInterface';
 import { WarehouseInterface } from '../interfaces/WarehouseInterface';
+import { ConflictError, InvalidParameterError, NotFoundError, GenericError} from '../errors'
 
 export class ProductBusiness {
     constructor(
