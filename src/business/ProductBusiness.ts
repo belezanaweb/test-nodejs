@@ -31,13 +31,10 @@ export class ProductBusiness {
     }
 
     private convertWarehousesInterfaceToWarehousesModel(warehouses: WarehouseInterface[]): Warehouse[] {
-        const warehousesModel: Warehouse[] = []
 
-        warehouses.forEach((warehouse) => {
-            warehousesModel.push(new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type))
-        })
-
-        return warehousesModel;
+        return warehouses.map((warehouse=>
+            new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type)  
+        ))
     }
 
     private hasProductBySku(sku: number): boolean {
