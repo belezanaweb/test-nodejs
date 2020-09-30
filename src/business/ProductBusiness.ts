@@ -4,12 +4,12 @@ import { ProductDataBase } from '../data/ProductDataBase';
 import { Warehouse } from '../model/Warehouse';
 import { InvetoryInterface } from '../interfaces/InvetoryInterface';
 import { WarehouseInterface } from '../interfaces/WarehouseInterface';
-import { ConflictError, InvalidParameterError, NotFoundError, GenericError} from '../errors'
+import { ConflictError, InvalidParameterError, NotFoundError, GenericError } from '../errors'
 
 export class ProductBusiness {
     constructor(
         private productDataBase: ProductDataBase
-    ) {}
+    ) { }
 
     public createProduct(sku: number, name: string, inventory: InvetoryInterface): void {
 
@@ -32,8 +32,8 @@ export class ProductBusiness {
 
     private convertWarehousesInterfaceToWarehousesModel(warehouses: WarehouseInterface[]): Warehouse[] {
 
-        return warehouses.map((warehouse=>
-            new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type)  
+        return warehouses.map((warehouse =>
+            new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type)
         ))
     }
 
@@ -43,7 +43,7 @@ export class ProductBusiness {
         return !!product;
     }
 
-    public editProduct(sku: number, name: string, inventory: Inventory): void {
+    public editProduct(sku: number, name: string, inventory: InvetoryInterface): void {
 
         if (!sku || !name || !inventory) {
             throw new InvalidParameterError("Missing Input")
@@ -52,8 +52,15 @@ export class ProductBusiness {
         if (!this.hasProductBySku(sku)) {
             throw new NotFoundError("Product Not Found")
         }
-        
-        this.productDataBase.editProduct(sku, new Product(sku, name, inventory))
+
+        this.productDataBase.editProduct(
+            sku,
+            new Product(
+                sku,
+                name,
+                new Inventory(this.convertWarehousesInterfaceToWarehousesModel(inventory.warehouses))
+            )
+        )
     }
 
     public recuperationProduct(sku: number): Product {
