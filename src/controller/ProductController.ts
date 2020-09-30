@@ -27,7 +27,6 @@ export class ProductController {
     
             ProductController.ProductBusiness.editProduct(
                 Number(sku),
-                req.body.sku,
                 req.body.name,
                 req.body.inventory
             )
