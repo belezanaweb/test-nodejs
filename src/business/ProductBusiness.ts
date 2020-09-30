@@ -4,7 +4,7 @@ import { ProductDataBase } from '../data/ProductDataBase';
 import { Warehouse } from '../model/Warehouse';
 import { InvetoryInterface } from '../interfaces/InvetoryInterface';
 import { WarehouseInterface } from '../interfaces/WarehouseInterface';
-import { ConflictError, InvalidParameterError, NotFoundError, GenericError } from '../errors'
+import { ConflictError, InvalidParameterError, NotFoundError } from '../errors'
 
 export class ProductBusiness {
     constructor(

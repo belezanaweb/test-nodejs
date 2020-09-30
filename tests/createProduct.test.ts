@@ -81,14 +81,6 @@ describe("Testing ProductBusiness.createProduct", () => {
             const productBusiness = new ProductBusiness(
                 productDatabase as any
             );
-            
-            const warehouses: WarehouseInterface[] = [
-                {
-                    locality: 'SP',
-                    quantity: 12,
-                    type: TypeWarehouse.ECOMMERCE
-                }
-            ]
 
             const inventory: InvetoryInterface = null as any;
 

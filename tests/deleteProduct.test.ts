@@ -1,8 +1,4 @@
 import { ProductBusiness } from '../src/business/ProductBusiness';
-import { InvetoryInterface } from '../src/interfaces/InvetoryInterface'
-import { WarehouseInterface } from '../src/interfaces/WarehouseInterface'
-import { TypeWarehouse } from '../src/enums/TypeWarehouse';
-import { Product } from '../src/model/Product';
 import { NotFoundError } from '../src/errors';
 
 describe("Testing ProductBusiness.deleteProduct", () => {
@@ -11,7 +7,7 @@ describe("Testing ProductBusiness.deleteProduct", () => {
     test("Should return 'Product Not Found'", () => {
 
         try {
-            const findBySku = jest.fn((sku: number) => {})
+            const findBySku = jest.fn((sku: number) => null)
 
             const productDatabase = { findBySku }
     
@@ -21,7 +17,7 @@ describe("Testing ProductBusiness.deleteProduct", () => {
     
             const sku = 43268
     
-            const result = productBusiness.recuperationProduct(sku)
+            productBusiness.recuperationProduct(sku)
     
             expect(findBySku).toHaveBeenCalledWith(sku);
             expect(findBySku).toThrow(Error)
@@ -33,7 +29,7 @@ describe("Testing ProductBusiness.deleteProduct", () => {
     test("Should deleteProduct", () => {
 
         try {
-            const findBySku = jest.fn((sku: number) => {})
+            const findBySku = jest.fn((sku: number) => null)
 
             const productDatabase = { findBySku }
     
@@ -43,7 +39,7 @@ describe("Testing ProductBusiness.deleteProduct", () => {
     
             const sku = 43268
     
-            const result = productBusiness.recuperationProduct(sku)
+            productBusiness.recuperationProduct(sku)
     
             expect(findBySku).toBe(43268)
             expect(sku).toBe(43268)
