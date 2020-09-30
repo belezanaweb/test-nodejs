@@ -40,24 +40,20 @@ export class ProductBusiness {
     private hasProductBySku(sku: number): boolean {
         const product = this.productDataBase.findBySku(sku)
 
-        return product ? true : false;
+        return !!product;
     }
 
-    public editProduct(skuParams: number, sku: number, name: string, inventory: Inventory): void {
+    public editProduct(sku: number, name: string, inventory: Inventory): void {
 
         if (!sku || !name || !inventory) {
             throw new InvalidParameterError("Missing Input")
         }
 
-        if (skuParams !== sku) {
-            throw new GenericError("The informed sku does not match the product sku")
-        }
-
-        if (!this.hasProductBySku(skuParams)) {
+        if (!this.hasProductBySku(sku)) {
             throw new NotFoundError("Product Not Found")
         }
         
-        this.productDataBase.editProduct(skuParams, new Product(skuParams, name, inventory))
+        this.productDataBase.editProduct(sku, new Product(sku, name, inventory))
     }
 
     public recuperationProduct(sku: number): Product {
@@ -67,8 +63,7 @@ export class ProductBusiness {
             throw new NotFoundError("Product Not Found")
         }
 
-        product.getInventory().calculateQuantity();
-        product.setIsMarketable();
+        product.setMarketable();
 
         return product;
     }

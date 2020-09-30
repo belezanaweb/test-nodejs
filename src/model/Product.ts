@@ -20,8 +20,9 @@ export class Product {
         return this.inventory
     }
 
-    public setIsMarketable(): void {
+    public setMarketable(): void {
         this.isMarketable = this.inventory.getQuantity() as number > 0
+        this.inventory.calculateQuantity();
     }
 }
 
