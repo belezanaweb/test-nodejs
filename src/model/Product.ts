@@ -21,8 +21,8 @@ export class Product {
     }
 
     public setMarketable(): void {
-        this.isMarketable = this.inventory.getQuantity() as number > 0
-        this.inventory.calculateQuantity();
+        this.isMarketable = this.getInventory().getQuantity() as number > 0
+        this.getInventory().calculateQuantity();
     }
 }
 

@@ -13,7 +13,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
-    "start": "tsc && node ./build/index.js",
+    "start": "tsc && node ./build/src/index.js",
     "lint": "eslint . --ext .ts",
     "test:coverage": "node ./node_modules/jest/bin/jest.js --coverage --coverageReporters='json-summary'"
   },

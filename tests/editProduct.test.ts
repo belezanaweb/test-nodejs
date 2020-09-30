@@ -1,7 +1,7 @@
 import { ProductBusiness } from '../src/business/ProductBusiness';
-import { Inventory } from '../src/model/Invetory';
-import { Warehouse } from '../src/model/Warehouse'
 import { TypeWarehouse } from '../src/enums/TypeWarehouse';
+import { InvetoryInterface } from '../src/interfaces/InvetoryInterface';
+import { WarehouseInterface } from '../src/interfaces/WarehouseInterface';
 
 describe("Testing ProductBusiness.editProduct", () => {
     const productDatabase = {}
@@ -13,7 +13,7 @@ describe("Testing ProductBusiness.editProduct", () => {
                 productDatabase as any
             );
 
-            const modelInventory: Inventory = null as any;
+            const modelInventory: InvetoryInterface = null as any;
 
             productBusiness.editProduct(
                 43268,
@@ -34,7 +34,17 @@ describe("Testing ProductBusiness.editProduct", () => {
                 productDatabase as any
             );
 
-            const modelInventory: Inventory = new Inventory([ new Warehouse('SP', 10, TypeWarehouse.ECOMMERCE) ]);
+            const warehouses: WarehouseInterface[] = [
+                {
+                    locality: 'SP',
+                    quantity: 12,
+                    type: TypeWarehouse.ECOMMERCE
+                }
+            ]
+
+            const modelInventory: InvetoryInterface = {
+                warehouses
+            }
 
             productBusiness.editProduct(
                 0,
