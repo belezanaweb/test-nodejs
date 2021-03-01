@@ -1,6 +1,7 @@
 ### Backend Test
 
 ##### Criar produto
+```
 Endpoint: POST /product
 data JSON:
 {
@@ -26,11 +27,15 @@ data JSON:
         ]
     }
 }
+```
 
 ##### Buscar produto
+```
 Endpoint: GET /product/(sku)
+```
 
 ##### Atualizar produto
+```
 Endpoint: PUT /product/(sku)
 data JSON:
 {
@@ -46,7 +51,9 @@ data JSON:
         ]
     }
 }
-
+```
 
 ##### Deletar produto
+```
 Endpoint: DELETE /product/(sku)
+```
