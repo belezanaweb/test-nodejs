@@ -33,6 +33,26 @@ class ProductController {
       }
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  remove(req, res) {
+    try {
+      const sku = parseInt(req.params.sku);
+
+      if(!sku){
+        res.status(400).end("sku não informado");
+      }
+      const product = products.filter((prod) => prod.sku === sku)[0];
+
+      if (product) {
+        products = products.filter((prod) => prod.sku !== sku);
+        res.status(200).send({message: "Produto excluído"})
+      } else {
+        res.status(404).end("sku não encontrado");
+      }
+
+    } catch (error) {
       res.status(500).json({ err: err.message });
     }
   }
