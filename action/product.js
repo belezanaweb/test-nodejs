@@ -7,11 +7,12 @@ exports.getProductBySky = async (sku) => {
 
   if (result === undefined) {
     return {
-      msg: 'Product not found',
+      mstType: 'info',
+      msg: `Product sku: ${sku} not found`,
     };
   }
 
-  return result;
+  return await processQuantity(result);
 };
 
 exports.createProduct = async (data) => {
@@ -30,8 +31,8 @@ exports.deleteProductBySky = async (data) => {
   return result;
 };
 
-exports.updateProduct = async (data) => {
-  const result = await produto.update(data);
+exports.updateProduct = async (sku, data) => {
+  const result = await produto.update(sku, data);
 
   if (result === undefined) {
     return {
@@ -41,3 +42,21 @@ exports.updateProduct = async (data) => {
 
   return result;
 };
+
+function processQuantity(product) {
+  let inventoryQuantity = 0;
+  let isMarktable = false;
+
+  for (const wharehouse of product.inventory.warehouses) {
+    if (wharehouse.quantity > 0) inventoryQuantity += wharehouse.quantity;
+  }
+
+  console.log('product');
+  console.log(product);
+  inventoryQuantity > 0 ? (isMarktable = true) : (isMarktable = false);
+
+  product.inventory.quantity = inventoryQuantity;
+  product.isMarketable = isMarktable;
+
+  return product;
+}

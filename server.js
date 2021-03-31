@@ -18,13 +18,18 @@ app.get('/product/:sku', async (req, res) => {
 });
 
 app.delete('/product/:sku', async (req, res) => {
-  res.json(await Product.deleteProductBySky(req.params.sku));
+  res.json({
+    msgType: 'info',
+    msg: await Product.deleteProductBySky(req.params.sku),
+  });
 });
 
 app.post('/product', async (req, res) => {
   try {
-    console.log(req.body);
-    res.json(await Product.createProduct(req.body));
+    res.json({
+      msgType: 'info',
+      msg: await Product.createProduct(req.body),
+    });
   } catch (error) {
     res.status(500).send({
       msgType: 'error',
@@ -34,10 +39,12 @@ app.post('/product', async (req, res) => {
   }
 });
 
-app.put('/product', async (req, res) => {
+app.put('/product/:sku', async (req, res) => {
   try {
-    console.log(req.body);
-    res.json(await Product.updateProduct(req.body));
+    res.json({
+      msgType: 'info',
+      msg: await Product.updateProduct(req.params.sku, req.body),
+    });
   } catch (error) {
     res.status(500).send({
       msgType: 'error',

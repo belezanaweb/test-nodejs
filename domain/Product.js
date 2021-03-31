@@ -1,18 +1,33 @@
 module.exports = class Product {
   constructor() {
-    console.log('Construiu ... =/');
     this.productsDatabase = [];
     this.productGargabe = [];
   }
 
+  /**
+   *  CREATE DOCUMENT
+   * @param {*} product
+   * @returns string
+   */
   async create(product) {
+    const index = this.findProductIndex(product.sku);
+
+    if (index >= 0) {
+      return `Product (sku): ${product.sku} already exists.`;
+    }
+
     this.productsDatabase.push(product);
     console.log(product);
     return `Product (sku): ${product.sku} created succesfuly`;
   }
+
+  /**
+   *  DELETE DOCUMENT
+   * @param {*} product
+   * @returns string
+   */
   async delete(sku) {
     const index = this.productsDatabase.findIndex((product) => product.sku === sku);
-    console.log(index);
 
     if (index < 0) {
       return undefined;
@@ -22,8 +37,13 @@ module.exports = class Product {
     return `Product (sku): ${sku} deleted succesfuly`;
   }
 
-  async update(updatedProduct) {
-    const index = this.productsDatabase.findIndex((product) => product.sku === updatedProduct.sku);
+  /**
+   *  UPDATE DOCUMENT
+   * @param {*} product
+   * @returns string
+   */
+  async update(sku, updatedProduct) {
+    const index = this.productsDatabase.findIndex((product) => product.sku === sku);
 
     if (index < 0) {
       return undefined;
@@ -32,21 +52,24 @@ module.exports = class Product {
     return `Product (sku): ${this.productsDatabase[index].sku} updated succesfuly`;
   }
 
+  /**
+   *  GET DOCUMENT
+   * @param {*} product
+   * @returns string
+   */
   async get(sku) {
-    const result = this.productsDatabase.find((product) => product.sku === sku);
-    return result;
+    const index = this.findProductIndex(sku);
+    return this.productsDatabase[index];
+  }
+
+  /**
+   *  FIND DOCUMENT INDEX
+   *  Find exists .
+   * @param {*} product
+   * @returns string
+   */
+  findProductIndex(sku) {
+    const index = this.productsDatabase.findIndex((product) => product.sku === sku);
+    return index;
   }
 };
-
-// const productsDatabase = [];
-
-// exports.create = (product) =>{
-//      this.productsDatabase.push(product);
-//      console.log(product);
-//      return `Product (sku): ${product.sku} created succesfuly`;
-//    }
-
-//    exports.get = async (sku) =>{
-//      const result = this.productsDatabase.find((product) => product.sku === sku);
-//      return result;
-//    }
