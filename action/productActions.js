@@ -1,5 +1,5 @@
+const validation = require('../domain/Validation');
 const Product = require('../domain/Product');
-
 const produto = new Product();
 
 exports.getProductBySky = async (sku) => {
@@ -7,7 +7,7 @@ exports.getProductBySky = async (sku) => {
 
   if (result === undefined) {
     return {
-      mstType: 'info',
+      msgType: 'info',
       msg: `Product sku: ${sku} not found`,
     };
   }
@@ -16,6 +16,8 @@ exports.getProductBySky = async (sku) => {
 };
 
 exports.createProduct = async (data) => {
+  const validations = await validation.newProduct(data);
+
   return await produto.create(data);
 };
 

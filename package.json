@@ -20,8 +20,6 @@
   "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "validator": "^13.5.2",
-    "validatorjs": "^3.22.1",
     "yarn": "^1.22.10"
   },
   "devDependencies": {

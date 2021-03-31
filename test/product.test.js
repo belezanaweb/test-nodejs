@@ -2,15 +2,27 @@ const fs = require('fs');
 
 /**Import Functions */
 const Healthckeck = require('../action/healthcheck');
-const Product = require('../action/product');
+const Product = require('../action/productActions');
 
 /**Import Mocks */
-const requestProductMock = JSON.parse(fs.readFileSync('./test/mocks/requestProduct.json'), 'utf-8');
+const reqCreateProduct = JSON.parse(fs.readFileSync('./test/mocks/reqCreateProduct.json'), 'utf-8');
+const resCreateProduct = JSON.parse(fs.readFileSync('./test/mocks/resCreateProduct.json'), 'utf-8');
+const reqProductMock = JSON.parse(fs.readFileSync('./test/mocks/reqProduct.json'), 'utf-8');
+const resProductNotFoundMock = JSON.parse(fs.readFileSync('./test/mocks/resProductNotFound.json'), 'utf-8');
 
 test('get-health-check', async () => {
   expect(await Healthckeck.do()).toMatchObject({ msg: "Somehow, I'm still alive!" });
 });
 
+test('create-product', async () => {
+  expect(await Product.createProduct(reqCreateProduct)).toBe('Product (sku): 43264 created succesfuly');
+});
+
 test('get-product', async () => {
-  expect(await Product.getProductBySky(43264)).toMatchObject(requestProductMock);
+  await Product.createProduct(reqCreateProduct);
+  expect(await Product.getProductBySky('43264')).toMatchObject(reqProductMock);
+});
+
+test('get-product-not-found', async () => {
+  expect(await Product.getProductBySky('99999')).toMatchObject(resProductNotFoundMock);
 });

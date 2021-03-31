@@ -5,7 +5,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 const HealthCheck = require('./action/healthcheck');
-const Product = require('./action/product');
+const Product = require('./action/productActions');
 
 /*Api*/
 
@@ -14,13 +14,35 @@ app.get('/health-check', async (req, res) => {
 });
 
 app.get('/product/:sku', async (req, res) => {
-  res.json(await Product.getProductBySky(req.params.sku));
+  try {
+    res.json(await Product.getProductBySky(req.params.sku));
+  } catch (error) {
+    res.status(500).send({
+      msgType: 'error',
+      msg: 'Get product failed',
+      error: error.message,
+    });
+  }
+});
+
+app.get('/product', async (req, res) => {
+  res.status(500).send({
+    msgType: 'error',
+    msg: 'Please provide sku code',
+  });
 });
 
 app.delete('/product/:sku', async (req, res) => {
   res.json({
     msgType: 'info',
     msg: await Product.deleteProductBySky(req.params.sku),
+  });
+});
+
+app.delete('/product', async (req, res) => {
+  res.status(500).send({
+    msgType: 'error',
+    msg: 'Please provide sku code',
   });
 });
 
@@ -52,6 +74,13 @@ app.put('/product/:sku', async (req, res) => {
       error: error.message,
     });
   }
+});
+
+app.put('/product', async (req, res) => {
+  res.status(500).send({
+    msgType: 'error',
+    msg: 'Please provide sku code',
+  });
 });
 
 /*Server Start*/

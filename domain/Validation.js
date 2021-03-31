@@ -1,24 +1,23 @@
-const Validator = require('validatorjs');
-
-exports.createProduct = async (reqData) => {
-  if (!reqData) {
-    return { field: 'all', message: 'Invalid data, check your data.' };
+exports.newProduct = async (product) => {
+  if (product.sku === undefined) {
+    throw new Error('Sku is mandatory, please verify.');
   }
 
-  const rules = {
-    sku: 'required',
-    name: 'required',
-  };
+  if (product.inventory === undefined) {
+    throw new Error('No inventory found');
+  }
 
-  const validation = new Validator(reqData, rules, { required: 'Incorrect request, check mandatory fields' });
+  if (
+    product.inventory.warehouses === undefined ||
+    !Array.isArray(product.inventory.warehouses) ||
+    product.inventory.warehouses.length < 1
+  ) {
+    throw new Error('No wharehouses founded');
+  }
 
-  if (validation.fails()) {
-    // Se a validação falhar, cria uma exceção para direcionar o fluxo de execução para o catch.
-    const errors = Object.entries(validation.errors.all());
-
-    for (const error of errors) {
-      return { field: error[0], message: error[1].toString() };
+  for (const whareshouse of product.inventory.warehouses) {
+    if (whareshouse.quantity === undefined) {
+      throw new Error('No wharehouses quantity');
     }
   }
-  return false;
 };
