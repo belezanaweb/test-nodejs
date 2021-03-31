@@ -1,8 +1,12 @@
 import {Router} from 'express' ;
 const routes = new Router();
 
-routes.get('/', (request, response) => {
-  return response.json({message: 'Hello'})
-});
+import ProductController from '../modules/products/controller/ProductController'
+
+const productController = new ProductController()
+
+routes.post("/products",  productController.create);
+routes.get("/products/:sku", productController.fetch);
+
 
 export default routes;
