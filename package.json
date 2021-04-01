@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "sucrase": "^3.17.1"
   },
