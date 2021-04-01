@@ -11,8 +11,8 @@ class ProductController {
         products.push(new_product);
         res.status(201).json(products);
       }
-    } catch (err) {
-      res.status(500).json({ err: err.message });
+    } catch (error) {
+      res.status(500).json({ error: errormessage });
     }
   }
 
@@ -42,8 +42,8 @@ class ProductController {
       } else {
         res.status(404).end("sku não encontrado");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   }
 
@@ -63,7 +63,7 @@ class ProductController {
         res.status(404).end("sku não encontrado");
       }
     } catch (error) {
-      res.status(500).json({ err: err.message });
+      res.status(500).json({ error: error.message });
     }
   }
 
@@ -88,7 +88,7 @@ class ProductController {
 
       return res.status(200).send({ message: "Produto editado" });
     } catch (error) {
-      res.status(500).json({ err: error.message });
+      res.status(500).json({ error: error.message });
     }
   }
 }
