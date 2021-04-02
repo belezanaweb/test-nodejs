@@ -1,74 +1,33 @@
 ### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+| Ação | Url |
+| ------------- | ------------- |
+| Retornar Todos  | http://localhost:3000/ |
+| Retornar específico | http://localhost:3000/:skuId |
+| Criar um sku | http://localhost:3000/create |
+| Editar um sku | http://localhost:3000/edit |
+| Deletar um sku | http://localhost:3000/delete/skuId |
 
-Esta é uma avaliação básica de código.
+### Postman
+Separei uma collection para facilitar os testes no postman. Ele se encontra na raiz dentro da pasta postman.
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+### Como rodar o projeto?
+Para rodar o projeto faça:
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
-
-Faça um fork deste repositório.
-
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
-
-### Tarefas
-
-Com a seguinte representação de produto:
-
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
+```sh
+git clone https://github.com/belezanaweb/test-nodejs
 ```
 
-Crie endpoints para as seguintes ações:
+```sh
+cd test-nodejs
+```
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+```sh
+npm run dev
+```
 
-- [ ] Edição de produto por **sku**
+### Como rodar os testes?
+Basta estar na raiz do projeto e:
 
-- [ ] Recuperação de produto por **sku**
-
-- [ ] Deleção de produto por **sku**
-
-### Requisitos
-
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
-
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
-
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+```sh
+npm t
+```
