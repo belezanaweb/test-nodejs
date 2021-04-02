@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "002ab06a-acf1-49e8-9431-2dd5fa27edc0",
+		"name": "test-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Return all sku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return specific sku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1237",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1237"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create sku (body content)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 1237,\r\n    \"name\": \"Creme de barbear 500g\",\r\n \"inventory\": {\r\n        \"quantity\": 1,\r\n        \"warehouses\": [\r\n            {\r\n                \"locality\": \"SP\",\r\n                \"quantity\": 1,\r\n                \"type\": \"ECOMMERCE\"\r\n            },\r\n            {\r\n                \"locality\": \"MOEMA\",\r\n                \"quantity\": 0,\r\n                \"type\": \"PHYSICAL_STORE\"\r\n            }\r\n        ]\r\n    },\r\n    \"isMarketable\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit sku (body content)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43264,\r\n    \"name\": \"L'Oréal Reconstrução 5kg\",\r\n \"inventory\": {\r\n        \"quantity\": 15,\r\n        \"warehouses\": [\r\n            {\r\n                \"locality\": \"SP\",\r\n                \"quantity\": 34,\r\n                \"type\": \"ECOMMERCE\"\r\n            },\r\n            {\r\n                \"locality\": \"MOEMA\",\r\n                \"quantity\": 56,\r\n                \"type\": \"PHYSICAL_STORE\"\r\n            }\r\n        ]\r\n    },\r\n    \"isMarketable\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/edit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete sku",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/delete/43264",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delete",
+						"43264"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

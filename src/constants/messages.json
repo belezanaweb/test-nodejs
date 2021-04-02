@@ -1,0 +1,12 @@
+{
+    "id_not_found": "Id requisitado não existe/é inválido",
+    "edit_error": "Não foi possível atualizar o sku",
+    "create_error": "Não foi possível criar o sku",
+    "invalid_id": "O id do sku não é um id válido",
+    "create_success": "Sku criado com sucesso",
+    "delete_success": "Sku deletado com sucesso",
+    "edit_success": "Sku editado com sucesso",
+    "read_error": "Não foi possível recuperar os skus",
+    "duplicate_error": "Esse sku já foi cadastrado",
+    "write_error": "Não foi possível salvar o sku"
+}
