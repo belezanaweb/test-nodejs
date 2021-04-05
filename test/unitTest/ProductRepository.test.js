@@ -22,7 +22,7 @@ describe('ProductRepository Suit Test', () => {
   let sandbox = {}
 
   before(() => {
-    productService = new ProductRepository({ file: productsDatabase })
+    productService = new ProductRepository()
   })
 
   beforeEach(async () => {
