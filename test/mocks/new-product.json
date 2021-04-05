@@ -1,0 +1,20 @@
+{
+  "sku": 73607,
+  "name": "Malbec Desodorante Colônia 100ml",
+  "inventory": {
+    "quantity": 0,
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 20,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 7,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  },
+  "isMarketable": false
+}
