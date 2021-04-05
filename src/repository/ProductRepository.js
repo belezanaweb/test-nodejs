@@ -3,7 +3,7 @@ import { join } from 'path'
 
 const productsDatabase = join(__dirname, './../../database', 'products.json')
 
-class ProductsRepository extends BaseRepository {
+class ProductRepository extends BaseRepository {
   constructor() {
     super({ file: productsDatabase })
   }
@@ -25,4 +25,4 @@ class ProductsRepository extends BaseRepository {
   }
 }
 
-export default ProductsRepository
+export default ProductRepository

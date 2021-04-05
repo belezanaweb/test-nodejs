@@ -9,7 +9,7 @@ import {
 import { expect } from 'chai'
 import { join } from 'path'
 import sinon from 'sinon'
-import ProductsRepository from '../../src/repository/ProductsRepository'
+import ProductRepository from '../../src/repository/ProductRepository'
 import { writeFile } from 'fs/promises'
 
 const productsDatabase = join(__dirname, './../../database', 'products.json')
@@ -17,12 +17,12 @@ const productsDatabase = join(__dirname, './../../database', 'products.json')
 const productMock = require('../mocks/valid-product.json')
 const newProductMock = require('../mocks/new-product.json')
 
-describe('ProductsRepository Suit Test', () => {
+describe('ProductRepository Suit Test', () => {
   let productService = {}
   let sandbox = {}
 
   before(() => {
-    productService = new ProductsRepository({ file: productsDatabase })
+    productService = new ProductRepository({ file: productsDatabase })
   })
 
   beforeEach(async () => {
@@ -40,7 +40,7 @@ describe('ProductsRepository Suit Test', () => {
     const result = await productService.find()
 
     expect(result[0]).to.be.deep.equal(expected)
-    expect(productService instanceof ProductsRepository).to.be.ok
+    expect(productService instanceof ProductRepository).to.be.ok
   })
 
   it('Given a sku must return an existing product', async () => {
