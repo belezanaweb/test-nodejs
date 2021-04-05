@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "6017865f-520f-4b48-a16e-342249c56078",
+		"name": "Teste NodeJs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sku\": 43265,\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": 12,\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": 3,\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/product",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": 0,\n                \"type\": \"ECOMMERCE\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/product/43266",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43266"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recover",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/43266",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43266"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/43269",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"43269"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
