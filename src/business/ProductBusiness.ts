@@ -77,12 +77,6 @@ export class ProductBusiness {
                 throw new CustomError(422, "Missing properties")
             }
 
-            const findSku: undefined | Product = this.productDatabase.getProductBySku(input.sku)
-
-            if(findSku === undefined) {
-                throw new CustomError(404, "Product not found")
-            }
-
             const newInventory: Inventory = {
                 quantity: input.inventory.quantity || 0,
                 warehouses:  this.convertToModel(input.inventory.warehouses)    

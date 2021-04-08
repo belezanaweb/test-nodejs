@@ -25,13 +25,13 @@ const productsMock = jest.fn((): any =>{
 })
 
 describe("Testing Create Product", () =>{
-    const productDatabase = { getProductBySku: jest.fn(), productsMock } as any
+    const productDatabase = { deleteProduct: jest.fn(), productsMock } as any
 
     test("Error when product is not found", async () =>{
         const productBusiness: ProductBusiness = new ProductBusiness(productDatabase)
 
         try {
-            await productBusiness.getProductBySku(12345)
+            await productBusiness.deleteProduct(12345)
 
         } catch (error) {
             expect(error.message).toBe("Product not found")  
@@ -47,9 +47,9 @@ describe("Testing Create Product", () =>{
         
     
         try {
-            await productBusiness.getProductBySku(43264)
-            expect(productBusiness.getProductBySku).toHaveBeenCalled()
-            expect(productBusiness.getProductBySku).toHaveBeenCalledWith(43264)
+            await productBusiness.deleteProduct(43264)
+            expect(productBusiness.deleteProduct).toHaveBeenCalled()
+            expect(productBusiness.deleteProduct).toHaveBeenCalledWith(43264)
 
         } catch (error) {
             
