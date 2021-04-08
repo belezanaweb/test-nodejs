@@ -36,7 +36,7 @@
 
 ## **GET** Product by Sku
 
-**Path:** `/product/update`
+**Path:** `/product`
 
 **Path Param**: product's sku
 
