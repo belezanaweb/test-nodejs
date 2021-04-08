@@ -5,6 +5,7 @@ export class ProductDatabase {
 
     public createProduct(product: Product): void {
         this.products.push(product)
+        console.log(this.products)
     }
     
 }

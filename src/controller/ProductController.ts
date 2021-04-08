@@ -1,8 +1,11 @@
 import { Request, Response } from "express"
 import { ProductBusiness } from "../business/ProductBusiness"
+import { ProductDatabase } from "../database/ProductDatabase"
 import { ProductInputDTO } from '../entities/Product'
 
-const productBusiness = new ProductBusiness()
+const productBusiness = new ProductBusiness(
+    new ProductDatabase()
+)
 
 export class ProductController {
 

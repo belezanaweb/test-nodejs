@@ -1,4 +1,4 @@
-import { Inventory } from "./Inventory"
+import { Inventory, InventoryInterface } from "./Inventory"
 
 export class Product {
     constructor(
@@ -17,5 +17,5 @@ export class Product {
 export interface ProductInputDTO {
     sku: number;
     name: string;
-    inventory: Inventory;
+    inventory: InventoryInterface;
 }

@@ -1,6 +1,11 @@
-import { Warehouse } from "./Warehouse"
+import { Warehouse, WarehouseInterface } from "./Warehouse"
+
+export interface InventoryInterface {
+    quantity?: number;
+    warehouses: WarehouseInterface[];
+}
 
 export interface Inventory {
-    quantity: string;
+    quantity?: number;
     warehouses: Warehouse[];
 }
