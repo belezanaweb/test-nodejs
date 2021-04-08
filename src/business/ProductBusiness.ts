@@ -44,4 +44,23 @@ export class ProductBusiness {
 
     }
 
+    public getProductBySku = async (sku: number) => {
+        try {
+            if (!sku) {
+                throw new CustomError(422, "Missing a sku")
+            }
+
+            const product: undefined | Product = this.productDatabase.getProductBySku(sku)
+
+            if(product === undefined) {
+                throw new CustomError(404, "Product not found")
+            }
+            
+           return product
+
+        } catch (error) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+
+    }
 }

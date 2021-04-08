@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { ProductBusiness } from "../business/ProductBusiness"
 import { ProductDatabase } from "../database/ProductDatabase"
-import { ProductInputDTO } from '../entities/Product'
+import { Product, ProductInputDTO } from '../entities/Product'
 
 const productBusiness = new ProductBusiness(
     new ProductDatabase()
@@ -27,10 +27,13 @@ export class ProductController {
         }
     }
 
-    public editProduct = async (req: Request, res: Response): Promise<void> => {
+    public getProductBySku = async (req: Request, res: Response): Promise<void> => {
         try {
+            const sku: number = Number(req.params.sku)
 
-            res.status(201).send({ message: "" })
+            const product: undefined| Product =await productBusiness.getProductBySku(sku)
+
+            res.status(201).send({ product })
         } catch (error) {
             res
                 .status(error.statusCode || 400)
@@ -38,9 +41,8 @@ export class ProductController {
         }
     }
 
-    public getProductBySku = async (req: Request, res: Response): Promise<void> => {
+    public editProduct = async (req: Request, res: Response): Promise<void> => {
         try {
-
 
             res.status(201).send({ message: "" })
         } catch (error) {

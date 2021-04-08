@@ -5,7 +5,6 @@ export class ProductDatabase {
 
     public createProduct(product: Product) {
         this.products.push(product)
-        console.log(this.products)
     }
     
     public getProductBySku(sku: number): Product | undefined {
