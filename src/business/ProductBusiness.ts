@@ -63,4 +63,45 @@ export class ProductBusiness {
         }
 
     }
+
+    public editProduct = async (
+        input: ProductInputDTO,
+    ): Promise<void> => {
+        try {
+            if (!input.sku || !input.inventory) {
+                throw new CustomError(422, "Missing properties")
+            }
+
+            const findSku: undefined | Product = this.productDatabase.getProductBySku(input.sku)
+
+            if(findSku === undefined) {
+                throw new CustomError(404, "Product not found")
+            }
+            
+            // const newInventory: Inventory = {
+            //     quantity: input.inventory.quantity,
+            //     warehouses:  this.convertToModel(input.inventory.warehouses)    
+            // }
+
+            // const newProduct: Product = new Product(input.sku, input.name, newInventory)
+
+        } catch (error) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+
+    }
+
+    public deleteProduct = async(sku: number): Promise<void> => {
+        try {
+            if(!sku) {
+                throw new CustomError(422, "Missing a sku")
+            }
+
+            this.productDatabase.deleteProduct(sku)
+
+        } catch (error) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+
+    }
 }

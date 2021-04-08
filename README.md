@@ -40,11 +40,11 @@ Com a seguinte representação de produto:
 
 Crie endpoints para as seguintes ações:
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+- [X] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
 
 - [ ] Edição de produto por **sku**
 
-- [ ] Recuperação de produto por **sku**
+- [X] Recuperação de produto por **sku**
 
 - [ ] Deleção de produto por **sku**
 
@@ -59,7 +59,7 @@ Crie endpoints para as seguintes ações:
 
         Um produto é marketable sempre que seu inventory.quantity for maior que 0
 
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+- [X] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
 
         Dois produtos são considerados iguais se os seus skus forem iguais
 
