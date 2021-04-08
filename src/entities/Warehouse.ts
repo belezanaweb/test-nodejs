@@ -20,7 +20,7 @@ export class Warehouse {
            case "PHYSICAL_STORE":
               return WarehouseType.PHYSICAL_STORE;
            default:
-              throw new CustomError(422,"Invalid type");
+              throw new CustomError(422,"Invalid warehouse type. Please choose 'PHYSICAL_STORE' or 'ECOMMERCE'");
         }
      }
 

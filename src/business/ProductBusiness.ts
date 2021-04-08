@@ -22,11 +22,18 @@ export class ProductBusiness {
             if (!input.sku || !input.name || !input.inventory) {
                 throw new CustomError(422, "Missing properties")
             }
+
+            const findSku: undefined | Product = this.productDatabase.getProductBySku(input.sku)
+
+            if(findSku) {
+                throw new CustomError(409, "There's already a product with this sku")
+            }
             
             const newInventory: Inventory = {
-                warehouses:  this.convertToModel(input.inventory.warehouses),
-
+                quantity: input.inventory.quantity,
+                warehouses:  this.convertToModel(input.inventory.warehouses)    
             }
+
             const newProduct: Product = new Product(input.sku, input.name, newInventory)
 
             this.productDatabase.createProduct(newProduct)

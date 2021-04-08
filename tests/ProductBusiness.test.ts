@@ -1,6 +1,5 @@
 import { ProductBusiness } from "../src/business/ProductBusiness"
 import { ProductInputDTO } from "../src/entities/Product"
-import { Warehouse } from "../src/entities/Warehouse"
 
 describe("Testing Create Product", () =>{
     const productDatabase = { createProduct: jest.fn() } as any
@@ -17,12 +16,12 @@ describe("Testing Create Product", () =>{
                         {
                             locality: "SP",
                             quantity: 12,
-                            type: Warehouse.stringToType("ECOMMERCE")
+                            type: "ECOMMERCE"
                         },
                         {
                             locality: "MOEMA",
                             quantity: 3,
-                            type: Warehouse.stringToType("PHYSICAL_STORE")
+                            type: "PHYSICAL_STORE"
                         }
                     ]
                 }
@@ -33,6 +32,39 @@ describe("Testing Create Product", () =>{
 
         } catch (error) {
             expect(error.message).toBe("Missing properties")  
+            expect(error.statusCode).toBe(422)
+        }
+
+    })
+
+    test("Error when warehouse type doesn't match", async () =>{
+        const productBusiness: ProductBusiness = new ProductBusiness(productDatabase)
+
+        const input: ProductInputDTO = {
+            sku: 43264,
+            name: "",
+            inventory: {
+                    quantity: 15,
+                    warehouses: [
+                        {
+                            locality: "SP",
+                            quantity: 12,
+                            type: "ECOMMERCE"
+                        },
+                        {
+                            locality: "MOEMA",
+                            quantity: 3,
+                            type: "HOME"
+                        }
+                    ]
+                }
+        }
+    
+        try {
+            await productBusiness.createProduct(input)
+
+        } catch (error) {
+            expect(error.message).toBe("Invalid warehouse type. Please choose 'PHYSICAL_STORE' or 'ECOMMERCE'")  
             expect(error.statusCode).toBe(422)
         }
 
@@ -50,12 +82,12 @@ describe("Testing Create Product", () =>{
                         {
                             locality: "SP",
                             quantity: 12,
-                            type: Warehouse.stringToType("ECOMMERCE")
+                            type: "ECOMMERCE"
                         },
                         {
                             locality: "MOEMA",
                             quantity: 3,
-                            type: Warehouse.stringToType("PHYSICAL_STORE")
+                            type: "PHYSICAL_STORE"
                         }
                     ]
                 }
