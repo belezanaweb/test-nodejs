@@ -1,8 +1,6 @@
 import { Warehouse } from "./Warehouse"
 
-
-
 export interface Inventory {
-    quantity?: number;
+    quantity: number;
     warehouses: Warehouse[];
 }

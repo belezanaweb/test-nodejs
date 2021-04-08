@@ -12,5 +12,15 @@ export class Product {
     public getName = (): string => this.name
     public getInventory = (): Inventory => this.inventory
     public getIsMarketable = (): boolean | undefined => this.isMarketable
+
+    public setIsMarketable(): void {
+        if(this.inventory.quantity > 0){
+            this.isMarketable = true
+        }
+    }
+
+    public setInventoryQuantity(): void {
+        this.inventory.quantity += 1
+    }
 }
 

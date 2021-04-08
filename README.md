@@ -51,11 +51,11 @@ Crie endpoints para as seguintes ações:
 ### Requisitos
 
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+- [X] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
 
         A propriedade inventory.quantity é a soma da quantity dos warehouses
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+- [X] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
 
         Um produto é marketable sempre que seu inventory.quantity for maior que 0
 

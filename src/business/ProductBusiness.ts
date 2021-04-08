@@ -32,7 +32,7 @@ export class ProductBusiness {
             }
             
             const newInventory: Inventory = {
-                quantity: input.inventory.quantity,
+                quantity: input.inventory.quantity || 0,
                 warehouses:  this.convertToModel(input.inventory.warehouses)    
             }
 
@@ -58,7 +58,10 @@ export class ProductBusiness {
                 throw new CustomError(404, "Product not found")
             }
             
-           return product
+            product.setInventoryQuantity()
+            product.setIsMarketable()
+            
+            return product
 
         } catch (error) {
             throw new CustomError(error.statusCode, error.message)
