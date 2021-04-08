@@ -1,4 +1,4 @@
-import { CustomError } from "../error/CustomError";
+import { CustomError } from "../error/CustomError"
 
 export enum WarehouseType {
     PHYSICAL_STORE = "PHYSICAL_STORE",
@@ -8,9 +8,9 @@ export enum WarehouseType {
 export class Warehouse {
 
     constructor(
-        public locality: string,
-        public quantity: number,
-        public type: WarehouseType
+        private locality: string,
+        private quantity: number,
+        private type: WarehouseType
     ) {}
 
     static stringToType(input: string): WarehouseType {
@@ -24,10 +24,9 @@ export class Warehouse {
         }
      }
 
-}
+    public getLocality = (): string => this.locality
+    public getQuantity = (): number => this.quantity
+     public getType = (): WarehouseType => this.type
 
-export interface WarehouseInterface {
-    locality: string;
-    quantity: number;
-    type: string;
+
 }

@@ -1,5 +1,5 @@
 import { ProductBusiness } from "../src/business/ProductBusiness"
-import { ProductInputDTO } from "../src/entities/Product"
+import { ProductInputDTO } from "../src/business/entities/Product"
 
 describe("Testing Create Product", () =>{
     const productDatabase = { createProduct: jest.fn() } as any

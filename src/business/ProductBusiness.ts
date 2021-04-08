@@ -1,8 +1,10 @@
+import { ProductInputDTO } from "../controller/model/Product"
+import { WarehouseInterface } from "../controller/model/Warehouse"
 import { ProductDatabase } from "../database/ProductDatabase"
-import { Inventory } from "../entities/Inventory"
-import { Product, ProductInputDTO } from "../entities/Product"
-import { Warehouse, WarehouseInterface } from "../entities/Warehouse"
-import { CustomError } from "../error/CustomError"
+import { Inventory } from "./entities/Inventory"
+import { Product } from "./entities/Product"
+import { Warehouse } from "./entities/Warehouse"
+import { CustomError } from "./error/CustomError"
 
 export class ProductBusiness {
     constructor(

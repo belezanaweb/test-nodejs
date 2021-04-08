@@ -1,4 +1,4 @@
-import { Inventory, InventoryInterface } from "./Inventory"
+import { Inventory } from "./Inventory"
 
 export class Product {
     constructor(
@@ -14,8 +14,3 @@ export class Product {
     public getIsMarketable = (): boolean | undefined => this.isMarketable
 }
 
-export interface ProductInputDTO {
-    sku: number;
-    name: string;
-    inventory: InventoryInterface;
-}

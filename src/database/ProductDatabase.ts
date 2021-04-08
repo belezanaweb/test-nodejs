@@ -1,4 +1,4 @@
-import { Product } from "../entities/Product";
+import { Product } from "../business/entities/Product";
 
 export class ProductDatabase {
     private products: Product[] =[]

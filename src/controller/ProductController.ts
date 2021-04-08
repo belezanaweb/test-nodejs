@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
 import { ProductBusiness } from "../business/ProductBusiness"
 import { ProductDatabase } from "../database/ProductDatabase"
-import { Product, ProductInputDTO } from '../entities/Product'
+import { Product } from '../business/entities/Product'
+import { ProductInputDTO } from "./model/Product"
 
 const productBusiness = new ProductBusiness(
     new ProductDatabase()
