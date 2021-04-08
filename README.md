@@ -1,7 +1,7 @@
-### Backend Test
+# Backend Test
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
-### Tarefas
+## Tarefas
 
 Com a seguinte representação de produto:
 
@@ -58,3 +58,37 @@ Crie endpoints para as seguintes ações:
         A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
 
 
+## Primeiros Passos
+1- clone esse repositório
+
+2- rode o comando abaixo
+```
+npm install
+```
+3- rode esse comando:
+```
+npm start
+```
+
+6- TÁ PRONTO O SORVETINHOOOOO!
+
+## Scripts Disponíveis:
+* `npm run start` para rodar a aplicação
+* `npm run dev` para iniciar a aplicação com hot reload
+* `npm run test` para testar a aplicação
+
+Obs: como o projeto não foi conectado a um banco de dados, assim que você dá um Ctrl + C no npm run start ou recarrega a aplicação no npm run dev, você precisa criar tudo de volta!
+
+## Funcionalidades:
+* Criar produto
+* Recuperar/pegar produto por sku
+* Editar produto
+* Deletar produto
+
+## Endpoints:
+* [Postman](https://documenter.getpostman.com/view/13242152/TzCTZRAB)
+* [Endpoints](ENDPOINTS.md)
+
+
+
+*Desenvolvido com 🧡 por Nicole Zolnier*
