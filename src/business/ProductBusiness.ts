@@ -69,11 +69,11 @@ export class ProductBusiness {
 
     }
 
-    public editProduct = async (
+    public updateProduct = async (
         input: ProductInputDTO,
     ): Promise<void> => {
         try {
-            if (!input.sku || !input.inventory) {
+            if (!input.sku || !input.inventory || !input.name) {
                 throw new CustomError(422, "Missing properties")
             }
 
@@ -82,13 +82,15 @@ export class ProductBusiness {
             if(findSku === undefined) {
                 throw new CustomError(404, "Product not found")
             }
-            
-            // const newInventory: Inventory = {
-            //     quantity: input.inventory.quantity,
-            //     warehouses:  this.convertToModel(input.inventory.warehouses)    
-            // }
 
-            // const newProduct: Product = new Product(input.sku, input.name, newInventory)
+            const newInventory: Inventory = {
+                quantity: input.inventory.quantity || 0,
+                warehouses:  this.convertToModel(input.inventory.warehouses)    
+            }
+
+            const newProduct: Product = new Product(input.sku, input.name, newInventory)
+
+            this.productDatabase.updateProduct(input.sku, newProduct)
 
         } catch (error) {
             throw new CustomError(error.statusCode, error.message)

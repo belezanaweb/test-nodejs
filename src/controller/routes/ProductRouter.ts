@@ -6,7 +6,7 @@ export const productRouter = express.Router()
 const productController = new ProductController()
 
 productRouter.post("/create", productController.createProduct)
-productRouter.put("/edit/:sku", productController.editProduct)
+productRouter.put("/update/:sku", productController.updateProduct)
 productRouter.delete("/delete/:sku", productController.deleteProduct)
 productRouter.get("/:sku", productController.getProductBySku)
 

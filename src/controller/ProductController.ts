@@ -34,7 +34,7 @@ export class ProductController {
 
             const product: undefined| Product =await productBusiness.getProductBySku(sku)
 
-            res.status(201).send({ product })
+            res.status(200).send({ product })
         } catch (error) {
             res
                 .status(error.statusCode || 400)
@@ -42,17 +42,17 @@ export class ProductController {
         }
     }
 
-    public editProduct = async (req: Request, res: Response): Promise<void> => {
+    public updateProduct = async (req: Request, res: Response): Promise<void> => {
         try {
             const input: ProductInputDTO = {
-                sku: Number(req.params.sku),
+                sku: Number(req.params.sku) || req.body.sku,
                 name: req.body.name,
                 inventory: req.body.inventory
             }
 
-            await productBusiness.editProduct(input)
+            await productBusiness.updateProduct(input)
 
-            res.status(201).send({ message: "Product updated" })
+            res.status(200).send({ message: "Product updated" })
         } catch (error) {
             res
                 .status(error.statusCode || 400)
@@ -66,7 +66,7 @@ export class ProductController {
 
             await productBusiness.deleteProduct(sku)            
 
-            res.status(201).send({ message: "Product deleted" })
+            res.status(200).send({ message: "Product deleted" })
         } catch (error) {
             res
                 .status(error.statusCode || 400)
