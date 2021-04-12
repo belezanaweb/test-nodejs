@@ -17,7 +17,7 @@ export class Inventory {
     public calculateQuantity(): void {
         let quantity = 0;
 
-        this.warehouses.forEach((warehouse: Warehouse) => {
+        this.warehouses.forEach((warehouse) => {
             quantity += warehouse.getQuantity()
         })
 
