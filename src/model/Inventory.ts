@@ -1,4 +1,4 @@
-import { Warehouse } from './Warehouse'; 
+import { Warehouse } from './Warehouse'
 
 export class Inventory {
     constructor(
@@ -15,12 +15,12 @@ export class Inventory {
     }
 
     public calculateQuantity(): void {
-        let quantity = 0;
+        let quantity = 0
 
         this.warehouses.forEach((warehouse) => {
             quantity += warehouse.getQuantity()
         })
 
-        this.quantity = quantity;
+        this.quantity = quantity
     }
 }

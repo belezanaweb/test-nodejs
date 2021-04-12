@@ -1,13 +1,10 @@
-enum TypeWarehouse {
-    ECOMMERCE = "ECOMMERCE",
-    PHYSICAL_STORE = "PHYSICAL_STORE"
-}
+import { WarehouseType } from "../enums/WarehouseType"
 
 export class Warehouse {
     constructor(
         private locality: string,
         private quantity: number,
-        private type: TypeWarehouse
+        private type: WarehouseType
     ) {}
 
     public getLocality(): string {
@@ -18,7 +15,7 @@ export class Warehouse {
         return this.quantity
     }
 
-    public getType(): TypeWarehouse {
+    public getType(): WarehouseType {
         return this.type
     }
 }

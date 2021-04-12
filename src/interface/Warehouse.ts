@@ -1,8 +1,8 @@
   
-import { TypeWarehouse } from "../enums/TypeWarehouse";
+import { WarehouseType } from "../enums/WarehouseType"
 
 export interface WarehouseInterface {
     locality: string,
     quantity: number,
-    type: TypeWarehouse
+    type: WarehouseType
 }

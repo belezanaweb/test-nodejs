@@ -1,4 +1,4 @@
-import { WarehouseInterface } from "./WarehouseInterface";
+import { WarehouseInterface } from "./Warehouse";
 
 export interface InvetoryInterface {
     warehouses: WarehouseInterface[]
