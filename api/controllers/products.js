@@ -19,7 +19,7 @@ module.exports = app => {
         //res.status(202);
         throw new Error(`produto existente, sku: ${req.body.sku}`);
       }catch(err) {
-        throw new Error("Erro");
+        throw err;
       }
     }
 
