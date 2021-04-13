@@ -10,10 +10,6 @@ app.use(cors());
 app.use("/products", productRouter)
 
 
-
-
-
-
 // Criando o servidor
 
 const server = app.listen(process.env.PORT || 3003, () => {
