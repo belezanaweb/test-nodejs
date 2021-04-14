@@ -10,8 +10,8 @@ app.use("/products", productRouter)
 const server = app.listen(3000, () => {
     if (server) {
       const address = server.address() as AddressInfo
-      console.log(`Servidor rodando em http://localhost:${address.port}`)
+      console.log(`Server online http://localhost:${address.port}`)
     } else {
-      console.error(`Falha ao rodar o servidor.`)
+      console.error(`Failed to start the server.`)
     }
 })

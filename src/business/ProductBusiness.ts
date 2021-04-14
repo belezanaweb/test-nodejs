@@ -4,6 +4,7 @@ import { ProductDb } from '../db/ProductDb'
 import { Warehouse } from '../model/Warehouse'
 import { InvetoryInterface } from '../interface/Inventory'
 import { WarehouseInterface } from '../interface/Warehouse'
+import { BasicError } from '../error/BasicError'
 
 export class ProductBusiness {
     constructor(
@@ -11,6 +12,16 @@ export class ProductBusiness {
     ) { }
 
     public createProduct(sku: number, name: string, inventory: InvetoryInterface): void {
+
+        if (!sku || !name || !inventory) {
+            throw new BasicError("Invalid input", 400)
+        }
+
+        const productFound = this.productDataBase.findBySku(sku)
+
+        if (productFound) {
+            throw new BasicError("A product with the same SKU already exists", 409)
+        }
 
         this.productDataBase.createProduct(
             new Product(
@@ -28,11 +39,37 @@ export class ProductBusiness {
         ))
     }
 
+    private hasProductBySku(sku: number): boolean {
+        const product = this.productDataBase.findBySku(sku)
+
+        return product ? true : false;
+    }
+
+    public editProduct(skuParams: number, sku: number, name: string, inventory: InvetoryInterface): void {
+
+        if (!sku || !name || !inventory) {
+            throw new BasicError("Invalid input", 400)
+        }
+
+        if (!this.hasProductBySku(skuParams)) {
+            throw new BasicError("Product not found", 404)
+        }
+        
+        this.productDataBase.editProduct(
+            skuParams, 
+            new Product(
+                skuParams, 
+                name, 
+                new Inventory(this.warehousesInterfaceToModel(inventory.warehouses))
+            )
+        )
+    }
+
     public getProduct(sku: number): Product {
         const product = this.productDataBase.findBySku(sku)
 
         if (!product) {
-            throw new Error("")
+            throw new BasicError("Product not found", 404)
         }
 
         product.setMarketable()
