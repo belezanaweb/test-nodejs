@@ -1,5 +1,5 @@
   
-import { WarehouseType } from "../enums/WarehouseType"
+import { WarehouseType } from "../enum/WarehouseType"
 
 export interface WarehouseInterface {
     locality: string,

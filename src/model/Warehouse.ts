@@ -1,4 +1,4 @@
-import { WarehouseType } from "../enums/WarehouseType"
+import { WarehouseType } from "../enum/WarehouseType"
 
 export class Warehouse {
     constructor(

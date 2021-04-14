@@ -2,7 +2,7 @@ import { Product } from '../model/Product'
 import { Inventory } from '../model/Inventory'
 import { ProductDb } from '../db/ProductDb'
 import { Warehouse } from '../model/Warehouse'
-import { InvetoryInterface } from '../interface/Inventory'
+import { InventoryInterface } from '../interface/Inventory'
 import { WarehouseInterface } from '../interface/Warehouse'
 import { BasicError } from '../error/BasicError'
 
@@ -11,7 +11,7 @@ export class ProductBusiness {
         private productDataBase: ProductDb
     ) { }
 
-    public createProduct(sku: number, name: string, inventory: InvetoryInterface): void {
+    public createProduct(sku: number, name: string, inventory: InventoryInterface): void {
 
         if (!sku || !name || !inventory) {
             throw new BasicError("Invalid input", 400)
@@ -45,7 +45,7 @@ export class ProductBusiness {
         return product ? true : false;
     }
 
-    public editProduct(skuParams: number, sku: number, name: string, inventory: InvetoryInterface): void {
+    public editProduct(skuParams: number, sku: number, name: string, inventory: InventoryInterface): void {
 
         if (!sku || !name || !inventory) {
             throw new BasicError("Invalid input", 400)
