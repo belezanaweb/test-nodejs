@@ -76,4 +76,15 @@ export class ProductBusiness {
 
         return product;
     }
+
+    public deleteProduct(sku: number): void {
+
+        const product = this.productDataBase.findBySku(sku)
+
+        if (!product) {
+            throw new BasicError("Product Not Found", 404)
+        }
+
+        this.productDataBase.deleteProduct(sku)
+    }
 }

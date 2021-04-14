@@ -33,7 +33,7 @@ export class ProductController {
                 req.body.inventory
             )
 
-            res.status(200).send({ message: "Updated Product"})
+            res.status(200).send({ message: "Product updated"})
 
         } catch (err) {
             res.status(err.errorCode || 400).send({ message: err.message})
@@ -55,9 +55,14 @@ export class ProductController {
 
     public deleteProduct(req: Request, res: Response): void {
         try {
+            const sku = req.params.sku;
+    
+            ProductController.ProductBusiness.deleteProduct(Number(sku))
+    
+            res.status(200).send({ message: "Product deleted" })
 
         } catch (err) {
-        
+            res.status(err.errorCode || 400).send({ message: err.message})
         }
     }
 }

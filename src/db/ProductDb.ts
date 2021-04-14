@@ -3,17 +3,21 @@ import { ProductHashtable } from "../interface/ProductHashtable"
 
 export class ProductDb {
 
-    private productHashTable: ProductHashtable = {}
+    private ProductHashtable: ProductHashtable = {}
 
     public createProduct(product: Product): void {
-        this.productHashTable[product.getSku()] = product
+        this.ProductHashtable[product.getSku()] = product
     }
 
     public findBySku(sku: number): Product | undefined {
-        return this.productHashTable[sku]
+        return this.ProductHashtable[sku]
     }
 
     public editProduct(sku: number, product: Product): void {
-        this.productHashTable[sku] = product;
+        this.ProductHashtable[sku] = product;
+    }
+
+    public deleteProduct(sku: number): void {
+        this.ProductHashtable[sku] = undefined
     }
 }

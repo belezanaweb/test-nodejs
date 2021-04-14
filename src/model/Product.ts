@@ -21,7 +21,7 @@ export class Product {
     }
 
     public setMarketable(): void {
-        let isMarketable = this.getInventory()
+        const isMarketable = this.getInventory()
         this.isMarketable = isMarketable.getQuantity() as number > 0
         this.getInventory().calculateQuantity()
     }
