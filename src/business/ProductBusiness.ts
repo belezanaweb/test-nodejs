@@ -27,4 +27,21 @@ export class ProductBusiness {
             new Warehouse(warehouse.locality, warehouse.quantity, warehouse.type)
         ))
     }
+    private hasProductBySku(sku: number): boolean {
+        const product = this.productDataBase.findBySku(sku)
+
+        return !!product;
+    }
+
+    public getProduct(sku: number): Product {
+        const product = this.productDataBase.findBySku(sku)
+
+        if (!product) {
+            throw new Error("")
+        }
+
+        product.setMarketable()
+
+        return product;
+    }
 }

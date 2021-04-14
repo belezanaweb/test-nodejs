@@ -9,4 +9,8 @@ export class ProductDb {
         this.productHashTable[product.getSku()] = product
     }
 
+    public findBySku(sku: number): Product | undefined {
+        return this.productHashTable[sku]
+    }
+
 }
