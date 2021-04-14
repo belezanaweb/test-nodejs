@@ -1,12 +1,21 @@
 {
   "name": "test-nodejs",
+  "jest": {
+    "verbose": true,
+    "coverageReporters": [
+      "json",
+      "text"
+    ],
+    "collectCoverage": true
+  },
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
     "start": "tsc && node ./build/index.js",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+    "test:coverage": "node ./node_modules/jest/bin/jest.js --coverage --coverageReporters='json-summary'"
   },
   "repository": {
     "type": "git",
