@@ -61,6 +61,23 @@ class ProductDatabase extends BaseDatabase_1.default {
             }
         });
     }
+    delProductBySku(sku) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield BaseDatabase_1.default.connection.raw(`
+                DELETE FROM ${BaseDatabase_2.default.RELATIONAL_TABLE}
+                WHERE product_sku=${sku};
+            `);
+                yield BaseDatabase_1.default.connection.raw(`
+                DELETE FROM ${BaseDatabase_2.default.PRODUCT_TABLE}
+                WHERE sku=${sku};
+            `);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductDatabase = ProductDatabase;
 exports.default = new ProductDatabase();

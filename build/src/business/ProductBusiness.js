@@ -37,6 +37,17 @@ class ProductBusiness {
             }
         });
     }
+    delProductBySku(sku) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield ProductDatabase_1.default.delProductBySku(sku);
+                return { message: "Sucessfull product deleted" };
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductBusiness = ProductBusiness;
 exports.default = new ProductBusiness();

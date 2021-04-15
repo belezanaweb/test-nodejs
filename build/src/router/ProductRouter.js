@@ -9,4 +9,5 @@ const ProductController_1 = __importDefault(require("../controller/ProductContro
 exports.productRouter = express_1.default.Router();
 exports.productRouter.post("/post", ProductController_1.default.createProduct);
 exports.productRouter.put("/:id", ProductController_1.default.editProductBySku);
+exports.productRouter.delete("/:id", ProductController_1.default.delProductBySku);
 //# sourceMappingURL=ProductRouter.js.map

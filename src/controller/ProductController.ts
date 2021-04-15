@@ -25,6 +25,17 @@ export class ProductController {
             console.log(error)
         }
     }
+
+    public async delProductBySku(req:Request, res:Response) {
+        try {
+            const sku = Number(req.params.id)
+            const result = await ProductBusiness.delProductBySku(sku)
+            res.status(200).send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductController()

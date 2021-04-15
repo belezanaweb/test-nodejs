@@ -45,6 +45,23 @@ export class ProductDatabase extends BaseDataBase {
             console.log(error)
         }
     }
+
+    public async delProductBySku(sku:number): Promise<void> {
+        try {
+            await BaseDataBase.connection.raw(`
+                DELETE FROM ${BaseDatabase.RELATIONAL_TABLE}
+                WHERE product_sku=${sku};
+            `)
+
+            await BaseDataBase.connection.raw(`
+                DELETE FROM ${BaseDatabase.PRODUCT_TABLE}
+                WHERE sku=${sku};
+            `)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductDatabase()

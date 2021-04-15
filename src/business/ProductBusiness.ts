@@ -23,6 +23,17 @@ export class ProductBusiness {
             console.log(error)
         }
     }
+
+    public async delProductBySku(sku:number) {
+        try {
+            await ProductDatabase.delProductBySku(sku)
+
+            return { message: "Sucessfull product deleted" };
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductBusiness()

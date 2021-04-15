@@ -40,6 +40,18 @@ class ProductController {
             }
         });
     }
+    delProductBySku(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const sku = Number(req.params.id);
+                const result = yield ProductBusiness_1.default.delProductBySku(sku);
+                res.status(200).send(result);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductController = ProductController;
 exports.default = new ProductController();
