@@ -1,0 +1,7 @@
+### createProduct
+POST http://localhost:3003/products/post
+Content-Type: application/json
+
+{
+    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g"
+}
