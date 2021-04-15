@@ -26,6 +26,17 @@ class ProductBusiness {
             }
         });
     }
+    editProductBySku(sku, id, quantity) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield ProductDatabase_1.default.editProductBySku(sku, id, quantity);
+                return { message: "Sucessfull product edited" };
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductBusiness = ProductBusiness;
 exports.default = new ProductBusiness();

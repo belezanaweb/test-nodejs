@@ -31,6 +31,36 @@ class ProductDatabase extends BaseDatabase_1.default {
             }
         });
     }
+    editProductBySku(sku, id, quantity) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const warehouse = yield BaseDatabase_1.default.connection.raw(`
+                SELECT * FROM ${BaseDatabase_2.default.RELATIONAL_TABLE}
+                WHERE product_sku=${sku} AND warehouse_id=${id};
+            `);
+                if (warehouse[0].length === 0) {
+                    yield BaseDatabase_1.default.connection.raw(`
+                    INSERT INTO ${BaseDatabase_2.default.RELATIONAL_TABLE}
+                    VALUES (
+                        ${sku},
+                        ${id},
+                        ${quantity}
+                    )
+                `);
+                }
+                else {
+                    yield BaseDatabase_1.default.connection.raw(`
+                    UPDATE ${BaseDatabase_2.default.RELATIONAL_TABLE}
+                    SET quantity=${quantity}
+                    WHERE product_sku=${sku} AND warehouse_id=${id};
+            `);
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductDatabase = ProductDatabase;
 exports.default = new ProductDatabase();

@@ -12,6 +12,17 @@ export class ProductBusiness {
             console.log(error)
         }
     }
+
+    public async editProductBySku(sku:number, id:number, quantity:number) {
+        try {
+            await ProductDatabase.editProductBySku(sku, id, quantity)
+
+            return { message: "Sucessfull product edited" };
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductBusiness()

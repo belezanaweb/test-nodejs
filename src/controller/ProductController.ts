@@ -13,6 +13,18 @@ export class ProductController {
             console.log(error)
         }
     }
+
+    public async editProductBySku(req:Request, res:Response) {
+        try {
+            const sku = Number(req.params.id)
+            const {id, quantity} = req.body
+            const result = await ProductBusiness.editProductBySku(sku, id, quantity)
+            res.status(200).send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductController()

@@ -5,3 +5,12 @@ Content-Type: application/json
 {
     "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g"
 }
+
+### editProductById
+PUT http://localhost:3003/products/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "quantity": 8
+}
