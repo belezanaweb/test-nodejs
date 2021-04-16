@@ -78,6 +78,31 @@ class ProductDatabase extends BaseDatabase_1.default {
             }
         });
     }
+    getProductBySku(sku) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield BaseDatabase_1.default.connection.raw(`
+                SELECT * FROM ${BaseDatabase_2.default.RELATIONAL_TABLE} rel
+                LEFT JOIN ${BaseDatabase_2.default.WAREHOUSE_TABLE} wh ON rel.warehouse_id = wh.id
+                LEFT JOIN ${BaseDatabase_2.default.PRODUCT_TABLE} pr ON rel.product_sku = pr.sku
+                WHERE product_sku=${sku};
+            `);
+                const newResult = yield BaseDatabase_1.default.connection.raw(`
+                SELECT * FROM ${BaseDatabase_2.default.PRODUCT_TABLE}
+                WHERE sku=${sku};
+            `);
+                if (result[0].length > 0) {
+                    return (result[0]);
+                }
+                else {
+                    return (newResult[0]);
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
 }
 exports.ProductDatabase = ProductDatabase;
 exports.default = new ProductDatabase();

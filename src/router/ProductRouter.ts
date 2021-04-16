@@ -5,5 +5,5 @@ export const productRouter = express.Router();
 
 productRouter.post("/post", ProductController.createProduct);
 productRouter.put("/:id", ProductController.editProductBySku);
-// productRouter.get("/all", productController.getAllProducts);
+productRouter.get("/:id", ProductController.getProductBySku);
 productRouter.delete("/:id", ProductController.delProductBySku);

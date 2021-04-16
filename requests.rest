@@ -17,3 +17,6 @@ Content-Type: application/json
 
 ### deleteProductBySku
 DELETE http://localhost:3003/products/2
+
+### getProductBySku
+GET  http://localhost:3003/products/1

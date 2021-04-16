@@ -36,6 +36,17 @@ export class ProductController {
             console.log(error)
         }
     }
+
+    public async getProductBySku(req:Request, res:Response) {
+        try {
+            const sku = Number(req.params.id)
+            const result = await ProductBusiness.getProductBySku(sku)
+            res.status(200).send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductController()

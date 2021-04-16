@@ -62,6 +62,31 @@ export class ProductDatabase extends BaseDataBase {
             console.log(error)
         }
     }
+
+    public async getProductBySku(sku:number): Promise<any> {
+        try {
+            const result = await BaseDataBase.connection.raw(`
+                SELECT * FROM ${BaseDatabase.RELATIONAL_TABLE} rel
+                LEFT JOIN ${BaseDatabase.WAREHOUSE_TABLE} wh ON rel.warehouse_id = wh.id
+                LEFT JOIN ${BaseDatabase.PRODUCT_TABLE} pr ON rel.product_sku = pr.sku
+                WHERE product_sku=${sku};
+            `)
+
+            const newResult = await BaseDataBase.connection.raw(`
+                SELECT * FROM ${BaseDatabase.PRODUCT_TABLE}
+                WHERE sku=${sku};
+            `)
+
+            if (result[0].length>0){
+                return (result[0])
+            } else {
+                return (newResult[0])
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default new ProductDatabase()
