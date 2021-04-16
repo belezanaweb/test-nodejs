@@ -41,6 +41,11 @@ class MySqlSetup extends BaseDatabase_1.default {
                 FOREIGN KEY (warehouse_id) REFERENCES ${BaseDatabase_1.default.WAREHOUSE_TABLE}(id)
             )
         `);
+                yield BaseDatabase_1.default.connection.raw(`
+            INSERT INTO ${BaseDatabase_1.default.WAREHOUSE_TABLE} (name, locality, type)
+            VALUES("Loja Virtual","SP","ECOMMERCE"),
+            ("Loja Física","MOEMA","PHYSICAL_STORE");
+        `);
                 console.log("MySql setup completed!");
                 BaseDatabase_1.default.destroyConnection();
             }

@@ -29,6 +29,12 @@ export class MySqlSetup extends BaseDatabase{
             )
         `)
 
+        await BaseDatabase.connection.raw(`
+            INSERT INTO ${BaseDatabase.WAREHOUSE_TABLE} (name, locality, type)
+            VALUES("Loja Virtual","SP","ECOMMERCE"),
+            ("Loja Física","MOEMA","PHYSICAL_STORE");
+        `)
+
         console.log("MySql setup completed!")
         BaseDatabase.destroyConnection()
 
