@@ -7,16 +7,16 @@ Content-Type: application/json
 }
 
 ### editProductBySku
-PUT http://localhost:3003/products/2
+PUT http://localhost:3003/products/1
 Content-Type: application/json
 
 {
-    "id": 1,
-    "quantity": 8
+    "id": 2,
+    "quantity": 12
 }
 
 ### deleteProductBySku
-DELETE http://localhost:3003/products/2
+DELETE http://localhost:3003/products/1
 
 ### getProductBySku
 GET  http://localhost:3003/products/1
