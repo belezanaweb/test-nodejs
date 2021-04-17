@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "es2019.array"
+    ],
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "strict": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@apps/*": [
+        "./src/apps/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@helper/*": [
+        "./src/helper/*"
+      ],
+      "@middlewares/*": [
+        "./src/middlewares/*"
+      ],
+      "@tools/*": [
+        "./src/tools/*"
+      ]
+    },
+    "typeRoots": [
+      "./src/@types",
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "./src/**/*",
+    ".vscode/@types"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "logs",
+    "coverage"
+  ]
+}

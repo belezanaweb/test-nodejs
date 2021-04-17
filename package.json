@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:dev": "NODE_ENV=dev ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,45 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/continuation-local-storage": "^3.2.3",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.41",
+    "@types/winston": "^2.4.4",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "continuation-local-storage": "^3.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-handler-errors": "^2.3.1",
+    "express-request-id": "^1.4.1",
+    "morgan-body": "^2.6.5",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0",
+    "winston": "^3.3.3"
+  }
 }
