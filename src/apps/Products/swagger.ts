@@ -18,7 +18,7 @@ const paths = {
             type: 'intenger',
           },
           description:
-            'Enviar apenas o sku pelo parametro para recuperar e e calcular o inventory.quantity',
+            'Enviar apenas o sku pelo parametro (http://localhost:3000/api/products/${SKU-AQUI}) para recuperar e e calcular o inventory.quantity',
         },
       ],
       responses: {
@@ -43,8 +43,8 @@ const paths = {
       },
     },
     put: {
-      tags: ['Producs'],
-      summary: 'Producs',
+      tags: ['Products'],
+      summary: 'Products',
       description: 'Update Products',
       security: [
         {
@@ -58,7 +58,7 @@ const paths = {
           required: true,
           type: 'intenger',
           description:
-            'enviar o sku pelo parametro do produto que deseja editar, as as propriedades serão subistituídas pelas da requisição.',
+            'enviar o sku do produto que deseja editar pelo parametro da requisição. Exemplo: (http://localhost:3000/api/products/${SKU-AQUI}) E o objeto no formato do exemplo abaixo com as propriedades que serão editadas e subistituídas pelas da requisição.',
         },
         {
           in: 'body',
@@ -107,7 +107,8 @@ const paths = {
           schema: {
             type: 'intenger',
           },
-          description: 'enviar o sku para deletar o referente product',
+          description:
+            'enviar o sku pelo parametro para deletar o referente produto. Exemplo: (http://localhost:3000/api/products/${SKU-AQUI})',
         },
       ],
       responses: {
@@ -134,7 +135,7 @@ const paths = {
       tags: ['Products'],
       summary: 'Products',
       description:
-        'Create Products, enviar o payload no formato do exemplo. As propriedades inventory.quantity e isMarketable podem serenviadas como null.',
+        'Criar produto, enviar o payload no formato do exemplo abaixo. As propriedades inventory.quantity e isMarketable podem ser enviadas como null.',
       security: [
         {
           Bearer: [],
