@@ -1,3 +1,9 @@
+PARA ACESSAR A DOCUMENTAÇÃO SWAGGER(Aplicação rodando):
+
+http://localhost:3000/api/docs
+
+#EXEMPLO DO INSOMNIA:
+
 {
 	"log": {
 		"version": "1.2",
