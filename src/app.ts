@@ -9,9 +9,9 @@ import express, {
 } from 'express';
 import { ErrorHandler } from 'express-handler-errors';
 import morgan from 'morgan-body';
-
-import routes from './routes'
 import logger from '@middlewares/logger';
+import swaggerRoutes from './swagger.routes';
+import routes from './routes';
 
 class App {
   public readonly app: Application;
@@ -20,11 +20,10 @@ class App {
 
   constructor() {
     this.app = express();
-    this.session = createNamespace('request'); // é aqui que vamos armazenar o id da request
+    this.session = createNamespace('request');
     this.middlewares();
     this.errorHandle();
-    // chamada do método
-    // primeiro configuramos as rotas e depois o error handler
+    this.configSwagger();
     this.routes();
     this.errorHandle();
   }
@@ -35,12 +34,12 @@ class App {
   private middlewares(): void {
     this.app.use(express.json());
     this.app.use(cors());
-    const reqId = require('express-request-id'); // essa lib não tem tipagem
+    const reqId = require('express-request-id');
     this.app.use(reqId());
     const attachContext: RequestHandler = (
       _: Request,
       __: Response,
-      next: NextFunction
+      next: NextFunction,
     ) => {
       this.session.run(() => next());
     };
@@ -48,7 +47,7 @@ class App {
     const setRequestId: RequestHandler = (
       req: Request,
       _: Response,
-      next: NextFunction
+      next: NextFunction,
     ) => {
       this.session.set('id', req.id);
       next();
@@ -72,8 +71,13 @@ class App {
     this.app.use(
       (err: Error, _: Request, res: Response, next: NextFunction) => {
         new ErrorHandler().handle(err, res, next, logger as any);
-      }
+      },
     );
+  }
+
+  private async configSwagger(): Promise<void> {
+    const swagger = await swaggerRoutes.load();
+    this.app.use(swagger);
   }
 
   private routes(): void {

@@ -6,7 +6,7 @@ const options = {
     level: 'info',
     format: winston.format.combine(
       winston.format.colorize(),
-      winston.format.simple()
+      winston.format.simple(),
     ),
     prettyPrint: true,
     colorize: process.stdout.isTTY,

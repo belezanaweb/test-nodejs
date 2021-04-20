@@ -1,12 +1,9 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
 
-import logger from '@middlewares/logger';
+import ProductsRoutes from '@apps/Products/routes';
 
 const route = Router();
 
-route.get('/hello', (_: Request, res: Response) => {
-  logger.info(`Request recebida`);
-  res.json({ message: 'Hello World' });
-});
+route.use('/products', ProductsRoutes);
 
 export default route;
