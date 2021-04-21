@@ -1,0 +1,43 @@
+
+version: "3"
+services:
+  backend-app:
+    container_name: backend-app
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://databaseUser:pass@postgres:5432/catalog-db
+      NODE_ENV: development
+      PORT: 4000
+    ports:
+      - "4000:4000"
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+      - "6543:5432"
+    volumes: 
+      - ./postgresdata:/var/lib/postgresql/data
+      - ./src/migrations/dbinit.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: databaseUser
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: catalog-db
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: felipe@root.com
+      PGADMIN_DEFAULT_PASSWORD: root123
+    ports:
+      - "5555:80"
+    depends_on:
+      - postgres
+volumes:
+    db-data:
+    pgadmin-data:
