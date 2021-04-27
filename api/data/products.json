@@ -1,0 +1,60 @@
+{
+  "items": [{
+    "sku": 43264,
+    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+    "inventory": {
+        "quantity": 15,
+        "warehouses": [
+            {
+                "locality": "SP",
+                "quantity": 12,
+                "type": "ECOMMERCE"
+            },
+            {
+                "locality": "MOEMA",
+                "quantity": 3,
+                "type": "PHYSICAL_STORE"
+            }
+        ]
+    },
+    "isMarketable": true
+  },{
+      "sku": 38273,
+      "name": "Good Girl Carolina Herrera Eau de Parfum - Perfume Feminino 30ml",
+      "inventory": {
+        "quantity": 29,
+        "warehouses": [
+            {
+                "locality": "SP",
+                "quantity": 18,
+                "type": "ECOMMERCE"
+            },
+            {
+                "locality": "MOEMA",
+                "quantity": 11,
+                "type": "PHYSICAL_STORE"
+            }
+        ]
+    },
+    "isMarketable": true
+  },{
+      "sku": 3019,
+      "name": "Senscience Inner Restore Intensif - Máscara Capilar 50ml",
+      "inventory": {
+        "quantity": 12,
+        "warehouses": [
+            {
+                "locality": "SP",
+                "quantity": 5,
+                "type": "ECOMMERCE"
+            },
+            {
+                "locality": "MOEMA",
+                "quantity": 7,
+                "type": "PHYSICAL_STORE"
+            }
+        ]
+    },
+    "isMarketable": true
+  }]
+}
