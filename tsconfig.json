@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "exclude": [
+    "__tests__",
+    "__mocks__",
+  ]
+}
