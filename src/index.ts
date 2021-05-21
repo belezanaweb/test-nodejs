@@ -6,7 +6,7 @@ import * as dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { productsRouter } from "./products/product.router";
+import { productsRouter } from "./product/product.router";
 import { errorHandler } from "./middleware/error.middleware";
 import { notFoundHandler } from "./middleware/not-found.middleware";
 
