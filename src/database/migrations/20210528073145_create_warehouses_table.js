@@ -13,7 +13,7 @@ exports.up = async knex => {
             .primary()
             .defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('locality', 255);
-        table.integer('quantity')
+        table.long('quantity')
             .unsigned()
             .notNullable();
         table.string('type');
