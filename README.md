@@ -21,8 +21,11 @@ the uuid existence or utility
 ## What I would do if I had more time:
 1. **Use Typescript**
 1. Use ORM or at least a noSQL for more scalability
-1. Probably bash my head against the keyboard for using Typescript after I build the final version.
+1. ~ Probably bash my head against the keyboard for using Typescript after I build the final version.~
 1. Add a couple more nice actions to take advantage of uuid of the warehouses.
+1. Make a routine check for no warehouses orphan registers.
+1. And also better handlers of income sanity data.
+1. Came up with a better "name-joke".
 
 ## Pre-Setup
 - I strongly recommend to install **Postgres 13** in your lovely machine and also **Postman** to import the collection 
