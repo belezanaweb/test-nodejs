@@ -10,7 +10,7 @@ module.exports = {
             let skuToGet = req.params;
 
             if(skuToGet == {}) {
-                throw new productError.SkuReferenceError('You give me nothing, I give you shit.');
+                throw new productError.SkuReferenceError();
             }
 
             let existsSku = await helpers.checkSku(skuToGet.sku);
@@ -52,7 +52,7 @@ module.exports = {
             if(error instanceof SkuReferenceError) {
                 return res.status(400).send(error.message);
             } else if(error instanceof NullRequestOrParamsError) {
-                return res.status(400).send(error.message);
+                return res.status(400).send("Parameter's empty, please re-check your request.");
             } else {
                 return res.status(500).send("Sorry, it's not you, it's me");
             }

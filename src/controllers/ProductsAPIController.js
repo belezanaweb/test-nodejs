@@ -1,6 +1,7 @@
 const actionCreate = require("./actions/createProduct");
 const actionGet = require("./actions/getProduct");
 const actionDel = require("./actions/deleteProduct");
+const actionUpdate = require("./actions/updateProduct");
 
 class ProductsAPIController {
     createBySku = (req, res) => {
@@ -12,7 +13,7 @@ class ProductsAPIController {
     }
 
     updateBySku = (req, res) => {
-
+        return actionUpdate.execute(req, res);
     }
 
     deleteBySku = (req, res) => {
