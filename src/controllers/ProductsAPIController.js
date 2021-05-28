@@ -9,6 +9,14 @@ class ProductsAPIController {
     getBySku = (req, res) => {
         return actionGet.execute(req, res);
     }
+
+    updateBySku = (req, res) => {
+
+    }
+
+    deleteBySku = (req, res) => {
+        
+    }
 }
 
 module.exports = new ProductsAPIController();
