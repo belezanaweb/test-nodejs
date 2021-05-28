@@ -15,7 +15,6 @@ exports.up = async knex => {
             .notNullable()
             .primary();
         table.string('name', 255);
-        table.boolean('isMarketable')
     })
 }
 
