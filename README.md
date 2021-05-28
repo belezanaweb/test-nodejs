@@ -41,6 +41,7 @@ tests located in [this folder](https://github.com/vitorqueijo/test-nodejs/tree/m
 
 ## Running
 Just use the already made scripts in packages.json
+- Migrate first: ``` yarn knex migrate:latest ```
 
 - Development: ``` yarn run dev ```
 
