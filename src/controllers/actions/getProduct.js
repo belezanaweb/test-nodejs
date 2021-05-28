@@ -24,17 +24,15 @@ module.exports = {
                                         .first()
 
             let totalQuantity = 0;
-            let allWareHouses = [];
+            let wares = [];
 
-            await knex.raw(`select * from warehouses 
+            await knex.raw(`select quantity, locality, type from warehouses 
                             where product_sku = ${productToGet.sku}
                             `)
-                    .then((ware) => 
-                    {
+                    .then((ware) => {
                         totalQuantity += ware.rows.map(w => w.quantity).reduce((x, y) => x + y, 0);
-                        allWareHouses.push(ware.rows);
+                        wares.push(ware.rows);
                     })
-                    
 
             let result = { 
                     "sku": productToGet.sku,
@@ -42,7 +40,7 @@ module.exports = {
                     "inventory":
                         {
                             "quantity": totalQuantity, 
-                            "warehouses": allWareHouses
+                            "warehouses": wares
                         },
                     "isMarketable": totalQuantity > 0
                 }
@@ -54,7 +52,7 @@ module.exports = {
             } else if(error instanceof NullRequestOrParamsError) {
                 return res.status(400).send("Parameter's empty, please re-check your request.");
             } else {
-                return res.status(500).send("Sorry, it's not you, it's me");
+                return res.status(500).send(error+ "Sorry, it's not you, it's me");
             }
         }
     }
