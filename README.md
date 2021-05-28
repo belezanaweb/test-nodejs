@@ -1,7 +1,7 @@
 # WonderFul Nodejs API
 Nodejs - Product Mock API
 
-## How it's works? Simple!
+## How does it work ...? Simple!
 
 ![image](https://user-images.githubusercontent.com/51131016/119979354-37aa4180-bf91-11eb-85ed-050936ba8e09.png)
 
