@@ -5,4 +5,4 @@ require('dotenv').config({
 const app = require("./app");
 
 
-app.listen(process.env.PORT || 1337, () => console.log("Server is woke and listening"))
+app.listen(process.env.PORT || 1337, () => console.log(`Server is woke and listening on ${process.env.PORT}`))
