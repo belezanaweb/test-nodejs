@@ -1,5 +1,11 @@
+const knex = require("../../database");
+const helpers = require("../helpers/productsHelpers")
+const SkuReferenceError = require("../ProductsException/SkuReferenceError");
+const NullRequestOrParamsError = require("../ProductsException/NullRequestOrParamsError");
+
+
 module.exports = {
-    async createProduct(req, res) {
+    async execute(req, res) {
         try{
             let productToBe = req.body;
 
@@ -45,7 +51,7 @@ module.exports = {
                     .status(400)
                     .send("Body is empty, please re-check your request.");
             } else {
-                return res.status(500).send("Sorry, it's not you, it's me");
+                return res.status(500);
             }
         }
     }
