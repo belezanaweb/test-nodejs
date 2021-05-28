@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-api-test",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/vitorqueijo/test-nodejs.git",
+  "author": "Vítor Queijo",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.6",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0"
+  }
+}
