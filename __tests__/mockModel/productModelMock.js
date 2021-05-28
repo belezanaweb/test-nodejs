@@ -4,7 +4,7 @@ class ProductMock {
     constructor(x) {
         this.sku = faker.datatype.number();
         this.name = faker.lorem.sentence();
-        this.inventory = inventoryArr(this.x);
+        this.inventory = this.inventoryArr(this.x);
     }
 
     inventoryArr = (x) => {

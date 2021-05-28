@@ -8,8 +8,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js --ignore __tests__",
-    "pretest": "NODE_ENV=test knex migrate:latest",
-    "test": "jest"
+    "pretest": "NODE_ENV=test yarn knex migrate:latest",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
