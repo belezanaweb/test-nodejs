@@ -38,7 +38,7 @@ module.exports = {
             };
 
             return res
-                .status(200)
+                .status(201)
                 .send(`Product '${productToBe.sku}' sucessfully added.`);
         }
         catch(error){

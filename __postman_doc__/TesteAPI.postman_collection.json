@@ -6,7 +6,121 @@
 	},
 	"item": [
 		{
+			"name": "Create Product",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"sku\", Math.floor(Math.random() * 5000));",
+							"pm.globals.set(\"qtd\", Math.floor(Math.random() * 100));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});",
+							"",
+							"var sku = pm.globals.get(\"variable_key\");",
+							"pm.globals.set(\"sku\", sku);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sku\": {{sku}},\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": {{qtd}},\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": {{qtd}},\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:1337/product",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "1337",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:1337/product/{{sku}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "1337",
+					"path": [
+						"product",
+						"{{sku}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -44,7 +158,24 @@
 			"response": []
 		},
 		{
-			"name": "Get Product",
+			"name": "Get Product Pos Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -67,39 +198,23 @@
 			"response": []
 		},
 		{
-			"name": "Create Product",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"sku\": {{sku}},\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": {{qtd}},\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": {{qtd}},\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}"
-				},
-				"url": {
-					"raw": "http://127.0.0.1:1337/product",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "1337",
-					"path": [
-						"product"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Delete Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"deleted sucessfully.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -127,7 +242,8 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.globals.set(\"sku\", Math.floor(Math.random() * 5000));",
+					"pm.globals.set(\"qtd\", Math.floor(Math.random() * 100));"
 				]
 			}
 		},
