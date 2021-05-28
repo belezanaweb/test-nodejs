@@ -27,7 +27,8 @@ tests located in [this folder](https://github.com/vitorqueijo/test-nodejs/tree/m
 
 - First of all, clone this repository in your local machine ``` git clone {this url repository} ```
 
-- Once inside the project module, run the installation (using yarn, of course, if you don't have it, run: ```npm install --global yarn```), then:
+- Once inside the project module, run the installation (using yarn, of course, if you don't have it, run: 
+- ```npm install --global yarn```), then:
 ``` yarn ```
 
 ## Running
