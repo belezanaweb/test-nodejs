@@ -92,4 +92,4 @@ yarn test   # Para rodar os testes da aplicação
 - localhost:3000/product/:sku
   - Method: GET | busca por um determinado produto pelo sku
 - localhost:3000/product/:sku
-  - Method: DELETE | deleta um determinado planeta pelo id
+  - Method: DELETE | deleta um determinado produto pelo sku
