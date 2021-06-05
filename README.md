@@ -72,3 +72,24 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+### Como rodar e testar a aplicação
+
+```
+yarn dev   # Para rodar a aplicação
+```
+
+```
+yarn test   # Para rodar os testes da aplicação
+```
+
+### Endpoints
+
+- localhost:3000/product 
+  - Method: POST | Adiciona um novo produto
+- localhost:3000/product/:sku
+  - Method: PUT | atualiza um produto existente
+- localhost:3000/product/:sku
+  - Method: GET | busca por um determinado produto pelo sku
+- localhost:3000/product/:sku
+  - Method: DELETE | deleta um determinado planeta pelo id
