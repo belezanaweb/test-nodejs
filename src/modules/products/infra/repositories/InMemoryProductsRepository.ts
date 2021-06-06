@@ -4,6 +4,7 @@ import Product from '../../entities/Product';
 
 class InMemoryProductsRepository implements ProductsRepository {
 
+
   private products: Product[] = []
 
   public async findBySku(sku: number): Promise<Product> {
@@ -20,6 +21,12 @@ class InMemoryProductsRepository implements ProductsRepository {
     const findIndex = this.products.findIndex(findProduct => findProduct.sku == product.sku)
     this.products[findIndex] = product
     return product
+  }
+
+  public async remove(sku: number): Promise<void> {
+    const findIndex = this.products.findIndex(findProduct => findProduct.sku == sku)
+
+    delete this.products[findIndex]
   }
 }
 

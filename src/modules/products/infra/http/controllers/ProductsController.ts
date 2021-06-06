@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import CreateProductsService from '@modules/products/services/CreateProductService'
 import ShowProductService from '@modules/products/services/ShowProductService'
 import UpdateProductService from '@modules/products/services/UpdateProductService';
+import RemoveProductService from '@modules/products/services/RemoveProductService';
 
 export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -35,5 +36,15 @@ export default class ProductsController {
     const product = await updateProduct.execute({ sku, name, inventory })
 
     return response.json(product)
+  }
+
+  public async delete(request: Request, response: Response) : Promise<Response> {
+    const { sku } = request.params
+
+    const removeProduct = container.resolve(RemoveProductService)
+
+    await removeProduct.execute({ sku })
+
+    return response.json({})
   }
 }
