@@ -75,3 +75,6 @@ Crie endpoints para as seguintes ações:
 
 ### Execução
 npm run dev
+
+### Endereço Swagger
+    http://{endereco do server}:3000/api-docs

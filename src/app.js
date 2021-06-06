@@ -9,6 +9,6 @@ const produtosRoute = require('./routes/produtosRoute.js');
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', index);
-app.use('/produto', produtosRoute);
+app.use('/v1/products', produtosRoute);
 
 module.exports = app;
