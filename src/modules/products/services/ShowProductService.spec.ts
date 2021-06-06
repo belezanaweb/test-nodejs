@@ -38,6 +38,7 @@ describe('ShowProduct', () => {
 
     expect(findProduct.sku).toBe(123)
     expect(findProduct.inventory.warehouses.length).toBe(2)
+    expect(findProduct.inventory.quantity).toBe(30)
   })
 
   it('should not be able to find product from non-existing sku', async () => {

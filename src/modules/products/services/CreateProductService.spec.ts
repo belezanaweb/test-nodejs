@@ -29,4 +29,30 @@ describe('CreateProduct', () => {
 
     expect(product.sku).toBe(123)
   })
+
+  it('should be not able to create a new product with same sku', async () => {
+    await createProduct.execute({
+      sku: 123,
+      name: 'sample product',
+      inventory: {
+        warehouses: [{
+          locality: 'sample locality',
+          quantity: 10,
+          type: 'ECOMMERCE'
+        }]
+      }
+    })
+
+    await expect(createProduct.execute({
+      sku: 123,
+      name: 'sample product',
+      inventory: {
+        warehouses: [{
+          locality: 'sample locality',
+          quantity: 10,
+          type: 'ECOMMERCE'
+        }]
+      }
+    })).rejects.toBeInstanceOf(Error)
+  })
 })

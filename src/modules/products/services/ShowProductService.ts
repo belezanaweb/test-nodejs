@@ -13,9 +13,15 @@ class CreateProductService {
   public async execute({ sku }): Promise<Product> {
     const product = await this.productsRepository.findBySku(sku)
 
-    if(!product) {
+    if (!product) {
       throw new Error('Product not found');
     }
+
+    const { warehouses } = product.inventory
+    const inventoryQuantity = warehouses.reduce((acc, item) => acc += item.quantity, 0)
+
+    product.isMarketable = inventoryQuantity > 0
+    product.inventory.quantity = inventoryQuantity
 
     return product
   }
