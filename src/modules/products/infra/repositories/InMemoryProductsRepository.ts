@@ -1,9 +1,8 @@
 import ProductsRepository from '@modules/products/repositories/ProductRepository'
-import CreateProductDTO from '../../dto/CreateProductDTO';
-import Product from '../../entities/Product';
+import CreateProductDTO from '@modules/products/dto/CreateProductDTO';
+import Product from '@modules/products/entities/Product';
 
 class InMemoryProductsRepository implements ProductsRepository {
-
 
   private products: Product[] = []
 
@@ -24,8 +23,7 @@ class InMemoryProductsRepository implements ProductsRepository {
   }
 
   public async remove(sku: number): Promise<void> {
-    const findIndex = this.products.findIndex(findProduct => findProduct.sku == sku)
-
+    const findIndex = this.products.findIndex(product => product.sku == sku)
     delete this.products[findIndex]
   }
 }

@@ -1,7 +1,7 @@
 import "reflect-metadata"
 
-import InMemoryProductsRepository from '../infra/repositories/InMemoryProductsRepository';
-import UpdateProductService from "./UpdateProductService";
+import InMemoryProductsRepository from '@modules/products/infra/repositories/InMemoryProductsRepository';
+import UpdateProductService from "@modules/products/services/UpdateProductService";
 
 let fakeInMemoryProductsRepository: InMemoryProductsRepository
 let updateProduct: UpdateProductService

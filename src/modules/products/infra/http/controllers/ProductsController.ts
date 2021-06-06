@@ -11,38 +11,34 @@ export default class ProductsController {
     const { sku, name, inventory } = request.body
 
     const createProduct = container.resolve(CreateProductsService)
-
     const product = await createProduct.execute({ sku, name, inventory })
 
     return response.json(product)
   }
 
-  public async show(request: Request, response: Response) : Promise<Response> {
+  public async show(request: Request, response: Response): Promise<Response> {
     const { sku } = request.params
 
     const showProduct = container.resolve(ShowProductService)
-
     const product = await showProduct.execute({ sku })
 
     return response.json(product)
   }
 
-  public async update(request: Request, response: Response) : Promise<Response> {
+  public async update(request: Request, response: Response): Promise<Response> {
     const { sku } = request.params
     const { name, inventory } = request.body
 
     const updateProduct = container.resolve(UpdateProductService)
-
     const product = await updateProduct.execute({ sku, name, inventory })
 
     return response.json(product)
   }
 
-  public async delete(request: Request, response: Response) : Promise<Response> {
+  public async delete(request: Request, response: Response): Promise<Response> {
     const { sku } = request.params
 
     const removeProduct = container.resolve(RemoveProductService)
-
     await removeProduct.execute({ sku })
 
     return response.json({})

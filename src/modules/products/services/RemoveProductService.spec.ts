@@ -1,7 +1,7 @@
 import "reflect-metadata"
 
-import InMemoryProductsRepository from '../infra/repositories/InMemoryProductsRepository';
-import RemoveProductService from "./RemoveProductService";
+import InMemoryProductsRepository from '@modules/products/infra/repositories/InMemoryProductsRepository';
+import RemoveProductService from "@modules/products/services/RemoveProductService";
 
 let fakeInMemoryProductsRepository: InMemoryProductsRepository
 let removeProduct: RemoveProductService
@@ -35,10 +35,8 @@ describe('RemoveProduct', () => {
     expect(findProduct).rejects.toBeInstanceOf(Error)
   })
 
-
   it('should not be able to remove product from non-existing sku', async () => {
     const sku = 123
-
     expect(removeProduct.execute({ sku })).rejects.toBeInstanceOf(Error)
   });
 })

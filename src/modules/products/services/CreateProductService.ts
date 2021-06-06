@@ -1,8 +1,7 @@
 import { injectable, inject } from 'tsyringe'
 
-import ProductsRepository from '@modules/products/repositories/ProductRepository'
 import Product from '@modules/products/entities/Product'
-
+import ProductsRepository from '@modules/products/repositories/ProductRepository'
 @injectable()
 class CreateProductService {
   constructor(
@@ -13,7 +12,7 @@ class CreateProductService {
   public async execute({ name, sku, inventory }): Promise<Product> {
     const checkProductExists = await this.productsRepository.findBySku(sku)
 
-    if(checkProductExists) {
+    if (checkProductExists) {
       throw new Error('Product already exist.')
     }
 
