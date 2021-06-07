@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node dist/server.js",
+    "start": "node dist/shared/server/index.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/shared/server/index.ts",
     "test": "jest"
   },
@@ -24,12 +24,14 @@
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
     "@babel/node": "^7.14.2",
+    "@babel/plugin-proposal-decorators": "^7.14.2",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-typescript": "^7.13.0",
     "@types/express": "^4.17.12",
     "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "eslint": "^7.28.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.22.1",
