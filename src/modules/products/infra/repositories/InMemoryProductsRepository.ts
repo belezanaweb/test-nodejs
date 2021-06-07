@@ -7,7 +7,7 @@ class InMemoryProductsRepository implements ProductsRepository {
   private products: Product[] = []
 
   public async findBySku(sku: number): Promise<Product> {
-    return this.products.find((product) => product.sku == sku)
+    return this.products.find((product) => product?.sku == sku)
   }
 
   public async create({ name, sku, inventory }: CreateProductDTO): Promise<Product> {

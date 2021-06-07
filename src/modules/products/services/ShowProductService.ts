@@ -1,8 +1,9 @@
 import { injectable, inject } from 'tsyringe'
 
+import AppError from '@shared/errors/AppError';
+
 import ProductsRepository from '@modules/products/repositories/ProductRepository'
 import Product from '@modules/products/entities/Product'
-
 @injectable()
 class CreateProductService {
   constructor(
@@ -14,7 +15,7 @@ class CreateProductService {
     const product = await this.productsRepository.findBySku(sku)
 
     if (!product) {
-      throw new Error('Product not found');
+      throw new AppError('Product not found');
     }
 
     const { warehouses } = product.inventory

@@ -1,5 +1,7 @@
 import "reflect-metadata"
 
+import AppError from "@shared/errors/AppError";
+
 import InMemoryProductsRepository from '@modules/products/infra/repositories/InMemoryProductsRepository';
 import RemoveProductService from "@modules/products/services/RemoveProductService";
 
@@ -30,13 +32,13 @@ describe('RemoveProduct', () => {
 
     await removeProduct.execute({ sku })
 
-    const findProduct = fakeInMemoryProductsRepository.findBySku(sku)
+    const findProduct = await fakeInMemoryProductsRepository.findBySku(sku)
 
-    expect(findProduct).rejects.toBeInstanceOf(Error)
+    expect(findProduct).toBeFalsy()
   })
 
-  it('should not be able to remove product from non-existing sku', async () => {
+  it('should not be able to remove product from non-existing sku', () => {
     const sku = 123
-    expect(removeProduct.execute({ sku })).rejects.toBeInstanceOf(Error)
+    expect(removeProduct.execute({ sku })).rejects.toBeInstanceOf(AppError)
   });
 })

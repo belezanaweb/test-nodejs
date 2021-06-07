@@ -2,6 +2,7 @@ import "reflect-metadata"
 
 import InMemoryProductsRepository from '@modules/products/infra/repositories/InMemoryProductsRepository';
 import CreateProductService from '@modules/products/services/CreateProductService';
+import AppError from "@shared/errors/AppError";
 
 let fakeInMemoryProductsRepository: InMemoryProductsRepository
 let createProduct: CreateProductService
@@ -53,6 +54,6 @@ describe('CreateProduct', () => {
           type: 'ECOMMERCE'
         }]
       }
-    })).rejects.toBeInstanceOf(Error)
+    })).rejects.toBeInstanceOf(AppError)
   })
 })

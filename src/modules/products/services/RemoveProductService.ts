@@ -1,5 +1,6 @@
 import { injectable, inject } from 'tsyringe'
 
+import AppError from '@shared/errors/AppError';
 import ProductsRepository from '@modules/products/repositories/ProductRepository'
 
 @injectable()
@@ -13,7 +14,7 @@ class RemoveProductService {
     const product = await this.productsRepository.findBySku(sku)
 
     if(!product) {
-      throw new Error('Product not found');
+      throw new AppError('Product not found');
     }
 
     return this.productsRepository.remove(sku)

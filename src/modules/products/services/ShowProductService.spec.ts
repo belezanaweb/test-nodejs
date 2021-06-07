@@ -1,5 +1,7 @@
 import "reflect-metadata"
 
+import AppError from "@shared/errors/AppError";
+
 import InMemoryProductsRepository from '@modules/products/infra/repositories/InMemoryProductsRepository';
 import ShowProductService from "@modules/products/services/ShowProductService";
 
@@ -46,6 +48,6 @@ describe('ShowProduct', () => {
       showProduct.execute({
         sku: 123,
       }),
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 })
