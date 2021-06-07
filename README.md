@@ -1,3 +1,34 @@
+### 🔥 Running the project
+
+Starts running `yarn install` and then `yarn dev` to start the server in development mode.
+
+To run the tests `yarn test` or `yarn test --coverage`
+
+**Endpoints:**
+
+POST: Create a product:
+```
+http://localhost:3333/products
+```
+
+GET: Find a product by *sku*:
+```
+http://localhost:3333/products/<sku number>
+```
+
+PUT: Update a product by *sku*:
+```
+http://localhost:3333/products/<sku number>
+```
+
+DELETE: Find a product by *sku*:
+```
+http://localhost:3333/products/<sku number>
+```
+
+---
+
+
 ### Backend Test
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
