@@ -14,6 +14,10 @@ Em modo de desenvolvimento
 npm run start:dev
 ```
 
+### Documentação
+
+[Swagger local](http://localhost:3001/docs)
+
 ### Backend Test
 
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
