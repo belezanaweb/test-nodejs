@@ -1,0 +1,7 @@
+.git
+node_modules
+*.log
+.nyc_output
+.vscode
+.idea
+dist
