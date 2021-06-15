@@ -1,4 +1,21 @@
+### Rodando este projeto
+
+- Node: v14.16.0
+
+Com docker-compose
+
+```bash
+docker-compose up --build -d
+```
+
+Em modo de desenvolvimento
+
+```bash
+npm run start:dev
+```
+
 ### Backend Test
+
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
 Esta é uma avaliação básica de código.
@@ -17,24 +34,24 @@ Com a seguinte representação de produto:
 
 ```json
 {
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
+  "sku": 43264,
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+  "inventory": {
+    "quantity": 15,
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 12,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 3,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  },
+  "isMarketable": true
 }
 ```
 
@@ -50,7 +67,6 @@ Crie endpoints para as seguintes ações:
 
 ### Requisitos
 
-
 - [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
 
         A propriedade inventory.quantity é a soma da quantity dos warehouses
@@ -62,7 +78,6 @@ Crie endpoints para as seguintes ações:
 - [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
 
         Dois produtos são considerados iguais se os seus skus forem iguais
-
 
 - [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
 

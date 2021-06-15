@@ -2,6 +2,9 @@
   "name": "test-nodejs",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": "14.16.0"
+  },
   "author": "Jaykon Willian de Oliveira",
   "license": "ISC",
   "scripts": {
