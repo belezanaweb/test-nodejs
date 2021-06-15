@@ -51,7 +51,7 @@ describe('ProductController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should to fail when create an empty instance of CreateAddressDto', async () => {
+  it('should to fail when create an empty instance of CreateProductDto', async () => {
     try {
       await of({})
         .pipe(transform$(CreateProductDto), validate$<CreateProductDto>())
@@ -99,7 +99,7 @@ describe('ProductController', () => {
     expect(updatedProduct.name).toBe(newName);
   });
 
-  it('should to create and finde a product with calculated props', async () => {
+  it('should to create and find a product with calculated props', async () => {
     const createdProduct = await controller.create(product).toPromise();
     const foundedProduct = await controller
       .findOne(product.sku.toString())
