@@ -18,6 +18,11 @@ npm run start:dev
 
 [Swagger local](http://localhost:3001/docs)
 
+### Nota
+
+Neste projeto ainda seria possivel aplicar testes no serviço e testes de integração. Os testes só foram criados para o controller.
+Ainda para ser uma RESTful, alguns outros conceitos deveriam ser aplicados como suporte a filtros, projeção, ordenação e paginação a um endpoint de listagem. E também o "odiado" HATEOAS (olha o trocadilho, kkkk), que da navegabilidade aos recursos, através de links.
+
 ### Backend Test
 
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
