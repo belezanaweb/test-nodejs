@@ -1,0 +1,22 @@
+[
+  {
+    "sku": 43264,
+    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+    "inventory": {
+      "quantity": 15,
+      "warehouses": [
+        {
+          "locality": "SP",
+          "quantity": 3,
+          "type": "ECOMMERCE"
+        },
+        {
+          "locality": "MOEMA",
+          "quantity": 12,
+          "type": "PHYSICAL_STORE"
+        }
+      ]
+    },
+    "isMarketable": false
+  }
+]
