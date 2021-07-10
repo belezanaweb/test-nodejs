@@ -3,12 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ErrorHandler = void 0;
 class ErrorHandler {
     static handle(err, req, res, next) {
-        let errorMessage = err.message;
-        if (err['response'] && err['response']['data']) {
-            errorMessage = err['response']['data'];
-        }
         let error = {
-            errorMessage: errorMessage,
+            errorMessage: err.message,
             path: req.url,
         };
         res.status(err['status'] ? err['status'] : 500);

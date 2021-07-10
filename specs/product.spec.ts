@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from '../src/app';
+import { GenericErrorResponse, ProductResponse } from '../src/controller/dtos';
 
 import { ProductMockFactory } from './mock/product-mock-factory';
 
@@ -15,7 +16,6 @@ describe('Product Integration Test Suite', () => {
 
         //Then
         expect(response.status).toBe(201);
-        expect(response.body).toBeDefined();
 
         done();
     });
@@ -34,6 +34,9 @@ describe('Product Integration Test Suite', () => {
         //Then
         expect(response.status).toBe(412);
         expect(response.body).toBeDefined();
+
+        const error: GenericErrorResponse = response.body;
+        expect(error.errorMessage).toStrictEqual('SKU already exists.');
 
         done();
     });
@@ -95,6 +98,9 @@ describe('Product Integration Test Suite', () => {
         expect(response.status).toBe(412);
         expect(response.body).toBeDefined();
 
+        const error: GenericErrorResponse = response.body;
+        expect(error.errorMessage).toStrictEqual('SKU not found.');
+
         done();
     });
 
@@ -112,6 +118,20 @@ describe('Product Integration Test Suite', () => {
         expect(response.status).toBe(200);
         expect(response.body).toBeDefined();
 
+        const product: ProductResponse = response.body;
+        expect(product.sku).toStrictEqual(123);
+        expect(product.name).toBeDefined();
+        expect(product.inventory).toBeDefined();
+        expect(product.isMarketable).toBeDefined();
+        expect(product.inventory.quantity).toBeDefined();
+        expect(product.inventory.warehouses).toBeDefined();
+
+        product.inventory.warehouses.forEach(w => {
+            expect(w.locality).toBeDefined();
+            expect(w.quantity).toBeDefined();
+            expect(w.type).toBeDefined();
+        });
+
         done();
     });
 
@@ -126,8 +146,7 @@ describe('Product Integration Test Suite', () => {
             .set('Content-Type', 'application/json');            
 
         //Then
-        expect(response.status).toBe(200);
-        expect(response.body).toBeDefined();
+        expect(response.status).toBe(204);
 
         done();
     });
@@ -149,19 +168,22 @@ describe('Product Integration Test Suite', () => {
         done();
     });
 
-    test('should delete a product if it does not exists', async (done) => {
+    test('should not delete a product if it does not exists', async (done) => {
         //Given
         await request(app).post(`/products`)
             .send(ProductMockFactory.createProductRequest())
             .set('Content-Type', 'application/json'); 
 
         //When
-        const response = await request(app).get(`/products/999`)
+        const response = await request(app).delete(`/products/999`)
             .set('Content-Type', 'application/json');            
 
         //Then
         expect(response.status).toBe(412);
         expect(response.body).toBeDefined();
+
+        const error: GenericErrorResponse = response.body;
+        expect(error.errorMessage).toStrictEqual('SKU not found.');
 
         done();
     });

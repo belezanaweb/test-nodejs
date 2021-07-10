@@ -14,11 +14,11 @@ class ProductRouter {
 
         this.router.post('/products',
             ValidationUtils.validate(ProductSchema.POST_PRODUCT), 
-            (req, res, next) => controller.getProduct(req, res, next));  
+            (req, res, next) => controller.postProduct(req, res, next));  
 
         this.router.put('/products/:sku',
             ValidationUtils.validate(ProductSchema.PUT_PRODUCT), 
-            (req, res, next) => controller.getProduct(req, res, next));  
+            (req, res, next) => controller.putProduct(req, res, next));  
 
         this.router.get('/products/:sku',
             ValidationUtils.validate(ProductSchema.GET_PRODUCT), 
@@ -26,7 +26,7 @@ class ProductRouter {
 
         this.router.delete('/products/:sku',
             ValidationUtils.validate(ProductSchema.DELETE_PRODUCT), 
-            (req, res, next) => controller.getProduct(req, res, next));  
+            (req, res, next) => controller.deleteProduct(req, res, next));  
 
     }
     

@@ -25,27 +25,18 @@ class ProductRepository {
         ];
     }
     save(model) {
-        const index = this.data.findIndex(d => d.sku === model.sku);
-        if (index >= 0)
-            throw new Error('SKU already exists.');
         this.data.push(model);
     }
     update(model) {
         const index = this.data.findIndex(d => d.sku === model.sku);
-        if (index >= 0) {
-            this.data.splice(index, 1, model);
-        }
-        else {
-            this.data.push(model);
-        }
+        this.data.splice(index, 1, model);
     }
     findBySku(sku) {
         return this.data.find(d => d.sku === sku);
     }
     delete(sku) {
         const index = this.data.findIndex(d => d.sku === sku);
-        if (index >= 0)
-            this.data.splice(index, 1);
+        this.data.splice(index, 1);
     }
 }
 exports.ProductRepository = ProductRepository;

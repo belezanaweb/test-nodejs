@@ -12,10 +12,10 @@ class ProductRouter {
     constructor() {
         this.router = express_1.default.Router();
         const controller = typedi_1.Container.get(product_controller_1.ProductController);
-        this.router.post('/products', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.POST_PRODUCT), (req, res, next) => controller.getProduct(req, res, next));
-        this.router.put('/products/:sku', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.PUT_PRODUCT), (req, res, next) => controller.getProduct(req, res, next));
+        this.router.post('/products', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.POST_PRODUCT), (req, res, next) => controller.postProduct(req, res, next));
+        this.router.put('/products/:sku', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.PUT_PRODUCT), (req, res, next) => controller.putProduct(req, res, next));
         this.router.get('/products/:sku', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.GET_PRODUCT), (req, res, next) => controller.getProduct(req, res, next));
-        this.router.delete('/products/:sku', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.DELETE_PRODUCT), (req, res, next) => controller.getProduct(req, res, next));
+        this.router.delete('/products/:sku', utils_1.ValidationUtils.validate(product_schema_1.ProductSchema.DELETE_PRODUCT), (req, res, next) => controller.deleteProduct(req, res, next));
     }
 }
 exports.default = new ProductRouter().router;

@@ -3,13 +3,9 @@ import { GenericErrorResponse } from "../controller/dtos";
 
 export class ErrorHandler {
 
-    public static handle(err: Error, req: Request, res: Response, next: NextFunction): void {
-        let errorMessage = err.message;
-        if(err['response'] && (err['response'] as unknown)['data']){
-            errorMessage = (err['response'] as unknown)['data'];
-        }
+    public static handle(err: Error, req: Request, res: Response, next: NextFunction): void {    
         let error: GenericErrorResponse = {
-            errorMessage: errorMessage,
+            errorMessage: err.message,
             path: req.url,
         }
         res.status(err['status'] ? err['status'] : 500);

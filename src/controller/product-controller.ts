@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import Container from "typedi";
 import { ProductLogic } from "../logic";
-import { Logger } from "../utils";
+import { Logger, HttpError } from "../utils";
 import { ProductBody } from "./dtos";
 
 export class ProductController {
@@ -27,7 +27,12 @@ export class ProductController {
 
     public async putProduct(req: Request, res: Response, next: NextFunction) {
         try {
+            const sku = Number(req.params.sku);
             const body: ProductBody = req.body;
+
+            if(sku !== body.sku){
+                throw new HttpError(400, 'Parameter sku does not match field sku in request body.');
+            }
 
             this.logic.updateProduct(body);
 
@@ -40,7 +45,7 @@ export class ProductController {
 
     public async getProduct(req: Request, res: Response, next: NextFunction) {
         try {
-            const sku = Number(req.query.sku);
+            const sku = Number(req.params.sku);
 
             const product = this.logic.findProduct(sku);
 
@@ -57,7 +62,7 @@ export class ProductController {
 
     public async deleteProduct(req: Request, res: Response, next: NextFunction) {
         try {
-            const sku = Number(req.query.sku);
+            const sku = Number(req.params.sku);
 
             this.logic.deleteProduct(sku);
 

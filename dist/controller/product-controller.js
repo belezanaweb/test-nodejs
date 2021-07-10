@@ -36,11 +36,16 @@ class ProductController {
     putProduct(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const sku = Number(req.params.sku);
                 const body = req.body;
+                if (sku !== body.sku) {
+                    throw new utils_1.HttpError(400, 'Parameter sku does not match field sku in request body.');
+                }
                 this.logic.updateProduct(body);
                 res.status(200).send();
             }
             catch (err) {
+                utils_1.Logger.error('ProductController::putProduct', err);
                 next(err);
             }
         });
@@ -48,7 +53,7 @@ class ProductController {
     getProduct(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const sku = Number(req.query.sku);
+                const sku = Number(req.params.sku);
                 const product = this.logic.findProduct(sku);
                 if (product) {
                     res.status(200).send(product);
@@ -58,6 +63,7 @@ class ProductController {
                 }
             }
             catch (err) {
+                utils_1.Logger.error('ProductController::getProduct', err);
                 next(err);
             }
         });
@@ -65,11 +71,12 @@ class ProductController {
     deleteProduct(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const sku = Number(req.query.sku);
+                const sku = Number(req.params.sku);
                 this.logic.deleteProduct(sku);
                 res.status(200).send();
             }
             catch (err) {
+                utils_1.Logger.error('ProductController::deleteProduct', err);
                 next(err);
             }
         });
