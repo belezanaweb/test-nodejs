@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^7.0.1"
+  }
 }
