@@ -1,3 +1,4 @@
+import { Either, left, right } from '../../../core/either'
 import { AddProduct } from '../../../domain/use-cases/add-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
@@ -8,19 +9,9 @@ export class AddProductController implements IController {
   constructor (private readonly addProductUseCase: AddProduct) {}
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
     try {
-      const requiredParams = ['sku', 'name', 'inventory']
-      for (const requiredParam of requiredParams) {
-        if (!request.body[requiredParam]) {
-          return badRequest(new MissingParamError(requiredParam))
-        }
-      }
-      if (!request.body.inventory.warehouses || request.body.inventory.warehouses.length === 0) {
-        return badRequest(new MissingParamError('warehouse'))
-      }
-      for (const warehouse of request.body.inventory.warehouses) {
-        if (!warehouse.locality || !warehouse.quantity || !warehouse.type) {
-          return badRequest(new InvalidParamError('warehouse', 'warehouse'))
-        }
+      const validPayload = this.validatePayload(request.body)
+      if (validPayload.isLeft()) {
+        return badRequest(validPayload.value)
       }
 
       const { sku, name, inventory: { warehouses } } = request.body
@@ -33,5 +24,24 @@ export class AddProductController implements IController {
     } catch (err) {
       return serverError('internal')
     }
+  }
+
+  private validatePayload (payload: any): Either<MissingParamError | InvalidParamError, void> {
+    const requiredParams = ['sku', 'name', 'inventory']
+    for (const requiredParam of requiredParams) {
+      if (!payload[requiredParam]) {
+        return left(new MissingParamError(requiredParam))
+      }
+    }
+    if (!payload.inventory.warehouses || payload.inventory.warehouses.length === 0) {
+      return left(new MissingParamError('warehouse'))
+    }
+    for (const warehouse of payload.inventory.warehouses) {
+      if (!warehouse.locality || !warehouse.quantity || !warehouse.type) {
+        return left(new InvalidParamError('warehouse', 'warehouse'))
+      }
+    }
+
+    return right()
   }
 }
