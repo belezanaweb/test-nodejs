@@ -3,7 +3,7 @@ import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { EditProductDTO, IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
-import { badRequest, notFound, serverError } from '../../../presentation/helpers/http-helper'
+import { badRequest, notFound, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest } from '../../../presentation/protocols'
 import { EditProductController } from './edit-product-controller'
 
@@ -139,6 +139,17 @@ describe('EditProduct Controller', () => {
 
     expect(response).toEqual(
       serverError('internal')
+    )
+  })
+
+  test('should return 200 with edit product on success', async () => {
+    const { sut } = makeSut()
+    const response = await sut.handle({
+      ...makeFakeSutRequest()
+    })
+
+    expect(response).toEqual(
+      ok(makeFakeEditedProduct())
     )
   })
 })
