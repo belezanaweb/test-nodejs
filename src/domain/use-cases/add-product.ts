@@ -6,11 +6,9 @@ import { WarehouseModel } from '../models/warehouse'
 export type AddProductDTO = {
   sku: number
   name: string
-  inventory: {
-    warehouses: WarehouseModel[]
-  }
+  warehouses: WarehouseModel[]
 }
 
 export interface AddProduct {
-  add(productData: AddProductDTO): Promise<Either<ProductAlreadyExistsError, ProductModel>>
+  execute({ sku, name, warehouses }: AddProductDTO): Promise<Either<ProductAlreadyExistsError, ProductModel>>
 }
