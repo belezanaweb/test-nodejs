@@ -1,6 +1,6 @@
 ### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
-
+[![Build Status](https://travis-ci.com/jpellissari/test-nodejs.svg?branch=master)](https://travis-ci.com/jpellissari/test-nodejs)
+[![Coverage Status](https://coveralls.io/repos/github/jpellissari/test-nodejs/badge.svg?branch=master)](https://coveralls.io/github/jpellissari/test-nodejs?branch=master)
 # Setup
 
 ## Requisitos
@@ -57,7 +57,7 @@ Bom, eu decidi partir para um arquitura em camadas bem desacoplada de qualquer f
 Resolvi partir para uma solução com o domínio um pouco mais anemico, visto que era um problema mais simples, mas mesmo assim deixei-o isolado.
 
 ### core
-aqui eu criei uma centralização d
+Preparei essa pasta para receber possíveis arquivos do núclero da aplicação. A classe Either é um exemplo, é uma classe utilizada para tratar retornos em toda a aplicação.
 
 ### domain
 Aqui eu concentrei minhas regras de dominio, criei as interfaces para os use-cases e alguns erros de dominio. Deixei o dominio bem simples e anêmico, mas me esforcei ao máximo para deixá-lo isolado.
