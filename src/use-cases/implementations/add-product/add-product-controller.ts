@@ -9,16 +9,21 @@ export class AddProductController implements IController {
   constructor (private readonly addProductUseCase: AddProduct) {}
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
     try {
-      if (!request.body.name) {
-        return badRequest(new MissingParamError('name'))
+      const requiredParams = ['sku', 'name', 'inventory']
+      for (const requiredParam of requiredParams) {
+        if (!request.body[requiredParam]) {
+          return badRequest(new MissingParamError(requiredParam))
+        }
       }
-      request.body.warehouses.map((warehouse: WarehouseModel) => {
+
+      request.body.inventory.warehouses.map((warehouse: WarehouseModel) => {
         warehouse.locality = warehouse.locality.toUpperCase()
         warehouse.type = warehouse.type.toUpperCase()
         return warehouse
       })
 
-      const createdProduct = await this.addProductUseCase.execute(request.body)
+      const { sku, name, inventory: { warehouses } } = request.body
+      const createdProduct = await this.addProductUseCase.execute({ sku, name, warehouses })
       if (createdProduct.isLeft()) {
         return badRequest(createdProduct.value)
       }
