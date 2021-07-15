@@ -4,10 +4,10 @@ export type ProductModel = {
   sku: number
   name: string
   inventory: InventoryModel
-  isMarketable: boolean
+  isMarketable?: boolean
 }
 
 export type InventoryModel = {
-  quantity: number
+  quantity?: number
   warehouses: WarehouseModel[]
 }
