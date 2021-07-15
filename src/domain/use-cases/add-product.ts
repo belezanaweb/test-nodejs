@@ -16,6 +16,6 @@ export type CreatedProduct = {
   }
 }
 
-export interface AddProduct {
+export interface IAddProductUseCase {
   execute({ sku, name, warehouses }: AddProductDTO): Promise<Either<ProductAlreadyExistsError, CreatedProduct>>
 }

@@ -1,14 +1,14 @@
 import { Either, left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
-import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
+import { IAddProductUseCase, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest } from '../../../presentation/protocols/http'
 import { AddProductController } from './add-product-controller'
 
-const makeAddProductUseCase = (): AddProduct => {
-  class AddProductUseCaseStub implements AddProduct {
+const makeAddProductUseCase = (): IAddProductUseCase => {
+  class AddProductUseCaseStub implements IAddProductUseCase {
     async execute ({ sku, name, warehouses }: AddProductDTO): Promise<Either<ProductAlreadyExistsError, CreatedProduct>> {
       return new Promise(resolve => resolve(right(makeFakeCreatedProduct())))
     }
@@ -55,7 +55,7 @@ const makeFakeAddProductDTO = (): AddProductDTO => ({
 })
 
 type SutTypes = {
-  addProductUseCaseStub: AddProduct
+  addProductUseCaseStub: IAddProductUseCase
   sut: IController
 }
 const makeSut = (): SutTypes => {

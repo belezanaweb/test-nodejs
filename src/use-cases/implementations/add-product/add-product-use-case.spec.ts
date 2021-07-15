@@ -1,7 +1,7 @@
 import { left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { ProductModel } from '../../../domain/models/product'
-import { AddProduct, AddProductDTO } from '../../../domain/use-cases/add-product'
+import { IAddProductUseCase, AddProductDTO } from '../../../domain/use-cases/add-product'
 import { CreateProductDTO, ICreateProductRepository } from '../../../repositories/create-product'
 import { IFindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
 import { AddProductUseCase } from './add-product-use-case'
@@ -51,7 +51,7 @@ const makeFakeCreateProductDTO = (): CreateProductDTO => ({
 })
 
 type SutTypes = {
-  sut: AddProduct
+  sut: IAddProductUseCase
   createProductRepository: ICreateProductRepository
   findProductBySkuRepositoryStub: IFindProductBySkuRepository
 }

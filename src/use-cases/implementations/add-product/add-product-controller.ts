@@ -1,12 +1,12 @@
 import { Either, left, right } from '../../../core/either'
-import { AddProduct } from '../../../domain/use-cases/add-product'
+import { IAddProductUseCase } from '../../../domain/use-cases/add-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest, IHttpResponse } from '../../../presentation/protocols/http'
 
 export class AddProductController implements IController {
-  constructor (private readonly addProductUseCase: AddProduct) {}
+  constructor (private readonly addProductUseCase: IAddProductUseCase) {}
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
     try {
       const validPayload = this.validatePayload(request.body)
