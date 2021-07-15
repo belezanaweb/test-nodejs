@@ -1,6 +1,7 @@
 import { Either, left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
+import { MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest } from '../../../presentation/protocols/http'
@@ -82,6 +83,14 @@ describe('AddProduct Controller', () => {
     const response = await sut.handle(makeFakeSutRequest())
 
     expect(response).toEqual(serverError('internal'))
+  })
+
+  test('should return 400 if name is missing', async () => {
+    const { sut } = makeSut()
+
+    const response = await sut.handle({ ...makeFakeSutRequest(), body: { name: '' } })
+
+    expect(response).toEqual(badRequest(new MissingParamError('name')))
   })
 
   test('should return 400 if AddProductUseCase returns left', async () => {
