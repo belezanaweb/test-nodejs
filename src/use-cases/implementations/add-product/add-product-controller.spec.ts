@@ -48,9 +48,9 @@ const makeFakeAddProductDTO = (): AddProductDTO => ({
   sku: 1,
   name: 'any_name',
   warehouses: [{
-    locality: 'ANY_LOCALITY',
+    locality: 'any_locality',
     quantity: 1,
-    type: 'ANY_TYPE'
+    type: 'any_type'
   }]
 })
 

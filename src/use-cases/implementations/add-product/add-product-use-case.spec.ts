@@ -41,9 +41,9 @@ const makeFakeCreateProductDTO = (): CreateProductDTO => ({
   inventory: {
     warehouses: [
       {
-        locality: 'any_locality',
+        locality: 'ANY_LOCALITY',
         quantity: 1,
-        type: 'any_type'
+        type: 'ANY_TYPE'
       }
     ]
   }
