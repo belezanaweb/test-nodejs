@@ -1,9 +1,9 @@
-import { Either, right } from '../../../core/either'
+import { Either, left, right } from '../../../core/either'
 import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { EditProductDTO, IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
-import { badRequest } from '../../../presentation/helpers/http-helper'
+import { badRequest, notFound } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest } from '../../../presentation/protocols'
 import { EditProductController } from './edit-product-controller'
 
@@ -116,5 +116,17 @@ describe('EditProduct Controller', () => {
     })
 
     expect(response).toEqual(badRequest(new InvalidParamError('warehouse', 'warehouse')))
+  })
+
+  test('should return 404 if editProductUseCase returns left', async () => {
+    const { sut, editProductUseCaseStub } = makeSut()
+    jest.spyOn(editProductUseCaseStub, 'execute').mockReturnValueOnce(new Promise(resolve => resolve(left(new ProductNotFoundError()))))
+    const response = await sut.handle({
+      ...makeFakeSutRequest()
+    })
+
+    expect(response).toEqual(
+      notFound(new ProductNotFoundError())
+    )
   })
 })
