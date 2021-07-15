@@ -1,7 +1,7 @@
-import { Either, right } from '../../../core/either'
+import { Either, left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
-import { ok } from '../../../presentation/helpers/http-helper'
+import { badRequest, ok } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest } from '../../../presentation/protocols/http'
 import { AddProductController } from './add-product-controller'
@@ -67,11 +67,21 @@ const makeSut = (): SutTypes => {
 
 describe('AddProduct Controller', () => {
   test('should call AddProductUseCase with correct params', async () => {
-    const { sut,addProductUseCaseStub } = makeSut()
+    const { sut, addProductUseCaseStub } = makeSut()
     const executeSpy = jest.spyOn(addProductUseCaseStub, 'execute')
     await sut.handle(makeFakeSutRequest())
 
     expect(executeSpy).toHaveBeenCalledWith(makeFakeAddProductDTO())
+  })
+
+  test('should return 400 if AddProductUseCase returns left', async () => {
+    const { sut, addProductUseCaseStub } = makeSut()
+    jest.spyOn(addProductUseCaseStub, 'execute').mockReturnValueOnce(
+      new Promise(resolve => resolve(left(new ProductAlreadyExistsError())))
+    )
+    const response = await sut.handle(makeFakeSutRequest())
+
+    expect(response).toEqual(badRequest(new ProductAlreadyExistsError()))
   })
 
   test('should return 200 on success', async () => {
