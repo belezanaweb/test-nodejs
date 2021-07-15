@@ -2,7 +2,7 @@ import { Either, left, right } from '../../../core/either'
 import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { IFindProductBySkuUseCase } from '../../../domain/use-cases/find-product-by-sku'
-import { notFound, ok } from '../../../presentation/helpers/http-helper'
+import { notFound, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest } from '../../../presentation/protocols'
 import { FindProductController } from './find-product-controller'
 
@@ -68,6 +68,16 @@ describe('FindProduct Controller', () => {
 
     expect(response).toEqual(
       notFound(new ProductNotFoundError())
+    )
+  })
+
+  test('should return 500 if FindProductBySkyUseCase throws', async () => {
+    const { sut, findProductBySkuUseCaseStub } = makeSut()
+    jest.spyOn(findProductBySkuUseCaseStub, 'execute').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const response = await sut.handle(makeFakeRequest(1))
+
+    expect(response).toEqual(
+      serverError('internal')
     )
   })
 })
