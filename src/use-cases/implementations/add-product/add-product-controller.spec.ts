@@ -1,7 +1,7 @@
 import { Either, left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
-import { MissingParamError } from '../../../presentation/errors'
+import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest } from '../../../presentation/protocols/http'
@@ -105,21 +105,51 @@ describe('AddProduct Controller', () => {
       }
     })
 
-    const missingInventory = await sut.handle({
-      ...makeFakeSutRequest(),
-      body: {
-        sku: 'any_sku',
-        name: 'any_name'
-      }
-    })
-
     expect(missingSku).toEqual(badRequest(new MissingParamError('sku')))
     expect(missingName).toEqual(
       badRequest(new MissingParamError('name'))
     )
-    expect(missingInventory).toEqual(
-      badRequest(new MissingParamError('inventory'))
-    )
+  })
+
+  test('should return badRequest if warehouse is missing or empty', async () => {
+    const { sut } = makeSut()
+
+    const emptyWarehouses = await sut.handle({
+      body: {
+        ...makeFakeSutRequest().body,
+        inventory: {
+          warehouses: []
+        }
+      }
+    })
+
+    const missingWarehouses = await sut.handle({
+      body: {
+        ...makeFakeSutRequest().body,
+        inventory: {}
+      }
+    })
+
+    expect(emptyWarehouses).toEqual(badRequest(new MissingParamError('warehouse')))
+    expect(missingWarehouses).toEqual(badRequest(new MissingParamError('warehouse')))
+  })
+
+  test('should return badRequest if warehouse is invalid', async () => {
+    const { sut } = makeSut()
+    const response = await sut.handle({
+      body: {
+        ...makeFakeSutRequest().body,
+        inventory: {
+          warehouses: [
+            {
+              quantity: 1
+            }
+          ]
+        }
+      }
+    })
+
+    expect(response).toEqual(badRequest(new InvalidParamError('warehouse', 'warehouse')))
   })
 
   test('should return 400 if AddProductUseCase returns left', async () => {
