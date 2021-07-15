@@ -1,3 +1,4 @@
+import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { EditProductDTO, IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { IFindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
@@ -73,6 +74,16 @@ const makeSut = (): SutTypes => {
 }
 
 describe('EditProduct UseCase', () => {
+  test('should return left if product does not exists', async () => {
+    const { sut, findProductBySkuRepositoryStub } = makeSut()
+    jest.spyOn(findProductBySkuRepositoryStub, 'findBySku').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
+
+    const editedProduct = await sut.execute(makeFakeEditProductRequest())
+
+    expect(editedProduct.isLeft()).toBeTruthy()
+    expect(editedProduct.value).toEqual(new ProductNotFoundError())
+  })
+
   test('should be able to edit a product passing valid sku and payload', async () => {
     const { sut } = makeSut()
 
