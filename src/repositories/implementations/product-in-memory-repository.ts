@@ -18,7 +18,8 @@ export class ProductInMemoryRepository implements ICreateProductRepository, IFin
 
   async findBySku (sku: number): Promise<ProductModel | undefined> {
     const product = this.products.find(product => product.sku === sku)
-    return this.calculateProperties(product)
+
+    return !product ? undefined : this.calculateProperties(product)
   }
 
   async update ({ sku, ...data }: UpdateProductDTO): Promise<ProductModel> {
