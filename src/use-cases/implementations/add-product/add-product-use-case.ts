@@ -16,14 +16,14 @@ export class AddProductUseCase implements AddProduct {
       return left(new ProductAlreadyExistsError())
     }
 
-    const newProduct = { sku, name, inventory: { warehouses } }
+    const product = { sku, name, inventory: { warehouses } }
 
     for (const warehouse of warehouses) {
       warehouse.locality = warehouse.locality.toUpperCase()
       warehouse.type = warehouse.type.toUpperCase()
     }
 
-    await this.createProductRepository.create(newProduct)
+    const newProduct = await this.createProductRepository.create(product)
 
     return right(newProduct)
   }

@@ -1,3 +1,4 @@
+import { ProductModel } from '../domain/models/product'
 import { WarehouseModel } from '../domain/models/warehouse'
 
 export type CreateProductDTO = {
@@ -9,5 +10,5 @@ export type CreateProductDTO = {
 }
 
 export interface ICreateProductRepository {
-  create(productDTO: CreateProductDTO): Promise<void>
+  create(productDTO: CreateProductDTO): Promise<ProductModel>
 }
