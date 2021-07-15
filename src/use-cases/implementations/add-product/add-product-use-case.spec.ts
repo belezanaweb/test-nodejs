@@ -1,4 +1,4 @@
-import { left } from '../../../core/either'
+import { left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { ProductModel } from '../../../domain/models/product'
 import { AddProduct, AddProductDTO } from '../../../domain/use-cases/add-product'
@@ -84,5 +84,12 @@ describe('AddProduct UseCase', () => {
     await sut.execute(makeFakeAddProductRequest())
 
     expect(createSpy).toHaveBeenCalledWith(makeFakeCreateProductDTO())
+  })
+
+  test('should return right(void) on success', async () => {
+    const { sut } = makeSut()
+    const response = await sut.execute(makeFakeAddProductRequest())
+
+    expect(response).toEqual(right(makeFakeCreateProductDTO()))
   })
 })
