@@ -15,6 +15,28 @@ describe('ProductInMemory Repository', () => {
     expect(product).toBeFalsy()
   })
 
+  test('should delete product on delete success', async () => {
+    const sut = new ProductInMemoryRepository()
+    await sut.create({
+      sku: 1,
+      name: 'any_name',
+      inventory: {
+        warehouses: [
+          {
+            locality: 'ANY_LOCALITY',
+            quantity: 1,
+            type: 'ANY_TYPE'
+          }
+        ]
+      }
+    })
+    await sut.delete(1)
+
+    const products = await sut.all()
+
+    expect(products).toHaveLength(0)
+  })
+
   test('should add product on create success', async () => {
     const sut = new ProductInMemoryRepository()
     const newProduct = await sut.create({
