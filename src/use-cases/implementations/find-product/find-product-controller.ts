@@ -1,5 +1,5 @@
 import { IFindProductBySkuUseCase } from '../../../domain/use-cases/find-product-by-sku'
-import { ok } from '../../../presentation/helpers/http-helper'
+import { notFound, ok } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest, IHttpResponse } from '../../../presentation/protocols'
 
 export class FindProductController implements IController {
@@ -7,6 +7,9 @@ export class FindProductController implements IController {
 
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
     const product = await this.findProductBySkuUseCase.execute(request.params.sku)
+    if (product.isLeft()) {
+      return notFound(product.value)
+    }
 
     return ok(product.value)
   }
