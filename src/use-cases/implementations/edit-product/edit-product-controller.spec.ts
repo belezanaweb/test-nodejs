@@ -3,7 +3,7 @@ import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { EditProductDTO, IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
-import { badRequest, notFound } from '../../../presentation/helpers/http-helper'
+import { badRequest, notFound, serverError } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest } from '../../../presentation/protocols'
 import { EditProductController } from './edit-product-controller'
 
@@ -127,6 +127,18 @@ describe('EditProduct Controller', () => {
 
     expect(response).toEqual(
       notFound(new ProductNotFoundError())
+    )
+  })
+
+  test('should return 500 if editProductUseCase throws', async () => {
+    const { sut, editProductUseCaseStub } = makeSut()
+    jest.spyOn(editProductUseCaseStub, 'execute').mockReturnValueOnce(new Promise((resolve,reject) => reject(new Error())))
+    const response = await sut.handle({
+      ...makeFakeSutRequest()
+    })
+
+    expect(response).toEqual(
+      serverError('internal')
     )
   })
 })
