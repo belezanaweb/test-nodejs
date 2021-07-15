@@ -1,6 +1,7 @@
 import { Either, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
+import { ok } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest } from '../../../presentation/protocols/http'
 import { AddProductController } from './add-product-controller'
@@ -8,11 +9,25 @@ import { AddProductController } from './add-product-controller'
 const makeAddProductUseCase = (): AddProduct => {
   class AddProductUseCaseStub implements AddProduct {
     async execute ({ sku, name, warehouses }: AddProductDTO): Promise<Either<ProductAlreadyExistsError, CreatedProduct>> {
-      return new Promise(resolve => resolve(right({} as CreatedProduct)))
+      return new Promise(resolve => resolve(right(makeFakeCreatedProduct())))
     }
   }
   return new AddProductUseCaseStub()
 }
+
+const makeFakeCreatedProduct = (): CreatedProduct => ({
+  sku: 1,
+  name: 'any_name',
+  inventory: {
+    warehouses: [
+      {
+        locality: 'ANY_LOCALITY',
+        quantity: 1,
+        type: 'ANY_TYPE'
+      }
+    ]
+  }
+})
 
 const makeFakeSutRequest = (): IHttpRequest => ({
   body: {
@@ -57,5 +72,12 @@ describe('AddProduct Controller', () => {
     await sut.handle(makeFakeSutRequest())
 
     expect(executeSpy).toHaveBeenCalledWith(makeFakeAddProductDTO())
+  })
+
+  test('should return 200 on success', async () => {
+    const { sut } = makeSut()
+    const response = await sut.handle(makeFakeSutRequest())
+
+    expect(response).toEqual(ok(makeFakeCreatedProduct()))
   })
 })
