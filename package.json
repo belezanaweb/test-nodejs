@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:server": "ts-node-dev --inspect --ignore-watch node_modules ./src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "yarn test --watch -c jest-unit.config.js",
@@ -35,6 +36,7 @@
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   },
   "dependencies": {
