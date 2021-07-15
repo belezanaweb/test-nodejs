@@ -17,7 +17,8 @@ const makeFindProductBySkuRepository = (): IFindProductBySkuRepository => {
 
 const makeCreateProductRepository = (): ICreateProductRepository => {
   class CreateProductRepositoryStub implements ICreateProductRepository {
-    async create (productDTO: CreateProductDTO): Promise<void> {
+    async create (productDTO: CreateProductDTO): Promise<ProductModel> {
+      return new Promise(resolve => resolve(makeFakeCreateProductDTO()))
     }
   }
   return new CreateProductRepositoryStub()

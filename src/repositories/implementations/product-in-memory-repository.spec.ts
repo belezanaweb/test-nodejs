@@ -10,7 +10,7 @@ describe('ProductInMemory Repository', () => {
 
   test('should add product on create success', async () => {
     const sut = new ProductInMemoryRepository()
-    await sut.create({
+    const newProduct = await sut.create({
       sku: 1,
       name: 'any_name',
       inventory: {
@@ -26,6 +26,19 @@ describe('ProductInMemory Repository', () => {
 
     const products = await sut.all()
     expect(products).toHaveLength(1)
+    expect(newProduct).toEqual({
+      sku: 1,
+      name: 'any_name',
+      inventory: {
+        warehouses: [
+          {
+            locality: 'ANY_LOCALITY',
+            quantity: 1,
+            type: 'ANY_TYPE'
+          }
+        ]
+      }
+    })
   })
 
   test('should return product on findBySku success', async () => {
