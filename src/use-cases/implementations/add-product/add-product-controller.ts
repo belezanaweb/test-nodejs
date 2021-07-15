@@ -1,23 +1,27 @@
 import { WarehouseModel } from '../../../domain/models/warehouse'
 import { AddProduct } from '../../../domain/use-cases/add-product'
-import { badRequest, ok } from '../../../presentation/helpers/http-helper'
+import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest, IHttpResponse } from '../../../presentation/protocols/http'
 
 export class AddProductController implements IController {
   constructor (private readonly addProductUseCase: AddProduct) {}
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
-    request.body.warehouses.map((warehouse: WarehouseModel) => {
-      warehouse.locality = warehouse.locality.toUpperCase()
-      warehouse.type = warehouse.type.toUpperCase()
-      return warehouse
-    })
+    try {
+      request.body.warehouses.map((warehouse: WarehouseModel) => {
+        warehouse.locality = warehouse.locality.toUpperCase()
+        warehouse.type = warehouse.type.toUpperCase()
+        return warehouse
+      })
 
-    const createdProduct = await this.addProductUseCase.execute(request.body)
-    if (createdProduct.isLeft()) {
-      return badRequest(createdProduct.value)
+      const createdProduct = await this.addProductUseCase.execute(request.body)
+      if (createdProduct.isLeft()) {
+        return badRequest(createdProduct.value)
+      }
+
+      return ok(createdProduct.value)
+    } catch (err) {
+      return serverError('internal')
     }
-
-    return ok(createdProduct.value)
   }
 }
