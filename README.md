@@ -34,10 +34,10 @@ Após estes passos terá um container docker rodando a aplicação no seu comput
 
 Além disso eu fiz alguns requirements para iniciar o desenvolvimentos que podem ser encontrados abaixo:
 ### Produtos
-1. [Criar](./products/add-product.md)
-2. [Editar](./products/edit-product.md)
-3. [Recuperar](./products/find-product.md)
-4. [Remover](./products/delete-product.md)
+1. [Criar](./requirements/products/add-product.md)
+2. [Editar](./requirements/products/edit-product.md)
+3. [Recuperar](./requirements/products/find-product.md)
+4. [Remover](./requirements/products/delete-product.md)
 
 # Arquitetura escolhida
 Bom, eu decidi partir para um arquitura em camadas bem desacoplada de qualquer framework. Tomei a liberdade para implementar adaptadores de rota e middleware para o express, mas saliento que a minha desição arquitetural para resolver o problema deve nos dar a possíbiliade de trocar o framework sem muita dor de cabeça. Basta com que implementemos novos adaptadores.
