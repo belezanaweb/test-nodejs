@@ -152,6 +152,26 @@ describe('AddProduct Controller', () => {
     expect(response).toEqual(badRequest(new InvalidParamError('warehouse', 'warehouse')))
   })
 
+  test('should return badRequest if quantity is not a number', async () => {
+    const { sut } = makeSut()
+    const response = await sut.handle({
+      body: {
+        ...makeFakeSutRequest().body,
+        inventory: {
+          warehouses: [
+            {
+              locality: 'any_locality',
+              quantity: 'not a number',
+              type: 'any_type'
+            }
+          ]
+        }
+      }
+    })
+
+    expect(response).toEqual(badRequest(new InvalidParamError('quantity', 'number')))
+  })
+
   test('should return 400 if AddProductUseCase returns left', async () => {
     const { sut, addProductUseCaseStub } = makeSut()
     jest.spyOn(addProductUseCaseStub, 'execute').mockReturnValueOnce(
