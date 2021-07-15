@@ -1,4 +1,3 @@
-import { WarehouseModel } from '../../../domain/models/warehouse'
 import { AddProduct } from '../../../domain/use-cases/add-product'
 import { MissingParamError } from '../../../presentation/errors'
 import { badRequest, ok, serverError } from '../../../presentation/helpers/http-helper'
@@ -15,12 +14,6 @@ export class AddProductController implements IController {
           return badRequest(new MissingParamError(requiredParam))
         }
       }
-
-      request.body.inventory.warehouses.map((warehouse: WarehouseModel) => {
-        warehouse.locality = warehouse.locality.toUpperCase()
-        warehouse.type = warehouse.type.toUpperCase()
-        return warehouse
-      })
 
       const { sku, name, inventory: { warehouses } } = request.body
       const createdProduct = await this.addProductUseCase.execute({ sku, name, warehouses })

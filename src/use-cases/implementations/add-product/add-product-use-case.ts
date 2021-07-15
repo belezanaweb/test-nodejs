@@ -17,6 +17,12 @@ export class AddProductUseCase implements AddProduct {
     }
 
     const newProduct = { sku, name, inventory: { warehouses } }
+
+    for (const warehouse of warehouses) {
+      warehouse.locality = warehouse.locality.toUpperCase()
+      warehouse.type = warehouse.type.toUpperCase()
+    }
+
     await this.createProductRepository.create(newProduct)
 
     return right(newProduct)
