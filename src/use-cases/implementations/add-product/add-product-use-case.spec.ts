@@ -2,6 +2,7 @@ import { left } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { ProductModel } from '../../../domain/models/product'
 import { AddProduct, AddProductDTO } from '../../../domain/use-cases/add-product'
+import { CreateProductDTO, ICreateProductRepository } from '../../../repositories/create-product'
 import { FindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
 import { AddProductUseCase } from './add-product-use-case'
 
@@ -12,6 +13,14 @@ const makeFindProductBySkuRepository = (): FindProductBySkuRepository => {
     }
   }
   return new FindProductBySkuRepositoryStub()
+}
+
+const makeCreateProductRepository = (): ICreateProductRepository => {
+  class CreateProductRepositoryStub implements ICreateProductRepository {
+    async create (productDTO: CreateProductDTO): Promise<void> {
+    }
+  }
+  return new CreateProductRepositoryStub()
 }
 
 const makeFakeAddProductRequest = (): AddProductDTO => ({
@@ -26,14 +35,30 @@ const makeFakeAddProductRequest = (): AddProductDTO => ({
   ]
 })
 
+const makeFakeCreateProductDTO = (): CreateProductDTO => ({
+  sku: 1,
+  name: 'any_name',
+  inventory: {
+    warehouses: [
+      {
+        locality: 'any_locality',
+        quantity: 1,
+        type: 'any_type'
+      }
+    ]
+  }
+})
+
 type SutTypes = {
   sut: AddProduct
+  createProductRepository: ICreateProductRepository
   findProductBySkuRepositoryStub: FindProductBySkuRepository
 }
 const makeSut = (): SutTypes => {
   const findProductBySkuRepositoryStub = makeFindProductBySkuRepository()
-  const sut = new AddProductUseCase(findProductBySkuRepositoryStub)
-  return { sut, findProductBySkuRepositoryStub }
+  const createProductRepository = makeCreateProductRepository()
+  const sut = new AddProductUseCase(findProductBySkuRepositoryStub, createProductRepository)
+  return { sut, findProductBySkuRepositoryStub, createProductRepository }
 }
 
 describe('AddProduct UseCase', () => {
@@ -51,5 +76,13 @@ describe('AddProduct UseCase', () => {
     const response = await sut.execute(makeFakeAddProductRequest())
 
     expect(response).toEqual(left(new ProductAlreadyExistsError()))
+  })
+
+  test('should call CreateProductRepository with correct params', async () => {
+    const { sut, createProductRepository } = makeSut()
+    const createSpy = jest.spyOn(createProductRepository, 'create')
+    await sut.execute(makeFakeAddProductRequest())
+
+    expect(createSpy).toHaveBeenCalledWith(makeFakeCreateProductDTO())
   })
 })
