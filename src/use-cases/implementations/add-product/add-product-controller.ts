@@ -40,6 +40,9 @@ export class AddProductController implements IController {
       if (!warehouse.locality || !warehouse.quantity || !warehouse.type) {
         return left(new InvalidParamError('warehouse', 'warehouse'))
       }
+      if (!Number(warehouse.quantity)) {
+        return left(new InvalidParamError('quantity', 'number'))
+      }
     }
 
     return right()
