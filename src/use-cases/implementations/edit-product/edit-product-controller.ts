@@ -1,7 +1,7 @@
 import { Either, left, right } from '../../../core/either'
 import { IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
-import { badRequest, notFound, serverError } from '../../../presentation/helpers/http-helper'
+import { badRequest, notFound, ok, serverError } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest, IHttpResponse } from '../../../presentation/protocols'
 
 export class EditProductController implements IController {
@@ -18,6 +18,8 @@ export class EditProductController implements IController {
       if (editedProduct.isLeft()) {
         return notFound(editedProduct.value)
       }
+
+      return ok(editedProduct.value)
     } catch (err) {
       return serverError('internal')
     }
