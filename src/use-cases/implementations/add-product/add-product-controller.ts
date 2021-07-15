@@ -1,5 +1,6 @@
 import { WarehouseModel } from '../../../domain/models/warehouse'
 import { AddProduct } from '../../../domain/use-cases/add-product'
+import { ok } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest, IHttpResponse } from '../../../presentation/protocols/http'
 
@@ -12,8 +13,8 @@ export class AddProductController implements IController {
       return warehouse
     })
 
-    await this.addProductUseCase.execute(request.body)
+    const createdProduct = await this.addProductUseCase.execute(request.body)
 
-    return new Promise(resolve => resolve({} as IHttpResponse))
+    return ok(createdProduct.value)
   }
 }
