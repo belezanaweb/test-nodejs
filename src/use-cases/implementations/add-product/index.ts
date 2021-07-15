@@ -2,10 +2,11 @@ import { ProductInMemoryRepository } from '../../../repositories/implementations
 import { AddProductController } from './add-product-controller'
 import { AddProductUseCase } from './add-product-use-case'
 
-const findProductBySkuRepository = new ProductInMemoryRepository()
-const createProductRepository = new ProductInMemoryRepository()
+const productInMemoryRepositorySingleton = new ProductInMemoryRepository()
+const findProductBySkuRepository = productInMemoryRepositorySingleton
+const createProductRepository = productInMemoryRepositorySingleton
 
 const addProductUseCase = new AddProductUseCase(findProductBySkuRepository, createProductRepository)
 const addProductController = new AddProductController(addProductUseCase)
 
-export { addProductController }
+export { addProductController, productInMemoryRepositorySingleton }
