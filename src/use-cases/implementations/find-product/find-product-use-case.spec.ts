@@ -1,3 +1,4 @@
+import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { IFindProductBySkuUseCase } from '../../../domain/use-cases/find-product-by-sku'
 import { IFindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
@@ -46,5 +47,15 @@ describe('FindProduct UseCase', () => {
 
     expect(response.isRight()).toBeTruthy()
     expect(response.value).toEqual(makeFakeProduct())
+  })
+
+  test('should return left if product does not exists', async () => {
+    const { sut, findProductBySkuRepositoryStub } = makeSut()
+    jest.spyOn(findProductBySkuRepositoryStub, 'findBySku').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
+    const sku = 1
+    const response = await sut.execute(sku)
+
+    expect(response.isLeft()).toBeTruthy()
+    expect(response.value).toEqual(new ProductNotFoundError())
   })
 })
