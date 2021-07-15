@@ -1,7 +1,7 @@
 import { Either, left, right } from '../../../core/either'
 import { IEditProductUseCase } from '../../../domain/use-cases/edit-product'
 import { InvalidParamError, MissingParamError } from '../../../presentation/errors'
-import { badRequest } from '../../../presentation/helpers/http-helper'
+import { badRequest, notFound } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest, IHttpResponse } from '../../../presentation/protocols'
 
 export class EditProductController implements IController {
@@ -11,6 +11,11 @@ export class EditProductController implements IController {
     const validPayload = this.validatePayload(request.body)
     if (validPayload.isLeft()) {
       return badRequest(validPayload.value)
+    }
+    const { name, inventory: { warehouses } } = request.body
+    const editedProduct = await this.editProductUseCase.execute({ sku: request.params.sku, name, warehouses })
+    if (editedProduct.isLeft()) {
+      return notFound(editedProduct.value)
     }
   }
 
