@@ -8,6 +8,13 @@ describe('ProductInMemory Repository', () => {
     expect(products).toHaveLength(0)
   })
 
+  test('should return undefined on findBySku if product does not exists', async () => {
+    const sut = new ProductInMemoryRepository()
+    const product = await sut.findBySku(0)
+
+    expect(product).toBeFalsy()
+  })
+
   test('should add product on create success', async () => {
     const sut = new ProductInMemoryRepository()
     const newProduct = await sut.create({
