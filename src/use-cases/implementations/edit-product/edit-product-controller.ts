@@ -14,7 +14,7 @@ export class EditProductController implements IController {
         return badRequest(validPayload.value)
       }
       const { name, inventory: { warehouses } } = request.body
-      const editedProduct = await this.editProductUseCase.execute({ sku: request.params.sku, name, warehouses })
+      const editedProduct = await this.editProductUseCase.execute({ sku: Number(request.params.sku), name, warehouses })
       if (editedProduct.isLeft()) {
         return notFound(editedProduct.value)
       }
