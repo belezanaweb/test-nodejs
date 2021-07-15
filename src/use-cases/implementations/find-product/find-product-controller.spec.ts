@@ -1,8 +1,8 @@
-import { Either, right } from '../../../core/either'
+import { Either, left, right } from '../../../core/either'
 import { ProductNotFoundError } from '../../../domain/errors/product-not-found'
 import { ProductModel } from '../../../domain/models/product'
 import { IFindProductBySkuUseCase } from '../../../domain/use-cases/find-product-by-sku'
-import { ok } from '../../../presentation/helpers/http-helper'
+import { notFound, ok } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest } from '../../../presentation/protocols'
 import { FindProductController } from './find-product-controller'
 
@@ -58,6 +58,16 @@ describe('FindProduct Controller', () => {
 
     expect(response).toEqual(
       ok(makeFakeProduct())
+    )
+  })
+
+  test('should return 404 if FindProductBySkyUseCase return left', async () => {
+    const { sut, findProductBySkuUseCaseStub } = makeSut()
+    jest.spyOn(findProductBySkuUseCaseStub, 'execute').mockReturnValueOnce(new Promise(resolve => resolve(left(new ProductNotFoundError()))))
+    const response = await sut.handle(makeFakeRequest(1))
+
+    expect(response).toEqual(
+      notFound(new ProductNotFoundError())
     )
   })
 })
