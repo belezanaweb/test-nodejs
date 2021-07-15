@@ -30,6 +30,7 @@ describe('ProductInMemory Repository', () => {
       sku: 1,
       name: 'any_name',
       inventory: {
+        quantity: 1,
         warehouses: [
           {
             locality: 'ANY_LOCALITY',
@@ -37,7 +38,8 @@ describe('ProductInMemory Repository', () => {
             type: 'ANY_TYPE'
           }
         ]
-      }
+      },
+      isMarketable: true
     })
   })
 
@@ -75,6 +77,7 @@ describe('ProductInMemory Repository', () => {
       sku: 1,
       name: 'new_name',
       inventory: {
+        quantity: 1,
         warehouses: [
           {
             locality: 'NEW_LOCALITY',
@@ -82,7 +85,8 @@ describe('ProductInMemory Repository', () => {
             type: 'NEW_TYPE'
           }
         ]
-      }
+      },
+      isMarketable: true
     })
   })
 
