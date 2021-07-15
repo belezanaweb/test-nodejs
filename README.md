@@ -14,12 +14,17 @@ Existem duas formas de executar o código, a primeira seria utilizando o docker 
   1. Abrir a pasta raiz do projeto via console 
   2. executar `docker-compose up -d`
 
-Após estes passos terá um container docker rodando a aplicação no seu computador na porta 3333.
+Após estes passos terá um container docker rodando a aplicação no seu computador na porta 3333. Para parar a execução basta rodar o comando `docker-compose stop` e se quiser limpar os containers dockers criados é só executar `docker-compose down`
 
 ### Rodando via nodeJS
   1. Abrir a pasta raiz do projeto via console
   2. `yarn` para instalar as dependencias
   3. `yarn dev:server` para subir o servidor de testes na sua máquina
+
+## Endpoints
+Após executar o projeto, você poderá acessar as rotas através do `http://localhost.com:3333`
+
+### [A documentação da API pode ser acessada aqui](https://documenter.getpostman.com/view/791380/TzmBCtku)
 
 # Requirements
 - [x] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
