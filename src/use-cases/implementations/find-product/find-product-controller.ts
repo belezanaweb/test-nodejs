@@ -7,7 +7,7 @@ export class FindProductController implements IController {
 
   async handle (request: IHttpRequest): Promise<IHttpResponse> {
     try {
-      const product = await this.findProductBySkuUseCase.execute(request.params.sku)
+      const product = await this.findProductBySkuUseCase.execute(Number(request.params.sku))
       if (product.isLeft()) {
         return notFound(product.value)
       }
