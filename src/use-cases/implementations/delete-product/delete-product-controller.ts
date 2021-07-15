@@ -1,5 +1,5 @@
 import { IDeleteProductBySkuUseCase } from '../../../domain/use-cases/delete-product-by-sku'
-import { noContent, notFound, ok, serverError } from '../../../presentation/helpers/http-helper'
+import { noContent, notFound, serverError } from '../../../presentation/helpers/http-helper'
 import { IController, IHttpRequest, IHttpResponse } from '../../../presentation/protocols'
 
 export class DeleteProductController implements IController {
