@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "11.11.0"
+  - 12
 notifications:
   email: false
 script:
-  - npm run test:complete
+  - npm run test:converalls
