@@ -1,6 +1,6 @@
 import { WarehouseModel } from '../../../domain/models/warehouse'
 import { AddProduct } from '../../../domain/use-cases/add-product'
-import { ok } from '../../../presentation/helpers/http-helper'
+import { badRequest, ok } from '../../../presentation/helpers/http-helper'
 import { IController } from '../../../presentation/protocols/controller'
 import { IHttpRequest, IHttpResponse } from '../../../presentation/protocols/http'
 
@@ -14,6 +14,9 @@ export class AddProductController implements IController {
     })
 
     const createdProduct = await this.addProductUseCase.execute(request.body)
+    if (createdProduct.isLeft()) {
+      return badRequest(createdProduct.value)
+    }
 
     return ok(createdProduct.value)
   }
