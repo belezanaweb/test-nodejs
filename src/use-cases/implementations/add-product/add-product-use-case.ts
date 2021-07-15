@@ -15,6 +15,7 @@ export class AddProductUseCase implements AddProduct {
     if (productAlreadyExists) {
       return left(new ProductAlreadyExistsError())
     }
+
     const newProduct = { sku, name, inventory: { warehouses } }
     await this.createProductRepository.create(newProduct)
 
