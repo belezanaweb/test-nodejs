@@ -2,11 +2,11 @@ import { Either, left, right } from '../../../core/either'
 import { ProductAlreadyExistsError } from '../../../domain/errors/product-already-exists'
 import { AddProduct, AddProductDTO, CreatedProduct } from '../../../domain/use-cases/add-product'
 import { ICreateProductRepository } from '../../../repositories/create-product'
-import { FindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
+import { IFindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
 
 export class AddProductUseCase implements AddProduct {
   constructor (
-    private readonly findProductBySkuRepository: FindProductBySkuRepository,
+    private readonly findProductBySkuRepository: IFindProductBySkuRepository,
     private readonly createProductRepository: ICreateProductRepository
   ) {}
 

@@ -3,11 +3,11 @@ import { ProductAlreadyExistsError } from '../../../domain/errors/product-alread
 import { ProductModel } from '../../../domain/models/product'
 import { AddProduct, AddProductDTO } from '../../../domain/use-cases/add-product'
 import { CreateProductDTO, ICreateProductRepository } from '../../../repositories/create-product'
-import { FindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
+import { IFindProductBySkuRepository } from '../../../repositories/find-product-by-sku'
 import { AddProductUseCase } from './add-product-use-case'
 
-const makeFindProductBySkuRepository = (): FindProductBySkuRepository => {
-  class FindProductBySkuRepositoryStub implements FindProductBySkuRepository {
+const makeFindProductBySkuRepository = (): IFindProductBySkuRepository => {
+  class FindProductBySkuRepositoryStub implements IFindProductBySkuRepository {
     async findBySku (sku: number): Promise<ProductModel> {
       return new Promise(resolve => resolve(undefined))
     }
@@ -52,7 +52,7 @@ const makeFakeCreateProductDTO = (): CreateProductDTO => ({
 type SutTypes = {
   sut: AddProduct
   createProductRepository: ICreateProductRepository
-  findProductBySkuRepositoryStub: FindProductBySkuRepository
+  findProductBySkuRepositoryStub: IFindProductBySkuRepository
 }
 const makeSut = (): SutTypes => {
   const findProductBySkuRepositoryStub = makeFindProductBySkuRepository()
