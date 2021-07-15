@@ -1,8 +1,7 @@
-import { ProductInMemoryRepository } from '../../../repositories/implementations/product-in-memory-repository'
+import { productInMemoryRepositorySingleton } from '../../../repositories/implementations'
 import { AddProductController } from './add-product-controller'
 import { AddProductUseCase } from './add-product-use-case'
 
-const productInMemoryRepositorySingleton = new ProductInMemoryRepository()
 const findProductBySkuRepository = productInMemoryRepositorySingleton
 const createProductRepository = productInMemoryRepositorySingleton
 
