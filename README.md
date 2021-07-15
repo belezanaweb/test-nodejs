@@ -4,18 +4,22 @@
 # Setup
 
 ## Requisitos
-- Ter docker e docker-compose instalados no computador. O docker-compose por padrão já vem instalado nos sistemas operacionais windows e macOS. Para o linux é necessário seguir alguns passos adicionais, que podem facilmente serem encontrados ([na documentação do docker-compose](https://docs.docker.com/compose/install/)).
+Existem duas formas de executar o código, a primeira seria utilizando o docker e a segunda é rodando localmente no seu computador
+
+1. Para rodar utilizando o docker você deve ter o docker e docker-compose instalados no computador. O docker-compose por padrão já vem instalado nos sistemas operacionais windows e macOS. Para o linux é necessário seguir alguns passos adicionais, que podem facilmente serem encontrados ([na documentação do docker-compose](https://docs.docker.com/compose/install/)).
    
-- Ter o nodeJS instalado na versão LTS
+2. Para rodar localmente é preciso ter o nodeJS instalado na versão LTS
 
 ### Rodando o docker-compose
-`docker-compose up -d`
+  1. Abrir a pasta raiz do projeto via console 
+  2. executar `docker-compose up -d`
 
 Após estes passos terá um container docker rodando a aplicação no seu computador na porta 3333.
 
 ### Rodando via nodeJS
-  1. `yarn` para instalar as dependencias
-  2. `yarn dev:server` para subir o servidor de testes na sua máquina
+  1. Abrir a pasta raiz do projeto via console
+  2. `yarn` para instalar as dependencias
+  3. `yarn dev:server` para subir o servidor de testes na sua máquina
 
 # Requirements
 - [x] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
@@ -38,6 +42,9 @@ Além disso eu fiz alguns requirements para iniciar o desenvolvimentos que podem
 2. [Editar](./requirements/products/edit-product.md)
 3. [Recuperar](./requirements/products/find-product.md)
 4. [Remover](./requirements/products/delete-product.md)
+
+# Testes
+Tentei cobrir o máximo de código que eu pude, um coverage report pode ser gerado utilizando `yarn test:complete`. A maioria dos testes que escrevi foram testes unitários para as funcionalidades.
 
 # Arquitetura escolhida
 Bom, eu decidi partir para um arquitura em camadas bem desacoplada de qualquer framework. Tomei a liberdade para implementar adaptadores de rota e middleware para o express, mas saliento que a minha desição arquitetural para resolver o problema deve nos dar a possíbiliade de trocar o framework sem muita dor de cabeça. Basta com que implementemos novos adaptadores.
@@ -69,6 +76,3 @@ Também pode ser encontrado dentro da pasta de implementações um singleton par
 
 ### main
 Aqui é onde a "mágica" acontece, camada que acopla o sistema a um framework para receber requisicões HTTP, disponibiliza rotas e a criação do servidor. Como disse anteriormente, decidi ir com o express, mas poderiamos substituí-lo por outro framework :) 
-
-# Testes
-Tentei cobrir o máximo de código que eu pude, um coverage report pode ser gerado utilizando `yarn test:complete`. A maioria dos testes que escrevi foram testes unitários para as funcionalidades.
