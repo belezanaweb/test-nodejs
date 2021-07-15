@@ -34,11 +34,13 @@ const makeFakeSutRequest = (): IHttpRequest => ({
   body: {
     sku: 1,
     name: 'any_name',
-    warehouses: [{
-      locality: 'any_locality',
-      quantity: 1,
-      type: 'any_type'
-    }]
+    inventory: {
+      warehouses: [{
+        locality: 'any_locality',
+        quantity: 1,
+        type: 'any_type'
+      }]
+    }
   }
 })
 
@@ -85,12 +87,39 @@ describe('AddProduct Controller', () => {
     expect(response).toEqual(serverError('internal'))
   })
 
-  test('should return 400 if name is missing', async () => {
+  test('should return badRequest if any of requiredParams is not provided', async () => {
     const { sut } = makeSut()
+    const missingSku = await sut.handle({
+      ...makeFakeSutRequest(),
+      body: {
+        name: 'any_name',
+        inventory: {}
+      }
+    })
 
-    const response = await sut.handle({ ...makeFakeSutRequest(), body: { name: '' } })
+    const missingName = await sut.handle({
+      ...makeFakeSutRequest(),
+      body: {
+        sku: 'any_sku',
+        inventory: {}
+      }
+    })
 
-    expect(response).toEqual(badRequest(new MissingParamError('name')))
+    const missingInventory = await sut.handle({
+      ...makeFakeSutRequest(),
+      body: {
+        sku: 'any_sku',
+        name: 'any_name'
+      }
+    })
+
+    expect(missingSku).toEqual(badRequest(new MissingParamError('sku')))
+    expect(missingName).toEqual(
+      badRequest(new MissingParamError('name'))
+    )
+    expect(missingInventory).toEqual(
+      badRequest(new MissingParamError('inventory'))
+    )
   })
 
   test('should return 400 if AddProductUseCase returns left', async () => {
