@@ -41,6 +41,51 @@ describe('ProductInMemory Repository', () => {
     })
   })
 
+  test('should update product on update success', async () => {
+    const sut = new ProductInMemoryRepository()
+    await sut.create({
+      sku: 1,
+      name: 'any_name',
+      inventory: {
+        warehouses: [
+          {
+            locality: 'ANY_LOCALITY',
+            quantity: 1,
+            type: 'ANY_TYPE'
+          }
+        ]
+      }
+    })
+
+    const updatedProduct = await sut.update({
+      sku: 1,
+      name: 'new_name',
+      inventory: {
+        warehouses: [
+          {
+            locality: 'NEW_LOCALITY',
+            quantity: 1,
+            type: 'NEW_TYPE'
+          }
+        ]
+      }
+    })
+
+    expect(updatedProduct).toEqual({
+      sku: 1,
+      name: 'new_name',
+      inventory: {
+        warehouses: [
+          {
+            locality: 'NEW_LOCALITY',
+            quantity: 1,
+            type: 'NEW_TYPE'
+          }
+        ]
+      }
+    })
+  })
+
   test('should return product on findBySku success', async () => {
     const sut = new ProductInMemoryRepository()
     await sut.create({
