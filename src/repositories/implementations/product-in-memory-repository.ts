@@ -1,9 +1,14 @@
 import { ProductModel } from '../../domain/models/product'
 import { CreateProductDTO, ICreateProductRepository } from '../create-product'
+import { IDeleteProductRepository } from '../delete-product'
 import { IFindProductBySkuRepository } from '../find-product-by-sku'
 import { IUpdateProductRepository, UpdateProductDTO } from '../update-product'
 
-export class ProductInMemoryRepository implements ICreateProductRepository, IFindProductBySkuRepository, IUpdateProductRepository {
+export class ProductInMemoryRepository implements
+  ICreateProductRepository,
+  IFindProductBySkuRepository,
+  IUpdateProductRepository,
+  IDeleteProductRepository {
   private products: ProductModel[] = []
 
   async all (): Promise<ProductModel[]> {
@@ -27,6 +32,13 @@ export class ProductInMemoryRepository implements ICreateProductRepository, IFin
     Object.assign(this.products[findIndex], data)
 
     return this.calculateProperties(this.products[findIndex])
+  }
+
+  async delete (sku: number): Promise<void> {
+    const indexOf = this.products.findIndex(
+      (product) => product.sku === sku
+    )
+    this.products.splice(indexOf)
   }
 
   calculateProperties (product: ProductModel): ProductModel {
