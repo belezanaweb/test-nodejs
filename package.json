@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/danilo-soncini/nodejs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@types/yup": "^0.29.13",
     "@types/express": "^4.17.13",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.3.3",
