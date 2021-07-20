@@ -40,31 +40,33 @@ Com a seguinte representação de produto:
 
 Crie endpoints para as seguintes ações:
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+- [x] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
 
-- [ ] Edição de produto por **sku**
+- [x] Edição de produto por **sku**
 
-- [ ] Recuperação de produto por **sku**
+- [x] Recuperação de produto por **sku**
 
-- [ ] Deleção de produto por **sku**
+- [x] Recuperação de todos produtos
+
+- [x] Deleção de produto por **sku**
 
 ### Requisitos
 
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+- [x] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
 
         A propriedade inventory.quantity é a soma da quantity dos warehouses
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+- [x] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
 
         Um produto é marketable sempre que seu inventory.quantity for maior que 0
 
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+- [x] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
 
         Dois produtos são considerados iguais se os seus skus forem iguais
 
 
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
+- [x] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
 
         A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
 

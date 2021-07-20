@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+   "target": "es5",
+    "module": "commonjs",
+    "allowJs": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "moduleResolution": "node",
+    "typeRoots": ["/src/@types"],
+    "types": ["@types/jest"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": [ "es2015" ],
+    "forceConsistentCasingInFileNames": true
+  }
+}

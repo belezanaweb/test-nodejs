@@ -1,20 +1,34 @@
 {
-  "name": "test-nodejs",
-  "version": "0.0.1",
+  "name": "nodejs",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:unit",
+    "test:unit": "jest ./unit",
+    "start": "ts-node-dev ./src/server.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/belezanaweb/test-nodejs.git"
+    "url": "git+https://github.com/danilo-soncnini/nodejs.git"
   },
   "keywords": [],
   "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/belezanaweb/test-nodejs/issues"
+    "url": "https://github.com/danilo-soncini/nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/danilo-soncini/nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.3",
+    "ts-jest": "^27.0.3",
+    "jest": "^27.0.6",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
 }
