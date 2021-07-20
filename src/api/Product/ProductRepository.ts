@@ -18,7 +18,15 @@ export interface IProduct {
 export const inMemoryProducts: IProduct[] = [];
 
 class ProductRepository {
-
+  private removeProductExtraFields(product: IProduct ){
+    return {
+      sku: product.sku,
+      name: product.name,
+      inventory : {
+        warehouses : product.inventory.warehouses.map(({ locality, quantity, type }) => ({ locality, quantity, type }))
+      }
+    }
+  }
   private calculateInventory(product: IProduct) {
     const productWithExtraData = {...product}
     productWithExtraData.inventory.quantity = productWithExtraData.inventory.warehouses.reduce((totalQuantity, prod)=>{
@@ -33,7 +41,7 @@ class ProductRepository {
   }
 
   public findBySku(sku: number){
-    const product =  inMemoryProducts.find((product) => product.sku === sku );
+    const product =  inMemoryProducts.find((product) => product.sku === sku);
     if(product) return this.calculateInventory(product);
   }
 
@@ -41,7 +49,7 @@ class ProductRepository {
     if(!product.sku) throw Error('No empty SKU');
     const exist = !!this.findBySku(product.sku);
     if(exist) throw Error('No duplicated SKU');
-    inMemoryProducts.push(product);
+    inMemoryProducts.push(this.removeProductExtraFields(product));
   }
 
   public delete(sku: number){
@@ -53,9 +61,10 @@ class ProductRepository {
   public update(sku: number, product: Omit<IProduct,'sku'>){
     const inMemoryProduct =  inMemoryProducts.find((product) => product.sku === sku );
     if(!inMemoryProduct) throw Error('Product not found')
+    const productWithoutExtraFields = this.removeProductExtraFields({... product, sku})
 
-    inMemoryProduct.name = product.name;
-    inMemoryProduct.inventory.warehouses = product.inventory.warehouses
+    inMemoryProduct.name = productWithoutExtraFields.name;
+    inMemoryProduct.inventory.warehouses = productWithoutExtraFields.inventory.warehouses
   }
 
 }

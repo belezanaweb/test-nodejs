@@ -45,17 +45,20 @@ describe('Product Controller', () => {
 
   describe('.insert', () => {
     it('should call ProductRepository.insert with body data', () => {
-      insert.mockReturnValueOnce(undefined);
-      const body = {
+      const product = {
+        sku: 10,
         name : 'Product Name',
-      }
+      };
+      insert.mockReturnValueOnce(undefined);
+      findBySku.mockReturnValueOnce({...product, isMarketable : false});
+
       const controller = new ProductController();
       const responseMocked = mockResponse();
-      const requestMocked = mockRequest({ body });
+      const requestMocked = mockRequest({ body :product});
 
       controller.store(requestMocked, responseMocked);
-      expect(insert).toBeCalledWith(body)
-      expect(responseMocked.json).toBeCalledWith(body);
+      expect(insert).toBeCalledWith(product)
+      expect(responseMocked.json).toBeCalledWith({...product, isMarketable : false});
       expect(responseMocked.status).toBeCalledWith(201);
     });
   });

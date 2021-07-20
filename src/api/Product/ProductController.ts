@@ -10,8 +10,9 @@ class ProductController {
 
   store (request: Request, response: Response) {
     const product = request.body;
-    new ProductRepository().insert(product);
-    return response.status(201).json(product);
+    const productRepository = new ProductRepository();
+    productRepository.insert(product);
+    return response.status(201).json(productRepository.findBySku(product.sku));
   }
 
   delete (request: Request, response: Response) {
@@ -22,8 +23,9 @@ class ProductController {
 
   update (request: Request, response: Response) {
     const { sku } = request.params;
-    new ProductRepository().update(+sku, request.body);
-    return response.json({ message: "Product updated" });
+    const productRepository = new ProductRepository();
+    productRepository.update(+sku, request.body);
+    return response.json(productRepository.findBySku(+sku));
   }
 
   show (request: Request, response: Response) {

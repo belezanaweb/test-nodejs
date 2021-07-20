@@ -61,6 +61,38 @@ describe('Product Repository', () => {
       productRepository.insert(product);
       expect(() => productRepository.insert(product)).toThrow(Error('No duplicated SKU'));
     });
+
+    it('should not create extra fields', () =>{
+      const product = <IProduct><unknown>{
+        sku : 1234,
+        name : 'Name',
+        extraField: 'value',
+        inventory : {
+          extraField: 'value',
+          warehouses:[{
+            extraField: 'value',
+            quantity: 10,
+            locality: 'SP',
+            type:  'E-COMMERCE',
+          }]
+        }
+      }
+      const productRepository = new ProductRepository();
+
+      productRepository.insert(product);
+
+      expect(inMemoryProducts[0]).toEqual({
+          sku : 1234,
+          name : 'Name',
+          inventory : {
+            warehouses:[{
+              quantity: 10,
+              locality: 'SP',
+              type:  'E-COMMERCE',
+            }]
+          }
+      });
+    });
   });
 
   describe('.findBySku', () => {
@@ -346,6 +378,44 @@ describe('Product Repository', () => {
       expect(inMemoryProducts[0]).toEqual({...productToUpdate, sku: 1234 } );
     });
 
+    it('should not create extra fields when update', () =>{
+      const product: IProduct = {
+        sku : 1234,
+        name : 'Name',
+        inventory : {
+          warehouses:[]
+        }
+      };
+      inMemoryProducts.push(product);
+      const productRepository = new ProductRepository();
+      const productToUpdate  = <Omit<IProduct, 'sku'>><unknown>{
+        sku : 12345,
+        name: 'updatedName',
+        extraField: 'value',
+        inventory : {
+          extraField: 'value',
+          warehouses : [{
+            extraField: 'value',
+            quantity: 10,
+            locality: 'SP',
+            type: 'WEB'
+          }]
+        }
+      };
+
+      productRepository.update(product.sku, productToUpdate);
+      expect(inMemoryProducts[0]).toEqual({
+        sku : 1234,
+        name: 'updatedName',
+        inventory : {
+          warehouses : [{
+            quantity: 10,
+            locality: 'SP',
+            type: 'WEB'
+          }]
+        }
+      });
+    });
   });
 
   describe('.findAll', () => {
