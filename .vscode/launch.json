@@ -1,0 +1,19 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "configurations": [
+    {
+      "name": "api debugger",
+      "port": 3333,
+      "protocol": "inspector",
+      "request": "attach",
+      "restart": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    }
+  ],
+  "version": "0.2.0"
+}
