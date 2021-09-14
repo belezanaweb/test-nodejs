@@ -1,0 +1,340 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Está documentação é das APIs do teste da boticario",
+    "version": "1.0.0",
+    "title": "Beleza na Web",
+    "contact": {
+      "email": "giovani.cassiano@outlook.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Produto",
+      "description": "Gerenciamento de produtos"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Buscando produtos",
+        "description": "",
+        "operationId": "getProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de produtos",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Criando um novo produto",
+        "description": "",
+        "operationId": "addProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de cadastro de produto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mensagem de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Mensagem de sucesso!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error de requisição",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Mensagem do erro!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{sku}": {
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Editando um novo produto",
+        "description": "",
+        "operationId": "updateProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sku",
+            "in": "path",
+            "description": "ID do produto",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de atualização de produto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mensagem de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Mensagem de sucesso!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error de requisição",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Mensagem do erro!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Buscando pelo um produto em especifico",
+        "description": "",
+        "operationId": "findProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sku",
+            "in": "path",
+            "description": "ID do produto",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Objeto de um produto",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ProductResponseAPI"
+            }
+          },
+          "400": {
+            "description": "Error de requisição",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Mensagem do erro!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Deletando um produto em especifico",
+        "description": "",
+        "operationId": "deleteProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sku",
+            "in": "path",
+            "description": "ID do produto",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mensagem de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Mensagem de sucesso!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error de requisição",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Mensagem do erro!"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Warehouse": {
+      "type": "object",
+      "properties": {
+        "locality": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ECOMMERCE",
+            "PHYSICAL_STORE"
+          ]
+        }
+      }
+    },
+    "Inventory": {
+      "type": "object",
+      "properties": {
+        "warehouses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Warehouse"
+          }
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inventory": {
+          "$ref": "#/definitions/Inventory"
+        }
+      }
+    },
+    "InventoryResponse": {
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isMarketable": {
+          "type": "boolean"
+        },
+        "warehouses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Warehouse"
+          }
+        }
+      }
+    },
+    "ProductResponseAPI": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inventory": {
+          "$ref": "#/definitions/InventoryResponse"
+        }
+      }
+    }
+  }
+}
