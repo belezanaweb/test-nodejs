@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "dev": "nodemon src/index",
+    "start": "node scr/index"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.4",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "supertest": "^6.1.6"
+  }
 }
