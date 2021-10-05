@@ -1,0 +1,42 @@
+{ 
+  "arr": [
+    {
+      "sku": 1000,
+      "name": "Product Test 1000",
+      "inventory": {
+        "warehouses": [
+          {
+            "locality": "MG",
+            "quantity": 20,
+            "type": "ECOMMERCE"
+          }
+        ]
+      }
+    },
+    {
+      "sku": 2000,
+      "name": "Product Test 2000",
+      "inventory": {
+        "warehouses": [
+          {
+            "locality": "MG",
+            "quantity": 10,
+            "type": "ECOMMERCE"
+          },
+          {
+            "locality": "RJ",
+            "quantity": 7,
+            "type": "ECOMMERCE"
+          }
+        ]
+      }
+    },
+    {
+      "sku": 3000,
+      "name": "Product Test 3000",
+      "inventory": {
+        "warehouses": []
+      }
+    }
+  ]
+}

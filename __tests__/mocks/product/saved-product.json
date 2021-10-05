@@ -1,0 +1,20 @@
+{
+  "sku": 2000,
+  "name": "Product Test 2000",
+  "isMarketable": true,
+  "inventory": {
+    "quantity": 17,
+    "warehouses": [
+      {
+        "locality": "MG",
+        "quantity": 10,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "RJ",
+        "quantity": 7,
+        "type": "ECOMMERCE"
+      }
+    ]
+  }
+}
