@@ -2,25 +2,58 @@
   "name": "test-nodejs",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/main/server.ts",
+  "author": {
+    "name": "Lucas Gusmão de Freitas",
+    "email": "lucaslgf2@yahoo.com.br",
+    "url": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "npm-check -s -u"
+    "prepare": "husky install",
+    "check": "npm-check -s -u",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:coverage": "npm test -- --coverage",
+    "test:unit": "npm test -- --config ./jest.unit.config.js",
+    "test:integration": "npm test -- --config ./jest.integration.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/belezanaweb/test-nodejs.git"
   },
   "keywords": [],
-  "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
   "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "@types/node": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.0",
+    "jest-mock-extended": "^2.0.4",
+    "jest-sonar-reporter": "^2.0.0",
+    "lint-staged": "^12.3.3",
     "npm-check": "^5.9.2",
+    "ts-jest": "^27.1.3",
     "typescript": "^4.5.5"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
