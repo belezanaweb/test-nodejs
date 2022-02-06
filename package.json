@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "npm-check -s -u"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.15",
+    "npm-check": "^5.9.2",
+    "typescript": "^4.5.5"
+  }
 }
