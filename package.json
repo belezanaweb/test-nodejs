@@ -18,7 +18,7 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:coverage": "npm test -- --coverage",
     "test:unit": "npm test -- --config ./jest.unit.config.js",
-    "test:integration": "npm test -- --config ./jest.integration.config.js" 
+    "test:integration": "npm test -- --config ./jest.integration.config.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "@types/module-alias": "^2.0.1",
     "@types/node": "^17.0.15",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "eslint": "^7.32.0",
@@ -46,6 +47,7 @@
     "lint-staged": "^12.3.3",
     "npm-check": "^5.9.2",
     "ts-jest": "^27.1.3",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.5"
   },
   "jestSonar": {
@@ -55,5 +57,8 @@
   },
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "module-alias": "^2.2.2"
   }
 }
