@@ -9,6 +9,11 @@
     "url": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)"
   },
   "scripts": {
+    "start": "npm run build-prod && cross-env TZ=America/Sao_Paulo LANG=pt_BR.UTF-8 node dist/main/server.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only --clear --inspect=0.0.0.0:9229 src/main/server.ts",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "build-prod": "npm run clean && tsc -p tsconfig-build.json",
     "prepare": "husky install",
     "check": "npm-check -s -u",
     "lint": "eslint .",
@@ -35,6 +40,7 @@
     "@types/module-alias": "^2.0.1",
     "@types/node": "^17.0.15",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
     "eslint-plugin-import": "^2.25.4",
@@ -59,6 +65,7 @@
     "node": "16.x"
   },
   "dependencies": {
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "rimraf": "^3.0.2"
   }
 }
