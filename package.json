@@ -1,6 +1,6 @@
 {
   "name": "test-nodejs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "src/main/server.ts",
   "author": {
@@ -13,12 +13,12 @@
     "check": "npm-check -s -u",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
     "test:staged": "npm test -- --findRelatedTests",
     "test:coverage": "npm test -- --coverage",
     "test:unit": "npm test -- --config ./jest.unit.config.js",
-    "test:integration": "npm test -- --config ./jest.integration.config.js"
+    "test:integration": "npm test -- --config ./jest.integration.config.js" 
   },
   "repository": {
     "type": "git",
