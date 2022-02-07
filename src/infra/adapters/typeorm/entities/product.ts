@@ -4,7 +4,7 @@ import { Inventory } from './inventory'
 @Entity('Product', { schema: 'dbo' })
 export class Product {
   @PrimaryColumn({ type: 'integer', primary: true, name: 'ProductCode' })
-  productCode?: number
+  productCode!: number
 
   @Column({ type: 'varchar', name: 'Name', length: 250 })
   name!: string

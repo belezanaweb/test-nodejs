@@ -1,7 +1,7 @@
 import { IInventoryModel } from '@/domain/models/inventory-model'
 
 export interface IDbFindInventories {
-  findAll: () => Promise<IInventoryModel[] | []>
+  findAll: () => Promise<IInventoryModel[] | undefined>
 }
 
 export interface IDbFindInventoryById {

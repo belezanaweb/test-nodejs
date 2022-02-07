@@ -10,16 +10,52 @@ export class ProductRepository extends TypeORMRepository implements IDbFindProdu
     return this.getRepository(Product)
   }
 
-  async findAll (): Promise<IProductModel[] | []> {
+  async findAll (): Promise<IProductModel[] | undefined> {
     const products = await this.getProductRepo().find()
-    console.log(products)
-    return []
+    const result: IProductModel[] = []
+    products.map(item => {
+      return result.push({
+        sku: item.productCode,
+        name: item.name,
+        inventory: {
+          quantity: 99,
+          warehouses: item
+            ? item.inventory?.map(item => {
+              return {
+                locality: item.warehouse.locality,
+                quantity: item.quantity,
+                type: item.warehouse.type
+              }
+            })
+            : undefined
+        },
+        isMarketable: true
+      })
+    })
+    return result
   }
 
   async findById (sku: number): Promise<IProductModel | undefined> {
     const product = await this.getProductRepo().findOne({ productCode: sku })
-    console.log(product)
-    return undefined
+    if (product) {
+      return {
+        sku: product.productCode,
+        name: product.name,
+        inventory: {
+          quantity: 99,
+          warehouses: product
+            ? product.inventory?.map(item => {
+              return {
+                locality: item.warehouse.locality,
+                quantity: item.quantity,
+                type: item.warehouse.type
+              }
+            })
+            : undefined
+        },
+        isMarketable: true
+      }
+    }
   }
 
   async insert (params: NsDbInsertProduct.Input): Promise<void> {

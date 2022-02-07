@@ -1,7 +1,7 @@
 import { IWarehouseModel } from '@/domain/models/warehouse-model'
 
 export interface IDbFindWarehouses {
-  findAll: () => Promise<IWarehouseModel[] | []>
+  findAll: () => Promise<IWarehouseModel[] | undefined>
 }
 
 export interface IDbFindWarehouseById {

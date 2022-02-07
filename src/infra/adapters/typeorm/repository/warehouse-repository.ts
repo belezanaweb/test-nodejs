@@ -9,7 +9,7 @@ export class WarehouseRepository extends TypeORMRepository implements IDbFindWar
     return this.getRepository(Warehouse)
   }
 
-  async findAll (): Promise<IWarehouseModel[] | []> {
+  async findAll (): Promise<IWarehouseModel[] | undefined> {
     const warehouses = await this.getWarehouseRepo().find()
     console.log(warehouses)
     return []

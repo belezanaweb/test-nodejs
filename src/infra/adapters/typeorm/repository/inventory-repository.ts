@@ -9,7 +9,7 @@ export class InventoryRepository extends TypeORMRepository implements IDbFindInv
     return this.getRepository(Inventory)
   }
 
-  async findAll (): Promise<IInventoryModel[] | []> {
+  async findAll (): Promise<IInventoryModel[] | undefined> {
     const inventories = await this.getInventoryRepo().find()
     console.log(inventories)
     return []
