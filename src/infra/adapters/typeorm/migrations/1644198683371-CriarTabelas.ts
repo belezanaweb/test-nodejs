@@ -71,6 +71,12 @@ export class CriarTabelas_1644198683371 implements MigrationInterface {
           type: 'integer'
         }
       ],
+      uniques: [
+        {
+          name: 'UK_Inventory_WarehouseCode_ProductCode',
+          columnNames: ['WarehouseCode', 'ProductCode']
+        }
+      ],
       checks: [
         {
           name: 'CK_Inventory_Quantity',
