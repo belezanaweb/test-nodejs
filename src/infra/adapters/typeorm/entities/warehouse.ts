@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
-import { Inventory } from './Inventory'
+import { Inventory } from './inventory'
 
 @Entity('Warehouse', { schema: 'dbo' })
 export class Warehouse {
