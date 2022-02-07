@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm'
-import { Product } from './Product'
-import { Warehouse } from './Warehouse'
+import { Product } from './product'
+import { Warehouse } from './warehouse'
 
 @Entity('Inventory', { schema: 'dbo' })
 export class Inventory {
