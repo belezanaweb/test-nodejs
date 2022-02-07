@@ -1,13 +1,17 @@
 import { IProductModel } from '@/domain/models/product-model'
 import { Product } from '@/infra/adapters/typeorm/entities/product'
-import { inventoryMapToModel } from './inventory-mapper'
+import { warehouseMapToModel } from './warehouse-mapper'
 
 export const productMapToModel = (entity: Product): IProductModel => {
+  const totalQuantity = entity.inventory ? entity.inventory?.map(item => item.quantity).reduce((acc, item) => item + acc) : 0
   return {
     sku: entity.productCode,
     name: entity.name,
-    inventory: entity.inventory ? inventoryMapToModel(entity.inventory) : undefined,
-    isMarketable: true // Calculado!
+    inventory: {
+      quantity: totalQuantity, // Calculado!
+      warehouses: entity.inventory ? entity.inventory?.map(item => { return warehouseMapToModel(item.warehouse, item.quantity) }) : []
+    },
+    isMarketable: totalQuantity > 0 // Calculado!
   }
 }
 

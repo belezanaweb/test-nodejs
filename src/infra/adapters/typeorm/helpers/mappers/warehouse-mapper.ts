@@ -1,10 +1,10 @@
 import { IWarehouseModel } from '@/domain/models/warehouse-model'
 import { Warehouse } from '@/infra/adapters/typeorm/entities/warehouse'
 
-export const warehouseMapToModel = (entity: Warehouse): IWarehouseModel => {
+export const warehouseMapToModel = (entity: Warehouse, qtd?: number): IWarehouseModel => {
   return {
     locality: entity.locality,
-    quantity: entity.inventory ? entity.inventory?.map(item => item.quantity).reduce((acc, item) => item + acc) : 0,
+    quantity: qtd ?? 0,
     type: entity.type
   }
 }
