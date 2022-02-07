@@ -1,5 +1,5 @@
-export interface IWarehouse {
+export interface IWarehouseModel {
   locality: string
   quantity: number
-  type: string
+  type: 'PHYSICAL_STORE' | 'ECOMMERCE'
 }

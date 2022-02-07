@@ -1,8 +1,8 @@
-import { IInventory } from './inventory-model'
+import { IInventoryModel } from './inventory-model'
 
 export interface IProductModel {
   sku: number
   name: string
-  inventory: IInventory
+  inventory: IInventoryModel
   isMarketable: boolean
 }

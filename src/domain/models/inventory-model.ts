@@ -1,6 +1,6 @@
-import { IWarehouse } from './warehouse-model'
+import { IWarehouseModel } from './warehouse-model'
 
-export interface IInventory {
+export interface IInventoryModel {
   quantity: number
-  warehouses: IWarehouse[]
+  warehouses: IWarehouseModel[]
 }
