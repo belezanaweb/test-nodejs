@@ -7,8 +7,10 @@ const makeGetProductByIdValidation = (): IValidation => {
   const validations: IValidation[] = []
 
   validations.push(new RequiredFieldValidation('productId'))
+
   validations.push(new TypeValidation('productId', 'number', false))
 
   return new ValidationComposite(validations)
 }
+
 export const getProductByIdValidation = makeGetProductByIdValidation()

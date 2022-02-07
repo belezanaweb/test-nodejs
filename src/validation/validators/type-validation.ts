@@ -21,7 +21,7 @@ export class TypeValidation implements IValidation {
     let formattedInput = input
 
     // convertendo números para tipos numéricos
-    if (this.fieldType === 'number' && !isNaN(input)) {
+    if (this.fieldType === 'number' && !isNaN(input) && input !== true && input !== false) {
       formattedInput = +input
     }
 

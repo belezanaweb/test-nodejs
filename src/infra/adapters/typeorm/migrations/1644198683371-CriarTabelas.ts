@@ -23,6 +23,12 @@ export class CriarTabelas_1644198683371 implements MigrationInterface {
           length: '20'
         }
       ],
+      uniques: [
+        {
+          name: 'UK_Warehouse_Locality',
+          columnNames: ['Locality']
+        }
+      ],
       checks: [
         {
           name: 'CK_Warehouse_Type',

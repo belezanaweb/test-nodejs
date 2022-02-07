@@ -5,7 +5,7 @@ import { IFindProductById } from '@/domain/protocols/find-product-by-id-protocol
 export class FindProductById implements IFindProductById {
   constructor (
     private readonly productRepo: IDbFindProductById
-  ) { }
+  ) {}
 
   async findById (sku: number): Promise<IProductModel | undefined> {
     const result = await this.productRepo.findById(sku)
