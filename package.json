@@ -63,8 +63,11 @@
   "dependencies": {
     "express": "^4.17.2",
     "module-alias": "^2.2.2",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "swagger-ui-express": "^4.3.0"
+    "sqlite": "^4.0.23",
+    "swagger-ui-express": "^4.3.0",
+    "typeorm": "^0.2.41"
   },
   "jestSonar": {
     "reportPath": "coverage",
