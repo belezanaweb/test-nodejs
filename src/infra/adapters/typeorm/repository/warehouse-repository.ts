@@ -1,11 +1,12 @@
 import { IDbFindWarehouseById, IDbFindWarehouseByLocality, IDbFindWarehouses } from '@/data/protocols/db-find-warehouse-protocol'
+import { IDbInsertWarehouse, NsDbInsertWarehouse } from '@/data/protocols/db-insert-warehouse-protocol'
 import { IWarehouseModel } from '@/domain/models/warehouse-model'
 import { Warehouse } from '@/infra/adapters/typeorm/entities/warehouse'
 import { warehouseMapToModel, warehousesMapToModel } from '@/infra/adapters/typeorm/helpers/mappers/warehouse-mapper'
 import { Repository } from 'typeorm'
 import { TypeORMRepository } from './typeorm-repository'
 
-export class WarehouseRepository extends TypeORMRepository implements IDbFindWarehouses, IDbFindWarehouseById, IDbFindWarehouseByLocality {
+export class WarehouseRepository extends TypeORMRepository implements IDbFindWarehouses, IDbFindWarehouseById, IDbFindWarehouseByLocality, IDbInsertWarehouse {
   private getWarehouseRepo (): Repository<Warehouse> {
     return this.getRepository(Warehouse)
   }
@@ -23,5 +24,12 @@ export class WarehouseRepository extends TypeORMRepository implements IDbFindWar
   async findByLocality (locality: string): Promise<IWarehouseModel | undefined> {
     const warehouse = await this.getWarehouseRepo().findOne({ locality: locality })
     return warehouse ? warehouseMapToModel(warehouse) : undefined
+  }
+
+  async insert (params: NsDbInsertWarehouse.Input): Promise<void> {
+    await this.getWarehouseRepo().insert({
+      locality: params.locality,
+      type: params.type
+    })
   }
 }

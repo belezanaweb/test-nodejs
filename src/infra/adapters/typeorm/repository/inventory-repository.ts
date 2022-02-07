@@ -1,10 +1,11 @@
 import { IDbFindInventories, IDbFindInventoryById } from '@/data/protocols/db-find-inventory-protocol'
+import { IDbInsertInventory, NsDbInsertInventory } from '@/data/protocols/db-insert-inventory-protocol'
 import { IInventoryModel } from '@/domain/models/inventory-model'
 import { Inventory } from '@/infra/adapters/typeorm/entities/inventory'
 import { Repository } from 'typeorm'
 import { TypeORMRepository } from './typeorm-repository'
 
-export class InventoryRepository extends TypeORMRepository implements IDbFindInventories, IDbFindInventoryById {
+export class InventoryRepository extends TypeORMRepository implements IDbFindInventories, IDbFindInventoryById, IDbInsertInventory {
   private getInventoryRepo (): Repository<Inventory> {
     return this.getRepository(Inventory)
   }
@@ -29,5 +30,13 @@ export class InventoryRepository extends TypeORMRepository implements IDbFindInv
           warehouses: []
         }
       : undefined
+  }
+
+  async insert (params: NsDbInsertInventory.Input): Promise<void> {
+    await this.getInventoryRepo().insert({
+      quantity: params.quantity,
+      product: { productCode: params.productCode },
+      warehouse: { warehouseCode: params.warehouseCode }
+    })
   }
 }
