@@ -5,8 +5,8 @@ import { IController, IHttpRequest, IHttpResponse, IValidation } from '@/present
 
 export class GetProductByIdController implements IController {
   constructor (
-    private readonly validation: IValidation | any,
-    private readonly findProductBySku: IFindProductById
+    private readonly validation: IValidation,
+    private readonly findProductById: IFindProductById
   ) {}
 
   @ErrorHandler()
@@ -16,9 +16,9 @@ export class GetProductByIdController implements IController {
       return badRequest(error)
     }
 
-    const { sku } = httpRequest.pathParams
+    const { productId } = httpRequest.pathParams
 
-    const result = await this.findProductBySku.findById(sku)
+    const result = await this.findProductById.findById(productId)
     return ok(result)
   }
 }

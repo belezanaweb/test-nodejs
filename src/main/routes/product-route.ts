@@ -2,5 +2,5 @@ import { getProductByIdController } from '@/main/factories/controllers/get-produ
 import { Router } from 'express'
 
 export default (router: Router): void => {
-  router.get('/product/:sku', getProductByIdController)
+  router.get('/product/:productId', getProductByIdController)
 }

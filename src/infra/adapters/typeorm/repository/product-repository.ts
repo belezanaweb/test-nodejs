@@ -9,10 +9,10 @@ export class ProductRepository extends TypeORMRepository implements IDbFindProdu
     return this.getRepository(Product)
   }
 
-  async findAll (): Promise<IProductModel[] | undefined> {
+  async findAll (): Promise<IProductModel[] | []> {
     const products = await this.getProductRepo().find()
     console.log(products)
-    return undefined
+    return []
   }
 
   async findById (sku: number): Promise<IProductModel | undefined> {

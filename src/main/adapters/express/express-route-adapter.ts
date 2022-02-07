@@ -19,7 +19,7 @@ export const adaptRoute = (controller: IController) => {
     if (httpResponse.body?.error instanceof Error) {
       res.status(httpResponse.statusCode).send({ error: httpResponse.body.error.message })
     } else {
-      res.status(httpResponse.statusCode).send({ isCache: false, ...httpResponse.body })
+      res.status(httpResponse.statusCode).send(httpResponse.body)
     }
     // await adaptRouteLogInsert(req, res, httpResponse, dtIniReq)
 
