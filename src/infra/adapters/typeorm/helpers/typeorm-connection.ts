@@ -17,6 +17,7 @@ export class TypeORMConnection implements IDbTransaction {
   async connect (envDb: string): Promise<void> {
     const connectionOptions = await getConnectionOptions(envDb)
     this.connection = getConnectionManager().has('default') ? getConnection() : await createConnection({ ...connectionOptions, name: 'default' })
+    await this.execMigrations()
   }
 
   async disconnect (): Promise<void> {
@@ -51,5 +52,12 @@ export class TypeORMConnection implements IDbTransaction {
     if (this.connection === undefined) throw new ConnectionNotFoundError()
     if (this.query !== undefined) return this.query.manager.getRepository(entity)
     return getRepository(entity)
+  }
+
+  private async execMigrations (): Promise<void> {
+    if (this.connection === undefined) throw new ConnectionNotFoundError()
+    console.log('INICIO da execução das Migrations')
+    await this.connection.runMigrations()
+    console.log('FIM da execução das Migrations')
   }
 }

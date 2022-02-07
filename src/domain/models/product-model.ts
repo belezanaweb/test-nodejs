@@ -4,5 +4,5 @@ export interface IProductModel {
   sku: number
   name: string
   inventory: IInventoryModel
-  isMarketable: boolean
+  isMarketable: boolean // calculado!
 }

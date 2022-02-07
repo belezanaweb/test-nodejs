@@ -24,7 +24,8 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:coverage": "npm test -- --coverage",
     "test:unit": "npm test -- --config ./jest.unit.config.js",
-    "test:integration": "npm test -- --config ./jest.integration.config.js"
+    "test:integration": "npm test -- --config ./jest.integration.config.js",
+    "typeorm": "ts-node-dev --transpile-only ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",
