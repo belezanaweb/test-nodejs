@@ -2,11 +2,13 @@ import { IDbFindProductById } from '@/data/protocols/db-find-product-protocol'
 import { IDbInsertProduct } from '@/data/protocols/db-insert-product-protocol'
 import { GenericBussinessError } from '@/domain/bussiness-errors/generic-bussiness-error'
 import { IProductModel } from '@/domain/models/product-model'
+import { ICalculateProductAttributes } from '@/domain/protocols/calculate-product-attributes-protocol'
 import { IInsertProduct, NsInsertProduct } from '@/domain/protocols/insert-product-protocol'
 
 export class InsertProduct implements IInsertProduct {
   constructor (
-    private readonly productRepo: IDbFindProductById & IDbInsertProduct
+    private readonly productRepo: IDbFindProductById & IDbInsertProduct,
+    private readonly calculateProductAttrib: ICalculateProductAttributes
   ) {}
 
   async insert (params: NsInsertProduct.Input): Promise<IProductModel> {
@@ -18,6 +20,8 @@ export class InsertProduct implements IInsertProduct {
     const product = await this.productRepo.insert(params)
 
     const result: IProductModel = JSON.parse(product)
+    result.inventory.quantity = await this.calculateProductAttrib.calcTotalQuantity(result)
+    result.isMarketable = await this.calculateProductAttrib.calcIsMarketable(result)
     return result
   }
 }

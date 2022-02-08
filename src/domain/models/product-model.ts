@@ -2,12 +2,12 @@ export interface IProductModel {
   sku: number
   name: string
   inventory: IInventoryModel
-  isMarketable: boolean // Calculado!
+  isMarketable?: boolean // Calculado!
 }
 
 export interface IInventoryModel {
-  quantity: number // Calculado!
-  warehouses?: IWarehouseModel[]
+  quantity?: number // Calculado!
+  warehouses: IWarehouseModel[]
 }
 
 export interface IWarehouseModel {
