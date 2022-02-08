@@ -1,6 +1,7 @@
 
-export namespace NsDbInsertProduct {
+export namespace NsDbUpdateProduct {
   export type Input = {
+    oldSku: number
     sku: number
     name: string
     inventory: {
@@ -13,6 +14,6 @@ export namespace NsDbInsertProduct {
   }
 }
 
-export interface IDbInsertProduct {
-  insert: (params: NsDbInsertProduct.Input) => Promise<string>
+export interface IDbUpdateProductById {
+  updateById: (params: NsDbUpdateProduct.Input) => Promise<string>
 }

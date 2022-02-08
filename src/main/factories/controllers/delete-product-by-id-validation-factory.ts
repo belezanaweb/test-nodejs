@@ -3,7 +3,7 @@ import { RequiredFieldValidation } from '@/validation/validators/required-field-
 import { TypeValidation } from '@/validation/validators/type-validation'
 import { ValidationComposite } from '@/validation/validators/validation-composite'
 
-const makeGetProductByIdValidation = (): IValidation => {
+const makeDeleteProductByIdValidation = (): IValidation => {
   const validations: IValidation[] = []
 
   validations.push(new RequiredFieldValidation('productId'))
@@ -12,4 +12,4 @@ const makeGetProductByIdValidation = (): IValidation => {
   return new ValidationComposite(validations)
 }
 
-export const getProductByIdValidation = makeGetProductByIdValidation()
+export const deleteProductByIdValidation = makeDeleteProductByIdValidation()

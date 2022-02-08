@@ -56,8 +56,6 @@ export class TypeORMConnection implements IDbTransaction {
 
   private async execMigrations (): Promise<void> {
     if (this.connection === undefined) throw new ConnectionNotFoundError()
-    console.log('INICIO da execução das Migrations')
     await this.connection.runMigrations()
-    console.log('FIM da execução das Migrations')
   }
 }

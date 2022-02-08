@@ -1,7 +1,8 @@
 import { IProductModel } from '@/domain/models/product-model'
 
-export namespace NsCreateProduct {
+export namespace NsUpdateProduct {
   export type Input = {
+    oldSku: number
     sku: number
     name: string
     inventory: {
@@ -14,6 +15,6 @@ export namespace NsCreateProduct {
   }
 }
 
-export interface ICreateProduct {
-  create: (params: NsCreateProduct.Input) => Promise<IProductModel>
+export interface IUpdateProductById {
+  updateById: (params: NsUpdateProduct.Input) => Promise<IProductModel>
 }

@@ -1,24 +1,26 @@
-import { IInsertProduct, NsInsertProduct } from '@/domain/protocols/insert-product-protocol'
+import { IUpdateProductById, NsUpdateProduct } from '@/domain/protocols/update-product-protocol'
 import { InvalidParamError } from '@/presentation/errors'
 import ErrorHandler from '@/presentation/http/error-handler'
 import { badRequest, created } from '@/presentation/http/http-status'
 import { IController, IHttpRequest, IHttpResponse, IValidation } from '@/presentation/protocols'
 
-export class PostProductController implements IController {
+export class PutProductController implements IController {
   constructor (
     private readonly validation: IValidation,
     private readonly validationInventory: IValidation,
     private readonly validationWarehouse: IValidation,
-    private readonly createProduct: IInsertProduct
+    private readonly updateProductById: IUpdateProductById
   ) {}
 
   @ErrorHandler()
   async handle (httpRequest: IHttpRequest): Promise<IHttpResponse> {
-    const error = this.validation.validate(httpRequest.body)
+    const toValidate = { ...httpRequest.pathParams, ...httpRequest.body }
+    const error = this.validation.validate(toValidate)
     if (error) {
       return badRequest(error)
     }
 
+    const { productId } = httpRequest.pathParams
     const { sku, name, inventory } = httpRequest.body
 
     const errorInventory = this.validationInventory.validate(inventory)
@@ -36,7 +38,8 @@ export class PostProductController implements IController {
       }
     }
 
-    const params: NsInsertProduct.Input = {
+    const params: NsUpdateProduct.Input = {
+      oldSku: productId,
       sku: sku,
       name: name,
       inventory: {
@@ -44,7 +47,7 @@ export class PostProductController implements IController {
       }
     }
 
-    const result = await this.createProduct.insert(params)
+    const result = await this.updateProductById.updateById(params)
     return created(result)
   }
 }

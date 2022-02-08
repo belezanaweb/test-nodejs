@@ -1,5 +1,6 @@
+import { IProductModel } from '@/domain/models/product-model'
 
-export namespace NsDbInsertProduct {
+export namespace NsInsertProduct {
   export type Input = {
     sku: number
     name: string
@@ -13,6 +14,6 @@ export namespace NsDbInsertProduct {
   }
 }
 
-export interface IDbInsertProduct {
-  insert: (params: NsDbInsertProduct.Input) => Promise<string>
+export interface IInsertProduct {
+  insert: (params: NsInsertProduct.Input) => Promise<IProductModel>
 }
