@@ -1,4 +1,3 @@
-
 export namespace NsDbInsertProduct {
   export type Input = {
     sku: number

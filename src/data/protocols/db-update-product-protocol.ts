@@ -1,4 +1,3 @@
-
 export namespace NsDbUpdateProduct {
   export type Input = {
     oldSku: number

@@ -1,4 +1,4 @@
-import { IDbFindProductById } from '@/data/protocols/db-find-product-by-id-protocol'
+import { IDbFindProductById } from '@/data/protocols/db-find-product-protocol'
 import { IDbInsertProduct } from '@/data/protocols/db-insert-product-protocol'
 import { GenericBussinessError } from '@/domain/bussiness-errors/generic-bussiness-error'
 import { IProductModel } from '@/domain/models/product-model'

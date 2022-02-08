@@ -1,7 +1,7 @@
-import { IDbDeleteProductById } from '@/data/protocols/db-delete-product-by-id-protocol'
-import { IDbFindProductById } from '@/data/protocols/db-find-product-by-id-protocol'
+import { IDbDeleteProductById } from '@/data/protocols/db-delete-product-protocol'
+import { IDbFindProductById } from '@/data/protocols/db-find-product-protocol'
 import { GenericBussinessError } from '@/domain/bussiness-errors/generic-bussiness-error'
-import { IDeleteProductById } from '@/domain/protocols/delete-product-by-id-protocol'
+import { IDeleteProductById } from '@/domain/protocols/delete-product-protocol'
 
 export class DeleteProductById implements IDeleteProductById {
   constructor (

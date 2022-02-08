@@ -1,5 +1,5 @@
-import { IDbDeleteProductById } from '@/data/protocols/db-delete-product-by-id-protocol'
-import { IDbFindProductById, IDbFindProducts, NsDbFindProduct } from '@/data/protocols/db-find-product-by-id-protocol'
+import { IDbDeleteProductById } from '@/data/protocols/db-delete-product-protocol'
+import { IDbFindProductById, IDbFindProducts, NsDbFindProduct } from '@/data/protocols/db-find-product-protocol'
 import { IDbInsertProduct, NsDbInsertProduct } from '@/data/protocols/db-insert-product-protocol'
 import { IDbUpdateProductById, NsDbUpdateProduct } from '@/data/protocols/db-update-product-protocol'
 import { ProductJSON } from '@/infra/adapters/typeorm/entities/product-json'

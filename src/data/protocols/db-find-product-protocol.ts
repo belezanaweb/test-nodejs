@@ -1,4 +1,3 @@
-
 export namespace NsDbFindProduct {
   export type FindAllOutput = string[] | undefined
   export type FindByIdOutput = string | undefined

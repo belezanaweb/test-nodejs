@@ -1,5 +1,5 @@
 import { DeleteProductById } from '@/data/use-cases/delete-product-by-id'
-import { IDeleteProductById } from '@/domain/protocols/delete-product-by-id-protocol'
+import { IDeleteProductById } from '@/domain/protocols/delete-product-protocol'
 import { productJsonRepository } from '@/main/factories/repositories/product-json-repository-factory'
 
 const makeDeleteProductById = (): IDeleteProductById => {

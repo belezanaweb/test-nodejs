@@ -1,4 +1,4 @@
-import { IDeleteProductById } from '@/domain/protocols/delete-product-by-id-protocol'
+import { IDeleteProductById } from '@/domain/protocols/delete-product-protocol'
 import ErrorHandler from '@/presentation/http/error-handler'
 import { badRequest, ok } from '@/presentation/http/http-status'
 import { IController, IHttpRequest, IHttpResponse, IValidation } from '@/presentation/protocols'

@@ -3,12 +3,12 @@ import { IHttpResponse } from '@/presentation/protocols/http'
 
 export const ok = (data: any): IHttpResponse => ({
   statusCode: 200,
-  body: { data: data }
+  body: { data: data ?? {} }
 })
 
 export const created = (data: any): IHttpResponse => ({
   statusCode: 201,
-  body: { data: data }
+  body: { data: data ?? {} }
 })
 
 export const noContent = (): IHttpResponse => ({

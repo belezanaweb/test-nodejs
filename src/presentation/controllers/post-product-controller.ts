@@ -9,7 +9,7 @@ export class PostProductController implements IController {
     private readonly validation: IValidation,
     private readonly validationInventory: IValidation,
     private readonly validationWarehouse: IValidation,
-    private readonly createProduct: IInsertProduct
+    private readonly insertProduct: IInsertProduct
   ) {}
 
   @ErrorHandler()
@@ -44,7 +44,7 @@ export class PostProductController implements IController {
       }
     }
 
-    const result = await this.createProduct.insert(params)
+    const result = await this.insertProduct.insert(params)
     return created(result)
   }
 }

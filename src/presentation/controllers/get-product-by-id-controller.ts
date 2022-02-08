@@ -1,4 +1,4 @@
-import { IFindProductById } from '@/domain/protocols/find-product-by-id-protocol'
+import { IFindProductById } from '@/domain/protocols/find-product-protocol'
 import ErrorHandler from '@/presentation/http/error-handler'
 import { badRequest, ok } from '@/presentation/http/http-status'
 import { IController, IHttpRequest, IHttpResponse, IValidation } from '@/presentation/protocols'
