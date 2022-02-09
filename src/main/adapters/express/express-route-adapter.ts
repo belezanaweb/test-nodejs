@@ -4,15 +4,12 @@ import { Request, Response } from 'express'
 
 export const adaptRoute = (controller: IController) => {
   return async (req: Request, res: Response) => {
-    // const dtIniReq = new Date()
-
     const httpRequest: IHttpRequest = {
       body: req.body,
       pathParams: req.params,
       queryParams: formatReqQueryParams(req.query),
       userAuth: req.userAuth,
       headers: req.headers
-      // formDataFiles: req.files || req.file
     }
 
     const httpResponse = await controller.handle(httpRequest)
@@ -21,7 +18,6 @@ export const adaptRoute = (controller: IController) => {
     } else {
       res.status(httpResponse.statusCode).send(httpResponse.body)
     }
-    // await adaptRouteLogInsert(req, res, httpResponse, dtIniReq)
 
     return httpResponse
   }
