@@ -14,8 +14,10 @@ export class FindProducts implements IFindProducts {
     if (products) {
       const result: IProductModel[] = products.map(item => { return JSON.parse(item) })
       for (const item of result) {
-        item.inventory.quantity = await this.calculateProductAttrib.calcTotalQuantity(item)
-        item.isMarketable = await this.calculateProductAttrib.calcIsMarketable(item)
+        const inventoryQuantity = await this.calculateProductAttrib.calcTotalQuantity(item)
+        const isMarketable = await this.calculateProductAttrib.calcIsMarketable(item)
+        item.inventory.quantity = inventoryQuantity
+        item.isMarketable = isMarketable
       }
       return result
     }

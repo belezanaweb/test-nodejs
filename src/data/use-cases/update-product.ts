@@ -20,8 +20,10 @@ export class UpdateProductById implements IUpdateProductById {
     const product = await this.productRepo.updateById(params)
 
     const result: IProductModel = JSON.parse(product)
-    result.inventory.quantity = await this.calculateProductAttrib.calcTotalQuantity(result)
-    result.isMarketable = await this.calculateProductAttrib.calcIsMarketable(result)
+    const inventoryQuantity = await this.calculateProductAttrib.calcTotalQuantity(result)
+    const isMarketable = await this.calculateProductAttrib.calcIsMarketable(result)
+    result.inventory.quantity = inventoryQuantity
+    result.isMarketable = isMarketable
     return result
   }
 }

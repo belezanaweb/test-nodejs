@@ -5,12 +5,12 @@ export const makeFakeProductModel = (): IProductModel => ({
   sku: datatype.number(),
   name: commerce.productName(),
   inventory: makeFakeInventoryModel(),
-  isMarketable: datatype.boolean()
+  isMarketable: undefined // datatype.boolean()
 })
 
 export const makeFakeInventoryModel = (): IInventoryModel => ({
-  quantity: datatype.number(),
-  warehouses: random.arrayElements([makeFakeWarehouseModel()], datatype.number({ min: 1, max: 5 }))
+  quantity: undefined, // datatype.number(),
+  warehouses: random.arrayElements([makeFakeWarehouseModel()], datatype.number({ min: 1, max: 3 }))
 })
 
 export const makeFakeWarehouseModel = (): IWarehouseModel => ({
