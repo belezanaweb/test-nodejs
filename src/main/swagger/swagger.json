@@ -1,3 +1,234 @@
 {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API-Test-NodeJS",
+    "description": "API NodeJs feita com Typescript, Clean Architecture, Clean Code, Testes Unitarios e Design Patterns.",
+    "contact": {
+      "name": "Lucas Gusmão de Freitas",
+      "email": "lucaslgf2@yahoo.com.br"
+    },
+    "version": "1.0.0"
+  },
 
+  "servers": [
+    {
+      "url": "http://localhost:5058/api",
+      "description": "LOCAL Server"
+    }
+  ],
+
+  "tags": [
+    {
+      "name": "Product",
+      "description": "Endpoints relacionados a entidade de Produto"
+    }
+  ],
+
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Recupera todos os produtos cadastrados.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getProductResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Product"],
+        "summary": "Cadastra um novo produto.",
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/postProductResponse"
+          }
+        }
+      }
+    },
+
+    "/products/{productId}": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Recupera um produto cadastrado com o ID especifico.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getProductResponse"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Product"],
+        "summary": "Altera um produto cadastrado.",
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/putProductResponse"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Product"],
+        "summary": "Deleta um produto cadastrado.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/deleteProductResponse"
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "parameters": {
+
+    },
+
+    "schemas": {
+      "warehouseModel": {
+        "properties": {
+          "locality": {
+            "type": "string",
+            "example": "SP"
+          },
+          "quantity": {
+            "type": "number",
+            "example": "15"
+          },
+          "type": {
+            "type": "string",
+            "example": "ECOMMERCE",
+            "enum": ["PHYSICAL_STORE", "ECOMMERCE"]
+          }
+        }
+      },
+
+      "inventoryModel": {
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "example": "15",
+            "description": "Campo Calculado! (A propriedade inventory.quantity é a soma da quantity dos warehouses)"
+          },
+          "warehouses": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/warehouseModel"
+                }
+              ]
+            }
+          }
+        }
+      },
+
+      "productModel": {
+        "properties": {
+          "sku": {
+            "type": "number",
+            "example": "43264"
+          },
+          "name": {
+            "type": "string",
+            "example": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g"
+          },
+          "inventory": {
+            "$ref": "#/components/schemas/inventoryModel"
+          },
+          "isMarketable": {
+            "type": "boolean",
+            "example": "true",
+            "description": "Campo Calculado! (Um produto é marketable sempre que seu inventory.quantity for maior que 0)"
+          }
+        }
+      }
+    },
+
+    "responses": {
+      "getProductResponse": {
+        "description": "Sucesso",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/productModel"
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "postProductResponse": {
+        "description": "Created",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/productModel"
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "putProductResponse": {
+        "description": "Created",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/productModel"
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "deleteProductResponse": {
+        "description": "Sucesso",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "string",
+                  "example": "O Produto com o Código SKU 43264 foi removido com Sucesso da Base de Dados!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "requestBodies": {
+      "postProductRequest": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/productModel"
+            }
+          }
+        }
+      },
+
+      "putProductRequest": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/productModel"
+            }
+          }
+        }
+      }
+    }
+
+  }
 }
