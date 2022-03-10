@@ -72,3 +72,16 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+
+Observações importantes:
+###
+ Para instalar as dependências execute, `npm i`
+
+ Para rodar a aplicação execute, `npm run start`
+
+ Para rodar os testes 'end to end' execute, `npm run test:e2e`
+
+ Para rodar os testes unitários execute, `npm run test`
+
+ Para ver a cobertura de código execute, `npm run test:cov`

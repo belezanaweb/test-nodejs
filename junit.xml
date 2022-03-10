@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="0" errors="0" time="6.758">
+  <testsuite name="Product service" errors="0" failures="0" skipped="0" timestamp="2022-03-10T13:00:08" time="3.076" tests="9">
+    <testcase classname="Product service Should find all products" name="Product service Should find all products" time="0.014">
+    </testcase>
+    <testcase classname="Product service When trying save a product Should save a product" name="Product service When trying save a product Should save a product" time="0.007">
+    </testcase>
+    <testcase classname="Product service When trying save a product Should throws an error because sku already exists" name="Product service When trying save a product Should throws an error because sku already exists" time="0.005">
+    </testcase>
+    <testcase classname="Product service When trying update a product Should update a product" name="Product service When trying update a product Should update a product" time="0.005">
+    </testcase>
+    <testcase classname="Product service When trying update a product Should not update a product because it was not found" name="Product service When trying update a product Should not update a product because it was not found" time="0.006">
+    </testcase>
+    <testcase classname="Product service When trying find a product Should find a product by sku" name="Product service When trying find a product Should find a product by sku" time="0.004">
+    </testcase>
+    <testcase classname="Product service When trying find a product Should not find a product by id because it does not exist" name="Product service When trying find a product Should not find a product by id because it does not exist" time="0.003">
+    </testcase>
+    <testcase classname="Product service When trying delete a product Should delete a product by sku" name="Product service When trying delete a product Should delete a product by sku" time="0.003">
+    </testcase>
+    <testcase classname="Product service When trying delete a product Should not delete a product by id because it does not exist" name="Product service When trying delete a product Should not delete a product by id because it does not exist" time="0.003">
+    </testcase>
+  </testsuite>
+</testsuites>
