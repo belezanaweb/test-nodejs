@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  database_boticario:
+    image: postgres
+    container_name: teste_boticario
+    restart: always
+    ports:
+      - 5432:5432
+    extra_hosts:
+      - "host.docker.internal:172.18.0.2"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=teste_boticario
+
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+
+    volumes:
+      - pgdata:/data/postgresql
+
+  app:
+    build: .
+    container_name: teste_boticario_back
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
+
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

@@ -1,74 +1,39 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# Teste Boticario - Carlos Alberto Silva Junior
 
-Esta é uma avaliação básica de código.
+## Comandos para execução do projeto:
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+* Executar o comando: docker-compose up
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+Isso fará com que o container do postgres seja criando.
 
-Faça um fork deste repositório.
+## Instalar o pacote do query builder e executar migration:
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+- npm install knex@0.95.15 -g
 
-### Tarefas
+- knex migrate:up
 
-Com a seguinte representação de produto:
+#### Apos executar os comando acima basta utilizar as rotas:
 
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
-```
+* Exibir unico registro por sku:
 
-Crie endpoints para as seguintes ações:
+http://localhost:3333/index/:sku
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+* Exbir lista de produtos com mesmo SKU ( Não sera possivel exibir mais de 1 registro devido a regra de negocio da empresa )
 
-- [ ] Edição de produto por **sku**
+http://localhost:3333/:sku
 
-- [ ] Recuperação de produto por **sku**
+* Inserir um novo registro de produto
 
-- [ ] Deleção de produto por **sku**
+http://localhost:3333/newproduct
 
-### Requisitos
+* Edita um registro utilizando um sku como params na rota
 
+http://localhost:3333/editproduct/:sku
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+* Deleta um registro utilizando um sku como id
 
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
+http://localhost:3333/deleteproduct/:sku
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+-------------------------
 
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+Meu github: https://github.com/ZeRoColdma
