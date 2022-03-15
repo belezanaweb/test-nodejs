@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "API-Test-NodeJS",
+    "title": "API-Test-NodeJS-GrupoBoticario",
     "description": "API NodeJs feita com Typescript, Clean Architecture, Clean Code, Testes Unitarios e Design Patterns.",
     "contact": {
       "name": "Lucas Gusmão de Freitas",

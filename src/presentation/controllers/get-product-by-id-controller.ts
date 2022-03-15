@@ -1,6 +1,6 @@
 import { IFindProductById } from '@/domain/protocols/find-product-protocol'
 import ErrorHandler from '@/presentation/http/error-handler'
-import { badRequest, ok } from '@/presentation/http/http-status'
+import { badRequest, noContent, ok } from '@/presentation/http/http-status'
 import { IController, IHttpRequest, IHttpResponse, IValidation } from '@/presentation/protocols'
 
 export class GetProductByIdController implements IController {
@@ -19,6 +19,6 @@ export class GetProductByIdController implements IController {
     const { productId } = httpRequest.pathParams
 
     const result = await this.findProductById.findById(productId)
-    return ok(result)
+    return result ? ok(result) : noContent()
   }
 }

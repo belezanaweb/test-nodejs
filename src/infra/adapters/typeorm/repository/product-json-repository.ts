@@ -27,9 +27,8 @@ export class ProductJsonRepository extends TypeORMRepository implements IDbFindP
   }
 
   async updateById (params: NsDbUpdateProduct.Input): Promise<string> {
-    const { oldSku, ...newValue } = params
-    await this.getProductJSONRepo().update({ codigoProduct: params.oldSku }, { codigoProduct: params.sku, value: JSON.stringify(newValue) })
-    return JSON.stringify(newValue)
+    await this.getProductJSONRepo().update({ codigoProduct: params.sku }, { codigoProduct: params.sku, value: JSON.stringify(params) })
+    return JSON.stringify(params)
   }
 
   async deleteById (sku: number): Promise<void> {

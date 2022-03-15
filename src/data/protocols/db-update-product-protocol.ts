@@ -1,6 +1,5 @@
 export namespace NsDbUpdateProduct {
   export type Input = {
-    oldSku: number
     sku: number
     name: string
     inventory: {

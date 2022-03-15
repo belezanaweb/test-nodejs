@@ -12,9 +12,9 @@ export class UpdateProductById implements IUpdateProductById {
   ) {}
 
   async updateById (params: NsUpdateProduct.Input): Promise<IProductModel> {
-    const existingProduct = await this.productRepo.findById(params.oldSku)
+    const existingProduct = await this.productRepo.findById(params.sku)
     if (!existingProduct) {
-      throw new GenericBussinessError(`Não foi localizado um Produto com o Código SKU ${params.oldSku} na Base de Dados.`)
+      throw new GenericBussinessError(`Não foi localizado um Produto com o Código SKU ${params.sku} na Base de Dados.`)
     }
 
     const product = await this.productRepo.updateById(params)

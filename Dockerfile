@@ -3,12 +3,14 @@ FROM node:16-alpine
 # Build Arguments
 ARG PORT
 ARG DB_ENV
+ARG DB_NAME
 
 # Environment Variables
 ENV LANG=pt_BR.UTF-8
 ENV TZ=America/Sao_Paulo
 ENV PORT=$PORT
 ENV DB_ENV=$DB_ENV
+ENV DB_NAME=$DB_NAME
 
 # Create app Directory
 WORKDIR /usr/app/api-teste-nodejs

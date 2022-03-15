@@ -1,9 +1,8 @@
 import './config/module-alias' // Permite usar o alias @
+import 'reflect-metadata'
 import { TypeORMConnection } from '@/infra/adapters/typeorm/helpers/typeorm-connection'
 import app from './config/app'
 import env from './config/env'
-
-import 'reflect-metadata'
 
 TypeORMConnection.getInstance().connect(env.databaseEnv)
   .then(async () => {

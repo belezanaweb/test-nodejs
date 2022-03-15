@@ -36,7 +36,6 @@ const makeFakeHttpRequest = (): IHttpRequest => ({
   pathParams: { productId: datatype.number() },
   queryParams: undefined,
   body: {
-    sku: datatype.number(),
     name: commerce.productName(),
     inventory: {
       warehouses: random.arrayElements([
@@ -108,12 +107,11 @@ describe('PutProductController', () => {
     expect(httpResponse).toEqual(badRequest(new Error('any_error')))
   })
 
-  test('Deve chamar o "insertProduct.insert()" com os parametros corretos.', async () => {
+  test('Deve chamar o "updateProductById.updateById()" com os parametros corretos.', async () => {
     const { sut, updateProductByIdStub } = makeSut()
     await sut.handle(fakeHttpReq)
     expect(updateProductByIdStub.updateById).toHaveBeenCalledWith({
-      oldSku: fakeHttpReq.pathParams.productId,
-      sku: fakeHttpReq.body.sku,
+      sku: fakeHttpReq.pathParams.productId,
       name: fakeHttpReq.body.name,
       inventory: {
         warehouses: fakeHttpReq.body.inventory.warehouses

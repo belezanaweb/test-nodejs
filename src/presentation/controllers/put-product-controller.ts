@@ -21,7 +21,7 @@ export class PutProductController implements IController {
     }
 
     const { productId } = httpRequest.pathParams
-    const { sku, name, inventory } = httpRequest.body
+    const { name, inventory } = httpRequest.body
 
     const errorInventory = this.validationInventory.validate(inventory)
     if (errorInventory) {
@@ -39,8 +39,7 @@ export class PutProductController implements IController {
     }
 
     const params: NsUpdateProduct.Input = {
-      oldSku: productId,
-      sku: sku,
+      sku: productId,
       name: name,
       inventory: {
         warehouses: warehouses

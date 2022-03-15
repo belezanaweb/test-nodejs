@@ -1,6 +1,6 @@
 import { IFindProducts } from '@/domain/protocols/find-product-protocol'
 import ErrorHandler from '@/presentation/http/error-handler'
-import { ok } from '@/presentation/http/http-status'
+import { noContent, ok } from '@/presentation/http/http-status'
 import { IController, IHttpRequest, IHttpResponse } from '@/presentation/protocols'
 
 export class GetProductsController implements IController {
@@ -11,6 +11,6 @@ export class GetProductsController implements IController {
   @ErrorHandler()
   async handle (httpRequest: IHttpRequest): Promise<IHttpResponse> {
     const result = await this.findProducts.findAll()
-    return ok(result)
+    return result ? ok(result) : noContent()
   }
 }

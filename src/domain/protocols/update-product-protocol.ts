@@ -2,7 +2,6 @@ import { IProductModel } from '@/domain/models/product-model'
 
 export namespace NsUpdateProduct {
   export type Input = {
-    oldSku: number
     sku: number
     name: string
     inventory: {

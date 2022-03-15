@@ -31,7 +31,6 @@ describe('UpdateProductById', () => {
   let fakeParams: NsUpdateProduct.Input
   beforeEach(() => {
     fakeParams = {
-      oldSku: datatype.number(),
       sku: datatype.number(),
       name: commerce.productName(),
       inventory: {
@@ -49,7 +48,7 @@ describe('UpdateProductById', () => {
   test('Deve chamar o "productRepo.findById()" com os parametros corretos.', async () => {
     const { sut, productRepoStub } = makeSut()
     await sut.updateById(fakeParams)
-    expect(productRepoStub.findById).toHaveBeenCalledWith(fakeParams.oldSku)
+    expect(productRepoStub.findById).toHaveBeenCalledWith(fakeParams.sku)
     expect(productRepoStub.findById).toHaveBeenCalledTimes(1)
   })
 
@@ -57,7 +56,7 @@ describe('UpdateProductById', () => {
     const { sut, productRepoStub } = makeSut()
     productRepoStub.findById.mockResolvedValueOnce(undefined)
     const promise = sut.updateById(fakeParams)
-    await expect(promise).rejects.toThrow(new GenericBussinessError(`Não foi localizado um Produto com o Código SKU ${fakeParams.oldSku} na Base de Dados.`))
+    await expect(promise).rejects.toThrow(new GenericBussinessError(`Não foi localizado um Produto com o Código SKU ${fakeParams.sku} na Base de Dados.`))
   })
 
   test('Deve chamar o "productRepo.updateById()" com os parametros corretos.', async () => {
