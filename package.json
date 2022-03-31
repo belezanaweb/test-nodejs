@@ -1,20 +1,26 @@
 {
-  "name": "test-nodejs",
-  "version": "0.0.1",
+  "name": "products-api",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "src/server.js",
+  "engines": {
+    "node": "16.14.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/belezanaweb/test-nodejs.git"
+  "scripts": {
+    "dev": "nodemon",
+    "test": "jest"
   },
   "keywords": [],
-  "author": "Beleza na Web <sysadmin@belezanaweb.com.br> (https://www.belezanaweb.com.br)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/belezanaweb/test-nodejs/issues"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "eslint": "^8.12.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
 }
