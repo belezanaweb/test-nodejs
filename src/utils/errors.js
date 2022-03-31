@@ -15,7 +15,7 @@ class AplicationError extends Error {
   }
 }
 
-// TODO - create specific errors 
+// TODO - create specific errors
 class BadRequest extends AplicationError { }
 class NotFound extends AplicationError { }
 class Conflict extends AplicationError { }
