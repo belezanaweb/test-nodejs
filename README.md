@@ -16,6 +16,7 @@ yarn dev
 # Testing
 
 ```shell
+yarn install
 yarn test
 ```
 
@@ -23,7 +24,7 @@ yarn test
 
 > https://documenter.getpostman.com/view/483864/UyrHfDio
 
-# Deploy
+# Deploy BETA
 
 ```shell
 yarn install
@@ -32,8 +33,8 @@ yarn build
 
 - `Server the folder **dist/**`
 
-### Docker
+### Docker BETA
 
 ```shell
-docker build -t api-test .
+docker-compose up
 ```

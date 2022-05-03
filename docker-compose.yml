@@ -1,0 +1,9 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api:
+    build: .
+    command: npm start
+    ports:
+      - "3007:3007"
+    volumes:
+      - .:/api

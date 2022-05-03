@@ -1,15 +1,15 @@
 FROM node:16.14.2
-ENV NODE_ENV=dev
+ENV NODE_ENV=development
 
-WORKDIR /app
+WORKDIR /api
 
-COPY [".", "./"]
+COPY package*.json ./
 
-RUN npm install
-RUN npm run build
-
-ENV NODE_ENV=production
+RUN npm i
+RUN npm rebuild
 COPY . .
+RUN npm run build
+COPY ./dist ./dist
 
-EXPOSE 3333
-CMD [ "node", "/app/dist/index.js" ]
+EXPOSE 3007
+CMD [ "npm", "start" ]
