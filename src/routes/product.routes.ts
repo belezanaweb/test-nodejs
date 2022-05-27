@@ -14,8 +14,3 @@ productRouter.delete('/:sku', remove);
 
 export default productRouter;
 
-/*
---falta: 
- --> delete, update, salvar campos market e inventory.quantity
- --> teste unitários;
-*/

@@ -47,3 +47,4 @@ class ProductsRepository {
   }
   
   export default ProductsRepository;
+  
