@@ -1,3 +1,17 @@
+### Sobre implementação do teste
+
+Pontos importantes:
+
+- Foi utilizdo typescript e realizado testes unitários;
+
+Para rodar o projeto:
+
+npm run start-dev
+
+Rodar testes:
+
+npm test
+
 ### Backend Test
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
