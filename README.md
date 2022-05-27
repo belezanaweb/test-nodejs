@@ -53,11 +53,11 @@ Crie endpoints para as seguintes ações:
 
 - [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
 
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
+        A propriedade inventory.quantity é a soma da quantity dos warehouses -OBS.: Como tinha informado na dúvida que tive durante a execução do teste. Nesse ponto eu já calculei o quantity na inserção. Então oa recuperar já tenho o valor e não preciso calular sempre que recupero.
 
 - [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
 
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
+        Um produto é marketable sempre que seu inventory.quantity for maior que 0 -OBS.: Como tinha informado na dúvida que tive durante a execução do teste. Nesse ponto eu já calculei o quantity na inserção. Então oa recuperar já tenho o valor e não preciso calular sempre que recupero.
 
 - [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
 

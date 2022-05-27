@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "nodemon",
+    "build": "npx tsc",
+    "test": "jest --no-cache --runInBand --forceExit --coverage"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,41 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-yup-middleware": "^1.2.3",
+    "jsonschema": "^1.4.0",
+    "swagger-ui-express": "^4.4.0",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.13",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.5.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.35",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^11.0.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "husky": "^7.0.1",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "npm-force-resolutions": "0.0.10",
+    "npm-watch": "^0.11.0",
+    "regenerator-runtime": "^0.13.9",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.3",
+    "ts-node": "^10.8.0"
+  }
 }
