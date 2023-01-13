@@ -12,11 +12,19 @@
 
 `npm run test` executar os testes.
 
-##### Na raiz do projeto execute:
+##### Executar projeto em desenvolvimento:
 
-`docker build -t api-server .` para construir as imagens.
+`npm install` instalar as dependências do projeto.
 
-`docker run -d -p 3000:3000 api-server` para iniciar os serviços.
+`npm install nodemon -g` instalação global do nodemon.
+
+`npm run dev` executar o projeto.
+
+##### Executar projeto com Docker:
+
+`docker build -t api-server .` para construir a imagem.
+
+`docker run -d -p 3000:3000 api-server` para iniciar o serviço.
 
 [![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
 
@@ -87,5 +95,5 @@ Crie endpoints para as seguintes ações:
 
 ### Dicas
 
-- [x]Os produtos podem ficar em memória, não é necessário persistir os dados
+- [x] Os produtos podem ficar em memória, não é necessário persistir os dados
 - [x] Testes são sempre bem-vindos :smiley:
