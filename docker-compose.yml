@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  api-server:
+    image: api-server
+    ports:
+      - "3000:3000"
+    networks:
+      - belezanaweb-nodejs
+    restart: unless-stopped
+
+networks:
+  belezanaweb-nodejs:
+    driver: bridge

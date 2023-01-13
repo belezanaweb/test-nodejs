@@ -1,0 +1,3487 @@
+[
+  {
+    "sku": 408834,
+    "name": "Terra Mcleod",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "594 Auburn Place, Thornport, Tennessee, 4755",
+          "quantity": 15,
+          "type": "Valpreal"
+        },
+        {
+          "locality": "542 Lincoln Place, Jugtown, Minnesota, 2134",
+          "quantity": 15,
+          "type": "Zogak"
+        },
+        {
+          "locality": "107 Albany Avenue, Sylvanite, New York, 6010",
+          "quantity": 14,
+          "type": "Zaggle"
+        },
+        {
+          "locality": "495 Cropsey Avenue, Gallina, Maine, 4931",
+          "quantity": 6,
+          "type": "Quinex"
+        },
+        {
+          "locality": "689 Hampton Avenue, Topaz, Hawaii, 2576",
+          "quantity": 6,
+          "type": "Sultraxin"
+        },
+        {
+          "locality": "156 Milton Street, Sims, Alaska, 4156",
+          "quantity": 13,
+          "type": "Kraggle"
+        },
+        {
+          "locality": "816 Court Square, Somerset, Georgia, 1524",
+          "quantity": 12,
+          "type": "Deviltoe"
+        },
+        {
+          "locality": "694 Joralemon Street, Sandston, Federated States Of Micronesia, 3818",
+          "quantity": 10,
+          "type": "Comtext"
+        },
+        {
+          "locality": "998 Hooper Street, Townsend, Marshall Islands, 5117",
+          "quantity": 13,
+          "type": "Orbin"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 718251,
+    "name": "John Robinson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "155 Duffield Street, Kanauga, Kansas, 5085",
+          "quantity": 4,
+          "type": "Nimon"
+        },
+        {
+          "locality": "771 Church Avenue, Chautauqua, Louisiana, 6447",
+          "quantity": 0,
+          "type": "Kidstock"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 323199,
+    "name": "Meadows Browning",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "128 Battery Avenue, Barstow, Connecticut, 9866",
+          "quantity": 13,
+          "type": "Flumbo"
+        },
+        {
+          "locality": "759 Conway Street, Warsaw, New Hampshire, 1570",
+          "quantity": 1,
+          "type": "Hairport"
+        },
+        {
+          "locality": "961 Lorraine Street, Umapine, New Mexico, 4653",
+          "quantity": 1,
+          "type": "Furnigeer"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 812899,
+    "name": "Leonard Noel",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "211 Brighton Avenue, Laurelton, Delaware, 4144",
+          "quantity": 13,
+          "type": "Geekular"
+        },
+        {
+          "locality": "129 Bush Street, Cavalero, North Dakota, 4096",
+          "quantity": 8,
+          "type": "Autograte"
+        },
+        {
+          "locality": "917 Hunterfly Place, Freeburn, Oregon, 6870",
+          "quantity": 13,
+          "type": "Xurban"
+        },
+        {
+          "locality": "566 Village Court, Chase, Washington, 3719",
+          "quantity": 12,
+          "type": "Kongle"
+        },
+        {
+          "locality": "510 Elm Place, Maybell, Nebraska, 1920",
+          "quantity": 15,
+          "type": "Nurplex"
+        },
+        {
+          "locality": "491 Lewis Avenue, Dunbar, South Dakota, 2991",
+          "quantity": 2,
+          "type": "Futuris"
+        },
+        {
+          "locality": "888 Bragg Street, Chelsea, Virgin Islands, 6985",
+          "quantity": 7,
+          "type": "Isologica"
+        },
+        {
+          "locality": "966 Montgomery Place, Grenelefe, Virginia, 3812",
+          "quantity": 10,
+          "type": "Bristo"
+        },
+        {
+          "locality": "685 Kings Hwy, Bloomington, American Samoa, 3582",
+          "quantity": 10,
+          "type": "Omnigog"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 865688,
+    "name": "Valencia Keller",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "355 Bennet Court, Itmann, Oklahoma, 6521",
+          "quantity": 3,
+          "type": "Zoarere"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 328804,
+    "name": "Roach Ayala",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "297 Virginia Place, Hailesboro, Kentucky, 1382",
+          "quantity": 4,
+          "type": "Liquicom"
+        },
+        {
+          "locality": "937 Amboy Street, Rote, Arizona, 1082",
+          "quantity": 1,
+          "type": "Zanymax"
+        },
+        {
+          "locality": "228 Hamilton Avenue, Vicksburg, Rhode Island, 4785",
+          "quantity": 2,
+          "type": "Comfirm"
+        },
+        {
+          "locality": "983 Bayview Place, Garnet, Northern Mariana Islands, 7655",
+          "quantity": 11,
+          "type": "Frosnex"
+        },
+        {
+          "locality": "486 Rutherford Place, Calpine, Alabama, 9704",
+          "quantity": 7,
+          "type": "Nurali"
+        },
+        {
+          "locality": "515 Raleigh Place, Riegelwood, Texas, 1750",
+          "quantity": 0,
+          "type": "Powernet"
+        },
+        {
+          "locality": "755 Stillwell Place, Levant, Montana, 8463",
+          "quantity": 12,
+          "type": "Virxo"
+        },
+        {
+          "locality": "445 Lacon Court, Chestnut, Palau, 539",
+          "quantity": 0,
+          "type": "Entogrok"
+        },
+        {
+          "locality": "464 Hudson Avenue, Winchester, Vermont, 451",
+          "quantity": 15,
+          "type": "Anivet"
+        },
+        {
+          "locality": "187 Montauk Court, Grazierville, Michigan, 6719",
+          "quantity": 13,
+          "type": "Tropoli"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 988330,
+    "name": "Deborah Clements",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "266 Cobek Court, Newkirk, North Carolina, 3848",
+          "quantity": 5,
+          "type": "Biotica"
+        },
+        {
+          "locality": "769 Legion Street, Brantleyville, Maryland, 6390",
+          "quantity": 0,
+          "type": "Mantrix"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 109785,
+    "name": "Mack Strickland",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "817 Lawton Street, Troy, Pennsylvania, 4476",
+          "quantity": 15,
+          "type": "Ceprene"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 756171,
+    "name": "Wooten Graves",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "494 Kansas Place, Elliston, Utah, 2131",
+          "quantity": 11,
+          "type": "Senmao"
+        },
+        {
+          "locality": "403 Boardwalk , Devon, California, 1454",
+          "quantity": 9,
+          "type": "Beadzza"
+        },
+        {
+          "locality": "989 Dearborn Court, Henrietta, Missouri, 6266",
+          "quantity": 10,
+          "type": "Tingles"
+        },
+        {
+          "locality": "992 Borinquen Pl, Oneida, Puerto Rico, 9521",
+          "quantity": 7,
+          "type": "Unq"
+        },
+        {
+          "locality": "610 Beekman Place, Durham, Nevada, 5671",
+          "quantity": 3,
+          "type": "Zillidium"
+        },
+        {
+          "locality": "708 Canda Avenue, Chalfant, New Jersey, 9117",
+          "quantity": 3,
+          "type": "Digitalus"
+        },
+        {
+          "locality": "291 Barlow Drive, Eggertsville, Illinois, 7698",
+          "quantity": 0,
+          "type": "Quonk"
+        },
+        {
+          "locality": "629 Joval Court, Nanafalia, Indiana, 1326",
+          "quantity": 14,
+          "type": "Premiant"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 434006,
+    "name": "Christie Gomez",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "530 Bouck Court, Bancroft, Ohio, 4290",
+          "quantity": 1,
+          "type": "Zolarity"
+        },
+        {
+          "locality": "259 Meserole Street, Austinburg, Wisconsin, 4714",
+          "quantity": 1,
+          "type": "Proxsoft"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 299820,
+    "name": "Barber Day",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "405 Stone Avenue, Deercroft, Mississippi, 3254",
+          "quantity": 1,
+          "type": "Affluex"
+        },
+        {
+          "locality": "459 Allen Avenue, Bentley, South Carolina, 7624",
+          "quantity": 9,
+          "type": "Apex"
+        },
+        {
+          "locality": "711 Ivan Court, Sexton, Wyoming, 1258",
+          "quantity": 10,
+          "type": "Earthwax"
+        },
+        {
+          "locality": "444 Ditmars Street, Roland, Colorado, 1877",
+          "quantity": 11,
+          "type": "Opticall"
+        },
+        {
+          "locality": "391 Stryker Street, Woodlands, Florida, 2450",
+          "quantity": 8,
+          "type": "Zaya"
+        },
+        {
+          "locality": "338 Nassau Avenue, Olney, Iowa, 1398",
+          "quantity": 9,
+          "type": "Hydrocom"
+        },
+        {
+          "locality": "382 Quentin Street, Fairmount, Guam, 9381",
+          "quantity": 13,
+          "type": "Architax"
+        },
+        {
+          "locality": "903 Falmouth Street, Titanic, West Virginia, 2391",
+          "quantity": 11,
+          "type": "Pyrami"
+        },
+        {
+          "locality": "887 Withers Street, Morgandale, Idaho, 8192",
+          "quantity": 10,
+          "type": "Knowlysis"
+        },
+        {
+          "locality": "239 Argyle Road, Lafferty, Arkansas, 5464",
+          "quantity": 10,
+          "type": "Immunics"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 782386,
+    "name": "Daniel Cruz",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "390 Oceanic Avenue, Longbranch, Massachusetts, 8147",
+          "quantity": 6,
+          "type": "Solaren"
+        },
+        {
+          "locality": "552 Ovington Avenue, Tolu, Tennessee, 9955",
+          "quantity": 5,
+          "type": "Roboid"
+        },
+        {
+          "locality": "580 Lynch Street, Lutsen, Minnesota, 6647",
+          "quantity": 3,
+          "type": "Isoplex"
+        },
+        {
+          "locality": "212 Richardson Street, Sutton, New York, 7554",
+          "quantity": 10,
+          "type": "Idego"
+        },
+        {
+          "locality": "124 Moffat Street, Fairacres, Maine, 7769",
+          "quantity": 10,
+          "type": "Zillatide"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 298364,
+    "name": "Julie Riddle",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "636 Maple Avenue, Sultana, Hawaii, 1734",
+          "quantity": 13,
+          "type": "Polaria"
+        },
+        {
+          "locality": "727 Cook Street, Biehle, Alaska, 6655",
+          "quantity": 0,
+          "type": "Icology"
+        },
+        {
+          "locality": "727 Malta Street, Vernon, Georgia, 6633",
+          "quantity": 4,
+          "type": "Sequitur"
+        },
+        {
+          "locality": "313 Stuyvesant Avenue, Bynum, Federated States Of Micronesia, 3127",
+          "quantity": 9,
+          "type": "Omatom"
+        },
+        {
+          "locality": "555 Bedell Lane, Shaft, Marshall Islands, 3141",
+          "quantity": 11,
+          "type": "Accel"
+        },
+        {
+          "locality": "832 Perry Place, Dana, Kansas, 5909",
+          "quantity": 1,
+          "type": "Xiix"
+        },
+        {
+          "locality": "300 Wythe Avenue, Hannasville, Louisiana, 6114",
+          "quantity": 4,
+          "type": "Arctiq"
+        },
+        {
+          "locality": "974 Hancock Street, Ruffin, Connecticut, 8660",
+          "quantity": 11,
+          "type": "Pheast"
+        },
+        {
+          "locality": "902 Meserole Avenue, Veyo, New Hampshire, 9658",
+          "quantity": 6,
+          "type": "Austech"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 484081,
+    "name": "Tricia Howell",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "517 Leonora Court, Curtice, New Mexico, 9854",
+          "quantity": 4,
+          "type": "Ramjob"
+        },
+        {
+          "locality": "908 George Street, Kenwood, Delaware, 6453",
+          "quantity": 0,
+          "type": "Xymonk"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 224027,
+    "name": "Woodard Mcknight",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "354 Autumn Avenue, Ogema, North Dakota, 5317",
+          "quantity": 9,
+          "type": "Vortexaco"
+        },
+        {
+          "locality": "837 Nelson Street, Eureka, Oregon, 5637",
+          "quantity": 13,
+          "type": "Rameon"
+        },
+        {
+          "locality": "518 Bryant Street, Allamuchy, Washington, 8159",
+          "quantity": 1,
+          "type": "Keengen"
+        },
+        {
+          "locality": "525 Victor Road, Roosevelt, Nebraska, 6806",
+          "quantity": 2,
+          "type": "Insectus"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 999999,
+    "name": "Felecia Levy",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "945 Sandford Street, Canby, South Dakota, 1490",
+          "quantity": 13,
+          "type": "Geeketron"
+        },
+        {
+          "locality": "117 Midwood Street, Brewster, Virgin Islands, 7727",
+          "quantity": 2,
+          "type": "Obliq"
+        },
+        {
+          "locality": "803 Bowery Street, Rutherford, Virginia, 5271",
+          "quantity": 0,
+          "type": "Microluxe"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 360764,
+    "name": "Guerra Garza",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "565 Schenck Avenue, Barrelville, American Samoa, 963",
+          "quantity": 4,
+          "type": "Phuel"
+        },
+        {
+          "locality": "494 Wyckoff Street, Limestone, Oklahoma, 5074",
+          "quantity": 7,
+          "type": "Koffee"
+        },
+        {
+          "locality": "589 Madison Street, Bluetown, Kentucky, 1715",
+          "quantity": 14,
+          "type": "Electonic"
+        },
+        {
+          "locality": "801 Manor Court, Bowie, Arizona, 7760",
+          "quantity": 12,
+          "type": "Rockabye"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 315712,
+    "name": "Antonia Blankenship",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "222 Rose Street, Bangor, Rhode Island, 4402",
+          "quantity": 14,
+          "type": "Voipa"
+        },
+        {
+          "locality": "792 Stryker Court, Wheaton, Northern Mariana Islands, 8205",
+          "quantity": 8,
+          "type": "Organica"
+        },
+        {
+          "locality": "452 Tapscott Avenue, Sunbury, Alabama, 1921",
+          "quantity": 9,
+          "type": "Anixang"
+        },
+        {
+          "locality": "637 Locust Street, Talpa, Texas, 4935",
+          "quantity": 8,
+          "type": "Orbaxter"
+        },
+        {
+          "locality": "726 Orange Street, Strykersville, Montana, 2473",
+          "quantity": 4,
+          "type": "Volax"
+        },
+        {
+          "locality": "827 Banker Street, Calvary, Palau, 5619",
+          "quantity": 8,
+          "type": "Aquamate"
+        },
+        {
+          "locality": "518 Emmons Avenue, National, Vermont, 9670",
+          "quantity": 11,
+          "type": "Kiggle"
+        },
+        {
+          "locality": "976 Newel Street, Baden, Michigan, 9655",
+          "quantity": 14,
+          "type": "Ronbert"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 692802,
+    "name": "Tamara Mckay",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "577 Coleridge Street, Idledale, North Carolina, 1303",
+          "quantity": 10,
+          "type": "Honotron"
+        },
+        {
+          "locality": "427 Vanderveer Place, Homeland, Maryland, 7174",
+          "quantity": 2,
+          "type": "Grainspot"
+        },
+        {
+          "locality": "486 Taaffe Place, Whitestone, Pennsylvania, 6725",
+          "quantity": 14,
+          "type": "Bullzone"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 228279,
+    "name": "Eleanor Rosario",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "263 Sullivan Place, Jacksonwald, Utah, 9750",
+          "quantity": 11,
+          "type": "Zanity"
+        },
+        {
+          "locality": "599 Montague Terrace, Chicopee, California, 7842",
+          "quantity": 12,
+          "type": "Isosphere"
+        },
+        {
+          "locality": "511 Gunnison Court, Crisman, Missouri, 6419",
+          "quantity": 7,
+          "type": "Oulu"
+        },
+        {
+          "locality": "268 Hegeman Avenue, Fontanelle, Puerto Rico, 1236",
+          "quantity": 4,
+          "type": "Geeknet"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 779400,
+    "name": "Ruthie Bell",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "653 Pierrepont Street, Kraemer, Nevada, 2916",
+          "quantity": 11,
+          "type": "Grupoli"
+        },
+        {
+          "locality": "191 Crosby Avenue, Gorst, New Jersey, 5272",
+          "quantity": 9,
+          "type": "Deminimum"
+        },
+        {
+          "locality": "141 Conover Street, Brutus, Illinois, 6912",
+          "quantity": 7,
+          "type": "Yurture"
+        },
+        {
+          "locality": "519 Bleecker Street, Lydia, Indiana, 472",
+          "quantity": 0,
+          "type": "Comtour"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 865830,
+    "name": "Delacruz Gardner",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "396 Clay Street, Chesterfield, Ohio, 4295",
+          "quantity": 5,
+          "type": "Eplosion"
+        },
+        {
+          "locality": "287 Hanover Place, Ypsilanti, Wisconsin, 5365",
+          "quantity": 5,
+          "type": "Sybixtex"
+        },
+        {
+          "locality": "927 Hendrickson Place, Sharon, Mississippi, 6794",
+          "quantity": 14,
+          "type": "Evidends"
+        },
+        {
+          "locality": "242 Hubbard Street, Hasty, South Carolina, 2626",
+          "quantity": 9,
+          "type": "Mazuda"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 819067,
+    "name": "Allison Bass",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "952 Poplar Street, Connerton, Wyoming, 796",
+          "quantity": 13,
+          "type": "Thredz"
+        },
+        {
+          "locality": "455 Bogart Street, Stouchsburg, Colorado, 7594",
+          "quantity": 4,
+          "type": "Zillanet"
+        },
+        {
+          "locality": "883 Rewe Street, Benson, Florida, 4483",
+          "quantity": 13,
+          "type": "Ecraze"
+        },
+        {
+          "locality": "385 Durland Place, Byrnedale, Iowa, 5954",
+          "quantity": 11,
+          "type": "Isologia"
+        },
+        {
+          "locality": "406 Hyman Court, Abiquiu, Guam, 6969",
+          "quantity": 3,
+          "type": "Elpro"
+        },
+        {
+          "locality": "913 Cameron Court, Walker, West Virginia, 2310",
+          "quantity": 7,
+          "type": "Amril"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 182896,
+    "name": "Vivian Watson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "388 Cumberland Street, Yardville, Idaho, 4129",
+          "quantity": 2,
+          "type": "Bunga"
+        },
+        {
+          "locality": "689 Albee Square, Sanborn, Arkansas, 4462",
+          "quantity": 15,
+          "type": "Hawkster"
+        },
+        {
+          "locality": "546 Howard Place, Dunlo, Massachusetts, 2116",
+          "quantity": 10,
+          "type": "Pyramia"
+        },
+        {
+          "locality": "790 Schenectady Avenue, Kipp, Tennessee, 411",
+          "quantity": 9,
+          "type": "Portico"
+        },
+        {
+          "locality": "105 Quincy Street, Bartonsville, Minnesota, 5406",
+          "quantity": 14,
+          "type": "Digigene"
+        },
+        {
+          "locality": "645 Baltic Street, Cressey, New York, 4434",
+          "quantity": 13,
+          "type": "Kage"
+        },
+        {
+          "locality": "691 Noble Street, Gerton, Maine, 226",
+          "quantity": 12,
+          "type": "Spacewax"
+        },
+        {
+          "locality": "627 Sutter Avenue, Morriston, Hawaii, 864",
+          "quantity": 7,
+          "type": "Koogle"
+        },
+        {
+          "locality": "790 Laurel Avenue, Avoca, Alaska, 9598",
+          "quantity": 10,
+          "type": "Qualitex"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 328524,
+    "name": "Bobbi Pollard",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "692 Fleet Walk, Orick, Georgia, 2219",
+          "quantity": 9,
+          "type": "Spherix"
+        },
+        {
+          "locality": "555 Sedgwick Street, Fannett, Federated States Of Micronesia, 2606",
+          "quantity": 11,
+          "type": "Retrotex"
+        },
+        {
+          "locality": "607 Kenmore Court, Driftwood, Marshall Islands, 2576",
+          "quantity": 14,
+          "type": "Andryx"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 110797,
+    "name": "Robertson Gibson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "419 Lake Street, Cucumber, Kansas, 1909",
+          "quantity": 12,
+          "type": "Zerbina"
+        },
+        {
+          "locality": "222 Caton Place, Leland, Louisiana, 9778",
+          "quantity": 14,
+          "type": "Homelux"
+        },
+        {
+          "locality": "476 Karweg Place, Interlochen, Connecticut, 5404",
+          "quantity": 1,
+          "type": "Flexigen"
+        },
+        {
+          "locality": "599 Bevy Court, Imperial, New Hampshire, 2107",
+          "quantity": 4,
+          "type": "Enervate"
+        },
+        {
+          "locality": "791 Forrest Street, Elliott, New Mexico, 8345",
+          "quantity": 6,
+          "type": "Tubesys"
+        },
+        {
+          "locality": "974 Preston Court, Keller, Delaware, 5726",
+          "quantity": 13,
+          "type": "Pathways"
+        },
+        {
+          "locality": "972 Elm Avenue, Iola, North Dakota, 4807",
+          "quantity": 14,
+          "type": "Dognost"
+        },
+        {
+          "locality": "192 Claver Place, Ventress, Oregon, 6664",
+          "quantity": 1,
+          "type": "Toyletry"
+        },
+        {
+          "locality": "309 Doughty Street, Blue, Washington, 5350",
+          "quantity": 11,
+          "type": "Qiao"
+        },
+        {
+          "locality": "673 Montauk Avenue, Beaulieu, Nebraska, 1590",
+          "quantity": 1,
+          "type": "Terrago"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 131618,
+    "name": "Santos Reed",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "314 Turner Place, Siglerville, South Dakota, 8393",
+          "quantity": 7,
+          "type": "Zensus"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 302017,
+    "name": "Barlow Reese",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "516 Richards Street, Efland, Virgin Islands, 9407",
+          "quantity": 14,
+          "type": "Anocha"
+        },
+        {
+          "locality": "231 Tompkins Avenue, Bowden, Virginia, 6608",
+          "quantity": 14,
+          "type": "Recognia"
+        },
+        {
+          "locality": "716 Williams Avenue, Gilgo, American Samoa, 3188",
+          "quantity": 7,
+          "type": "Qualitern"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 663045,
+    "name": "Candice Pruitt",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "539 Gain Court, Bluffview, Oklahoma, 8258",
+          "quantity": 3,
+          "type": "Viocular"
+        },
+        {
+          "locality": "106 Logan Street, Sunriver, Kentucky, 2874",
+          "quantity": 14,
+          "type": "Aquazure"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 183734,
+    "name": "Good Whitaker",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "537 Desmond Court, Chical, Arizona, 5467",
+          "quantity": 0,
+          "type": "Terrasys"
+        },
+        {
+          "locality": "143 Classon Avenue, Welda, Rhode Island, 638",
+          "quantity": 7,
+          "type": "Blurrybus"
+        },
+        {
+          "locality": "125 Oriental Boulevard, Starks, Northern Mariana Islands, 8114",
+          "quantity": 15,
+          "type": "Magmina"
+        },
+        {
+          "locality": "635 Navy Walk, Beaverdale, Alabama, 6308",
+          "quantity": 10,
+          "type": "Xleen"
+        },
+        {
+          "locality": "239 Ashford Street, Vincent, Texas, 2495",
+          "quantity": 11,
+          "type": "Escenta"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 681299,
+    "name": "Martina Owens",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "814 Kathleen Court, Manitou, Montana, 1795",
+          "quantity": 7,
+          "type": "Maxemia"
+        },
+        {
+          "locality": "918 Willow Place, Edgewater, Palau, 4187",
+          "quantity": 0,
+          "type": "Bleendot"
+        },
+        {
+          "locality": "687 Schweikerts Walk, Manila, Vermont, 7305",
+          "quantity": 14,
+          "type": "Mitroc"
+        },
+        {
+          "locality": "897 Coffey Street, Jackpot, Michigan, 5261",
+          "quantity": 12,
+          "type": "Softmicro"
+        },
+        {
+          "locality": "864 Will Place, Ebro, North Carolina, 9963",
+          "quantity": 5,
+          "type": "Moreganic"
+        },
+        {
+          "locality": "811 Oriental Court, Crawfordsville, Maryland, 8946",
+          "quantity": 10,
+          "type": "Avit"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 822273,
+    "name": "Cassie Dickerson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "254 Bergen Street, Wiscon, Pennsylvania, 1806",
+          "quantity": 9,
+          "type": "Hopeli"
+        },
+        {
+          "locality": "348 Lake Place, Matheny, Utah, 5765",
+          "quantity": 0,
+          "type": "Plasmosis"
+        },
+        {
+          "locality": "370 Bainbridge Street, Blanco, California, 4609",
+          "quantity": 6,
+          "type": "Candecor"
+        },
+        {
+          "locality": "134 Quay Street, Waterloo, Missouri, 3637",
+          "quantity": 6,
+          "type": "Mantro"
+        },
+        {
+          "locality": "658 Tabor Court, Sidman, Puerto Rico, 388",
+          "quantity": 10,
+          "type": "Bugsall"
+        },
+        {
+          "locality": "938 Ide Court, Corriganville, Nevada, 9237",
+          "quantity": 8,
+          "type": "Vetron"
+        },
+        {
+          "locality": "314 Harden Street, Kenmar, New Jersey, 1127",
+          "quantity": 14,
+          "type": "Comvey"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 422107,
+    "name": "Lyons Stafford",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "701 Kaufman Place, Dunnavant, Illinois, 1722",
+          "quantity": 11,
+          "type": "Apexia"
+        },
+        {
+          "locality": "614 Everett Avenue, Movico, Indiana, 6946",
+          "quantity": 4,
+          "type": "Rodemco"
+        },
+        {
+          "locality": "229 Onderdonk Avenue, Lupton, Ohio, 6215",
+          "quantity": 6,
+          "type": "Idetica"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 311650,
+    "name": "Cervantes Macdonald",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "555 Jamison Lane, Hilltop, Wisconsin, 108",
+          "quantity": 10,
+          "type": "Lovepad"
+        },
+        {
+          "locality": "310 Bridgewater Street, Urie, Mississippi, 6644",
+          "quantity": 6,
+          "type": "Maximind"
+        },
+        {
+          "locality": "275 Dikeman Street, Johnsonburg, South Carolina, 4454",
+          "quantity": 13,
+          "type": "Tsunamia"
+        },
+        {
+          "locality": "913 Colby Court, Kersey, Wyoming, 436",
+          "quantity": 1,
+          "type": "Lyria"
+        },
+        {
+          "locality": "737 Lawn Court, Wyoming, Colorado, 3149",
+          "quantity": 10,
+          "type": "Quonata"
+        },
+        {
+          "locality": "160 Suydam Street, Haring, Florida, 7176",
+          "quantity": 3,
+          "type": "Techmania"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 843731,
+    "name": "Vilma Mckee",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "820 Scott Avenue, Osage, Iowa, 6770",
+          "quantity": 7,
+          "type": "Enersave"
+        },
+        {
+          "locality": "169 Everit Street, Eastvale, Guam, 9803",
+          "quantity": 8,
+          "type": "Comtrail"
+        },
+        {
+          "locality": "116 Whitwell Place, Sussex, West Virginia, 9523",
+          "quantity": 2,
+          "type": "Combot"
+        },
+        {
+          "locality": "463 Dictum Court, Elwood, Idaho, 968",
+          "quantity": 12,
+          "type": "Fibrodyne"
+        },
+        {
+          "locality": "674 Crawford Avenue, Vallonia, Arkansas, 6184",
+          "quantity": 0,
+          "type": "Supportal"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 962652,
+    "name": "Ortega Holland",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "905 Livonia Avenue, Catherine, Massachusetts, 2315",
+          "quantity": 2,
+          "type": "Zytrek"
+        },
+        {
+          "locality": "902 Doone Court, Carlton, Tennessee, 7959",
+          "quantity": 10,
+          "type": "Cedward"
+        },
+        {
+          "locality": "360 Billings Place, Kieler, Minnesota, 9215",
+          "quantity": 14,
+          "type": "Zilch"
+        },
+        {
+          "locality": "770 Louis Place, Derwood, New York, 4170",
+          "quantity": 5,
+          "type": "Poshome"
+        },
+        {
+          "locality": "401 Belvidere Street, Ripley, Maine, 8298",
+          "quantity": 11,
+          "type": "Darwinium"
+        },
+        {
+          "locality": "605 Brevoort Place, Edenburg, Hawaii, 5296",
+          "quantity": 14,
+          "type": "Snorus"
+        },
+        {
+          "locality": "146 Ainslie Street, Klondike, Alaska, 3012",
+          "quantity": 14,
+          "type": "Zillar"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 524424,
+    "name": "Colon Franks",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "587 Garland Court, Oasis, Georgia, 2916",
+          "quantity": 2,
+          "type": "Geekfarm"
+        },
+        {
+          "locality": "734 Lamont Court, Gilmore, Federated States Of Micronesia, 3792",
+          "quantity": 11,
+          "type": "Geekus"
+        },
+        {
+          "locality": "498 Garden Place, Mappsville, Marshall Islands, 8880",
+          "quantity": 5,
+          "type": "Cubix"
+        },
+        {
+          "locality": "774 Jay Street, Clarktown, Kansas, 3169",
+          "quantity": 13,
+          "type": "Greeker"
+        },
+        {
+          "locality": "623 Tehama Street, Rosewood, Louisiana, 2837",
+          "quantity": 3,
+          "type": "Geekol"
+        },
+        {
+          "locality": "206 Havens Place, Fairfield, Connecticut, 7522",
+          "quantity": 13,
+          "type": "Limage"
+        },
+        {
+          "locality": "713 Fleet Street, Disautel, New Hampshire, 4976",
+          "quantity": 1,
+          "type": "Handshake"
+        },
+        {
+          "locality": "892 Overbaugh Place, Gerber, New Mexico, 5616",
+          "quantity": 12,
+          "type": "Zenolux"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 408864,
+    "name": "Cardenas Waller",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "863 Henderson Walk, Bascom, Delaware, 1031",
+          "quantity": 6,
+          "type": "Ontality"
+        },
+        {
+          "locality": "382 Charles Place, Franklin, North Dakota, 3083",
+          "quantity": 13,
+          "type": "Andershun"
+        },
+        {
+          "locality": "544 Madeline Court, Boonville, Oregon, 2500",
+          "quantity": 6,
+          "type": "Vurbo"
+        },
+        {
+          "locality": "249 Boulevard Court, Wikieup, Washington, 5190",
+          "quantity": 6,
+          "type": "Signidyne"
+        },
+        {
+          "locality": "458 River Street, Bendon, Nebraska, 8511",
+          "quantity": 8,
+          "type": "Kiosk"
+        },
+        {
+          "locality": "872 Arlington Avenue, Enetai, South Dakota, 2083",
+          "quantity": 0,
+          "type": "Geekosis"
+        },
+        {
+          "locality": "179 Cooke Court, Cascades, Virgin Islands, 9212",
+          "quantity": 7,
+          "type": "Exoteric"
+        },
+        {
+          "locality": "980 Albemarle Terrace, Fillmore, Virginia, 117",
+          "quantity": 3,
+          "type": "Moltonic"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 619177,
+    "name": "Amy Morgan",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "831 Holmes Lane, Broadlands, American Samoa, 7431",
+          "quantity": 9,
+          "type": "Ecratic"
+        },
+        {
+          "locality": "384 Horace Court, Reno, Oklahoma, 9680",
+          "quantity": 15,
+          "type": "Quantalia"
+        },
+        {
+          "locality": "235 Orient Avenue, Dorneyville, Kentucky, 1922",
+          "quantity": 8,
+          "type": "Concility"
+        },
+        {
+          "locality": "126 Conselyea Street, Beyerville, Arizona, 2635",
+          "quantity": 3,
+          "type": "Kenegy"
+        },
+        {
+          "locality": "329 Burnett Street, Alfarata, Rhode Island, 8278",
+          "quantity": 12,
+          "type": "Kinetica"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 716723,
+    "name": "Jordan Carpenter",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "510 Herbert Street, Dexter, Northern Mariana Islands, 9001",
+          "quantity": 0,
+          "type": "Supremia"
+        },
+        {
+          "locality": "728 Hendrickson Street, Nutrioso, Alabama, 3658",
+          "quantity": 9,
+          "type": "Syntac"
+        },
+        {
+          "locality": "164 Ridge Court, Deputy, Texas, 8274",
+          "quantity": 13,
+          "type": "Barkarama"
+        },
+        {
+          "locality": "836 Macdougal Street, Southview, Montana, 3769",
+          "quantity": 5,
+          "type": "Exovent"
+        },
+        {
+          "locality": "119 Otsego Street, Hoagland, Palau, 4387",
+          "quantity": 14,
+          "type": "Gynko"
+        },
+        {
+          "locality": "813 Meadow Street, Bergoo, Vermont, 1384",
+          "quantity": 15,
+          "type": "Corporana"
+        },
+        {
+          "locality": "630 Keap Street, Skyland, Michigan, 6567",
+          "quantity": 3,
+          "type": "Zaphire"
+        },
+        {
+          "locality": "364 Wogan Terrace, Sanders, North Carolina, 5350",
+          "quantity": 13,
+          "type": "Temorak"
+        },
+        {
+          "locality": "981 Saratoga Avenue, Lowell, Maryland, 4636",
+          "quantity": 4,
+          "type": "Nixelt"
+        },
+        {
+          "locality": "983 Jamaica Avenue, Rodanthe, Pennsylvania, 224",
+          "quantity": 8,
+          "type": "Virva"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 793456,
+    "name": "Latisha Hall",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "925 Verona Place, Cloverdale, Utah, 8498",
+          "quantity": 5,
+          "type": "Visalia"
+        },
+        {
+          "locality": "199 Humboldt Street, Santel, California, 5429",
+          "quantity": 8,
+          "type": "Edecine"
+        },
+        {
+          "locality": "316 Tapscott Street, Loretto, Missouri, 7259",
+          "quantity": 0,
+          "type": "Freakin"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 411587,
+    "name": "Gibbs Frazier",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "879 Knight Court, Springville, Puerto Rico, 9349",
+          "quantity": 13,
+          "type": "Zolavo"
+        },
+        {
+          "locality": "275 Beacon Court, Fresno, Nevada, 5011",
+          "quantity": 2,
+          "type": "Martgo"
+        },
+        {
+          "locality": "689 Albemarle Road, Dargan, New Jersey, 2277",
+          "quantity": 2,
+          "type": "Zilphur"
+        },
+        {
+          "locality": "404 Linwood Street, Englevale, Illinois, 8959",
+          "quantity": 13,
+          "type": "Kegular"
+        },
+        {
+          "locality": "774 Greene Avenue, Nadine, Indiana, 7551",
+          "quantity": 1,
+          "type": "Inrt"
+        },
+        {
+          "locality": "990 Ferry Place, Munjor, Ohio, 7507",
+          "quantity": 14,
+          "type": "Comstar"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 778886,
+    "name": "Roxanne Marks",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "642 Willoughby Avenue, Grayhawk, Wisconsin, 7080",
+          "quantity": 9,
+          "type": "Voratak"
+        },
+        {
+          "locality": "189 Sullivan Street, Wakarusa, Mississippi, 9517",
+          "quantity": 1,
+          "type": "Xixan"
+        },
+        {
+          "locality": "688 Lawrence Street, Virgie, South Carolina, 4434",
+          "quantity": 4,
+          "type": "Anarco"
+        },
+        {
+          "locality": "299 Coles Street, Lookingglass, Wyoming, 2239",
+          "quantity": 12,
+          "type": "Interloo"
+        },
+        {
+          "locality": "220 McKibben Street, Hollymead, Colorado, 7125",
+          "quantity": 6,
+          "type": "Comtrak"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 853025,
+    "name": "Ashley Greer",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "773 Grattan Street, Alderpoint, Florida, 7663",
+          "quantity": 6,
+          "type": "Kengen"
+        },
+        {
+          "locality": "412 Prince Street, Roy, Iowa, 5069",
+          "quantity": 5,
+          "type": "Eplode"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 591597,
+    "name": "Tate Peterson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "638 Rutledge Street, Seymour, Guam, 8405",
+          "quantity": 9,
+          "type": "Geeky"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 984432,
+    "name": "Alissa Terry",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "214 Bradford Street, Chumuckla, West Virginia, 7801",
+          "quantity": 10,
+          "type": "Geoform"
+        },
+        {
+          "locality": "119 Cedar Street, Goochland, Idaho, 9406",
+          "quantity": 7,
+          "type": "Vicon"
+        },
+        {
+          "locality": "814 Stockholm Street, Kerby, Arkansas, 5995",
+          "quantity": 6,
+          "type": "Golistic"
+        },
+        {
+          "locality": "504 Radde Place, Ellerslie, Massachusetts, 550",
+          "quantity": 12,
+          "type": "Sustenza"
+        },
+        {
+          "locality": "176 Dunne Court, Kingstowne, Tennessee, 5813",
+          "quantity": 4,
+          "type": "Silodyne"
+        },
+        {
+          "locality": "686 Eagle Street, Ezel, Minnesota, 9963",
+          "quantity": 3,
+          "type": "Bisba"
+        },
+        {
+          "locality": "608 Erasmus Street, Woodburn, New York, 8398",
+          "quantity": 3,
+          "type": "Macronaut"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 328708,
+    "name": "Wilson Powers",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "631 Howard Alley, Wacissa, Maine, 3599",
+          "quantity": 4,
+          "type": "Bulljuice"
+        },
+        {
+          "locality": "423 Manhattan Avenue, Wolcott, Hawaii, 2206",
+          "quantity": 9,
+          "type": "Comtent"
+        },
+        {
+          "locality": "590 Henry Street, Grill, Alaska, 1332",
+          "quantity": 10,
+          "type": "Comtours"
+        },
+        {
+          "locality": "314 Sunnyside Avenue, Gila, Georgia, 3476",
+          "quantity": 15,
+          "type": "Atomica"
+        },
+        {
+          "locality": "813 Cyrus Avenue, Glidden, Federated States Of Micronesia, 4584",
+          "quantity": 14,
+          "type": "Viagreat"
+        },
+        {
+          "locality": "939 Hinckley Place, Germanton, Marshall Islands, 510",
+          "quantity": 0,
+          "type": "Tellifly"
+        },
+        {
+          "locality": "513 Melrose Street, Bradenville, Kansas, 7925",
+          "quantity": 5,
+          "type": "Izzby"
+        },
+        {
+          "locality": "475 Lois Avenue, Woodruff, Louisiana, 1255",
+          "quantity": 7,
+          "type": "Providco"
+        },
+        {
+          "locality": "717 Chauncey Street, Murillo, Connecticut, 2340",
+          "quantity": 2,
+          "type": "Fortean"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 155445,
+    "name": "Karina Huber",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "448 Ferris Street, Cumminsville, New Hampshire, 6411",
+          "quantity": 8,
+          "type": "Buzzness"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 975572,
+    "name": "Veronica Sutton",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "537 Middagh Street, Brandermill, New Mexico, 7137",
+          "quantity": 13,
+          "type": "Talendula"
+        },
+        {
+          "locality": "668 Centre Street, Frystown, Delaware, 8101",
+          "quantity": 15,
+          "type": "Slambda"
+        },
+        {
+          "locality": "664 Thatford Avenue, Norris, North Dakota, 2752",
+          "quantity": 14,
+          "type": "Xsports"
+        },
+        {
+          "locality": "600 Freeman Street, Greenfields, Oregon, 8928",
+          "quantity": 10,
+          "type": "Cipromox"
+        },
+        {
+          "locality": "570 Crooke Avenue, Juarez, Washington, 5392",
+          "quantity": 11,
+          "type": "Fitcore"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 592927,
+    "name": "Ilene Curtis",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "876 Bayview Avenue, Glendale, Nebraska, 9257",
+          "quantity": 2,
+          "type": "Luxuria"
+        },
+        {
+          "locality": "350 Arkansas Drive, Chamberino, South Dakota, 5436",
+          "quantity": 4,
+          "type": "Bovis"
+        },
+        {
+          "locality": "218 Willmohr Street, Eastmont, Virgin Islands, 4593",
+          "quantity": 13,
+          "type": "Injoy"
+        },
+        {
+          "locality": "653 Lloyd Street, Crucible, Virginia, 5419",
+          "quantity": 10,
+          "type": "Isodrive"
+        },
+        {
+          "locality": "676 Kenmore Terrace, Eagleville, American Samoa, 2006",
+          "quantity": 2,
+          "type": "Rodeology"
+        },
+        {
+          "locality": "625 Fair Street, Mathews, Oklahoma, 1228",
+          "quantity": 13,
+          "type": "Cablam"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 363757,
+    "name": "Justine Puckett",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "947 Hewes Street, Welch, Kentucky, 8884",
+          "quantity": 11,
+          "type": "Rocklogic"
+        },
+        {
+          "locality": "527 Batchelder Street, Drytown, Arizona, 6438",
+          "quantity": 6,
+          "type": "Bizmatic"
+        },
+        {
+          "locality": "917 Neptune Court, Castleton, Rhode Island, 732",
+          "quantity": 5,
+          "type": "Quarx"
+        },
+        {
+          "locality": "765 Cumberland Walk, Day, Northern Mariana Islands, 1328",
+          "quantity": 4,
+          "type": "Empirica"
+        },
+        {
+          "locality": "708 Java Street, Shawmut, Alabama, 3896",
+          "quantity": 1,
+          "type": "Zensure"
+        },
+        {
+          "locality": "591 Temple Court, Mahtowa, Texas, 740",
+          "quantity": 11,
+          "type": "Krog"
+        },
+        {
+          "locality": "512 Cherry Street, Stagecoach, Montana, 3146",
+          "quantity": 10,
+          "type": "Elemantra"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 642544,
+    "name": "Price Lara",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "612 Ash Street, Leeper, Palau, 4275",
+          "quantity": 5,
+          "type": "Eventix"
+        },
+        {
+          "locality": "679 Pierrepont Place, Saticoy, Vermont, 1946",
+          "quantity": 5,
+          "type": "Otherside"
+        },
+        {
+          "locality": "221 Grand Avenue, Stewart, Michigan, 8126",
+          "quantity": 13,
+          "type": "Twiggery"
+        },
+        {
+          "locality": "207 Railroad Avenue, Sisquoc, North Carolina, 7048",
+          "quantity": 4,
+          "type": "Glasstep"
+        },
+        {
+          "locality": "106 Sunnyside Court, Stewartville, Maryland, 7220",
+          "quantity": 11,
+          "type": "Magnafone"
+        },
+        {
+          "locality": "809 Garnet Street, Taycheedah, Pennsylvania, 5923",
+          "quantity": 13,
+          "type": "Gology"
+        },
+        {
+          "locality": "700 Ovington Court, Barronett, Utah, 2751",
+          "quantity": 2,
+          "type": "Blanet"
+        },
+        {
+          "locality": "586 Arion Place, Morningside, California, 9763",
+          "quantity": 1,
+          "type": "Digique"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 168597,
+    "name": "Tanya Contreras",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "666 Dewitt Avenue, Klagetoh, Missouri, 4930",
+          "quantity": 14,
+          "type": "Qot"
+        },
+        {
+          "locality": "975 Clymer Street, Snelling, Puerto Rico, 4585",
+          "quantity": 14,
+          "type": "Olucore"
+        },
+        {
+          "locality": "295 Krier Place, Worton, Nevada, 1419",
+          "quantity": 1,
+          "type": "Intradisk"
+        },
+        {
+          "locality": "804 Elliott Walk, Zortman, New Jersey, 2386",
+          "quantity": 7,
+          "type": "Gink"
+        },
+        {
+          "locality": "261 Dorset Street, Nogal, Illinois, 1595",
+          "quantity": 5,
+          "type": "Biohab"
+        },
+        {
+          "locality": "953 Story Court, Konterra, Indiana, 7958",
+          "quantity": 8,
+          "type": "Wrapture"
+        },
+        {
+          "locality": "712 Lester Court, Whipholt, Ohio, 7313",
+          "quantity": 9,
+          "type": "Scenty"
+        },
+        {
+          "locality": "883 Chester Avenue, Loma, Wisconsin, 4822",
+          "quantity": 14,
+          "type": "Wazzu"
+        },
+        {
+          "locality": "789 Broadway , Salunga, Mississippi, 7092",
+          "quantity": 15,
+          "type": "Musix"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 747763,
+    "name": "Tamra Suarez",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "869 Oliver Street, Boomer, South Carolina, 9840",
+          "quantity": 14,
+          "type": "Veraq"
+        },
+        {
+          "locality": "818 Butler Place, Toftrees, Wyoming, 2471",
+          "quantity": 11,
+          "type": "Furnitech"
+        },
+        {
+          "locality": "430 Seaview Court, Kylertown, Colorado, 6958",
+          "quantity": 6,
+          "type": "Medalert"
+        },
+        {
+          "locality": "994 Gerald Court, Bagtown, Florida, 1598",
+          "quantity": 11,
+          "type": "Aeora"
+        },
+        {
+          "locality": "668 Buffalo Avenue, Caspar, Iowa, 1151",
+          "quantity": 15,
+          "type": "Farmage"
+        },
+        {
+          "locality": "824 Waldorf Court, Coleville, Guam, 9182",
+          "quantity": 0,
+          "type": "Comvex"
+        },
+        {
+          "locality": "313 John Street, Dixonville, West Virginia, 8517",
+          "quantity": 1,
+          "type": "Aquafire"
+        },
+        {
+          "locality": "325 Benson Avenue, Herbster, Idaho, 9869",
+          "quantity": 13,
+          "type": "Exospace"
+        },
+        {
+          "locality": "891 Croton Loop, Soudan, Arkansas, 687",
+          "quantity": 5,
+          "type": "Stelaecor"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 169434,
+    "name": "Debra Greene",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "547 Ryder Street, Clarksburg, Massachusetts, 2612",
+          "quantity": 2,
+          "type": "Sensate"
+        },
+        {
+          "locality": "752 Kenilworth Place, Richville, Tennessee, 8000",
+          "quantity": 3,
+          "type": "Prosely"
+        },
+        {
+          "locality": "893 Greenwood Avenue, Como, Minnesota, 4186",
+          "quantity": 0,
+          "type": "Steeltab"
+        },
+        {
+          "locality": "314 Bills Place, Delshire, New York, 6048",
+          "quantity": 2,
+          "type": "Undertap"
+        },
+        {
+          "locality": "684 Church Lane, Whitewater, Maine, 2989",
+          "quantity": 14,
+          "type": "Isbol"
+        },
+        {
+          "locality": "599 Junius Street, Thatcher, Hawaii, 278",
+          "quantity": 6,
+          "type": "Flyboyz"
+        },
+        {
+          "locality": "362 Commerce Street, Steinhatchee, Alaska, 8689",
+          "quantity": 10,
+          "type": "Gracker"
+        },
+        {
+          "locality": "997 Seabring Street, Mayfair, Georgia, 5071",
+          "quantity": 6,
+          "type": "Zizzle"
+        },
+        {
+          "locality": "620 Louisa Street, Islandia, Federated States Of Micronesia, 6856",
+          "quantity": 10,
+          "type": "Waretel"
+        },
+        {
+          "locality": "249 Ridgecrest Terrace, Grahamtown, Marshall Islands, 6269",
+          "quantity": 12,
+          "type": "Fuelworks"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 420478,
+    "name": "Rebecca Blackwell",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "108 Ellery Street, Bayview, Kansas, 1092",
+          "quantity": 2,
+          "type": "Opticom"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 341717,
+    "name": "Henrietta Higgins",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "906 Whitney Avenue, Sehili, Louisiana, 4417",
+          "quantity": 11,
+          "type": "Firewax"
+        },
+        {
+          "locality": "877 Downing Street, Golconda, Connecticut, 6519",
+          "quantity": 7,
+          "type": "Comdom"
+        },
+        {
+          "locality": "856 Stockton Street, Waterford, New Hampshire, 2053",
+          "quantity": 2,
+          "type": "Ecolight"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 476767,
+    "name": "Figueroa Lopez",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "453 Nixon Court, Irwin, New Mexico, 8155",
+          "quantity": 4,
+          "type": "Neocent"
+        },
+        {
+          "locality": "345 Dean Street, Dalton, Delaware, 414",
+          "quantity": 0,
+          "type": "Musaphics"
+        },
+        {
+          "locality": "108 Veronica Place, Juntura, North Dakota, 9192",
+          "quantity": 0,
+          "type": "Zillacon"
+        },
+        {
+          "locality": "433 Hazel Court, Crumpler, Oregon, 2902",
+          "quantity": 8,
+          "type": "Nipaz"
+        },
+        {
+          "locality": "320 Grafton Street, Chesapeake, Washington, 208",
+          "quantity": 8,
+          "type": "Nitracyr"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 497805,
+    "name": "Key Clarke",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "123 Langham Street, Ronco, Nebraska, 4809",
+          "quantity": 13,
+          "type": "Bicol"
+        },
+        {
+          "locality": "197 Herkimer Court, Brecon, South Dakota, 4357",
+          "quantity": 0,
+          "type": "Exerta"
+        },
+        {
+          "locality": "640 Johnson Street, Suitland, Virgin Islands, 6961",
+          "quantity": 1,
+          "type": "Cytrak"
+        },
+        {
+          "locality": "858 Sapphire Street, Coral, Virginia, 4077",
+          "quantity": 14,
+          "type": "Mediot"
+        },
+        {
+          "locality": "344 Douglass Street, Ticonderoga, American Samoa, 8221",
+          "quantity": 14,
+          "type": "Oceanica"
+        },
+        {
+          "locality": "448 Kensington Walk, Goodville, Oklahoma, 2536",
+          "quantity": 8,
+          "type": "Neurocell"
+        },
+        {
+          "locality": "418 Ocean Court, Ilchester, Kentucky, 1950",
+          "quantity": 10,
+          "type": "Pigzart"
+        },
+        {
+          "locality": "101 Mermaid Avenue, Moscow, Arizona, 3181",
+          "quantity": 0,
+          "type": "Zilladyne"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 508964,
+    "name": "Sheree West",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "534 Irwin Street, Nescatunga, Rhode Island, 1965",
+          "quantity": 0,
+          "type": "Zilodyne"
+        },
+        {
+          "locality": "800 McClancy Place, Rivers, Northern Mariana Islands, 3904",
+          "quantity": 14,
+          "type": "Neptide"
+        },
+        {
+          "locality": "938 Irving Avenue, Matthews, Alabama, 8133",
+          "quantity": 4,
+          "type": "Aquoavo"
+        },
+        {
+          "locality": "603 Kiely Place, Hachita, Texas, 493",
+          "quantity": 7,
+          "type": "Zyple"
+        },
+        {
+          "locality": "556 Plaza Street, Balm, Montana, 3275",
+          "quantity": 8,
+          "type": "Zilencio"
+        },
+        {
+          "locality": "352 Schermerhorn Street, Monument, Palau, 5530",
+          "quantity": 15,
+          "type": "Grok"
+        },
+        {
+          "locality": "927 Brooklyn Road, Whitmer, Vermont, 3724",
+          "quantity": 3,
+          "type": "Exposa"
+        },
+        {
+          "locality": "130 Central Avenue, Rivereno, Michigan, 3915",
+          "quantity": 10,
+          "type": "Endipin"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 580586,
+    "name": "Patricia Williamson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "875 Caton Avenue, Cartwright, North Carolina, 6731",
+          "quantity": 5,
+          "type": "Musanpoly"
+        },
+        {
+          "locality": "829 Bedford Avenue, Unionville, Maryland, 1605",
+          "quantity": 7,
+          "type": "Enerforce"
+        },
+        {
+          "locality": "178 Sheffield Avenue, Brethren, Pennsylvania, 1576",
+          "quantity": 12,
+          "type": "Geoforma"
+        },
+        {
+          "locality": "136 Rochester Avenue, Ribera, Utah, 1414",
+          "quantity": 12,
+          "type": "Mondicil"
+        },
+        {
+          "locality": "431 Kossuth Place, Crayne, California, 427",
+          "quantity": 12,
+          "type": "Motovate"
+        },
+        {
+          "locality": "934 Beayer Place, Malott, Missouri, 667",
+          "quantity": 0,
+          "type": "Zialactic"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 163721,
+    "name": "Casey Moss",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "370 Madoc Avenue, Defiance, Puerto Rico, 6401",
+          "quantity": 9,
+          "type": "Urbanshee"
+        },
+        {
+          "locality": "955 Llama Court, Coldiron, Nevada, 5364",
+          "quantity": 4,
+          "type": "Utara"
+        },
+        {
+          "locality": "186 Polhemus Place, Odessa, New Jersey, 1776",
+          "quantity": 10,
+          "type": "Entropix"
+        },
+        {
+          "locality": "892 Hoyt Street, Farmers, Illinois, 6481",
+          "quantity": 6,
+          "type": "Ecrater"
+        },
+        {
+          "locality": "975 Dunne Place, Muse, Indiana, 6942",
+          "quantity": 12,
+          "type": "Codact"
+        },
+        {
+          "locality": "690 Pine Street, Kohatk, Ohio, 2525",
+          "quantity": 3,
+          "type": "Zaj"
+        },
+        {
+          "locality": "582 Kingston Avenue, Sheatown, Wisconsin, 9855",
+          "quantity": 5,
+          "type": "Dancity"
+        },
+        {
+          "locality": "288 Roder Avenue, Nord, Mississippi, 3307",
+          "quantity": 12,
+          "type": "Klugger"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 152209,
+    "name": "Anita Harding",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "686 Boerum Street, Caberfae, South Carolina, 596",
+          "quantity": 2,
+          "type": "Bostonic"
+        },
+        {
+          "locality": "988 Polar Street, Lorraine, Wyoming, 2763",
+          "quantity": 1,
+          "type": "Portalis"
+        },
+        {
+          "locality": "592 Alabama Avenue, Flintville, Colorado, 3921",
+          "quantity": 4,
+          "type": "Techade"
+        },
+        {
+          "locality": "401 Gold Street, Valmy, Florida, 3445",
+          "quantity": 10,
+          "type": "Magneato"
+        },
+        {
+          "locality": "600 Tampa Court, Haena, Iowa, 9789",
+          "quantity": 1,
+          "type": "Xelegyl"
+        },
+        {
+          "locality": "286 Bedford Place, Yorklyn, Guam, 1060",
+          "quantity": 12,
+          "type": "Comtrek"
+        },
+        {
+          "locality": "511 Jackson Street, Bison, West Virginia, 4964",
+          "quantity": 10,
+          "type": "Katakana"
+        },
+        {
+          "locality": "733 Russell Street, Norvelt, Idaho, 3691",
+          "quantity": 6,
+          "type": "Pholio"
+        },
+        {
+          "locality": "139 Dooley Street, Lacomb, Arkansas, 7008",
+          "quantity": 3,
+          "type": "Jasper"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 444636,
+    "name": "Jana Leon",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "106 Wilson Street, Rockbridge, Massachusetts, 7936",
+          "quantity": 1,
+          "type": "Circum"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 637531,
+    "name": "Mckay Cox",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "148 Jerome Street, Belmont, Tennessee, 4045",
+          "quantity": 12,
+          "type": "Dogspa"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 967088,
+    "name": "Singleton Anderson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "124 Mill Lane, Kaka, Minnesota, 1825",
+          "quantity": 6,
+          "type": "Cemention"
+        },
+        {
+          "locality": "386 Cortelyou Road, Salix, New York, 7202",
+          "quantity": 4,
+          "type": "Zensor"
+        },
+        {
+          "locality": "133 Dekoven Court, Belleview, Maine, 4119",
+          "quantity": 1,
+          "type": "Xanide"
+        },
+        {
+          "locality": "857 Noll Street, Alleghenyville, Hawaii, 9428",
+          "quantity": 14,
+          "type": "Speedbolt"
+        },
+        {
+          "locality": "238 Highland Avenue, Urbana, Alaska, 2289",
+          "quantity": 3,
+          "type": "Xyqag"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 255699,
+    "name": "Lourdes Flores",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "792 Thames Street, Cliff, Georgia, 7871",
+          "quantity": 1,
+          "type": "Bytrex"
+        },
+        {
+          "locality": "251 Kosciusko Street, Brogan, Federated States Of Micronesia, 6390",
+          "quantity": 13,
+          "type": "Krag"
+        },
+        {
+          "locality": "193 Lewis Place, Nicut, Marshall Islands, 9258",
+          "quantity": 9,
+          "type": "Playce"
+        },
+        {
+          "locality": "644 Franklin Avenue, Machias, Kansas, 3024",
+          "quantity": 2,
+          "type": "Exospeed"
+        },
+        {
+          "locality": "675 Ridgewood Place, Valle, Louisiana, 5375",
+          "quantity": 10,
+          "type": "Teraprene"
+        },
+        {
+          "locality": "949 Catherine Street, Esmont, Connecticut, 2902",
+          "quantity": 13,
+          "type": "Paprikut"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 137699,
+    "name": "Emma Hamilton",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "288 Revere Place, Navarre, New Hampshire, 8149",
+          "quantity": 11,
+          "type": "Gazak"
+        },
+        {
+          "locality": "308 Pacific Street, Woodlake, New Mexico, 8731",
+          "quantity": 15,
+          "type": "Combogene"
+        },
+        {
+          "locality": "654 Fairview Place, Canterwood, Delaware, 7022",
+          "quantity": 7,
+          "type": "Papricut"
+        },
+        {
+          "locality": "608 Seagate Terrace, Blodgett, North Dakota, 7748",
+          "quantity": 1,
+          "type": "Norsup"
+        },
+        {
+          "locality": "676 Amherst Street, Dante, Oregon, 9867",
+          "quantity": 0,
+          "type": "Geekmosis"
+        },
+        {
+          "locality": "547 Windsor Place, Brenton, Washington, 8274",
+          "quantity": 10,
+          "type": "Automon"
+        },
+        {
+          "locality": "166 Vermont Court, Volta, Nebraska, 7223",
+          "quantity": 12,
+          "type": "Gorganic"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 458853,
+    "name": "Lambert Langley",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "172 Dahl Court, Westphalia, South Dakota, 3773",
+          "quantity": 2,
+          "type": "Digial"
+        },
+        {
+          "locality": "744 Hicks Street, Washington, Virgin Islands, 4043",
+          "quantity": 6,
+          "type": "Sulfax"
+        },
+        {
+          "locality": "317 Calder Place, Dupuyer, Virginia, 5369",
+          "quantity": 2,
+          "type": "Fishland"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 619473,
+    "name": "Lidia Koch",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "278 Dover Street, Cumberland, American Samoa, 4671",
+          "quantity": 13,
+          "type": "Maineland"
+        },
+        {
+          "locality": "695 Elliott Place, Courtland, Oklahoma, 4541",
+          "quantity": 5,
+          "type": "Pearlessa"
+        },
+        {
+          "locality": "903 Garden Street, Gardiner, Kentucky, 7354",
+          "quantity": 2,
+          "type": "Boink"
+        },
+        {
+          "locality": "312 Robert Street, Cedarville, Arizona, 4751",
+          "quantity": 5,
+          "type": "Straloy"
+        },
+        {
+          "locality": "624 Interborough Parkway, Whitehaven, Rhode Island, 3391",
+          "quantity": 8,
+          "type": "Zomboid"
+        },
+        {
+          "locality": "187 Boynton Place, Robbins, Northern Mariana Islands, 557",
+          "quantity": 13,
+          "type": "Geekwagon"
+        },
+        {
+          "locality": "288 Hendrix Street, Noxen, Alabama, 9328",
+          "quantity": 10,
+          "type": "Dognosis"
+        },
+        {
+          "locality": "802 Colin Place, Harrison, Texas, 6951",
+          "quantity": 8,
+          "type": "Ebidco"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 159534,
+    "name": "Caldwell Odonnell",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "314 Beaver Street, Centerville, Montana, 9212",
+          "quantity": 3,
+          "type": "Frolix"
+        },
+        {
+          "locality": "867 Dinsmore Place, Bartley, Palau, 5216",
+          "quantity": 4,
+          "type": "Kozgene"
+        },
+        {
+          "locality": "962 Vandalia Avenue, Ryderwood, Vermont, 9010",
+          "quantity": 13,
+          "type": "Remold"
+        },
+        {
+          "locality": "582 Elizabeth Place, Elfrida, Michigan, 7177",
+          "quantity": 2,
+          "type": "Gleamink"
+        },
+        {
+          "locality": "400 Lott Avenue, Nelson, North Carolina, 3382",
+          "quantity": 5,
+          "type": "Gynk"
+        },
+        {
+          "locality": "198 Cass Place, Orin, Maryland, 8350",
+          "quantity": 0,
+          "type": "Netbook"
+        },
+        {
+          "locality": "770 Miller Place, Cornfields, Pennsylvania, 9403",
+          "quantity": 2,
+          "type": "Imant"
+        },
+        {
+          "locality": "816 Schenck Court, Barclay, Utah, 6504",
+          "quantity": 0,
+          "type": "Gluid"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 375563,
+    "name": "Blair Travis",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "677 Chestnut Avenue, Allison, California, 3310",
+          "quantity": 0,
+          "type": "Naxdis"
+        },
+        {
+          "locality": "463 Kent Avenue, Waiohinu, Missouri, 7674",
+          "quantity": 12,
+          "type": "Lumbrex"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 100345,
+    "name": "Klein Mcmillan",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "515 Alice Court, Soham, Puerto Rico, 3984",
+          "quantity": 13,
+          "type": "Goko"
+        },
+        {
+          "locality": "724 Lott Street, Snyderville, Nevada, 1164",
+          "quantity": 14,
+          "type": "Quiltigen"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 771463,
+    "name": "Margo Watkins",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "535 Lenox Road, Aurora, New Jersey, 1843",
+          "quantity": 13,
+          "type": "Gonkle"
+        },
+        {
+          "locality": "669 Front Street, Leming, Illinois, 693",
+          "quantity": 7,
+          "type": "Unia"
+        },
+        {
+          "locality": "780 Crescent Street, Lithium, Indiana, 9619",
+          "quantity": 3,
+          "type": "Kidgrease"
+        },
+        {
+          "locality": "102 Lancaster Avenue, Staples, Ohio, 2949",
+          "quantity": 4,
+          "type": "Splinx"
+        },
+        {
+          "locality": "480 Debevoise Avenue, Escondida, Wisconsin, 8252",
+          "quantity": 9,
+          "type": "Insource"
+        },
+        {
+          "locality": "554 Delevan Street, Oley, Mississippi, 6787",
+          "quantity": 14,
+          "type": "Updat"
+        },
+        {
+          "locality": "614 Hart Street, Wintersburg, South Carolina, 2995",
+          "quantity": 13,
+          "type": "Cosmosis"
+        },
+        {
+          "locality": "198 Bokee Court, Keyport, Wyoming, 5158",
+          "quantity": 1,
+          "type": "Soprano"
+        },
+        {
+          "locality": "607 Division Place, Smeltertown, Colorado, 8912",
+          "quantity": 15,
+          "type": "Centregy"
+        },
+        {
+          "locality": "372 Heath Place, Hardyville, Florida, 4500",
+          "quantity": 15,
+          "type": "Mangelica"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 295096,
+    "name": "Estelle Carr",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "724 Vandervoort Avenue, Fedora, Iowa, 531",
+          "quantity": 2,
+          "type": "Jimbies"
+        },
+        {
+          "locality": "942 Ross Street, Hiko, Guam, 4469",
+          "quantity": 9,
+          "type": "Hyplex"
+        },
+        {
+          "locality": "428 Tompkins Place, Belgreen, West Virginia, 8217",
+          "quantity": 13,
+          "type": "Schoolio"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 786171,
+    "name": "Jeannie Kirkland",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "943 Lee Avenue, Northridge, Idaho, 6083",
+          "quantity": 1,
+          "type": "Comvene"
+        },
+        {
+          "locality": "546 Post Court, Enlow, Arkansas, 5764",
+          "quantity": 12,
+          "type": "Turnabout"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 571683,
+    "name": "Morgan Finch",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "172 Clifford Place, Aberdeen, Massachusetts, 1202",
+          "quantity": 1,
+          "type": "Vixo"
+        },
+        {
+          "locality": "242 Imlay Street, Boling, Tennessee, 9674",
+          "quantity": 0,
+          "type": "Bezal"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 938852,
+    "name": "Alana Lucas",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "928 Independence Avenue, Wadsworth, Minnesota, 4604",
+          "quantity": 12,
+          "type": "Quizka"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 248272,
+    "name": "Salazar Blake",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "246 Varick Avenue, Inkerman, New York, 1791",
+          "quantity": 9,
+          "type": "Zorromop"
+        },
+        {
+          "locality": "801 Hillel Place, Tilden, Maine, 3513",
+          "quantity": 1,
+          "type": "Zoxy"
+        },
+        {
+          "locality": "483 Nolans Lane, Century, Hawaii, 9360",
+          "quantity": 6,
+          "type": "Suretech"
+        },
+        {
+          "locality": "599 Nichols Avenue, Wescosville, Alaska, 5238",
+          "quantity": 3,
+          "type": "Callflex"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 785230,
+    "name": "Ora Howe",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "338 Navy Street, Trona, Georgia, 6202",
+          "quantity": 1,
+          "type": "Skinserve"
+        },
+        {
+          "locality": "579 Vine Street, Ola, Federated States Of Micronesia, 1155",
+          "quantity": 9,
+          "type": "Pearlesex"
+        },
+        {
+          "locality": "783 Essex Street, Hemlock, Marshall Islands, 8190",
+          "quantity": 11,
+          "type": "Menbrain"
+        },
+        {
+          "locality": "737 Jackson Court, Felt, Kansas, 1162",
+          "quantity": 1,
+          "type": "Zerology"
+        },
+        {
+          "locality": "316 Division Avenue, Lawrence, Louisiana, 3298",
+          "quantity": 12,
+          "type": "Waterbaby"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 808242,
+    "name": "Neva George",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "949 Woodhull Street, Sabillasville, Connecticut, 6385",
+          "quantity": 3,
+          "type": "Photobin"
+        },
+        {
+          "locality": "663 Cranberry Street, Rockingham, New Hampshire, 6806",
+          "quantity": 1,
+          "type": "Futurity"
+        },
+        {
+          "locality": "578 Seton Place, Enoree, New Mexico, 2254",
+          "quantity": 5,
+          "type": "Venoflex"
+        },
+        {
+          "locality": "343 Driggs Avenue, Advance, Delaware, 701",
+          "quantity": 11,
+          "type": "Ludak"
+        },
+        {
+          "locality": "494 Willow Street, Tuttle, North Dakota, 8337",
+          "quantity": 11,
+          "type": "Sultrax"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 159494,
+    "name": "Watkins Prince",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "695 Commercial Street, Fivepointville, Oregon, 4544",
+          "quantity": 8,
+          "type": "Enormo"
+        },
+        {
+          "locality": "588 Martense Street, Gulf, Washington, 3272",
+          "quantity": 4,
+          "type": "Bedder"
+        },
+        {
+          "locality": "745 Broome Street, Iberia, Nebraska, 1708",
+          "quantity": 2,
+          "type": "Ezentia"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 913080,
+    "name": "Flores Schneider",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "884 Bushwick Avenue, Worcester, South Dakota, 3151",
+          "quantity": 9,
+          "type": "Permadyne"
+        },
+        {
+          "locality": "860 Beverley Road, Westboro, Virgin Islands, 4594",
+          "quantity": 11,
+          "type": "Comtract"
+        },
+        {
+          "locality": "310 Winthrop Street, Bellamy, Virginia, 5798",
+          "quantity": 1,
+          "type": "Puria"
+        },
+        {
+          "locality": "646 Dahill Road, Fairforest, American Samoa, 691",
+          "quantity": 4,
+          "type": "Norali"
+        },
+        {
+          "locality": "672 Wyona Street, Longoria, Oklahoma, 5101",
+          "quantity": 3,
+          "type": "Opticon"
+        },
+        {
+          "locality": "277 Erskine Loop, Otranto, Kentucky, 5848",
+          "quantity": 15,
+          "type": "Slofast"
+        },
+        {
+          "locality": "258 Devoe Street, Caledonia, Arizona, 4624",
+          "quantity": 2,
+          "type": "Daycore"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 602962,
+    "name": "Warren Cummings",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "380 Blake Avenue, Savannah, Rhode Island, 1509",
+          "quantity": 15,
+          "type": "Comcubine"
+        },
+        {
+          "locality": "464 King Street, Carbonville, Northern Mariana Islands, 5971",
+          "quantity": 6,
+          "type": "Equitox"
+        },
+        {
+          "locality": "145 Dennett Place, Carrizo, Alabama, 5347",
+          "quantity": 10,
+          "type": "Shopabout"
+        },
+        {
+          "locality": "981 Drew Street, Catharine, Texas, 7894",
+          "quantity": 12,
+          "type": "Parcoe"
+        },
+        {
+          "locality": "305 Bergen Place, Indio, Montana, 8940",
+          "quantity": 2,
+          "type": "Flotonic"
+        },
+        {
+          "locality": "897 Dakota Place, Edneyville, Palau, 6888",
+          "quantity": 8,
+          "type": "Genekom"
+        },
+        {
+          "locality": "712 Remsen Street, Allendale, Vermont, 1678",
+          "quantity": 3,
+          "type": "Joviold"
+        },
+        {
+          "locality": "498 Story Street, Bath, Michigan, 2493",
+          "quantity": 3,
+          "type": "Zounds"
+        },
+        {
+          "locality": "326 Troy Avenue, Yettem, North Carolina, 1571",
+          "quantity": 9,
+          "type": "Momentia"
+        },
+        {
+          "locality": "653 Gilmore Court, Summerset, Maryland, 1477",
+          "quantity": 5,
+          "type": "Songbird"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 208049,
+    "name": "Preston Gibbs",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "278 Portland Avenue, Hebron, Pennsylvania, 9870",
+          "quantity": 7,
+          "type": "Zboo"
+        },
+        {
+          "locality": "709 Girard Street, Torboy, Utah, 5780",
+          "quantity": 6,
+          "type": "Corecom"
+        },
+        {
+          "locality": "371 Flatbush Avenue, Epworth, California, 7229",
+          "quantity": 1,
+          "type": "Kneedles"
+        },
+        {
+          "locality": "826 Varet Street, Glenbrook, Missouri, 5458",
+          "quantity": 5,
+          "type": "Buzzmaker"
+        },
+        {
+          "locality": "688 Doscher Street, Springhill, Puerto Rico, 2614",
+          "quantity": 11,
+          "type": "Extragene"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 149638,
+    "name": "Burgess Powell",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "478 Brightwater Avenue, Coinjock, Nevada, 2791",
+          "quantity": 1,
+          "type": "Comveyer"
+        },
+        {
+          "locality": "250 Montieth Street, Riner, New Jersey, 4258",
+          "quantity": 8,
+          "type": "Prosure"
+        },
+        {
+          "locality": "618 Linden Street, Bordelonville, Illinois, 6813",
+          "quantity": 4,
+          "type": "Comveyor"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 503827,
+    "name": "Melendez Farmer",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "802 Atlantic Avenue, Cutter, Indiana, 7133",
+          "quantity": 1,
+          "type": "Chorizon"
+        },
+        {
+          "locality": "200 Barbey Street, Winston, Ohio, 7175",
+          "quantity": 13,
+          "type": "Talkalot"
+        },
+        {
+          "locality": "893 Middleton Street, Lisco, Wisconsin, 2668",
+          "quantity": 0,
+          "type": "Quotezart"
+        },
+        {
+          "locality": "303 Dupont Street, Rehrersburg, Mississippi, 4666",
+          "quantity": 5,
+          "type": "Zidox"
+        },
+        {
+          "locality": "744 Eldert Lane, Norfolk, South Carolina, 7566",
+          "quantity": 14,
+          "type": "Valreda"
+        },
+        {
+          "locality": "321 Granite Street, Falconaire, Wyoming, 8447",
+          "quantity": 0,
+          "type": "Signity"
+        },
+        {
+          "locality": "824 Coleman Street, Bannock, Colorado, 7897",
+          "quantity": 1,
+          "type": "Dentrex"
+        },
+        {
+          "locality": "136 Arlington Place, Gloucester, Florida, 8292",
+          "quantity": 9,
+          "type": "Yogasm"
+        },
+        {
+          "locality": "727 Nostrand Avenue, Succasunna, Iowa, 7790",
+          "quantity": 14,
+          "type": "Enomen"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 585207,
+    "name": "Oneal Mercer",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "829 Aster Court, Dundee, Guam, 5999",
+          "quantity": 0,
+          "type": "Confrenzy"
+        },
+        {
+          "locality": "829 Sumpter Street, Greer, West Virginia, 6753",
+          "quantity": 9,
+          "type": "Niquent"
+        },
+        {
+          "locality": "997 Clarendon Road, Wawona, Idaho, 248",
+          "quantity": 7,
+          "type": "Exosis"
+        },
+        {
+          "locality": "398 Canal Avenue, Bennett, Arkansas, 1700",
+          "quantity": 2,
+          "type": "Optique"
+        },
+        {
+          "locality": "173 Cozine Avenue, Alamo, Massachusetts, 4080",
+          "quantity": 7,
+          "type": "Uneeq"
+        },
+        {
+          "locality": "873 Gem Street, Fingerville, Tennessee, 2857",
+          "quantity": 10,
+          "type": "Ovation"
+        },
+        {
+          "locality": "990 Columbia Street, Rossmore, Minnesota, 4911",
+          "quantity": 7,
+          "type": "Earthpure"
+        },
+        {
+          "locality": "940 Bancroft Place, Basye, New York, 9836",
+          "quantity": 1,
+          "type": "Savvy"
+        },
+        {
+          "locality": "452 Kermit Place, Blackgum, Maine, 6561",
+          "quantity": 2,
+          "type": "Buzzworks"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 301626,
+    "name": "Loraine Best",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "378 Nevins Street, Hiwasse, Hawaii, 8359",
+          "quantity": 7,
+          "type": "Crustatia"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 481105,
+    "name": "Sharron Foster",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "381 Jewel Street, Cawood, Alaska, 146",
+          "quantity": 2,
+          "type": "Diginetic"
+        },
+        {
+          "locality": "710 Kingsland Avenue, Sena, Georgia, 2306",
+          "quantity": 4,
+          "type": "Capscreen"
+        },
+        {
+          "locality": "391 Pioneer Street, Genoa, Federated States Of Micronesia, 1577",
+          "quantity": 7,
+          "type": "Elentrix"
+        },
+        {
+          "locality": "213 Malbone Street, Orovada, Marshall Islands, 3761",
+          "quantity": 7,
+          "type": "Comstruct"
+        },
+        {
+          "locality": "657 Tillary Street, Utting, Kansas, 7380",
+          "quantity": 5,
+          "type": "Junipoor"
+        },
+        {
+          "locality": "644 Schenck Place, Bourg, Louisiana, 227",
+          "quantity": 12,
+          "type": "Skybold"
+        },
+        {
+          "locality": "344 Carlton Avenue, Bethpage, Connecticut, 7042",
+          "quantity": 15,
+          "type": "Otherway"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 889016,
+    "name": "Gutierrez Beach",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "200 Paerdegat Avenue, Westerville, New Hampshire, 9918",
+          "quantity": 1,
+          "type": "Scentric"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 401420,
+    "name": "Cline Wall",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "961 Scholes Street, Wyano, New Mexico, 8830",
+          "quantity": 8,
+          "type": "Accusage"
+        },
+        {
+          "locality": "543 Opal Court, Crown, Delaware, 7948",
+          "quantity": 14,
+          "type": "Liquidoc"
+        },
+        {
+          "locality": "969 Locust Avenue, Hobucken, North Dakota, 6006",
+          "quantity": 2,
+          "type": "Interfind"
+        },
+        {
+          "locality": "226 Wolcott Street, Ona, Oregon, 4515",
+          "quantity": 11,
+          "type": "Accruex"
+        },
+        {
+          "locality": "941 Montana Place, Teasdale, Washington, 6391",
+          "quantity": 9,
+          "type": "Equitax"
+        },
+        {
+          "locality": "435 Bridge Street, Walton, Nebraska, 6595",
+          "quantity": 8,
+          "type": "Cytrek"
+        },
+        {
+          "locality": "909 Ford Street, Hinsdale, South Dakota, 6419",
+          "quantity": 5,
+          "type": "Radiantix"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 461547,
+    "name": "Craig Burks",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "460 Crown Street, Takilma, Virgin Islands, 4436",
+          "quantity": 6,
+          "type": "Anacho"
+        },
+        {
+          "locality": "185 Apollo Street, Gwynn, Virginia, 2780",
+          "quantity": 9,
+          "type": "Brainclip"
+        },
+        {
+          "locality": "450 Bristol Street, Tioga, American Samoa, 8096",
+          "quantity": 14,
+          "type": "Exozent"
+        },
+        {
+          "locality": "183 Throop Avenue, Florence, Oklahoma, 945",
+          "quantity": 4,
+          "type": "Plasto"
+        },
+        {
+          "locality": "897 Fleet Place, Gratton, Kentucky, 4355",
+          "quantity": 10,
+          "type": "Verton"
+        },
+        {
+          "locality": "271 Morgan Avenue, Wauhillau, Arizona, 5811",
+          "quantity": 8,
+          "type": "Emoltra"
+        },
+        {
+          "locality": "662 Montague Street, Camino, Rhode Island, 8278",
+          "quantity": 6,
+          "type": "Securia"
+        },
+        {
+          "locality": "674 Roosevelt Place, Dodge, Northern Mariana Islands, 4971",
+          "quantity": 10,
+          "type": "Geofarm"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 403338,
+    "name": "Logan Booth",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "183 Woodruff Avenue, Manchester, Alabama, 2729",
+          "quantity": 7,
+          "type": "Skyplex"
+        },
+        {
+          "locality": "619 Maple Street, Sparkill, Texas, 4009",
+          "quantity": 5,
+          "type": "Noralex"
+        },
+        {
+          "locality": "545 Barwell Terrace, Abrams, Montana, 7696",
+          "quantity": 5,
+          "type": "Conferia"
+        },
+        {
+          "locality": "359 Folsom Place, Marion, Palau, 5446",
+          "quantity": 2,
+          "type": "Netropic"
+        },
+        {
+          "locality": "992 Butler Street, Retsof, Vermont, 8865",
+          "quantity": 0,
+          "type": "Cormoran"
+        },
+        {
+          "locality": "251 Metrotech Courtr, Bakersville, Michigan, 1724",
+          "quantity": 5,
+          "type": "Namegen"
+        },
+        {
+          "locality": "362 Brigham Street, Sterling, North Carolina, 4220",
+          "quantity": 8,
+          "type": "Isonus"
+        },
+        {
+          "locality": "345 Harbor Lane, Temperanceville, Maryland, 7313",
+          "quantity": 4,
+          "type": "Portica"
+        },
+        {
+          "locality": "470 Duryea Court, Joppa, Pennsylvania, 2378",
+          "quantity": 2,
+          "type": "Emergent"
+        },
+        {
+          "locality": "484 Prospect Avenue, Zeba, Utah, 9329",
+          "quantity": 13,
+          "type": "Medifax"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 265171,
+    "name": "Mccarthy Underwood",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "678 Vandam Street, Dellview, California, 5328",
+          "quantity": 3,
+          "type": "Sonique"
+        },
+        {
+          "locality": "255 Seba Avenue, Romeville, Missouri, 404",
+          "quantity": 15,
+          "type": "Metroz"
+        },
+        {
+          "locality": "120 Hemlock Street, Cherokee, Puerto Rico, 5846",
+          "quantity": 2,
+          "type": "Zentix"
+        },
+        {
+          "locality": "168 Vista Place, Blandburg, Nevada, 3597",
+          "quantity": 13,
+          "type": "Dymi"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 366429,
+    "name": "Willa Carlson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "364 Corbin Place, Ahwahnee, New Jersey, 8195",
+          "quantity": 1,
+          "type": "Assistia"
+        },
+        {
+          "locality": "771 Powers Street, Detroit, Illinois, 7280",
+          "quantity": 14,
+          "type": "Geekola"
+        },
+        {
+          "locality": "479 Tiffany Place, Gibsonia, Indiana, 3521",
+          "quantity": 4,
+          "type": "Makingway"
+        },
+        {
+          "locality": "277 Furman Avenue, Leyner, Ohio, 2774",
+          "quantity": 7,
+          "type": "Roughies"
+        },
+        {
+          "locality": "215 Cove Lane, Rivera, Wisconsin, 6566",
+          "quantity": 2,
+          "type": "Vidto"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 309348,
+    "name": "Rivas Giles",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "521 Provost Street, Shepardsville, Mississippi, 6463",
+          "quantity": 7,
+          "type": "Tourmania"
+        },
+        {
+          "locality": "980 Debevoise Street, Springdale, South Carolina, 6161",
+          "quantity": 14,
+          "type": "Fiberox"
+        },
+        {
+          "locality": "705 Hubbard Place, Caron, Wyoming, 5672",
+          "quantity": 10,
+          "type": "Cytrex"
+        },
+        {
+          "locality": "984 Livingston Street, Summerfield, Colorado, 527",
+          "quantity": 8,
+          "type": "Enjola"
+        },
+        {
+          "locality": "292 Hornell Loop, Bedias, Florida, 3988",
+          "quantity": 4,
+          "type": "Entroflex"
+        },
+        {
+          "locality": "444 Coyle Street, Lodoga, Iowa, 8113",
+          "quantity": 12,
+          "type": "Rubadub"
+        },
+        {
+          "locality": "370 Euclid Avenue, Ada, Guam, 517",
+          "quantity": 9,
+          "type": "Medcom"
+        },
+        {
+          "locality": "513 Chester Street, Condon, West Virginia, 423",
+          "quantity": 7,
+          "type": "Accidency"
+        },
+        {
+          "locality": "883 Noel Avenue, Berlin, Idaho, 6535",
+          "quantity": 14,
+          "type": "Petigems"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 547868,
+    "name": "Clements Nelson",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "738 Campus Place, Dixie, Arkansas, 285",
+          "quantity": 13,
+          "type": "Terragen"
+        },
+        {
+          "locality": "890 Dank Court, Richford, Massachusetts, 6083",
+          "quantity": 11,
+          "type": "Pharmacon"
+        },
+        {
+          "locality": "599 Randolph Street, Lewis, Tennessee, 6806",
+          "quantity": 0,
+          "type": "Zentime"
+        },
+        {
+          "locality": "534 Bragg Court, Roulette, Minnesota, 4739",
+          "quantity": 15,
+          "type": "Eyeris"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 881813,
+    "name": "Eunice Hewitt",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "149 Jackson Place, Hegins, New York, 7793",
+          "quantity": 6,
+          "type": "Xylar"
+        },
+        {
+          "locality": "593 Jerome Avenue, Rosine, Maine, 1698",
+          "quantity": 7,
+          "type": "Visualix"
+        },
+        {
+          "locality": "879 Osborn Street, Naomi, Hawaii, 5393",
+          "quantity": 13,
+          "type": "Uplinx"
+        }
+      ]
+    }
+  },
+  {
+    "sku": 883025,
+    "name": "Daphne Berg",
+    "inventory": {
+      "warehouses": [
+        {
+          "locality": "188 Heyward Street, Westwood, Alaska, 1891",
+          "quantity": 14,
+          "type": "Sportan"
+        },
+        {
+          "locality": "903 Hausman Street, Madrid, Georgia, 3250",
+          "quantity": 3,
+          "type": "Eternis"
+        },
+        {
+          "locality": "571 Sackman Street, Faxon, Federated States Of Micronesia, 2669",
+          "quantity": 6,
+          "type": "Digirang"
+        },
+        {
+          "locality": "281 Roebling Street, Tibbie, Marshall Islands, 9684",
+          "quantity": 9,
+          "type": "Futurize"
+        },
+        {
+          "locality": "573 Norman Avenue, Vienna, Kansas, 7155",
+          "quantity": 4,
+          "type": "Duflex"
+        },
+        {
+          "locality": "202 Riverdale Avenue, Blairstown, Louisiana, 8029",
+          "quantity": 15,
+          "type": "Isotrack"
+        },
+        {
+          "locality": "131 Willoughby Street, Graball, Connecticut, 3967",
+          "quantity": 4,
+          "type": "Netur"
+        },
+        {
+          "locality": "269 Rock Street, Noblestown, New Hampshire, 4574",
+          "quantity": 0,
+          "type": "Recritube"
+        },
+        {
+          "locality": "325 Suydam Place, Idamay, New Mexico, 3986",
+          "quantity": 13,
+          "type": "Pivitol"
+        },
+        {
+          "locality": "546 Irvington Place, Kent, Delaware, 249",
+          "quantity": 3,
+          "type": "Ohmnet"
+        }
+      ]
+    }
+  }
+]
