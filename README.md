@@ -72,3 +72,39 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Documentation
+Run the app and access the document
+[Swagger documentation](http://localhost:3000/docs)
