@@ -12,7 +12,7 @@ import { ProductInventoryDto } from './product.dto';
 export class ProductResponseInventoryDto extends ProductInventoryDto {
   @ApiProperty({
     type: 'number',
-    description: 'Payload of warehouse.',
+    description: 'Total quantity in inventory.',
   })
   @IsNumber()
   @IsNotEmpty()
