@@ -1,4 +1,4 @@
-import Warehouse from "src/entities/Warehouse";
+import Warehouse from "src/domain/entities/Warehouse";
 
 export default class Inventory {
   private quantity: number;

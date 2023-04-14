@@ -1,4 +1,4 @@
-import Warehouse, { WarehouseType } from "src/entities/Warehouse";
+import Warehouse, { WarehouseType } from "src/domain/entities/Warehouse";
 
 describe("[Entities] Warehouse", () => {
   const warehouse = new Warehouse({ locality: "New York", quantity: 10, type: WarehouseType.ecommerce });

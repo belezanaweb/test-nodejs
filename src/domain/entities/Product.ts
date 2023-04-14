@@ -1,4 +1,4 @@
-import Inventory from "./Inventory";
+import Inventory from "src/domain/entities/Inventory";
 
 export default class Product {
   private sku: string;

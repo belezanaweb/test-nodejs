@@ -1,5 +1,5 @@
-import Inventory from "src/entities/Inventory";
-import Product from "src/entities/Product";
+import Inventory from "src/domain/entities/Inventory";
+import Product from "src/domain/entities/Product";
 
 describe("[Entities] Product", () => {
   const inventory = new Inventory({ warehouses: [] });

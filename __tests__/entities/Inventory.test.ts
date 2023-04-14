@@ -1,5 +1,5 @@
-import Inventory from "src/entities/Inventory";
-import Warehouse, { WarehouseType } from "src/entities/Warehouse";
+import Inventory from "src/domain/entities/Inventory";
+import Warehouse, { WarehouseType } from "src/domain/entities/Warehouse";
 
 describe("[Entities] Inventory", () => {
   const warehouses = [
