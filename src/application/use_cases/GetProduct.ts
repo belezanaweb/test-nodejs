@@ -10,8 +10,8 @@ export default class GetProduct extends ProductUseCaseAbstract {
     this.productRepository = productRepository;
   }
 
-  async execute({ sku }: { sku: string }): Promise<ProductDTO> {
+  async execute({ sku }: { sku: number }): Promise<ProductDTO|null> {
     const product = await this.productRepository.getBySku({ sku });
-    return this.buildDTOFromProduct(product);
+    return product ? this.buildDTOFromProduct(product) : null;
   }
 }

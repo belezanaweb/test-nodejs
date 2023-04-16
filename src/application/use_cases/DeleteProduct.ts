@@ -8,7 +8,7 @@ export default class DeleteProduct {
     this.productRepository = productRepository;
   }
 
-  async execute({ sku }: { sku: string }): Promise<string> {
+  async execute({ sku }: { sku: number }): Promise<string> {
     await this.productRepository.delete({ sku });
     return `product sku: ${sku} deleted`;
   }

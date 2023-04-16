@@ -1,17 +1,21 @@
-type WarehouseDTO = {
-  locality: string,
-  quantity: number,
-  type: string
-}
+import { z } from "zod";
 
-type InventoryDTO = {
-  quantity?: number,
-  warehouses: WarehouseDTO[]
-}
+const WarehouseDTOSchmema = z.object({
+  locality: z.string(),
+  quantity: z.number().int(),
+  type: z.string(),
+});
 
-export type ProductDTO = {
-  sku: string,
-  name: string,
-  inventory: InventoryDTO,
-  isMarketable: boolean,
-}
+const InventoryDTOSchema = z.object({
+  quantity: z.number().optional(),
+  warehouses: z.array(WarehouseDTOSchmema)
+});
+
+export const ProductDTOSchema = z.object({
+  sku: z.number().int(),
+  name: z.string(),
+  inventory: InventoryDTOSchema,
+  isMarketable: z.boolean().optional(),
+});
+
+export type ProductDTO = z.infer<typeof ProductDTOSchema>;
