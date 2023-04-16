@@ -5,7 +5,7 @@ const ProdutosController = require('../controllers/produtos');
 const router = express.Router();
 const controller = new ProdutosController(new ProdutosRepository());
 
-// Criar produto
+// POST - Criar produto
 router.post('/', async (req, res) => {
     try {
         const payload = req.body;
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Editar o produto por SKU
+// PUT - Editar o produto por SKU
 router.put('/:sku', async (req, res) => {
     try {
         const sku = req.params.sku;
@@ -30,7 +30,7 @@ router.put('/:sku', async (req, res) => {
     }
 });
 
-// Recuperar produto por SKU
+// GET - Recuperar produto por SKU
 router.get('/:sku', async (req, res) => {
     try {
         const sku = req.params.sku;
@@ -42,7 +42,7 @@ router.get('/:sku', async (req, res) => {
     }
 });
 
-// Deletar produto por SKU
+// DELETE - Deletar produto por SKU
 router.delete('/:sku', async (req, res) => {
     try {
         const sku = req.params.sku;

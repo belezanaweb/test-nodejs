@@ -12,20 +12,18 @@ class ProdutosRepository {
         return this._produtos.find(p => p.sku === sku);
     }
 
-    editar(sku, produto) {
-        const index = this._produtos.findIndex(e => e.sku === sku);
-        produto.sku = sku;
-    
+    editar(produto) {
+        const index = this._produtos.findIndex(e => e.sku === produto.sku);
         const atualizado = Object.assign(this._produtos[index], produto);
-    
+
         this._produtos[index] = atualizado;
-    
+
         return atualizado;
     }
 
     deletar(sku) {
         const index = this._produtos.findIndex(e => e.sku === sku);
-    
+
         this._produtos.splice(index, 1);
     }
 }
