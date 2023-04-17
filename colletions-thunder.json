@@ -1,0 +1,115 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "test-nodejs",
+    "dateExported": "2023-04-16T23:32:01.425Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "db7140df-7a20-42a1-a23f-b33105058c00",
+            "colId": "30937760-344e-4c54-8b70-d9a76da0376c",
+            "containerId": "",
+            "name": "Recuperação de produto por sku",
+            "url": "http://localhost:3000/api/products/43264",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-16T21:28:34.656Z",
+            "modified": "2023-04-16T22:36:22.672Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e61db9f5-49fd-420e-b2ed-b097caf11c8c",
+            "colId": "30937760-344e-4c54-8b70-d9a76da0376c",
+            "containerId": "",
+            "name": "Criação de produto",
+            "url": "http://localhost:3000/api/products",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-16T21:29:15.982Z",
+            "modified": "2023-04-16T22:26:53.969Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sku\": 43264,\n  \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n  \"inventory\": {\n    \"warehouses\": [\n      {\n        \"locality\": \"SP\",\n        \"quantity\": 12,\n        \"type\": \"ECOMMERCE\"\n      },\n      {\n        \"locality\": \"MOEMA\",\n        \"quantity\": 3,\n        \"type\": \"PHYSICAL_STORE\"\n      }\n    ]\n  }\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0fdeecbe-efdd-455b-b235-e9fa4659244c",
+            "colId": "30937760-344e-4c54-8b70-d9a76da0376c",
+            "containerId": "",
+            "name": "Edição de produto por sku",
+            "url": "http://localhost:3000/api/products",
+            "method": "PUT",
+            "sortNum": 25000,
+            "created": "2023-04-16T23:23:51.304Z",
+            "modified": "2023-04-16T23:25:59.007Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sku\": 43264,\n  \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n  \"inventory\": {\n    \"warehouses\": [\n      {\n        \"locality\": \"MOEMA\",\n        \"quantity\": 3,\n        \"type\": \"PHYSICAL_STORE\"\n      }\n    ]\n  }\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e4d04a4a-8b08-4908-8cf4-6c72259c1def",
+            "colId": "30937760-344e-4c54-8b70-d9a76da0376c",
+            "containerId": "",
+            "name": "Deleção de produto por sku",
+            "url": "http://localhost:3000/api/products/43264",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-04-16T23:12:35.357Z",
+            "modified": "2023-04-16T23:13:09.704Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

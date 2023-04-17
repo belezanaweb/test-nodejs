@@ -1,74 +1,26 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# test-nodejs
 
-Esta é uma avaliação básica de código.
+## Requisitos
+- Node (v18.15.0)
+- NPM (v9.5.0)
+- NVM (Opcional)
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+## Instalação
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+- Certifique-se que você esteja utilizando a versão utilizada pelo projeto do Node e do NPM, seja de forma global ou pelo NVM e execute: `npm i`
 
-Faça um fork deste repositório.
+## Execucão
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+- Para evitar a utilização de muitas bibliotecas externas, o projeto está fixado na porta 3000, para iniciar o servidor http, execute: `npm run local:start`
 
-### Tarefas
+## Testes
+- Para executar os testes, execute: `npm test`
 
-Com a seguinte representação de produto:
+## Casos de uso
+- Criação de produto
+- Edição de produto por sku
+- Recuperação de produto por sku
+- Deleção de produto por sku
 
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
-```
-
-Crie endpoints para as seguintes ações:
-
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
-
-- [ ] Edição de produto por **sku**
-
-- [ ] Recuperação de produto por **sku**
-
-- [ ] Deleção de produto por **sku**
-
-### Requisitos
-
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
-
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
-
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+## Collections
+Foi exportado para o projeto as collections tanto para o Thunder Client (Extensão HTTP para vscode) quanto para o Postman. Fica ao critério do usuário escolher qual utilizar. Ambas se encontram na raiz do projeto com os seguintes nomes: `collections-postman.json` e `collections-thunder.json`.
