@@ -1,7 +1,4 @@
 import { describe, it, expect, beforeAll, beforeEach } from "@jest/globals"
-import { IProduct } from "../../../domain/entities/products/Product"
-import { Inventory } from "../../../domain/entities/products/interface/Inventory"
-import { Warehouses } from "../../../domain/entities/products/interface/Warehouses"
 import { StockProductService } from "./StockProduct.service"
 
 describe('StockProductService', () => {
@@ -22,7 +19,7 @@ describe('StockProductService', () => {
   })
 })
 
-function generateMongoProductWithQuantity(): any {
+function generateMongoProductWithQuantity() {
   return {
     sku: 10231,
     name: 'Zaad',
@@ -42,7 +39,7 @@ function generateMongoProductWithQuantity(): any {
   }
 }
 
-function generateMongoProductWithoutQuantity(): any {
+function generateMongoProductWithoutQuantity() {
   return {
     sku: 51423,
     name: 'Malbec',
