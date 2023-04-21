@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+      "title": "Boticario NodeJS test",
+      "description": "Matheus Fujihara",
+      "contact": {
+          "email": "fujihara_matheus@hotmail.com"
+      },
+      "version": "1.0.2"
+  },
+  "servers": [
+      {
+          "url": "http://localhost:8080",
+          "description": "dev"
+      }
+  ],
+  "paths": {
+      "/products": {
+          "post": {
+              "summary": "Create Product",
+              "description": "Route to create new product",
+              "tag": ["Products"],
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Product"
+                          },
+                          "examples": {
+                              "product": {
+                                  "value": {
+                                      "sku": 43264,
+                                      "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+                                      "inventory": {
+                                          "warehouses": [
+                                              {
+                                                  "locality": "SP",
+                                                  "quantity": 12,
+                                                  "type": "ECOMMERCE"
+                                              },
+                                              {
+                                                  "locality": "MOEMA",
+                                                  "quantity": 3,
+                                                  "type": "PHYSICAL_STORE"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "201": {
+                      "description": "Product created successfully"
+                  },
+                  "400": {
+                      "description": "Error on create Product"
+                  }
+              }
+          },
+          "get": {
+              "summary": "Search product by SKU",
+              "description": "Route to search product",
+              "tag": ["Products"],
+              "parameters": [
+                  {
+                      "name": "sku",
+                      "in": "parameters",
+                      "description": "Product SKU"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Search a product",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "items": {
+                                      "type": "object",
+                                      "$ref": "#/components/schemas/Product"
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Error search product"
+                  }
+              }
+          },
+          "put": {
+              "summary": "Update Product",
+              "description": "Route to update product",
+              "tag": ["Products"],
+              "parameters": [
+                  {
+                      "name": "sku",
+                      "in": "parameters",
+                      "description": "Product SKU"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Update product"
+                  },
+                  "400": {
+                      "description": "Error on update product"
+                  }
+              }
+          },
+          "delete": {
+              "summary": "Delete Product",
+              "description": "Route to delete product",
+              "tag": ["Products"],
+              "parameters": [
+                  {
+                      "name": "sku",
+                      "in": "parameters",
+                      "description": "Product SKU"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Product has been deleted"
+                  },
+                  "400": {
+                      "description": "Error on remove product"
+                  }
+              }
+          }
+      }
+  },
+  "components": {
+      "schemas": {
+          "Product": {
+              "type": "object",
+              "properties": {
+                  "sku": {
+                      "type": "number"
+                  },
+                  "name": {
+                      "type": "string"
+                  },
+                  "inventory": {
+                      "type": "object",
+                      "properties": {
+                          "warehouses": {
+                              "type": "array",
+                              "items": {
+                                  "locality": "string",
+                                  "quantity": "number",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,25 @@
+import { inject, injectable } from "tsyringe"
+import { IProduct } from "../../../../entities/products/Product";
+import { IProductsRepository } from "../../../../repostiories/IProducts.repository";
+import { IUpdateProductDTO } from "../../dtos/IUpdateProductDTO";
+import { AppError } from "../../../../shared/excepetions/errors";
+
+@injectable()
+class UpdateProcuctUseCase {
+  constructor(
+    @inject("ProductsRepository")
+    private productsRepository: IProductsRepository
+  ) { }
+
+  async execute( sku : number, newData: IUpdateProductDTO) : Promise<IProduct> {
+    const foundProduct = await this.productsRepository.getProduct(sku)
+
+    if (!foundProduct) {
+      throw new AppError(`Product does not exist`)
+    }
+
+    return await this.productsRepository.update(sku, newData)
+  }
+}
+
+export { UpdateProcuctUseCase }
