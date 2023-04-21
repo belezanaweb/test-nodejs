@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe"
-import { IProductsRepository } from "../../../../repostiories/IProducts.repository";
+import { IProductsRepository } from "../../../../domain/repositories/IProducts.repository";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 @injectable()

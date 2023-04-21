@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:start": "tsnd --respawn --transpile-only --clear src/server.ts",
-    "test": "npm jest"
+    "start:dev": "tsnd --respawn --transpile-only --clear src/server.ts",
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",

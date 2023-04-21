@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, beforeEach } from "@jest/globals"
-import { IProduct } from "../../../entities/products/Product"
-import { Inventory } from "../../../entities/products/interface/Inventory"
-import { Warehouses } from "../../../entities/products/interface/Warehouses"
+import { IProduct } from "../../../domain/entities/products/Product"
+import { Inventory } from "../../../domain/entities/products/interface/Inventory"
+import { Warehouses } from "../../../domain/entities/products/interface/Warehouses"
 import { StockProductService } from "./StockProduct.service"
 
 describe('StockProductService', () => {

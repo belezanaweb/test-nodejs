@@ -1,4 +1,4 @@
-import { IProduct } from "../../../entities/products/Product";
+import { IProduct } from "../../../domain/entities/products/Product";
 
 export class StockProductService {
   async execute (product: IProduct): Promise<IProduct> {

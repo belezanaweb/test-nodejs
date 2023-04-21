@@ -1,5 +1,5 @@
 import { Schema, model, Document } from "mongoose";
-import { IProduct } from "../../../entities/products/Product";
+import { IProduct } from "../../entities/products/Product";
 
 const Product = model<IProduct>(`Product`, new Schema<IProduct>({
   sku: { type: Number, required: true, unique: true },

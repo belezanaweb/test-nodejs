@@ -1,6 +1,6 @@
-import { IProduct } from "../../entities/products/Product";
+import { IProduct } from "../entities/products/Product";
 import { ICreateProductDTO } from "../../modules/products/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../IProducts.repository";
+import { IProductsRepository } from "./IProducts.repository";
 import { Product } from "./schemas/Product.Schema";
 
 export class MongoRepository implements IProductsRepository {
@@ -16,13 +16,11 @@ export class MongoRepository implements IProductsRepository {
   }
 
   async getProduct(sku: number): Promise<IProduct | null> {
-    const foundProduct = await Product.findOne({ sku })
-    return foundProduct
+    return await Product.findOne({ sku })
   }
 
   async update(sku: number, data: IProduct): Promise<IProduct | null> {
-    const updatedProduct = await Product.findOneAndUpdate({ sku: sku }, data, { returnDocument: 'after' })
-    return updatedProduct
+    return await Product.findOneAndUpdate({ sku: sku }, data, { returnDocument: 'after' })
   }
 
   async delete(sku: number, product: IProduct): Promise<void> {

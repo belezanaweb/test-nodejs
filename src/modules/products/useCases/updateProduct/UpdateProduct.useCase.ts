@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe"
-import { IProduct } from "../../../../entities/products/Product";
-import { IProductsRepository } from "../../../../repostiories/IProducts.repository";
+import { IProduct } from "../../../../domain/entities/products/Product";
+import { IProductsRepository } from "../../../../domain/repositories/IProducts.repository";
 import { IUpdateProductDTO } from "../../dtos/IUpdateProductDTO";
 import { AppError } from "../../../../shared/excepetions/errors";
 
