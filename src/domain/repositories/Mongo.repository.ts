@@ -16,7 +16,7 @@ export class MongoRepository implements IProductsRepository {
   }
 
   async getProduct(sku: number): Promise<IProduct | null> {
-    return await Product.findOne({ sku })
+    return await Product.findOne({ sku }).lean()
   }
 
   async update(sku: number, data: IProduct): Promise<IProduct | null> {
