@@ -1,39 +1,38 @@
 import { describe, it, expect, beforeAll, beforeEach, jest } from "@jest/globals"
-import { CreateProductUseCase } from "./CreateProduct.useCase"
 import { MongoRepository } from "../../../../domain/repositories/Mongo.repository"
 import { IProduct } from "../../../../domain/entities/products/Product"
 import { AppError } from "../../../../shared/excepetions/errors"
+import { DeleteProductUseCase } from "./DeleteProduct.useCase"
 
-describe('CreateProductUseCase', () => {
-  let createProductUseCase: CreateProductUseCase
+describe('DeleteProductUseCase', () => {
+  let deleteProductUseCase: DeleteProductUseCase
   let productsRepository: MongoRepository
 
   beforeEach(() => {
     productsRepository = new MongoRepository()
-    createProductUseCase = new CreateProductUseCase(productsRepository)
+    deleteProductUseCase = new DeleteProductUseCase(productsRepository)
   })
 
-  it('should be possible create a product', async () => {
-    jest.spyOn(productsRepository, 'getProduct').mockImplementationOnce(async () => getProductEmpty())
-    jest.spyOn(productsRepository, 'create').mockImplementationOnce(async () => createProductRepository())
-    const product = createProductRepository()
-    const createProduct = await createProductUseCase.execute(product)
-    expect(createProduct).toBe(void(0))
+  it('should be update isDeleted field to true', async () => {
+    jest.spyOn(productsRepository, 'getProduct').mockImplementationOnce(async () => getProduct())
+    jest.spyOn(productsRepository, 'delete').mockImplementationOnce(async () => deleteProductRepository())
+    const deleteProduct = await deleteProductUseCase.execute(10231)
+    expect(deleteProduct.isDeleted).toEqual(true)
   })
 
-  // it('should be an error create a product with same sku', async () => {
-  //   jest.spyOn(productsRepository, 'getProduct').mockImplementationOnce(async () => getProduct())
-  //   const product = createProductRepository()
-  //   const createProduct = await createProductUseCase.execute(product)
-  //   await expect(createProduct).rejects.toBeInstanceOf(AppError)
+  // it('should be return error when doesnt found a product by sku', async () => {
+  //   jest.spyOn(productsRepository, 'getProduct').mockImplementationOnce(async () => getProductEmpty())
+  //   const deleteProduct = await deleteProductUseCase.execute(10231)
+  //   await expect(deleteProduct).rejects.toBeInstanceOf(AppError)
   // })
+
 })
 
 function getProductEmpty() {
   return null
 }
 
-function createProductRepository(): IProduct {
+function deleteProductRepository(): IProduct {
   return {
     sku: 10231,
     name: 'Zaad',
@@ -49,7 +48,8 @@ function createProductRepository(): IProduct {
           type: "PHYSICAL_STORE"
         }
       ]
-    }
+    },
+    isDeleted: true
   }
 }
 
@@ -69,6 +69,7 @@ function getProduct() {
           type: "PHYSICAL_STORE"
         }
       ]
-    }
+    },
+    isDeleted: false
   }
 }

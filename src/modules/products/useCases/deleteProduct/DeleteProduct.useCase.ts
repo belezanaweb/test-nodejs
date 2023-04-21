@@ -1,15 +1,16 @@
 import { inject, injectable } from "tsyringe"
 import { IProductsRepository } from "../../../../domain/repositories/IProducts.repository";
 import { AppError } from "../../../../shared/excepetions/errors";
+import { IProduct } from "../../../../domain/entities/products/Product";
 
 @injectable()
-class DeleteProcuctUseCase {
+class DeleteProductUseCase {
   constructor(
     @inject("ProductsRepository")
     private productsRepository: IProductsRepository
   ) { }
 
-  async execute( sku : number) : Promise<any> {
+  async execute( sku : number) : Promise<IProduct> {
     const foundProduct = await this.productsRepository.getProduct(sku)
 
     if (!foundProduct) {
@@ -21,4 +22,4 @@ class DeleteProcuctUseCase {
   }
 }
 
-export { DeleteProcuctUseCase }
+export { DeleteProductUseCase }

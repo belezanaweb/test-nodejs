@@ -16,15 +16,15 @@ export class MongoRepository implements IProductsRepository {
   }
 
   async getProduct(sku: number): Promise<IProduct | null> {
-    return await Product.findOne({ sku }).lean()
+    return await Product.findOne({ sku }).lean().catch(err => err)
   }
 
   async update(sku: number, data: IProduct): Promise<IProduct | null> {
     return await Product.findOneAndUpdate({ sku: sku }, data, { returnDocument: 'after' })
   }
 
-  async delete(sku: number, product: IProduct): Promise<void> {
-    await Product
+  async delete(sku: number, product: IProduct): Promise<IProduct> {
+    return await Product
       .findOneAndUpdate({ sku: sku }, product)
       .catch(err => {
         throw err

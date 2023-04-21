@@ -6,7 +6,7 @@ interface IProductsRepository {
   create(product: ICreateProductDTO): Promise<IProduct>
   getProduct(sku: number): Promise<IProduct | null>
   update(sku: number, data: IUpdateProductDTO): Promise<IProduct | null>
-  delete(sku: number, data: IProduct): Promise<void>
+  delete(sku: number, data: IProduct): Promise<IProduct>
 }
 
 export { IProductsRepository }

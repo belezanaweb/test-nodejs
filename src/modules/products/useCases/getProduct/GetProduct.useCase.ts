@@ -5,7 +5,7 @@ import { StockProductService } from "../../service/StockProduct.service";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 @injectable()
-class GetProcuctUseCase {
+class GetProductUseCase {
   constructor(
     @inject("ProductsRepository")
     private productsRepository: IProductsRepository,
@@ -23,4 +23,4 @@ class GetProcuctUseCase {
   }
 }
 
-export { GetProcuctUseCase }
+export { GetProductUseCase }

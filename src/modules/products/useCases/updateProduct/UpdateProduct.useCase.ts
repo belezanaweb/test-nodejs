@@ -5,7 +5,7 @@ import { IUpdateProductDTO } from "../../dtos/IUpdateProductDTO";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 @injectable()
-class UpdateProcuctUseCase {
+class UpdateProductUseCase {
   constructor(
     @inject("ProductsRepository")
     private productsRepository: IProductsRepository
@@ -22,4 +22,4 @@ class UpdateProcuctUseCase {
   }
 }
 
-export { UpdateProcuctUseCase }
+export { UpdateProductUseCase }
