@@ -1,0 +1,204 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Boticario NodeJS test",
+        "description": "Matheus Fujihara",
+        "contact": {
+            "email": "fujihara_matheus@hotmail.com"
+        },
+        "version": "1.0.2"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "dev"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "post": {
+                "summary": "Create Product",
+                "description": "Route to create new product",
+                "tag": [
+                    "Products"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "examples": {
+                                "product": {
+                                    "value": {
+                                        "sku": 43264,
+                                        "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+                                        "inventory": {
+                                            "warehouses": [
+                                                {
+                                                    "locality": "SP",
+                                                    "quantity": 12,
+                                                    "type": "ECOMMERCE"
+                                                },
+                                                {
+                                                    "locality": "MOEMA",
+                                                    "quantity": 3,
+                                                    "type": "PHYSICAL_STORE"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Product created successfully"
+                    },
+                    "400": {
+                        "description": "Error on createa new product"
+                    }
+                }
+            }
+        },
+        "/products/{sku}": {
+            "get": {
+                "description": "Get product by sku",
+                "summary": "Get Product",
+                "tag": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "sku",
+                        "in": "path",
+                        "description": "sku",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product found successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error on finding product by sku"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Product",
+                "description": "Update product by sku",
+                "tag": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "sku",
+                        "in": "path",
+                        "description": "Product SKU",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "examples": {
+                                "product": {
+                                    "value": {
+                                        "name": "Kit o Boticário Match SOS Cauterização Pós-Química Triplo",
+                                        "inventory": {
+                                            "warehouses": [
+                                                {
+                                                    "locality": "RR",
+                                                    "quantity": 10,
+                                                    "type": "ECOMMERCE"
+                                                },
+                                                {
+                                                    "locality": "NATAL",
+                                                    "quantity": 7,
+                                                    "type": "PHYSICAL_STORE"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update product successfully"
+                    },
+                    "400": {
+                        "description": "Error on update product by sku"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Product",
+                "description": "Soft Delete by sku",
+                "tag": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "sku",
+                        "in": "path",
+                        "description": "Product SKU",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product deleted successfully"
+                    },
+                    "400": {
+                        "description": "Error on delete product"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "inventory": {
+                        "type": "object",
+                        "properties": {
+                            "warehouses": {
+                                "type": "array",
+                                "items": {
+                                    "locality": "string",
+                                    "quantity": "number",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
