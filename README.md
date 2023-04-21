@@ -28,6 +28,11 @@ $ npm run test
 - Update Product
 - Delete Product
 
+### Observations
+
+- Realizei a deleção para deleção logica (Soft-Delete)
+- Foi disponibilizado na raiz do projeto uma collection do postman de produtos `Product - Boticario.postman_collection.json`
+
 ### Tarefas
 
 Crie endpoints para as seguintes ações:
@@ -59,8 +64,3 @@ Crie endpoints para as seguintes ações:
 - [x] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
 
         A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Observations
-
-- Realizei a deleção para deleção logica (Soft-Delete)
-- Foi disponibilizado na raiz do projeto uma collection do postman de produtos `Product - Boticario.postman_collection.json`
