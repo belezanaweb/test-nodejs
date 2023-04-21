@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe"
-import { UpdateProcuctUseCase } from "./UpdateProduct.useCase";
+import { UpdateProductUseCase } from "./UpdateProduct.useCase";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 export class UpdateProductController {
@@ -11,7 +11,7 @@ export class UpdateProductController {
       const { sku } = request.params
       const data = request.body
       
-      const updateProductUseCase = container.resolve(UpdateProcuctUseCase)
+      const updateProductUseCase = container.resolve(UpdateProductUseCase)
       const updatedProduct = await updateProductUseCase.execute(
         +sku,
         data

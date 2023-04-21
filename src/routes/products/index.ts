@@ -10,7 +10,6 @@ const updateProductController = new UpdateProductController()
 const deleteProductController = new DeleteProductController()
 
 const router = Router()
-router.get('/', (req, res) => res.send('success api'))
 router.post('/', createProductController.handle)
 router.get('/:sku', getProductController.handle)
 router.put('/:sku', updateProductController.handle)

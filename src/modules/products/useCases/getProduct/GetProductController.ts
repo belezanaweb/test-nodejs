@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe"
-import { GetProcuctUseCase } from "./GetProduct.useCase";
+import { GetProductUseCase } from "./GetProduct.useCase";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 export class GetProductController {
@@ -10,7 +10,7 @@ export class GetProductController {
     try {
       const { sku } = request.params
       
-      const getProductUseCase = container.resolve(GetProcuctUseCase)
+      const getProductUseCase = container.resolve(GetProductUseCase)
       const getProduct = await getProductUseCase.execute(
         +sku
       )

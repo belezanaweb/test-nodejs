@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe"
-import { DeleteProcuctUseCase } from "./DeleteProduct.useCase";
+import { DeleteProductUseCase } from "./DeleteProduct.useCase";
 import { AppError } from "../../../../shared/excepetions/errors";
 
 export class DeleteProductController {
@@ -9,7 +9,7 @@ export class DeleteProductController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
       const { sku } = request.params
-      const deleteProductUseCase = container.resolve(DeleteProcuctUseCase)
+      const deleteProductUseCase = container.resolve(DeleteProductUseCase)
       await deleteProductUseCase.execute(
         +sku
       )
