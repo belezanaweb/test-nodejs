@@ -18,7 +18,7 @@ export class CreateProductController {
 
       return response.status(201).send()
     } catch (error: any) {
-      throw new AppError(error.message || 'Unexpected error on create product')
+      throw new AppError(error.message || 'Error on createa new product')
     }
   }
 }

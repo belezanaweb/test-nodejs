@@ -5,7 +5,7 @@ export class IProduct {
     sku,
     name,
     inventory,
-  }) {
+  }: { sku: number, name: string, inventory: Inventory}) {
     this.sku = sku
     this.name = name
     this.inventory = inventory

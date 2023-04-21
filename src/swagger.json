@@ -56,24 +56,24 @@
                       "description": "Product created successfully"
                   },
                   "400": {
-                      "description": "Error on create Product"
+                      "description": "Error on createa new product"
                   }
               }
           },
           "get": {
-              "summary": "Search product by SKU",
-              "description": "Route to search product",
+              "summary": "Get Product",
+              "description": "Get product by sku",
               "tag": ["Products"],
               "parameters": [
                   {
                       "name": "sku",
                       "in": "parameters",
-                      "description": "Product SKU"
+                      "description": "sku"
                   }
               ],
               "responses": {
                   "200": {
-                      "description": "Search a product",
+                      "description": "Product found successfully",
                       "content": {
                           "application/json": {
                               "schema": {
@@ -86,13 +86,13 @@
                       }
                   },
                   "400": {
-                      "description": "Error search product"
+                      "description": "Error on finding product by sku"
                   }
               }
           },
           "put": {
               "summary": "Update Product",
-              "description": "Route to update product",
+              "description": "Update product by sku",
               "tag": ["Products"],
               "parameters": [
                   {
@@ -101,18 +101,48 @@
                       "description": "Product SKU"
                   }
               ],
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Product"
+                          },
+                          "examples": {
+                              "product": {
+                                  "value": {
+                                      "name": "Kit o Boticário Match SOS Cauterização Pós-Química Triplo",
+                                      "inventory": {
+                                          "warehouses": [
+                                              {
+                                                  "locality": "RR",
+                                                  "quantity": 10,
+                                                  "type": "ECOMMERCE"
+                                              },
+                                              {
+                                                  "locality": "NATAL",
+                                                  "quantity": 7,
+                                                  "type": "PHYSICAL_STORE"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
               "responses": {
                   "200": {
-                      "description": "Update product"
+                      "description": "Update product successfully"
                   },
                   "400": {
-                      "description": "Error on update product"
+                      "description": "Error on update product by sku"
                   }
               }
           },
           "delete": {
               "summary": "Delete Product",
-              "description": "Route to delete product",
+              "description": "Soft Delete by sku",
               "tag": ["Products"],
               "parameters": [
                   {
@@ -123,10 +153,10 @@
               ],
               "responses": {
                   "200": {
-                      "description": "Product has been deleted"
+                      "description": "Product deleted successfully"
                   },
                   "400": {
-                      "description": "Error on remove product"
+                      "description": "Error on delete product"
                   }
               }
           }

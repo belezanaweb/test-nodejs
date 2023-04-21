@@ -16,7 +16,7 @@ export class DeleteProductController {
 
       return response.status(200).json({success: true})
     } catch (error: any) {
-      throw new AppError(error.message || 'Unexpected error on delete product')
+      throw new AppError(error.message || 'Error on delete product')
     }
   }
 }
