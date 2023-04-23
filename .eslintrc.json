@@ -1,0 +1,63 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "script"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/no-unresolved": "off",
+    "no-restricted-syntax": "off",
+    "no-useless-escape": "off",
+    "no-useless-constructor": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "prettier/prettier": "error",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-unused-vars": [
+    "warn",
+    {
+      "argsIgnorePattern": "_"
+    }
+    ],
+    "camelcase": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-console": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "import/extensions": [
+    "error",
+    {
+      "ts": "never",
+      "json": "ignorePackages"
+    }
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/no-var-requires": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+        "moduleDirectory": ["node_modules", "node_modules/@types", "src/"]
+      }
+    }
+  }
+}

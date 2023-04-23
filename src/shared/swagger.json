@@ -1,0 +1,501 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Beleza na Web API",
+    "version": "1.0.0",
+    "description": "Este é um microserviço para criar, atualizar, buscar e excluir",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "description": "Development Server",
+      "url": "http://localhost:3333/api"
+    }
+  ],
+  "schemes": ["http"],
+  "basePath": "/api",
+  "paths" : {
+    "/product/{sku}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "sku",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get" : {
+        "tags": ["product"],
+        "summary" : "Get product by sku",
+        "description": "",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/productResponse"
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "sku": 1,
+                      "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+                      "inventory": {
+                          "warehouses": [
+                              {
+                                  "locality": "SP",
+                                  "quantity": 12,
+                                  "type": "ECOMMERCE"
+                              },
+                              {
+                                  "locality": "MOEMA",
+                                  "quantity": 3,
+                                  "type": "PHYSICAL_STORE"
+                              }
+                          ],
+                          "quantity": 15
+                      },
+                      "isMarketable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "default": {
+                    "$ref": "#/AppError/examples/validation_error"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "default": {
+                    "$ref": "#/AppError/examples/not_found_find"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags": ["product"],
+        "summary" : "Update product by sku",
+        "description": "",
+        "produces": ["application/json"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/productRequest/update"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/examples/productRequest/update"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/productResponse"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/examples/productResponse/update"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "sku existing stored",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/AppError/examples/validation_error"
+                  },
+                  "example-2": {
+                    "$ref": "#/AppError/examples/not_found_update"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags": ["product"],
+        "summary" : "Delete product by sku",
+        "description": "",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "name": "NOT_FOUND",
+                      "error": {
+                        "service": "BELEZANAWEB API",
+                        "code": "0003"
+                      },
+                      "message": "sku não informado",
+                      "trace": "FindProductService -> execute()"
+                    }
+                  },
+                  "example-2": {
+                    "$ref": "#/AppError/examples/validation_error"
+                  },
+                  "example-3": {
+                    "$ref": "#/AppError/examples/not_found_delete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product": {
+      "post" : {
+        "tags": ["product"],
+        "summary" : "Create product by sku",
+        "description": "",
+        "produces": ["application/json"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/productRequest/create"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/examples/productRequest/create"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/productResponse"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/examples/productResponse/create"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "sku existing stored",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/AppError/examples/create_sku_exist"
+                  },
+                  "example-2": {
+                    "$ref": "#/AppError/examples/validation_error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "productRequest": {
+      "create": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "inventory": {
+            "type": "object",
+            "properties": {
+              "warehouses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "locality": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "update": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "inventory": {
+            "type": "object",
+            "properties": {
+              "warehouses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "locality": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "productResponse": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inventory": {
+          "type": "object",
+          "properties": {
+            "warehouses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "locality": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "quantity": {
+              "type": "integer"
+            }
+          },
+          "isMarketable": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "examples": {
+    "productRequest": {
+      "create": {
+        "value": {
+          "sku": {
+            "sku": 2,
+            "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+            "inventory": {
+                "warehouses": [
+                  {
+                    "locality": "SP",
+                    "quantity": 12,
+                    "type": "ECOMMERCE"
+                  },
+                  {
+                    "locality": "MOEMA",
+                    "quantity": 3,
+                    "type": "PHYSICAL_STORE"
+                  }
+              ]
+            }
+          }
+        }
+      },
+      "update": {
+        "value": {
+          "sku": {
+            "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+            "inventory": {
+                "warehouses": [
+                  {
+                    "locality": "SP",
+                    "quantity": 12,
+                    "type": "ECOMMERCE"
+                  }
+                ]
+            }
+          }
+        }
+      }
+    },
+    "productResponse": {
+      "create": {
+        "value": {
+          "sku": {
+            "sku": 2,
+            "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+            "inventory": {
+              "warehouses": [
+                {
+                  "locality": "SP",
+                  "quantity": 12,
+                  "type": "ECOMMERCE"
+                },
+                {
+                  "locality": "MOEMA",
+                  "quantity": 3,
+                  "type": "PHYSICAL_STORE"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "update": {
+        "value": {
+          "sku": {
+            "sku": 2,
+            "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+            "inventory": {
+              "warehouses": [
+                {
+                  "locality": "SP",
+                  "quantity": 12,
+                  "type": "ECOMMERCE"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "AppError": {
+    "examples": {
+      "validation_error": {
+        "value": {
+          "value": {
+            "name": "VALIDATION_ERROR",
+            "error": {
+                "service": "BELEZANAWEB API",
+                "code": "0002"
+            },
+            "message": "sku must be a number.",
+            "trace": "default"
+          }
+        }
+      },
+      "not_found_find": {
+        "value": {
+          "name": "NOT_FOUND",
+          "error": {
+            "service": "BELEZANAWEB API",
+            "code": "0003"
+          },
+          "message": "Produto não encontrado",
+          "trace": "FindProductService -> execute()"
+        }
+      },
+      "create_sku_exist": {
+        "value": {
+          "name": "INTERNAL_SERVER_ERROR",
+          "error": {
+              "service": "BELEZANAWEB API",
+              "code": "0001"
+          },
+          "message": "Dois produtos são considerados iguais se os seus skus forem iguais",
+          "trace": "ProductRepository -> create()"
+        }
+      },
+      "not_found_delete": {
+        "value": {
+          "name": "INTERNAL_SERVER_ERROR",
+          "error": {
+            "service": "BELEZANAWEB API",
+            "code": "0001"
+          },
+          "message": "Produto não encontrado",
+          "trace": "ProductRepository -> delete()"
+        }
+      },
+      "not_found_update": {
+        "value": {
+          "name": "INTERNAL_SERVER_ERROR",
+          "error": {
+            "service": "BELEZANAWEB API",
+            "code": "0001"
+          },
+          "message": "Produto não encontrado",
+          "trace": "ProductRepository -> update()"
+        }
+      }
+    }
+  }
+}
