@@ -1,74 +1,96 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# Super Test Nodejs
 
-Esta é uma avaliação básica de código.
+# Executando o projeto
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+> A versão recomendada para o Node.js é a v18.16.0 e npm 9.6.5
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+1. Executar `npm install` para instalar as dependências do projeto
+2. Criar uma cópia do arquivo `.env.sample` com o nome de `.env`
+3. Iniciar o servidor HTTP com o comando `npm run dev` ou `npm start`
+4. O serviço será iniciado e acessível no endereço http://127.0.0.1:3000
 
-Faça um fork deste repositório.
+Caso queira alterar a porta utilizada, é necessário alterar a variável `PORT` no arquivo `.env`
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+## Testes Unitários
 
-### Tarefas
+Para executar os testes unitários utilize o comando `npm test` ou `npm run test:watch`
 
-Com a seguinte representação de produto:
+## Exemplos de Requisições
 
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
+As requisições podem ser realizadas utilizando o Swagger que disponível durante a execução do serviço acessando o endereço http://localhost:3000/docs ou então realizar as chamadas abaixo:
+
+### Criar produto
+
+```sh
+curl -X 'POST' \
+  'http://localhost:3000/products' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "sku": 84865,
+  "name": "Kit La Roche-Posay Power Hidratação Duo",
+  "inventory": {
+    "warehouses": [
+      {
+        "locality": "MOEMA",
+        "quantity": 0,
+        "type": "PHYSICAL_STORE"
+      },
+      {
+        "locality": "SP",
+        "quantity": 2,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "PR",
+        "quantity": 805,
+        "type": "ECOMMERCE"
+      }
+    ]
+  }
 }
+'
 ```
 
-Crie endpoints para as seguintes ações:
+### Recuperar Produto
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+```sh
+curl -X 'GET' 'http://localhost:3000/products/84865'
+```
 
-- [ ] Edição de produto por **sku**
+### Atualizar Produto
 
-- [ ] Recuperação de produto por **sku**
+```sh
+curl -X 'PUT' \
+  'http://localhost:3000/products/84865' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "sku": 84865,
+  "name": "Kit La Roche-Posay Power Hidratação Duo (2 Produtos)",
+  "inventory": {
+    "warehouses": [
+      {
+        "locality": "MOEMA",
+        "quantity": 10,
+        "type": "PHYSICAL_STORE"
+      },
+      {
+        "locality": "SP",
+        "quantity": 0,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "PR",
+        "quantity": 300,
+        "type": "ECOMMERCE"
+      }
+    ]
+  }
+}
+'
+```
 
-- [ ] Deleção de produto por **sku**
+### Remover Produto
 
-### Requisitos
-
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
-
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
-
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+```sh
+curl -X 'DELETE' 'http://localhost:3000/products/84865'
+```
