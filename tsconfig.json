@@ -1,0 +1,20 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noEmitOnError": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["./src/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@infra/*": ["./src/infra/*"],
+      "@exceptions/*": ["src/modules/product/exceptions/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
