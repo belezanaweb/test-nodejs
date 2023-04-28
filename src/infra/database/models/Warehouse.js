@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      const { Warehouse, WarehouseWarehouse } = models;
-      Warehouse.hasMany(WarehouseWarehouse, { foreinKey: 'warehouseId' });
+      const { Warehouse, ProductWarehouse } = models;
+      Warehouse.hasMany(ProductWarehouse, { foreinKey: 'warehouseId' });
     }
   }
   Warehouse.init(
