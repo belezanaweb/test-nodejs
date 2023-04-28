@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    container_name: app
+    container_name: app_belezanaweb
     image: node:18-alpine
     working_dir: /app
     volumes:
@@ -15,7 +15,7 @@ services:
       - database
 
   database:
-    container_name: db_mysql
+    container_name: db_mysql_belezanaweb
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: 'root'

@@ -1,11 +1,11 @@
 const express = require('express');
 const apiRouter = express.Router();
 
-module.exports = ({ healthCheckMiddleware, sampleController }) => {
+module.exports = ({ healthCheckMiddleware, productController }) => {
   apiRouter.use(express.json());
   apiRouter.use(express.urlencoded({ extended: true }));
 
-  apiRouter.use('/samples', sampleController.router);
+  apiRouter.use('/products', productController.router);
   apiRouter.use('/health-check', healthCheckMiddleware);
   apiRouter.use('/healthcheck', healthCheckMiddleware);
 

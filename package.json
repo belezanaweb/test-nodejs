@@ -18,7 +18,11 @@
     "lint": " eslint 'src/**/*.js' 'test/**/*.js' './**/*.js'",
     "lint-fix": "eslint --fix 'src/**/*.js' 'test/**/*.js' './**/*.js'",
     "format": "prettier -w .",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "migrate:create": "node_modules/.bin/sequelize model:generate --name",
+    "migrate:reset": "yarn migrate:undo && yarn migrate"
   },
   "repository": {
     "type": "git",
