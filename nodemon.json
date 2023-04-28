@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": ".ts",
+  "ignore": [],
+  "exec": "ts-node-dev -r tsconfig-paths/register --inspect=0.0.0.0:9229"
+}
