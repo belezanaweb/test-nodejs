@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonJS",
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"],
+      "test/*": ["./test/*"],
+      "config/*": ["./config/*"],
+      "schemas/*": ["./src/interfaces/http/schemas/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}

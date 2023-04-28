@@ -1,0 +1,16 @@
+{
+  "application": {
+    "serviceName": "$APPLICATION_NAME",
+    "port": "$APP_PORT",
+    "nodeEnv": "$NODE_ENV"
+  },
+  "infra": {
+    "db": {
+      "username": "$MYSQL_DB_USERNAME",
+      "password": "$MYSQL_DB_PASSWORD",
+      "database": "$MYSQL_DB_NAME",
+      "host": "$MYSQL_DB_SERVERS",
+      "dialect": "mysql"
+    }
+  }
+}

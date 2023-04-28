@@ -3,8 +3,22 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "f>=18.11.x <18.15.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --watch index.js",
+    "prepare": "husky install",
+    "test": "echo test immplementation",
+    "lint": " eslint 'src/**/*.js' 'test/**/*.js' './**/*.js'",
+    "lint-fix": "eslint --fix 'src/**/*.js' 'test/**/*.js' './**/*.js'",
+    "format": "prettier -w .",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -16,5 +30,34 @@
   "bugs": {
     "url": "https://github.com/belezanaweb/test-nodejs/issues"
   },
-  "homepage": "https://github.com/belezanaweb/test-nodejs#readme"
+  "homepage": "https://github.com/belezanaweb/test-nodejs#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.7",
+    "sequelize-cli": "^6.6.0"
+  },
+  "dependencies": {
+    "awilix": "^8.0.0",
+    "awilix-express": "^8.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-status": "^1.6.2",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.30.0",
+    "structure": "^2.0.1"
+  }
 }

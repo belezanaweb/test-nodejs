@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    container_name: app
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    env_file: ./.env
+    command: ['yarn', 'start']
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+
+  database:
+    container_name: db_mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'belezanaweb'
+    ports:
+      - '3306:3306'
+    volumes:
+      - '/tmp'
