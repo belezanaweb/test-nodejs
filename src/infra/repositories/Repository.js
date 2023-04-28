@@ -8,7 +8,6 @@ class Repository {
   async create(domainEntity) {
     const model = await new this.ResourceModel(this.ResourceMapper.toInputDatabase(domainEntity));
     const dbCreatedResource = await model.save();
-    console.log('dbCreatedResource', dbCreatedResource);
     return this.ResourceMapper.toOutputDabase(dbCreatedResource);
   }
 
