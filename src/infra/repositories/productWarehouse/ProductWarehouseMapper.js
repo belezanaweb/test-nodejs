@@ -2,7 +2,6 @@
 
 const ProductWarehouseMapper = {
   toInputDatabase(entry) {
-    console.log(entry);
     return entry;
   },
   toOutputDabase({ dataValues }) {

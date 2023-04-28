@@ -1,6 +1,6 @@
 const Repository = require('../Repository');
 
-class WarehouseRepository extends Repository {
+class ProductWarehouseRepository extends Repository {
   constructor({ sequelize, productWarehouseMapper, exceptions }) {
     const { ProductWarehouse } = sequelize.models;
     super({
@@ -9,6 +9,16 @@ class WarehouseRepository extends Repository {
       Exceptions: exceptions
     });
   }
+
+  async findAllByProductId(productId) {
+    const resource = await this.findAll({ where: { productId } });
+    return resource;
+  }
+
+  async removeByProductId(productId) {
+    const resource = await this.remove({ where: { productId } });
+    return resource;
+  }
 }
 
-module.exports = WarehouseRepository;
+module.exports = ProductWarehouseRepository;

@@ -1,15 +1,22 @@
-module.exports = ({ createProductUsecase, createWarehouseUsecase, bindingProductWarehouse }) => ({
+module.exports = ({ createProductUsecase, createWarehouseUsecase, bindingProductWarehouse, removeProductByIdUsecase }) => ({
   execute: async (data) => {
-    const { warehouse } = data;
-    const product = await createProductUsecase.execute(data);
-    if (!product) {
-      return;
+    let productId;
+    try {
+      const { warehouse } = data;
+      const product = await createProductUsecase.execute(data);
+      if (!product) {
+        return;
+      }
+      productId = product.id;
+
+      if (warehouse) {
+        const warehouseCretead = await Promise.all(warehouse.map((element) => createWarehouseUsecase.execute(element)));
+        await bindingProductWarehouse.execute(productId, warehouseCretead);
+      }
+      return product;
+    } catch (error) {
+      await removeProductByIdUsecase.execute(productId);
+      return error;
     }
-    if (warehouse) {
-      const warehouseCretead = await Promise.all(warehouse.map((element) => createWarehouseUsecase.execute(element)));
-      // TODO: validate warehouseCreated
-      await bindingProductWarehouse.execute(product.id, warehouseCretead);
-    }
-    return product;
   }
 });

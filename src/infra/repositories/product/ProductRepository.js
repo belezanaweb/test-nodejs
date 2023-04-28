@@ -9,6 +9,21 @@ class ProductRepository extends Repository {
       Exceptions: exceptions
     });
   }
+
+  async findBySku(sku) {
+    const resource = await this.findOne({ where: { sku } });
+    return resource;
+  }
+
+  async removeById(productId) {
+    const resource = await this.remove({ where: { id: productId } });
+    return resource;
+  }
+
+  async removeBySku(sku) {
+    const resource = await this.remove({ where: { sku } });
+    return resource;
+  }
 }
 
 module.exports = ProductRepository;

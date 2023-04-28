@@ -9,6 +9,11 @@ class WarehouseRepository extends Repository {
       Exceptions: exceptions
     });
   }
+
+  async removeById(id) {
+    const resource = await this.remove({ where: { id } });
+    return resource;
+  }
 }
 
 module.exports = WarehouseRepository;

@@ -6,15 +6,26 @@ class Repository {
   }
 
   async create(domainEntity) {
-    const model = await new this.ResourceModel(this.ResourceMapper.toInputDatabase(domainEntity));
-    const dbCreatedResource = await model.save();
+    const resource = await new this.ResourceModel(this.ResourceMapper.toInputDatabase(domainEntity));
+    const dbCreatedResource = await resource.save();
     return this.ResourceMapper.toOutputDabase(dbCreatedResource);
   }
 
+  async findOne(query) {
+    const resource = await this.ResourceModel.findOne(query);
+    if (!resource) return resource;
+    return this.ResourceMapper.toOutputDabase(resource);
+  }
+
   async findAll(query) {
-    const model = await this.ResourceModel.findAll(query);
-    if (!model) return model;
-    return model.map(this.ResourceMapper.toOutputDabase);
+    const resource = await this.ResourceModel.findAll(query);
+    if (!resource) return resource;
+    return resource.map(this.ResourceMapper.toOutputDabase);
+  }
+
+  async remove(query) {
+    const resource = await this.ResourceModel.destroy(query);
+    return resource > 0;
   }
 }
 
