@@ -17,4 +17,11 @@ const Warehouse = attributes({
   type: { ...types.required_number }
 })(class Warehouse {});
 
-module.exports = Warehouse;
+const WarehouseOutput = attributes({
+  id: { ...types.required_number },
+  locality: { ...types.required_string },
+  quantity: Number,
+  type: { ...types.required_number }
+})(class Warehouse {});
+
+module.exports = { Warehouse, WarehouseOutput };
