@@ -18,4 +18,5 @@ export const AppConfig: Envs = {
   APPLICATION_NAME: process.env.APPLICATION_NAME || requiredEnvVar('APPLICATION_NAME'),
   APP_ENVIROMENT: process.env.APP_ENVIROMENT || 'development',
   APP_PORT: Number(process.env.APP_PORT) || 3000,
+  DATABASE_URL: process.env.DATABASE_URL || requiredEnvVar('DATABASE_URL'),
 }

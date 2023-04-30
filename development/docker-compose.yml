@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  database:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=testBoticario
+  boticario-test_api:
+    image: node:18.16.0-alpine
+    volumes:
+      - ../:/boticario-test_api
+    working_dir: /boticario-test_api
+    ports:
+      - 3000:3000
+      - 9229:9229
+    env_file: ../.env
+    links:
+      - database
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=postgresql://test:testBoticario@database:5432/postgres
+    command: ash -c "yarn install --frozen-lockfile && sleep 10 && yarn migrations && yarn dev"
