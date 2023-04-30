@@ -1,74 +1,200 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# Desafio Beleza na Web (Arthur Ferreira)
 
-Esta é uma avaliação básica de código.
+Este projeto é uma API RESTful desenvolvida em Node.js com TypeScript, que implementa a funcionalidade de gerenciamento de produtos. A API permite criar, atualizar, excluir e obter produtos por SKU, além de calcular a propriedade isMarketable.
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+<br/>
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+## Table of Contents
+1. [Execução](#execução)
+2. [Endpoints](#endpoints)
+3. [Design](#design)
+4. [Autor](#autor)
 
-Faça um fork deste repositório.
+<br/>
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+## Execução
 
-### Tarefas
+Para executar a aplicação, basta rodar o seguinte comando:
 
-Com a seguinte representação de produto:
+    npm run start
+
+<br/>
+
+## Endpoints
+
+A API possui os seguintes endpoints:
+
+<br/>
+
+### **POST /products**
+
+Cria um novo produto.
+
+    POST /products
+
+Body:
 
 ```json
 {
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
+  "sku": 43264,
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+  "inventory": {
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 12,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 3,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  }
 }
 ```
 
-Crie endpoints para as seguintes ações:
+Resposta
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+Código: **201 Created**
 
-- [ ] Edição de produto por **sku**
+<br/>
 
-- [ ] Recuperação de produto por **sku**
+### **GET /products/:sku**
 
-- [ ] Deleção de produto por **sku**
+Obtém um produto pelo SKU.
 
-### Requisitos
+    GET /products/43264
 
+Resposta
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+Código: **200 OK**
 
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
+Response Body:
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+```json
+{
+  "sku": 43264,
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+  "inventory": {
+    "quantity": 15,
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 12,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 3,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  },
+  "isMarketable": true
+}
+```
+<br/>
 
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
+### **PUT /products/:sku**
 
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+Atualiza um produto pelo SKU.
 
-        Dois produtos são considerados iguais se os seus skus forem iguais
+    PUT /products/43264
 
+Body:
 
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
+```json
+{
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 1kg",
+  "inventory": {
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 20,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 10,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  }
+}
+```
 
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
+Resposta
 
-### Dicas
+Código: **200 OK**
 
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+Response Body:
+
+```json
+{
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 1kg",
+  "inventory": {
+    "quantity": 30,
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 20,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 10,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  },
+  "isMarketable": true
+}
+```
+
+<br/>
+
+### **DELETE /products/:sku**
+
+Deleta/remove um produto por seu SKU
+
+    DELETE /products/43264
+
+Resposta
+
+Código: **204 No Content**
+
+<br/>
+
+## Design
+
+<br/>
+
+### **Architecture**
+
+Dependendo do propósito deste projeto, eu teria utilizado o padrão KISS (Keep it simple, stupid!), e assim criado menos pastas e arquivos. Porém, como a ideia deste desafio era demonstrar meu conhecimento sobre os princípios de programação, decidi implementar o padrão "Clean Architecture" (de Robert C. Martin, também conhecido como Uncle Bob).
+
+A ideia principal por trás da Clean Architecture é "organizar o código em camadas com responsabilidades bem definidas. As camadas são organizadas com base em seu nível de abstração, onde as camadas mais internas representam a lógica de negócios e as entidades do domínio, e as camadas externas lidam com preocupações específicas da aplicação, infraestrutura e interfaces de usuário" (definição do autor).
+
+Neste projeto, criei a arquitetura com os seguintes diretórios:
+
+**application**: Casos de uso específicos da aplicação e regras de negócio.
+
+**domain**: Lógica central de negócios e entidades do domínio.
+
+**infrastructure**: Serviços externos, persistência de dados e comunicação com o mundo exterior.
+
+<br/>
+
+### **Testes**
+
+No projeto, criei testes para garantir que tudo funcione como deveria. Esses testes verificam diferentes partes, utilizando o Jest para nos ajudar a escrever e executar os testes. Isso nos permite saber se tudo está funcionando bem e torna mais fácil corrigir ou adicionar coisas ao projeto posteriormente.
+
+Nota: **Todos os arquivos typescript neste projeto têm uma cobertura de teste de 80% ou mais** (quase todos com 100%).
+
+<br/>
+
+## Author
+
+Arthur Ferreira Pinto - fepi.arthur@gmail.com
