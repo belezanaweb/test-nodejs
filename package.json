@@ -5,6 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
+    "prettier": "prettier --check --config ./.prettierrc \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" \"tests/**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "prettier:fix": "prettier --write --config ./.prettierrc \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" \"tests/**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx,json}\" \"tests/**/*.{js,jsx,ts,tsx,json}\"",
+    "eslint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx,json}\" \"tests/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "npm run prettier && npm run eslint",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
     "test:coverage": "jest --coverage",
     "test": "jest"
   },
