@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonJS",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "strict": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "noImplicitAny": true, // Compiler complains about expressions implicitly typed as 'any'
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist", "**/*spec.ts"]
+}
