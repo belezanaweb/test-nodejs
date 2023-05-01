@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "migrations": "npx prisma migrate dev --name boticario-test"
+    "start": "node dist/index.js",
+    "build": "tsc --project tsconfig.json",
+    "test": "jest --bail --forceExit",
+    "migrations": "npx prisma migrate dev --name boticario-test",
+    "test:integration": "jest --bail --forceExit --passWithNoTests \"tests/integration/.*\\.test\\.ts\"",
+    "test:unit": "jest --bail --forceExit \"tests/unit/.*\\.test\\.ts\""
   },
   "repository": {
     "type": "git",
@@ -30,10 +34,12 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/body-parser": "^1.19.2",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.1",
     "@types/node": "^18.16.2",
+    "@types/supertest": "^2.0.12",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
@@ -46,9 +52,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "jest": "^29.5.0",
+    "jest-mock-extended": "^3.0.4",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "prisma": "^4.13.0",
+    "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
