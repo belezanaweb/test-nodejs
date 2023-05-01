@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 
 import App from "../../application/App";
 import { Router } from "../../application/Controller";
-import { AppConfig } from "../../config/AppConfing";
+import { AppConfig } from "../../config/AppConfig";
 
 
 export default class AppFactory {
