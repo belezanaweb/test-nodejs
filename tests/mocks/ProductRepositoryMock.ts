@@ -5,7 +5,7 @@ export default class ProductRepositoryMock implements IProductRepository {
     return '';
   }
 
-  async getBySky(_sku: number): Promise<ProductRaw> {
+  async getBySku(_sku: number): Promise<ProductRaw> {
     return {} as ProductRaw;
   }
 

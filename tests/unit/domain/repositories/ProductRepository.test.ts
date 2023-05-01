@@ -17,7 +17,7 @@ describe('ProductRepository', () => {
     prismaMock.product.findUnique.mockResolvedValue(productToGetMock)
 
     const instance = new ProductRepository(prismaMock);
-    await instance.getBySky(productToGetMock.sku)
+    await instance.getBySku(productToGetMock.sku)
 
     expect(prismaMock.product.findUnique).toHaveBeenCalled();
   });

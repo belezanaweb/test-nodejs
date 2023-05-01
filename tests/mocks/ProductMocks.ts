@@ -71,7 +71,7 @@ export const createdProductMock = {
   name: "Sabonete",
   inventory: {
     inventoryId: "9b57c638-203c-4328-b90a-0c341b98b8d2",
-    warehouses: [
+    warehouse: [
       {
         warehouseId: "f8fe6f44-d509-477f-b315-216ba16650a2",
         locality: "SP",
