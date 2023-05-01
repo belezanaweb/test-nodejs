@@ -32,7 +32,7 @@ export class ProductService implements IProductService {
   }
 
   async getBySku(sku: number): Promise<Product> {
-    const rawProduct = await this.productRepository.getBySky(sku);
+    const rawProduct = await this.productRepository.getBySku(sku);
     const product = new ProductDto().toDomain(rawProduct);
     return product;
   }

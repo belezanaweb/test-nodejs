@@ -25,14 +25,14 @@ interface WarehouesesRaw {
 
 export interface IProductRepository {
   create(name: string, sku: number): Promise<string>;
-  getBySky(sku: number): Promise<ProductRaw>;
+  getBySku(sku: number): Promise<ProductRaw>;
   delete(sku: number): Promise<void>;
 }
 
 export class ProductRepository implements IProductRepository{
   constructor(private prismaClient: PrismaClient) {}
 
-  async getBySky(sku: number): Promise<ProductRaw> {
+  async getBySku(sku: number): Promise<ProductRaw> {
     const product = await this.prismaClient.product.findUnique({
       where: {sku},
       select: {
@@ -83,7 +83,7 @@ export class ProductRepository implements IProductRepository{
   }
 
   async delete(sku: number): Promise<void> {
-    await this.getBySky(sku);
+    await this.getBySku(sku);
     await this.prismaClient.product.delete({
       where: {sku}
     })
