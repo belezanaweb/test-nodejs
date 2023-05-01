@@ -7,6 +7,8 @@
     "dev": "nodemon src/index.ts",
     "start": "node dist/index.js",
     "build": "tsc --project tsconfig.json",
+    "local:up": "docker compose -f development/docker-compose.yml up",
+    "local:down": "docker compose -f development/docker-compose.yml down",
     "test": "jest --bail --forceExit",
     "migrations": "npx prisma migrate dev --name boticario-test",
     "test:integration": "jest --bail --forceExit --passWithNoTests \"tests/integration/.*\\.test\\.ts\"",

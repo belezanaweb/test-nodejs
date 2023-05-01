@@ -1,6 +1,6 @@
 # Product API
 
-Api responsavel por gerenciar todos os produtos.
+API responsible for managing all products.
 
 |         Table of Contents         |
 | :-------------------------------: |
@@ -27,3 +27,11 @@ cp sample.env .env (change the values with yout need)
 - `yarn lint` to see possible lint errors;
 - `yarn format` to fix possible lint errors;
 - `yarn build` to application build;
+- `yarn dev` to run local application;
+- `yarn local:up` to up docker compose application
+- `yarn local:down` to down docker compose application
+- `yarn test` to run all test (unit and integration)
+- `yarn test:unit` to run all unit test
+- `yarn test:integration` to run all integration test
+- `yarn migration` to run prisma migration (its runs in docker compose)
+
