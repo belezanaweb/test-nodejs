@@ -9,7 +9,7 @@ interface AppOptions {
   name: string;
   middlewares?: RequestHandler[];
   routers: Router[];
-  enviroment: string;
+  environment: string;
 }
 
 export default class App {
@@ -18,7 +18,7 @@ export default class App {
   name: string;
   middlewares: RequestHandler[];
   routers: Router[];
-  enviroment: string;
+  environment: string;
 
   constructor(options: AppOptions) {
     this.app = express();
@@ -26,7 +26,7 @@ export default class App {
     this.name = options.name;
     this.middlewares = options.middlewares || [];
     this.routers = options.routers;
-    this.enviroment = options.enviroment || '';
+    this.environment = options.environment || '';
 
     this.handleMiddlewares();
     this.handleRoutes();

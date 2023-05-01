@@ -17,7 +17,7 @@ export default class AppFactory {
       name: AppConfig.APPLICATION_NAME,
       middlewares,
       routers: [await routerV1()],
-      enviroment: AppConfig.APP_ENVIROMENT
+      environment: AppConfig.APP_ENVIRONMENT
     });
   }
 }
