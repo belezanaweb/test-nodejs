@@ -13,19 +13,19 @@ model Warehouse {
   quantity    Int
   type        String
   inventoryId String
-  inventory   Inventory @relation(fields: [inventoryId], references: [inventoryId])
+  inventory   Inventory @relation(fields: [inventoryId], references: [inventoryId], onDelete: Cascade)
 }
 
 model Inventory {
   inventoryId String      @id @default(uuid())
-  productId   String
-  Product     Product     @relation(fields: [productId], references: [productId])
-  Warehouse   Warehouse[]
+  productId   String      @unique
+  product     Product     @relation(fields: [productId], references: [productId], onDelete: Cascade)
+  warehouse   Warehouse[]
 }
 
 model Product {
-  productId String      @id @default(uuid())
-  sku       String
+  productId String     @id @default(uuid())
+  sku       Int        @unique
   name      String
-  Inventory Inventory[]
+  inventory Inventory?
 }

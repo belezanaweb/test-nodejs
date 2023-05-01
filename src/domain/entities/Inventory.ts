@@ -6,9 +6,10 @@ export default class Inventory {
 
   constructor(warehouses: Warehouse[]) {
     this.warehouses = warehouses;
+    this.quantity = this.getTotalQuantityInWarehousesStock();
   }
 
   getTotalQuantityInWarehousesStock(): number {
-    return this.warehouses.reduce((total, warehouse) => total + warehouse.quantity, 0)
+    return this.warehouses.reduce((total, warehouse) => total + warehouse.quantity, 0);
   }
 }
