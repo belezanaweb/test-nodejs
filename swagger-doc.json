@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Product API",
+    "description": "API for managing products.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/v1/product/{sku}": {
+      "get": {
+        "summary": "Returns a product according with the sku in the request",
+        "tags": ["product"],
+        "parameters": [
+          {
+            "name": "sku",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a product according with the product ID in the request",
+        "security": [
+          { "apiKeyAuth" : []}
+        ],
+        "tags": ["product"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content - the product was deleted successfully"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {}
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates an existing product",
+        "security": [
+          { "apiKeyAuth" : []}
+        ],
+        "tags": ["product"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid body/path parameters (You'll receive a list with wrong params)"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/v1/product/": {
+      "post": {
+        "summary": "Creates a brand new product",
+        "security": [
+          { "apiKeyAuth" : []}
+        ],
+        "tags": ["product"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Product created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedProduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid body parameters (a list with wrong params follows)"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreatedProduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Id of the created product"
+          }
+        }
+      },
+      "UpdateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "businessUnit": {
+            "type": "string",
+            "enum": ["cbu", "hbu"]
+          },
+          "acquisitionEnabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "inventory": {
+            "type": "object",
+            "items": {
+              "$ref": "#/components/schemas/Inventory"
+            }
+          }
+        }
+      },
+      "Inventory": {
+        "type": "object",
+        "properties": {
+          "quantity": "number",
+          "warehouses": {
+            "type": "array",
+            "properties": {
+              "locality": "string",
+              "quantity": "number",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Warehouse": {
+        "type": "array",
+        "properties": {
+          "locality": "string",
+          "quantity": "number",
+          "type": "string"
+        }
+      },
+      "CreateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "businessUnit": {
+            "type": "string",
+            "enum": ["cbu", "hbu"]
+          },
+          "acquisitionEnabled": {
+            "type": "boolean"
+          },
+          "closedAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "description", "businessUnit", "acquisitionEnabled"]
+      }
+    }
+  }
+}

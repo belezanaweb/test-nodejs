@@ -19,7 +19,7 @@ API responsible for managing all products.
 ```
 # create env file
 cp sample.env .env (change the values with yout need)
-# execut yarn local to run docker compose
+# execute yarn local:up to run docker compose
 ```
 
 ## Commands
