@@ -34,7 +34,7 @@ export default class App {
   }
 
   private handleMiddlewares(): void {
-    this.middlewares.forEach(middleware => this.app.use(middleware))
+    this.middlewares.forEach(middleware => this.app.use(middleware));
   }
 
   private handleRoutes(): void {
@@ -49,7 +49,7 @@ export default class App {
 
   private handleNotFound(): void {
     this.app.use((_request, response) => {
-      response.status(NOT_FOUND).json({error: 'nor found'})
+      response.status(NOT_FOUND).json({error: 'not found'});
     })
   }
 

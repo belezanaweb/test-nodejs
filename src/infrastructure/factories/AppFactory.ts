@@ -18,6 +18,6 @@ export default class AppFactory {
       middlewares,
       routers: [await routerV1()],
       enviroment: AppConfig.APP_ENVIROMENT
-    })
+    });
   }
 }
