@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model Warehouse {
+  warehouseId String    @id @default(uuid())
+  locality    String
+  quantity    Int
+  type        String
+  inventoryId String
+  inventory   Inventory @relation(fields: [inventoryId], references: [inventoryId], onDelete: Cascade)
+}
+
+model Inventory {
+  inventoryId String      @id @default(uuid())
+  productId   String      @unique
+  product     Product     @relation(fields: [productId], references: [productId], onDelete: Cascade)
+  warehouse   Warehouse[]
+}
+
+model Product {
+  productId String     @id @default(uuid())
+  sku       Int        @unique
+  name      String
+  inventory Inventory?
+}
