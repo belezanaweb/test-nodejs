@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import {IProductRepository, ProductRepository} from "src/domain/repositories/ProductRepository";
+import {IProductRepository, ProductRepository} from "../../../domain/repositories/ProductRepository";
 
 export default class ProductRepositoryFactory {
   private static repository: IProductRepository;

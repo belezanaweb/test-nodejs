@@ -21,7 +21,7 @@ export class WarehouseRepository implements IWarehouseRepository{
       }
     });
 
-    this.prismaClient.warehouse.createMany({
+    await this.prismaClient.warehouse.createMany({
       data: warehouseDate
     });
   }

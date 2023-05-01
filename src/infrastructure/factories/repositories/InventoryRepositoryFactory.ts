@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import {InventoryRepository, IInventoryRepository} from "src/domain/repositories/InventoryRepository";
+import {InventoryRepository, IInventoryRepository} from "../../../domain/repositories/InventoryRepository";
 
-export default class ProductRepositoryFactory {
+export default class InventoryRepositoryFactory {
   private static repository: IInventoryRepository;
 
   static async make(prismaClient: PrismaClient): Promise<IInventoryRepository> {

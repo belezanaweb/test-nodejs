@@ -14,7 +14,7 @@ export class InventoryRepository implements IInventoryRepository {
         inventoryId: uuidv4(),
         productId,
       }
-    })
+    });
 
     return newInventory.inventoryId;
   }
