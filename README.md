@@ -1,74 +1,73 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-Esta é uma avaliação básica de código.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+## Description
 
-Faça um fork deste repositório.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+## Installation
 
-### Tarefas
-
-Com a seguinte representação de produto:
-
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
+```bash
+$ yarn install
 ```
 
-Crie endpoints para as seguintes ações:
+## Running the app
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+```bash
+# development
+$ yarn run start
 
-- [ ] Edição de produto por **sku**
+# watch mode
+$ yarn run start:dev
 
-- [ ] Recuperação de produto por **sku**
+# production mode
+$ yarn run start:prod
+```
 
-- [ ] Deleção de produto por **sku**
+## Test
 
-### Requisitos
+```bash
+# unit tests
+$ yarn run test
 
+# e2e tests
+$ yarn run test:e2e
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+# test coverage
+$ yarn run test:cov
+```
 
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
+## Support
 
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
+## Stay in touch
 
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-        Dois produtos são considerados iguais se os seus skus forem iguais
+## License
 
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+Nest is [MIT licensed](LICENSE).
