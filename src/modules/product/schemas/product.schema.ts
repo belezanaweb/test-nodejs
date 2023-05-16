@@ -12,6 +12,9 @@ class Warehouse {
 
 @Schema()
 class Inventory {
+  @Prop({ required: false, select: false })
+  quantity?: number;
+
   @Prop({ type: Object, required: true })
   warehouses: Warehouse[];
 }
@@ -24,8 +27,11 @@ export class Product {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ type: Object, required: true })
+  @Prop({ type: Object })
   inventory: Inventory;
+
+  @Prop({ required: false, select: false })
+  isMarketable?: boolean;
 }
 
 export type ProductDocument = HydratedDocument<Product>;

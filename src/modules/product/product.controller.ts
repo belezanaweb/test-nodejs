@@ -19,9 +19,9 @@ export class ProductController {
     return this.productService.create(createProductDto);
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.productService.findOne(+id);
+  @Get(':sku')
+  async findBySku(@Param('sku') sku: string) {
+    return this.productService.findBySku(+sku);
   }
 
   @Put(':id')

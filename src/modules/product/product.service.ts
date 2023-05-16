@@ -11,8 +11,13 @@ export class ProductService {
     return this.productRepository.create(createProductDto);
   }
 
-  async findOne(sku: number) {
-    return this.productRepository.getBySku(sku);
+  async findBySku(sku: number): Promise<any> {
+    const product = await this.productRepository.findBySku(+sku);
+
+    product.inventory.quantity = product.inventory.warehouses.length;
+    product.isMarketable = !!product.inventory.quantity;
+
+    return product;
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
