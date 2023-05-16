@@ -11,8 +11,8 @@ export class ProductService {
     return this.productRepository.create(createProductDto);
   }
 
-  async findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(sku: number) {
+    return this.productRepository.getBySku(sku);
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {

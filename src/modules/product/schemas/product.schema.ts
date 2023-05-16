@@ -19,7 +19,7 @@ class Inventory {
 @Schema()
 export class Product {
   @Prop({ unique: true, required: true })
-  sku: string;
+  sku: number;
 
   @Prop({ required: true })
   name: string;

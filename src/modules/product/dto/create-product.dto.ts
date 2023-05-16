@@ -1,5 +1,5 @@
 export class CreateProductDto {
-  sku: string;
+  sku: number;
   name: string;
   inventory: Inventory;
 }

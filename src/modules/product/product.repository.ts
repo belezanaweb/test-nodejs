@@ -9,8 +9,8 @@ export class ProductRepository {
     @InjectModel(Product.name) private productModel: Model<Product>,
   ) {}
 
-  async getBySku(sku: string) {
-    console.log('getBySku');
+  async getBySku(sku: number): Promise<Product> {
+    return this.productModel.findOne({ sku }).exec();
   }
 
   async create(product: Product): Promise<void> {
