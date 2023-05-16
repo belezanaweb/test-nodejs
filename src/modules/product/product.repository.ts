@@ -9,12 +9,14 @@ export class ProductRepository {
     @InjectModel(Product.name) private productModel: Model<Product>,
   ) {}
 
-  async getBySku() {
+  async getBySku(sku: string) {
     console.log('getBySku');
   }
 
-  async create(): Promise<void> {
-    console.log('create');
+  async create(product: Product): Promise<void> {
+    const newProduct = new this.productModel(product);
+
+    await newProduct.save();
   }
 
   async update() {

@@ -8,18 +8,13 @@ class Warehouse {
 
   @Prop()
   locality: string;
-
-  @Prop()
-  quantity: string;
 }
 
 @Schema()
 class Inventory {
-  @Prop({ type: Warehouse })
+  @Prop({ type: Object, required: true })
   warehouses: Warehouse[];
 }
-
-export type ProductDocument = HydratedDocument<Product>;
 
 @Schema()
 export class Product {
@@ -29,8 +24,10 @@ export class Product {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ type: Inventory, required: true })
+  @Prop({ type: Object, required: true })
   inventory: Inventory;
 }
+
+export type ProductDocument = HydratedDocument<Product>;
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
