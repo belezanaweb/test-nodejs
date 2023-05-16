@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductRepository } from './product.repository';
@@ -8,6 +8,14 @@ export class ProductService {
   constructor(private readonly productRepository: ProductRepository) {}
 
   async create(createProductDto: CreateProductDto) {
+    const productAlreadyExists = await this.productRepository.findBySku(
+      +createProductDto.sku,
+    );
+
+    if (productAlreadyExists) {
+      throw new ConflictException('Este produto já existe!');
+    }
+
     return this.productRepository.create(createProductDto);
   }
 
