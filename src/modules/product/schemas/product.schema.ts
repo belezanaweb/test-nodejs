@@ -23,13 +23,13 @@ export type ProductDocument = HydratedDocument<Product>;
 
 @Schema()
 export class Product {
-  @Prop({ unique: true })
+  @Prop({ unique: true, required: true })
   sku: string;
 
-  @Prop()
+  @Prop({ required: true })
   name: string;
 
-  @Prop({ type: Inventory })
+  @Prop({ type: Inventory, required: true })
   inventory: Inventory;
 }
 
