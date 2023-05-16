@@ -4,6 +4,7 @@ import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
+    // TODO - Set env variables
     MongooseModule.forRoot(
       'mongodb://admin:admin@localhost:27017/belezanaweb?authSource=admin',
     ),
