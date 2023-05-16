@@ -4,10 +4,13 @@ services:
   mongo:
     container_name: mongodb
     image: mongo
+    ports:
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
-      MONGO_INITDB_DATABASE: belezanaweb
+    volumes:
+      - ./mongodata:/mongodata/db
   mongo-express:
     container_name: mongo-express
     image: mongo-express
