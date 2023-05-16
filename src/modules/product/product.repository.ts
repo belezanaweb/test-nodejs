@@ -23,7 +23,7 @@ export class ProductRepository {
     console.log('update');
   }
 
-  async delete(): Promise<void> {
-    console.log('delete');
+  async delete(sku: number): Promise<void> {
+    await this.productModel.deleteOne({ sku });
   }
 }

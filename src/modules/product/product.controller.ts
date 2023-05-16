@@ -32,8 +32,8 @@ export class ProductController {
     return this.productService.update(+id, updateProductDto);
   }
 
-  @Delete(':id')
-  async remove(@Param('id') id: string) {
-    return this.productService.remove(+id);
+  @Delete(':sku')
+  async remove(@Param('sku') sku: string) {
+    return this.productService.remove(+sku);
   }
 }

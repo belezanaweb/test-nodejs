@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   async findBySku(sku: number): Promise<any> {
-    const product = await this.productRepository.findBySku(+sku);
+    const product = await this.productRepository.findBySku(sku);
 
     product.inventory.quantity = product.inventory.warehouses.length;
     product.isMarketable = !!product.inventory.quantity;
@@ -32,7 +32,7 @@ export class ProductService {
     return `This action updates a #${id} product`;
   }
 
-  async remove(id: number) {
-    return `This action removes a #${id} product`;
+  async remove(sku: number) {
+    return this.productRepository.delete(sku);
   }
 }
