@@ -1,73 +1,179 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Descrição
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Teste Node.js - Beleza na Web - Product
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Desenvolvimento
 
-## Description
+Desenvolvimento conta com API Rest, testes Unitários, testes E2E, validação de JSON, banco de dados NoSQL MongoDB, openAPI e docker. Desenvolvido utilizando Node.js, Typescript, Nest.js, MongoDB, Mongoose, Mongo-Express, MongoDB Memory Server, Jest, Supertest, Class-validator, Class-transformer, Swagger, Docker.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+## Pré-requisitos
 
 ```bash
+- Node.js
+- npm ou yarn
+- Docker
+```
+
+## Instalação dos pacotes
+
+```bash
+# npm
+$ npm install
+  ou
+# yarn
 $ yarn install
 ```
 
-## Running the app
+### Instruções para iniciar a aplicação
+
+A API pode ser iniciada de duas maneiras, podendo ser acessada em um container via Docker(1°) ou localmente(2°).
+
+## 1° - Execução com Docker
+
+Na raiz do projeto execute o comando para a criação do container Docker com a API e banco de dados
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+# comando para criação do container em background
+$ docker-compose up -d
 ```
 
-## Test
+O container será criado e a API estará acesível em:
 
 ```bash
-# unit tests
-$ yarn run test
+$ http://localhost:3001
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
 
-## Support
+## 2° - Execução Local
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Na raiz do projeto execute o comando abaixo para criação do container Docker com o banco de dados
 
-## Stay in touch
+```bash
+# comando para criação do container em background
+$ docker-compose up -d
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Após a criação do container, na raiz do projeto execute o comando abaixo para iniciar a aplicação:
 
-## License
+```bash
+# npm
+$ npm run start
+  ou
+# yarn
+$ yarn start
+```
 
-Nest is [MIT licensed](LICENSE).
+A API será iniciada e estara disponível em:
+
+```bash
+$ http://localhost:3000
+
+```
+
+## Collections para acessar a API - Insomnia/Postman
+
+Na raiz do projeto na pasta API-collections está disponível 2 documentos com o seguinte nome:
+
+```bash
+# Collection da API para Insomnia
+$ COLLECTION-Insomnia-BELEZANAWEB
+  e
+# Collection da API para Postman
+$ COLLECTION-Postman-BELEZANAWEB
+```
+
+Está disponível as collections para serem importadas via Postman ou Insomnia.
+Após realizar a importação da collection no software, terá disponível 2 pastas com os seguintes nomes:
+
+```bash
+# 1°
+$ Product - DOCKER
+  e
+# 2°
+$ Product - LOCAL
+```
+
+Caso tenha escolhido a execução com Docker, acesso a opção 1°, mas caso tenha escolhido a execução Local, acesse a opção 2°. Após isto terá acesso a API.
+
+## Testes
+
+Para realizar a execução dos testes, na raiz do projeto execute os comandos a seguir:
+
+```bash
+# testes unitários
+$ npm run test
+  ou
+$ yarn test
+
+# testes e2e
+$ npm run test:e2e
+  ou
+$ yarn test:e2e
+
+# testes com cobertura
+$ npm run test:cov
+  ou
+$ yarn test:cov
+```
+
+---
+
+### Tarefa
+
+Com a seguinte representação de produto:
+
+```json
+{
+  "sku": 43264,
+  "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+  "inventory": {
+    "quantity": 15,
+    "warehouses": [
+      {
+        "locality": "SP",
+        "quantity": 12,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "MOEMA",
+        "quantity": 3,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  },
+  "isMarketable": true
+}
+```
+
+Crie endpoints para as seguintes ações:
+
+- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+
+- [ ] Edição de produto por **sku**
+
+- [ ] Recuperação de produto por **sku**
+
+- [ ] Deleção de produto por **sku**
+
+### Requisitos
+
+- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
+
+        A propriedade inventory.quantity é a soma da quantity dos warehouses
+
+- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
+
+        Um produto é marketable sempre que seu inventory.quantity for maior que 0
+
+- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
+
+        Dois produtos são considerados iguais se os seus skus forem iguais
+
+- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
+
+        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
+
+### Dicas
+
+- Os produtos podem ficar em memória, não é necessário persistir os dados
+- Testes são sempre bem-vindos :smiley:
