@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductModule } from './modules/product/product.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     // TODO - Set env variables
-    MongooseModule.forRoot(
-      'mongodb://admin:admin@localhost:27017/belezanaweb?authSource=admin',
-    ),
+    MongooseModule.forRoot(process.env.DATABASE_URL),
     ProductModule,
   ],
   controllers: [],

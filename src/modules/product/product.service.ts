@@ -16,7 +16,7 @@ export class ProductService {
     );
 
     if (productAlreadyExists) {
-      throw new ConflictException('Este produto já existe!');
+      throw new ConflictException('Este SKU já existe!');
     }
 
     return this.productRepository.create(createProductDto);
@@ -38,17 +38,17 @@ export class ProductService {
     const product = await this.productRepository.findBySku(sku);
 
     if (!product) {
-      throw new NotFoundException('Produto não localizado!');
+      throw new NotFoundException('SKU não localizado!');
     }
 
     return this.productRepository.update(product['_id'], updateProductDto);
   }
 
   async remove(sku: number) {
-    const productAlreadyExists = await this.productRepository.findBySku(sku);
+    const product = await this.productRepository.findBySku(sku);
 
-    if (!productAlreadyExists) {
-      throw new NotFoundException('Produto não localizado!');
+    if (!product) {
+      throw new NotFoundException('SKU não localizado!');
     }
 
     return this.productRepository.delete(sku);
