@@ -91,5 +91,45 @@ describe('ProductService', () => {
         expect(createSpy).toHaveBeenCalledTimes(1);
       });
     });
+
+    describe('FindBySku', () => {
+      test('Should be able to call ProductRepository findBySku with the correct value', async () => {
+        const { sku } = makeFakeProductData();
+
+        const findBySkuSpy = jest.spyOn(repository, 'findBySku');
+
+        await service.findBySku(sku);
+
+        expect(findBySkuSpy).toHaveBeenCalledWith(sku);
+        expect(findBySkuSpy).toHaveBeenCalledTimes(1);
+      });
+
+      test('Should throw if product not found', async () => {
+        const invalid_sku = 321;
+
+        const findBySkuSpy = jest
+          .spyOn(repository, 'findBySku')
+          .mockReturnValueOnce(new Promise((resolve) => resolve(null)));
+
+        const promise = service.findBySku(invalid_sku);
+
+        expect(promise).rejects.toThrow();
+        expect(findBySkuSpy).toHaveBeenCalledTimes(1);
+      });
+
+      test('Should return a product with inventory.quantity and isMarketable on success', async () => {
+        const { sku } = makeFakeProductData();
+
+        const findBySkuSpy = jest.spyOn(repository, 'findBySku');
+
+        const product = await service.findBySku(sku);
+
+        expect(product).toHaveProperty('sku', sku);
+        expect(product).toHaveProperty('isMarketable');
+        expect(product).toHaveProperty('inventory');
+        expect(product?.inventory).toHaveProperty('quantity');
+        expect(findBySkuSpy).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });
