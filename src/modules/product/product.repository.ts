@@ -13,10 +13,9 @@ export class ProductRepository {
     return this.productModel.findOne({ sku }).exec();
   }
 
-  async create(product: Product): Promise<void> {
+  async create(product: Product): Promise<Product> {
     const newProduct = new this.productModel(product);
-
-    await newProduct.save();
+    return newProduct.save();
   }
 
   async update(id: string, product: Partial<Product>): Promise<Product> {
