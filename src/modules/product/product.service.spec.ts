@@ -131,5 +131,42 @@ describe('ProductService', () => {
         expect(findBySkuSpy).toHaveBeenCalledTimes(1);
       });
     });
+
+    describe('Update', () => {
+      test('Should be able to call ProductRepository findBySku with the correct value', async () => {
+        const { sku: valid_sku, ...fakeProductData } = makeFakeProductData();
+
+        const findBySkuSpy = jest.spyOn(repository, 'findBySku');
+
+        await service.update(valid_sku, fakeProductData);
+
+        expect(findBySkuSpy).toHaveBeenCalledWith(valid_sku);
+        expect(findBySkuSpy).toHaveBeenCalledTimes(1);
+      });
+
+      test('Should throw if product not found', async () => {
+        const { sku: invalid_sku, ...fakeProductData } = makeFakeProductData();
+
+        const findBySkuSpy = jest
+          .spyOn(repository, 'findBySku')
+          .mockReturnValueOnce(new Promise((resolve) => resolve(null)));
+
+        const promise = service.update(invalid_sku, fakeProductData);
+
+        expect(promise).rejects.toThrow();
+        expect(findBySkuSpy).toHaveBeenCalledTimes(1);
+      });
+
+      test('Should return a updated product on success', async () => {
+        const { sku: valid_sku, ...fakeProductData } = makeFakeProductData();
+
+        const updateSpy = jest.spyOn(repository, 'update');
+
+        const product = await service.update(valid_sku, fakeProductData);
+
+        expect(product).toEqual(makeFakeProductData());
+        expect(updateSpy).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });
