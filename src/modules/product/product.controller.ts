@@ -24,12 +24,12 @@ export class ProductController {
     return this.productService.findBySku(+sku);
   }
 
-  @Put(':id')
+  @Put(':sku')
   async update(
-    @Param('id') id: string,
+    @Param('sku') sku: string,
     @Body() updateProductDto: UpdateProductDto,
   ) {
-    return this.productService.update(+id, updateProductDto);
+    return this.productService.update(+sku, updateProductDto);
   }
 
   @Delete(':sku')

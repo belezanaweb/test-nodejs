@@ -19,7 +19,7 @@ export class ProductRepository {
     await newProduct.save();
   }
 
-  async update(id: string, product: Product): Promise<any> {
+  async update(id: string, product: Partial<Product>): Promise<Product> {
     return this.productModel.findOneAndUpdate({ _id: id }, product, {
       new: true,
     });

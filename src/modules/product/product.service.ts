@@ -6,7 +6,6 @@ import {
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductRepository } from './product.repository';
-import { Product } from './schemas/product.schema';
 
 @Injectable()
 export class ProductService {
