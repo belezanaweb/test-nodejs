@@ -8,6 +8,9 @@ class Warehouse {
 
   @Prop()
   locality: string;
+
+  @Prop()
+  quantity: number;
 }
 
 @Schema()

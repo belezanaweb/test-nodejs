@@ -25,7 +25,10 @@ export class ProductService {
   async findBySku(sku: number) {
     const product = await this.productRepository.findBySku(sku);
 
-    product.inventory.quantity = product.inventory.warehouses.length;
+    product.inventory.quantity = product.inventory.warehouses.reduce(
+      (totalValue, { quantity }) => totalValue + quantity,
+      0,
+    );
     product.isMarketable = !!product.inventory.quantity;
 
     return product;

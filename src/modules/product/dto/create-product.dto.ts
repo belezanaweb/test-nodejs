@@ -25,4 +25,7 @@ class WarehouseDto {
 
   @IsString({ message: 'Valor do campo "type" informado é inválido!' })
   type: string;
+
+  @IsInt({ message: 'Valor do campo "quantity" informado é inválido!' })
+  quantity: number;
 }
