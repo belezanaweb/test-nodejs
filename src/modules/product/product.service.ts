@@ -25,6 +25,10 @@ export class ProductService {
   async findBySku(sku: number) {
     const product = await this.productRepository.findBySku(sku);
 
+    if (!product) {
+      throw new NotFoundException('SKU não localizado!');
+    }
+
     product.inventory.quantity = product.inventory.warehouses.reduce(
       (totalValue, { quantity }) => totalValue + quantity,
       0,

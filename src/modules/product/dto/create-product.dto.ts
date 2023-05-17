@@ -4,6 +4,7 @@ import {
   IsNotEmpty,
   IsString,
   ValidateNested,
+  ArrayMinSize,
 } from 'class-validator';
 
 class WarehouseDto {
@@ -22,6 +23,7 @@ class WarehouseDto {
 
 class InventoryDto {
   @ValidateNested({ each: true })
+  @ArrayMinSize(0, { message: 'Campo "warehouses" não informado' })
   @Type(() => WarehouseDto)
   warehouses: WarehouseDto[];
 }
@@ -36,5 +38,7 @@ export class CreateProductDto {
   name: string;
 
   @ValidateNested()
+  @IsNotEmpty({ message: 'Campo "inventory" não pode estar vazio' })
+  @Type(() => InventoryDto)
   inventory: InventoryDto;
 }
