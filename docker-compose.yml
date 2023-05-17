@@ -1,7 +1,16 @@
 version: '3.7'
 
 services:
-  mongo:
+  belezanaweb-api:
+    container_name: belezanaweb-api
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_URL: 'mongodb://admin:admin@mongodb:27017/belezanaweb?authSource=admin'
+    depends_on:
+      - mongodb
+  mongodb:
     container_name: mongodb
     image: mongo
     ports:
@@ -18,6 +27,10 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_URL: 'mongodb://admin:admin@mongo:27017/'
+      ME_CONFIG_MONGODB_URL: 'mongodb://admin:admin@mongodb:27017/'
       ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
