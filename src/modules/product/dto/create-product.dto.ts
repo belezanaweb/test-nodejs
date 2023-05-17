@@ -1,16 +1,23 @@
 import { Type } from 'class-transformer';
-import { IsInt, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import {
+  IsNumber,
+  IsNotEmpty,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 
-export class CreateProductDto {
-  @IsNotEmpty()
-  @IsInt({ message: 'Valor do campo "SKU" informado é inválido!' })
-  sku: number;
+class WarehouseDto {
+  @IsString({ message: 'Valor do campo "type" informado é inválido' })
+  @IsNotEmpty({ message: 'Campo "type" não pode estar vazio' })
+  type: string;
 
-  @IsString({ message: 'Valor do campo "name" informado é inválido!' })
-  @IsNotEmpty()
-  name: string;
+  @IsString({ message: 'Valor do campo "locality" informado é inválido' })
+  @IsNotEmpty({ message: 'Campo "locality" não pode estar vazio' })
+  locality: string;
 
-  inventory: InventoryDto;
+  @IsNumber({}, { message: 'Valor do campo "quantity" informado é inválido' })
+  @IsNotEmpty({ message: 'Campo "quantity" não pode estar vazio' })
+  quantity: number;
 }
 
 class InventoryDto {
@@ -19,13 +26,15 @@ class InventoryDto {
   warehouses: WarehouseDto[];
 }
 
-class WarehouseDto {
-  @IsString({ message: 'Valor do campo "locality" informado é inválido!' })
-  locality: string;
+export class CreateProductDto {
+  @IsNumber({}, { message: 'Valor do campo "sku" informado é inválido' })
+  @IsNotEmpty({ message: 'Campo "sku" não pode estar vazio' })
+  sku: number;
 
-  @IsString({ message: 'Valor do campo "type" informado é inválido!' })
-  type: string;
+  @IsString({ message: 'Valor do campo "name" informado é inválido' })
+  @IsNotEmpty({ message: 'Campo "name" não pode estar vazio' })
+  name: string;
 
-  @IsInt({ message: 'Valor do campo "quantity" informado é inválido!' })
-  quantity: number;
+  @ValidateNested()
+  inventory: InventoryDto;
 }

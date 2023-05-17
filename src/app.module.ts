@@ -6,7 +6,6 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    // TODO - Set env variables
     MongooseModule.forRoot(process.env.DATABASE_URL),
     ProductModule,
   ],
