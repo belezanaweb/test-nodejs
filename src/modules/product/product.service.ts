@@ -3,8 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
+import { CreateProductDto, UpdateProductDto } from './dto';
 import { ProductRepository } from './product.repository';
 
 @Injectable()
@@ -33,16 +32,13 @@ export class ProductService {
   }
 
   async update(sku: number, updateProductDto: UpdateProductDto) {
-    const productAlreadyExists = await this.productRepository.findBySku(sku);
+    const product = await this.productRepository.findBySku(sku);
 
-    if (!productAlreadyExists) {
+    if (!product) {
       throw new NotFoundException('Produto não localizado!');
     }
 
-    return this.productRepository.update(
-      productAlreadyExists['_id'],
-      updateProductDto,
-    );
+    return this.productRepository.update(product['_id'], updateProductDto);
   }
 
   async remove(sku: number) {
