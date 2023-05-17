@@ -1,7 +1,12 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductRepository } from './product.repository';
+import { Product } from './schemas/product.schema';
 
 @Injectable()
 export class ProductService {
@@ -19,7 +24,7 @@ export class ProductService {
     return this.productRepository.create(createProductDto);
   }
 
-  async findBySku(sku: number): Promise<any> {
+  async findBySku(sku: number) {
     const product = await this.productRepository.findBySku(sku);
 
     product.inventory.quantity = product.inventory.warehouses.length;
@@ -28,11 +33,26 @@ export class ProductService {
     return product;
   }
 
-  async update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(sku: number, updateProductDto: UpdateProductDto) {
+    const productAlreadyExists = await this.productRepository.findBySku(sku);
+
+    if (!productAlreadyExists) {
+      throw new NotFoundException('Produto não localizado!');
+    }
+
+    return this.productRepository.update(
+      productAlreadyExists['_id'],
+      updateProductDto,
+    );
   }
 
   async remove(sku: number) {
+    const productAlreadyExists = await this.productRepository.findBySku(sku);
+
+    if (!productAlreadyExists) {
+      throw new NotFoundException('Produto não localizado!');
+    }
+
     return this.productRepository.delete(sku);
   }
 }

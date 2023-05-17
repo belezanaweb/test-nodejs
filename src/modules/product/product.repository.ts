@@ -19,8 +19,10 @@ export class ProductRepository {
     await newProduct.save();
   }
 
-  async update() {
-    console.log('update');
+  async update(id: string, product: Product): Promise<any> {
+    return this.productModel.findOneAndUpdate({ _id: id }, product, {
+      new: true,
+    });
   }
 
   async delete(sku: number): Promise<void> {
