@@ -44,6 +44,12 @@ $ http://localhost:3001
 
 ```
 
+### Documentação OpenAPI Swagger
+
+```bash
+$ http://localhost:3001/api
+```
+
 ## 2° - Execução Local
 
 Na raiz do projeto execute o comando abaixo para criação do container Docker com o banco de dados
@@ -68,6 +74,12 @@ A API será iniciada e estara disponível em:
 ```bash
 $ http://localhost:3000
 
+```
+
+### Documentação OpenAPI Swagger
+
+```bash
+$ http://localhost:3000/api
 ```
 
 ## Collections para acessar a API - Insomnia/Postman
