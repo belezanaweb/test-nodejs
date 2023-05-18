@@ -38,6 +38,7 @@
     "@nestjs/swagger": "^6.3.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "dotenv": "^16.0.3",
     "mongodb-memory-server": "^8.12.2",
     "mongoose": "^7.1.1",
     "reflect-metadata": "^0.1.13",
