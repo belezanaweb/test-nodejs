@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "8aa7bb42-4da2-46dd-9477-80f7d934227b",
+		"name": "Beleza na Web - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15024389"
+	},
+	"item": [
+		{
+			"name": "Product - LOCAL",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sku\": 43264,\r\n  \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n  \"inventory\": {\r\n    \"warehouses\": [\r\n      {\r\n        \"locality\": \"SP\",\r\n        \"quantity\": 12,\r\n        \"type\": \"ECOMMERCE\"\r\n      },\r\n      {\r\n        \"locality\": \"MOEMA\",\r\n        \"quantity\": 3,\r\n        \"type\": \"PHYSICAL_STORE\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by SKU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  by SKU",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n\t\"inventory\": {\r\n\t\t\"warehouses\": []\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete SKU",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product - DOCKER",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sku\": 43264,\r\n  \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n  \"inventory\": {\r\n    \"warehouses\": [\r\n      {\r\n        \"locality\": \"SP\",\r\n        \"quantity\": 12,\r\n        \"type\": \"ECOMMERCE\"\r\n      },\r\n      {\r\n        \"locality\": \"MOEMA\",\r\n        \"quantity\": 3,\r\n        \"type\": \"PHYSICAL_STORE\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by SKU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  by SKU",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n\t\"inventory\": {\r\n\t\t\"warehouses\": []\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete SKU",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/product/43264",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"product",
+								"43264"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
