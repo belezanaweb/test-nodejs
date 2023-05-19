@@ -37,7 +37,7 @@ Na raiz do projeto execute o comando para a criação do container Docker com a 
 $ docker-compose up -d
 ```
 
-O container será criado e a API estará acesível em:
+O container será criado e a API estará disponível em:
 
 ```bash
 $ http://localhost:3001
@@ -69,7 +69,7 @@ $ npm run start
 $ yarn start
 ```
 
-A API será iniciada e estara disponível em:
+A API será iniciada e estará disponível em:
 
 ```bash
 $ http://localhost:3000
@@ -105,7 +105,7 @@ $ Product - DOCKER
 $ Product - LOCAL
 ```
 
-Caso tenha escolhido a execução com Docker, acesso a opção 1°, mas caso tenha escolhido a execução Local, acesse a opção 2°. Após isto terá acesso a API.
+Caso tenha escolhido a execução com Docker, acesse a opção 1°, mas caso tenha escolhido a execução Local, acesse a opção 2°. Após isto terá acesso as requisições da API.
 
 ## Testes
 
