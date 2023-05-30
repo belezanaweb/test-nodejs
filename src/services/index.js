@@ -23,12 +23,12 @@ const getProductBySku = (sku) => {
 
     const inventory = {
       quantity: quantityInventory,
-      warehouse: productFiltered[0].inventory.warehouses
+      warehouses: productFiltered[0].inventory.warehouses
     }
     const product = {
       sku: productFiltered[0].sku,
       name: productFiltered[0].name,
-      invetory: inventory,
+      inventory: inventory,
       isMarketable: quantityInventory > 0 ? true : false
     }
     return product;
@@ -71,5 +71,6 @@ module.exports = {
   getProductBySku,
   createProduct,
   updateProductBySku,
-  deleteProductBySku
+  deleteProductBySku,
+  filterProduct
 }
