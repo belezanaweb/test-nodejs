@@ -5,5 +5,5 @@ app.listen(3000, (err) => {
     return console.log('erro')
   }
 
-  console.log('iniciou em porta 3000')
+  console.log('start port: 3000')
 })
