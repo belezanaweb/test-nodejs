@@ -1,9 +1,4 @@
 module.exports = {
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.json",
-    },
-  },
   testEnvironment: "node",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
@@ -11,6 +6,7 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testRegex: "(/unit/.*|(\\.|/)(test|spec))\\.(ts|js)x?$",
   testPathIgnorePatterns: ["dist", "/unit/mock-util.ts", "node_modules"],
+  collectCoverage: true,
   coverageDirectory: "reports/coverage",
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}", "!src/**/*.d.ts"],
   coverageThreshold: {
@@ -22,5 +18,4 @@ module.exports = {
     },
   },
   rootDir: "../",
-  setupFiles: ["./test/jest.setup.js"],
 };
