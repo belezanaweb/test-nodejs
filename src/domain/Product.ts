@@ -2,6 +2,7 @@ export default class Product {
   sku: number;
   name: string;
   inventory: Inventory;
+  isMarketable?: boolean;
 
   constructor(sku: number, name: string, inventory: Inventory) {
     this.sku = sku;
@@ -11,7 +12,7 @@ export default class Product {
 }
 
 interface Inventory {
-  quantity: number;
+  quantity?: number | 0;
   warehouses: Warehouse[];
 }
 
