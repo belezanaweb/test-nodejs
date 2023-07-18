@@ -14,7 +14,6 @@ describe("ProductRepository", () => {
       sku: 12345,
       name: "Test Product",
       inventory: {
-        quantity: 5,
         warehouses: [
           {
             locality: "SP",
@@ -25,9 +24,14 @@ describe("ProductRepository", () => {
       },
     };
 
-    await productRepository.save(productData);
+    const prodcutToSave = new Product(
+      productData.sku,
+      productData.name,
+      productData.inventory
+    );
+    await productRepository.save(prodcutToSave, true);
 
     const storedProduct = await productRepository.findBySku(productData.sku);
-    expect(storedProduct).toEqual(productData);
+    expect(storedProduct).toEqual(prodcutToSave);
   });
 });

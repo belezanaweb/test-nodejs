@@ -9,6 +9,17 @@ export default class Product {
     this.name = name;
     this.inventory = inventory;
   }
+
+  calculateIsMarketableQuantiy(): boolean {
+    return this.inventory.quantity! > 0 ? true : false;
+  }
+
+  calculateInventoryQuantity(): number {
+    return this.inventory.warehouses.reduce(
+      (acc, warehouse) => acc + warehouse.quantity,
+      0
+    );
+  }
 }
 
 interface Inventory {

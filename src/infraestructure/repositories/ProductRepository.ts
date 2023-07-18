@@ -1,35 +1,46 @@
 import Product from "../../domain/Product";
+import { DuplicateError } from "../../errors";
 import ProductNotFoundError from "../../errors/ProductNotFoundError";
+import ProductsRepositoryI from "./ProductRepositoryInterface";
 
-export default class ProductRepository {
-  private static products: Product[] = []; // to keeps databae in memory
+export default class ProductRepository implements ProductsRepositoryI {
+  private products: Product[] = []; // to keep the database in memory
 
   async findBySku(sku: number): Promise<Product | undefined> {
-    try {
-      return ProductRepository.products.find((product) => product.sku === sku);
-    } catch (error) {
+    const product: Product | undefined = this.products.find(
+      (p) => p.sku === sku
+    );
+    if (product) {
+      product.inventory.quantity = product.calculateInventoryQuantity();
+      product.isMarketable = product.calculateIsMarketableQuantiy();
+    }
+    return product;
+  }
+
+  async save(product: Product, isForNewProduct: boolean): Promise<Product> {
+    const index = this.products.findIndex((p) => p.sku === product.sku);
+
+    if (index !== -1) {
+      if (isForNewProduct) {
+        throw new DuplicateError(product.sku.toString());
+      } else {
+        this.products[index] = product;
+      }
+    } else {
+      if (!isForNewProduct) {
+        throw new ProductNotFoundError(product.sku);
+      }
+      this.products.push(product);
+    }
+
+    return product;
+  }
+
+  async delete(sku: number): Promise<void> {
+    const index = this.products.findIndex((p) => p.sku === sku);
+    if (index === -1) {
       throw new ProductNotFoundError(sku);
     }
-  }
-
-  async save(product: Product): Promise<void> {
-    try {
-      ProductRepository.products.push(product);
-    } catch (error) {
-      throw new ProductNotFoundError(product.sku);
-    }
-  }
-
-  async delete(product: Product): Promise<void> {
-    try {
-      const index = ProductRepository.products.findIndex(
-        (p) => p.sku === product.sku
-      );
-      if (index !== -1) {
-        ProductRepository.products.splice(index, 1);
-      }
-    } catch (error) {
-      throw new ProductNotFoundError(product.sku);
-    }
+    this.products.splice(index, 1);
   }
 }
