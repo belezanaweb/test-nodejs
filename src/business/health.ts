@@ -5,7 +5,7 @@ export function healthcheck() {
 
   return {
     uptime: process.uptime(),
-    message: 'OK',
-    timestamp: Date.now()
+    message: "OK",
+    timestamp: Date.now(),
   };
 }
