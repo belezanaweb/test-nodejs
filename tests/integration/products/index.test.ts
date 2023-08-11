@@ -125,4 +125,95 @@ describe("/api/v1/product endpoint", () => {
     );
     expect(res.body).toHaveProperty("isMarketable", false);
   });
+
+  test("[GET] should return 404 when get product by id not found", async () => {
+    const res = await request(app).get("/api/v1/products/9999");
+    expect(res.statusCode).toEqual(404);
+
+    expect(res.body).toBeTruthy();
+    expect(res.body).toHaveProperty("message", "Product not found");
+  });
+
+  test("[PUT] should return 200 when update product with success", async () => {
+    const res = await request(app)
+      .put("/api/v1/products/43562")
+      .send({
+        name: "Malbec",
+        inventory: {
+          warehouses: [
+            {
+              locality: "SP",
+              quantity: 10,
+              type: "ECOMMERCE",
+            },
+            {
+              locality: "FRANCA",
+              quantity: 15,
+              type: "PHYSICAL_STORE",
+            },
+          ],
+        },
+      });
+
+    expect(res.statusCode).toEqual(200);
+
+    expect(res.body).toBeTruthy();
+    expect(res.body.inventory.warehouses[0]).toHaveProperty("locality", "SP");
+    expect(res.body.inventory.warehouses[0]).toHaveProperty("quantity", 10);
+    expect(res.body.inventory.warehouses[0]).toHaveProperty(
+      "type",
+      "ECOMMERCE"
+    );
+
+    expect(res.body.inventory.warehouses[1]).toHaveProperty(
+      "locality",
+      "FRANCA"
+    );
+    expect(res.body.inventory.warehouses[1]).toHaveProperty("quantity", 15);
+    expect(res.body.inventory.warehouses[1]).toHaveProperty(
+      "type",
+      "PHYSICAL_STORE"
+    );
+  });
+
+  test("[PUT] should return 404 when product sku not found", async () => {
+    const res = await request(app)
+      .put("/api/v1/products/9999")
+      .send({
+        name: "Malbec",
+        inventory: {
+          warehouses: [
+            {
+              locality: "SP",
+              quantity: 10,
+              type: "ECOMMERCE",
+            },
+            {
+              locality: "FRANCA",
+              quantity: 15,
+              type: "PHYSICAL_STORE",
+            },
+          ],
+        },
+      });
+    expect(res.statusCode).toEqual(404);
+
+    expect(res.body).toBeTruthy();
+    expect(res.body).toHaveProperty("message", "Product not found");
+  });
+
+  test("[DELETE] should return 200 when product was removed with success", async () => {
+    const res = await request(app).delete("/api/v1/products/43562");
+    expect(res.statusCode).toEqual(204);
+
+    expect.not.objectContaining(res.body);
+  });
+
+  test("[DELETE] should return 404 when product sku not found", async () => {
+    const res = await request(app).delete("/api/v1/products/9999");
+    expect(res.statusCode).toEqual(404);
+
+    expect(res.body).toBeTruthy();
+    expect(res.body).toHaveProperty("message", "Product not found");
+  });
 });
