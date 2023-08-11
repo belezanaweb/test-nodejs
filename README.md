@@ -72,3 +72,166 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+### Executando a aplicação
+
+### Conteúdo
+
+- [Dependências](#dependências)
+- [Instalação](#instalação)
+- [Modo de usar](#modo-de-usar)
+- [Testes](#testes)
+- [Suporte](#suporte)
+- [Contribuição](#contribuição)
+- [Observação](#observação)
+
+### Dependências
+
+Tecnologias que o projeto utiliza.
+
+-  [NodeJS](https://nodejs.org/en/download/)
+-  [Docker](https://docs.docker.com/get-docker/)
+-  [Docker Compose](https://docs.docker.com/compose/install/)
+-  [VSCode](https://code.visualstudio.com/download)
+-  [Postman](https://www.postman.com/downloads/)
+
+### Instalação
+
+Após clonar o projeto, execute os passos abaixo:
+
+### Execução
+
+Para executar a aplicação utilizando docker:
+
+```sh
+docker-compose up  -d  --build
+```  
+
+### Execução no ambiente de desenvolvimento
+
+#### Criar .env contendo as configurações do projeto:
+
+Criar o arquivo `.env` baseado no `.env.example`. Esse arquivo contém as informações para execução da aplicação, como: porta e host;
+
+#### Instalar dependências do projeto:
+```sh
+npm install
+```
+
+#### Executando o projeto:
+```sh
+npm start
+```
+
+#### A aplicação estará rodando em:
+```sh
+http://localhost:3000
+```
+
+## Modo de usar
+
+Com a aplicação em execução, há duas maneiras de consumir seus recursos:
+
+### 1. Acessando os recursos da api manualmente:
+
+#### Inserir produtos
+```
+curl --location 'localhost:3000/api/v1/products' \
+--header 'Content-Type: application/json' \
+--data '{
+    "sku": 43261,
+    "name": "L'\''Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+    "inventory": {
+        "warehouses": [
+            {
+                "locality": "SP",
+                "quantity": 10,
+                "type": "ECOMMERCE"
+            },
+            {
+                "locality": "MOEMA",
+                "quantity": 4,
+                "type": "PHYSICAL_STORE"
+            },
+            {
+                "locality": "FRANCA",
+                "quantity": 0,
+                "type": "PHYSICAL_STORE"
+            }
+        ]
+    }
+}'
+```
+
+#### Listar todos os produtos
+```
+curl --location 'localhost:3000/api/v1/products'
+```
+
+#### Listar produto pelo sku (código identificador do produto)
+```
+curl --location 'localhost:3000/api/v1/products/43261'
+```
+
+#### Atualizar produto pelo sku
+```
+curl --location --request PUT 'localhost:3000/api/v1/products/43261' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Produto Teste",
+    "inventory": {
+        "warehouses": [
+            {
+                "locality": "SP",
+                "quantity": 0,
+                "type": "ECOMMERCE"
+            },
+            {
+                "locality": "MOEMA",
+                "quantity": 0,
+                "type": "PHYSICAL_STORE"
+            },
+            {
+                "locality": "FRANCA",
+                "quantity": 0,
+                "type": "PHYSICAL_STORE"
+            }
+        ]
+    }
+}'
+```
+
+#### Remover produto pelo sku
+```
+curl --location --request DELETE 'localhost:3000/api/v1/products/43261'
+```
+
+### 2. Utilizando a coleção do postman:
+
+É possível importar o arquivo `belezanaweb.json` que se encontra no diretório `/.docs` via `postman`. Após importar o mesmo, as rotas listadas acima, serão importadas no seu postman.
+
+### Testes
+
+Os testes do projeto encontram-se dentro da pasta `./test`, na qual utiliza as dependências `jest`. Para executar a suíte de teste execute o comando:
+
+
+### Executar os testes:
+```sh
+$ npm  test
+```
+
+### Suporte
+
+Por favor [abra uma issue](https://github.com/rafamagalhas/desafio-api-menu/issues/new) para suporte. 
+
+### Contribuição
+
+1. Faça um fork do projeto.
+2. Crie sua feature branch (`git checkout -b my-new-feature`).
+3. Commit suas alterações (`git commit -am 'Add some feature'`).
+4. Faça um push de sua branch (`git push origin my-new-feature`).
+5. Crie uma nova [pull request](https://github.com/rafamagalhas/test-nodejs/pulls).
+
+### Observação
+
+Esse projeto utiliza o `husky` para executar algumas ações, uma delas é o `pre-push`. Ou seja, antes que o git push seja executado, os testes serão rodados.
