@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "6f2c9214-ee6d-401a-89f5-59be18f877c4",
+		"name": "belezanaweb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3097218"
+	},
+	"item": [
+		{
+			"name": "products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sku\": 43261,\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": 10,\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": 4,\n                \"type\": \"PHYSICAL_STORE\"\n            },\n            {\n                \"locality\": \"FRANCA\",\n                \"quantity\": 0,\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products - findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products - find by sku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/products/43261",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"43261"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Produto Teste\",\n    \"inventory\": {\n        \"warehouses\": [\n            {\n                \"locality\": \"SP\",\n                \"quantity\": 0,\n                \"type\": \"ECOMMERCE\"\n            },\n            {\n                \"locality\": \"MOEMA\",\n                \"quantity\": 0,\n                \"type\": \"PHYSICAL_STORE\"\n            },\n            {\n                \"locality\": \"FRANCA\",\n                \"quantity\": 0,\n                \"type\": \"PHYSICAL_STORE\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/products/43261",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"43261"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/products/43261",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"43261"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
