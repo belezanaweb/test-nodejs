@@ -138,7 +138,6 @@ describe("/api/v1/product endpoint", () => {
     const res = await request(app)
       .put("/api/v1/products/43562")
       .send({
-        sku: 43562,
         name: "Malbec",
         inventory: {
           warehouses: [
@@ -178,7 +177,25 @@ describe("/api/v1/product endpoint", () => {
   });
 
   test("[PUT] should return 404 when product sku not found", async () => {
-    const res = await request(app).put("/api/v1/products/9999").send({});
+    const res = await request(app)
+      .put("/api/v1/products/9999")
+      .send({
+        name: "Malbec",
+        inventory: {
+          warehouses: [
+            {
+              locality: "SP",
+              quantity: 10,
+              type: "ECOMMERCE",
+            },
+            {
+              locality: "FRANCA",
+              quantity: 15,
+              type: "PHYSICAL_STORE",
+            },
+          ],
+        },
+      });
     expect(res.statusCode).toEqual(404);
 
     expect(res.body).toBeTruthy();

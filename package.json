@@ -23,6 +23,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-status-codes": "^2.2.0",
+    "joi": "^17.9.2",
     "morgan": "^1.10.0",
     "ts-jest": "^29.1.1",
     "winston": "^3.10.0"
