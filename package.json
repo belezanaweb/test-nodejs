@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rm -rf ./dist/ && tsc",
     "start": "nodemon src/index.ts",
-    "test": "jest --maxWorkers 2"
+    "test": "jest --maxWorkers 2",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
