@@ -84,3 +84,28 @@ export const productFour = {
   },
 };
 
+export const productWithQuantity = {
+  sku: 44989,
+  name: "Produto Teste",
+  inventory: {
+    quantity: 10,
+    warehouses: [
+      {
+        locality: "SP",
+        quantity: 0,
+        type: "ECOMMERCE",
+      },
+      {
+        locality: "MOEMA",
+        quantity: 0,
+        type: "PHYSICAL_STORE",
+      },
+      {
+        locality: "FRANCA",
+        quantity: 0,
+        type: "PHYSICAL_STORE",
+      },
+    ],
+  },
+};
+
