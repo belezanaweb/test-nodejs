@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./dist/ && tsc",
+    "prepare": "husky install",
     "start": "nodemon src/index.ts",
-    "test": "jest --maxWorkers 2",
-    "prepare": "husky install"
+    "start-prod": "node dist/index.js",
+    "test": "jest --maxWorkers 2"
   },
   "repository": {
     "type": "git",
