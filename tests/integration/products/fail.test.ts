@@ -4,6 +4,15 @@ import * as mocks from "./mocks/products-mock";
 import * as business from "../../../src/business/product";
 
 describe("/api/v1/product endpoint fail test", () => {
+  test("[POST] should return 400 when try create a product with inventory quantity", async () => {
+    const res = await request(app)
+      .post("/api/v1/products")
+      .send(mocks.productWithQuantity);
+
+    expect(res.statusCode).toEqual(400);
+    expect(res.body).toBeTruthy();
+  });
+
   test("[POST] should return 500 when try create a product", async () => {
     jest.spyOn(business, "createBusiness").mockRejectedValue(new Error("Erro test"))
 

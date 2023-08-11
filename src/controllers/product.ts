@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { createBusiness, findAll, findBySku, remove, update } from "../business/product";
 import { StatusCodes } from "http-status-codes";
 import { logger } from "../utils/winston";
+import { productErrorMessages } from "../utils/errorMessages";
 
 export async function createController(
   req: Request,
@@ -12,7 +13,7 @@ export async function createController(
     const response = await createBusiness(req.body);
     return res.status(StatusCodes.CREATED).json(response);
   } catch (error) {
-    if (error.message === "Product already exists") {
+    if (error.message === productErrorMessages.CONFLICT) {
       logger.error(error.message);
       return res.status(StatusCodes.CONFLICT).json({ message: error.message });
     }
@@ -42,7 +43,7 @@ export async function findBySkuController(
     const response = await findBySku(parseInt(req.params.sku));
     return res.status(StatusCodes.OK).json(response);
   } catch (error) {
-    if (error.message === "Product not found") {
+    if (error.message === productErrorMessages.NOT_FOUND) {
       logger.info(error.message);
       return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
     }
@@ -59,7 +60,7 @@ export async function updateController(
     const response = await update(parseInt(req.params.sku), req.body);
     return res.status(StatusCodes.OK).json(response);
   } catch (error) {
-    if (error.message === "Product not found") {
+    if (error.message === productErrorMessages.NOT_FOUND) {
       logger.error(error);
       return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
     }
@@ -76,7 +77,7 @@ export async function removeController(
     await remove(parseInt(req.params.sku));
     return res.status(StatusCodes.NO_CONTENT).send();
   } catch (error) {
-    if (error.message === "Product not found") {
+    if (error.message === productErrorMessages.NOT_FOUND) {
       logger.error(error.message);
       return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
     }

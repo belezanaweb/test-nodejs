@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./dist/ && tsc",
+    "prepare": "husky install",
     "start": "nodemon src/index.ts",
+    "start-prod": "node dist/index.js",
     "test": "jest --maxWorkers 2"
   },
   "repository": {
